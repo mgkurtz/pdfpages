@@ -1,25 +1,26 @@
-
+%
 %    \iffalse
 %
-% pdfpages.dtx Copyright (C) 2001 Andreas MATTHIAS
+% pdfpages.dtx Copyright (C) 2001 2002 Andreas MATTHIAS
 %
-% This program may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License, either version 1.2
-% of this license or (at your option) any later version.
-% The latest version of this license is in
-%   http://www.latex-project.org/lppl.txt
-% and version 1.2 or later is part of all distributions of LaTeX 
-% version 1999/12/01 or later.
-%
-% Please send error reports and suggestions for improvements to
-%   Andreas MATTHIAS <amat@kabsi.at>.
+%% This program may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.2
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX 
+%% version 1999/12/01 or later.
+%%
+%% Please send error reports and suggestions for improvements to
+%%   Andreas MATTHIAS <amat@kabsi.at>.
+%%
 %
 %<*!package>
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2e",
-%    date           = "27. January 2002",
+%    version        = "0.2f-pre",
+%    date           = "2. March 2002",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -35,33 +36,33 @@
 %</!package>
 %
 %<*dtx>
-          \ProvidesFile{pdfpages.dtx}
+           \ProvidesFile{pdfpages.dtx}
 %</dtx>
-%    \fi
-%
-%    \CheckSum{1776}
-%%
-%% \CharacterTable
-%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
-%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
-%%   Digits        \0\1\2\3\4\5\6\7\8\9
-%%   Exclamation   \!     Double quote  \"     Hash (number) \#
-%%   Dollar        \$     Percent       \%     Ampersand     \&
-%%   Acute accent  \'     Left paren    \(     Right paren   \)
-%%   Asterisk      \*     Plus          \+     Comma         \,
-%%   Minus         \-     Point         \.     Solidus       \/
-%%   Colon         \:     Semicolon     \;     Less than     \<
-%%   Equals        \=     Greater than  \>     Question mark \?
-%%   Commercial at \@     Left bracket  \[     Backslash     \\
-%%   Right bracket \]     Circumflex    \^     Underscore    \_
-%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
-%%   Right brace   \}     Tilde         \~}
-%%
-%    \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{pdfpages}[2002/01/27 v0.2e Insert pages of external PDF documents (AM)]
+%<package>\ProvidesPackage{pdfpages}[2002/03/02 v0.2f-pre Insert pages of external PDF documents (AM)]
+%<package>\def\AM@version{0.2f}
 %    \fi
-%         \ProvidesFile{pdfpages.dtx}[2002/01/27 v0.2e Insert pages of external PDF documents (AM)]
+%\ProvidesFile{pdfpages.dtx}[2002/03/02 v0.2f-pre Insert pages of external PDF documents (AM)]
+%
+%
+%    \CheckSum{2190}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
 %    \iffalse
 %
 %<*driver>
@@ -164,6 +165,7 @@
 %    \setlength{\leftmargini}{\parindent}
 %    \begin{itemize}
 %
+%
 %    \item Main options:
 %
 %      \begin{description}
@@ -202,6 +204,7 @@
 %                     is equivalent to `true'). \df{landscape=false}
 %      \end{description}
 %
+%
 %    \item Layout options:
 %
 %      \begin{description}
@@ -209,12 +212,12 @@
 %        \item[delta] \hskip0pt\marginpar{\marginstyle new}
 %                     Puts some horizontal and vertical space between the
 %                     logical pages. The argument should be two dimensions,
-%                     separated by space. See chapter~\ref{sec:layout} and
-%                     figure~\ref{fig:layout}. \df{delta=0 0}.
+%                     separated by space. See Chapter~\ref{sec:layout} and
+%                     Figure~\ref{fig:layout}. \df{delta=0 0}.
 %        \item[offset] Displaces origin of the inserted pages.
 %                      The argument should be two dimensions, separated
-%                      by space. See chapter~\ref{sec:layout} and 
-%                      figure~\ref{fig:layout}. \df{offset=0 0}
+%                      by space. See Chapter~\ref{sec:layout} and 
+%                      Figure~\ref{fig:layout}. \df{offset=0 0}
 %        \item[frame] Puts a frame around each logical page. Either `true'
 %                     or `false' (or no value, which is equivalent to `true').
 %                     \df{frame=false}
@@ -284,12 +287,19 @@
 %                      inserted document.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{fitpaper=false}
+%         \item[doublepages] \hskip0pt\marginpar{\marginstyle new}
+%                     Inserts every page twice. This can be usefull for
+%                     2-up printing, if one wants to cut the stack of paper
+%                     afterwards to get two copies.
+%                     Either `true' or `false' (or no value, which
+%                     is equivalent to `true'). \df{doublepages=false}
 %      \end{description}
+%
 %
 %    \item Hypertext options:
 %
 %      \begin{description}
-%      \makeatletter\@beginparpenalty=10000\makeatother
+%        \makeatletter\@beginparpenalty=10000\makeatother
 %        \item[link] \hskip0pt\marginpar{\marginstyle changed}
 %                    Inserted pages become a target
 %                    of a hyperlink. The name of the link is 
@@ -320,10 +330,11 @@
 %                         is equivalent to `true'). \df{linktodoc=false}
 %      \end{description}
 %
+%
 %    \item Additional hypertext options:
 %
 %      \begin{description}
-%      \makeatletter\@beginparpenalty=10000\makeatother
+%        \makeatletter\@beginparpenalty=10000\makeatother
 %        \item[linkfit] Specifies the way the viewer displays a linked page.
 %                       This option changes the default behavior of the
 %                       option \texttt{link}.
@@ -347,19 +358,102 @@
 %                            \df{linkfilename=\meta{filename}}
 %      \end{description}
 %
+%
+%    \item Experimental options (Syntax may change in future versions!):
+%
+%      \begin{description}
+%        \makeatletter\@beginparpenalty=10000\makeatother
+%
+%        \item[signature] \hskip0pt\marginpar{\marginstyle new}
+%                     Rearranges pages into signatures and sets
+%                     |nup=1x2| or |nup=2x1|, respectively. This option
+%                     takes one argument specifying the size of the
+%                     signature.
+%        \item[addtotoc] \hskip0pt\marginpar{\marginstyle new}
+%                     Adds an entry to the table of contents. This
+%                     option requires five arguments, separated by commas:
+%
+%                     \texttt{addtotoc=\{\meta{page number},^^A
+%                     \meta{section},\meta{level},\meta{heading},^^A
+%                     \meta{label}\}}
+%
+%                     \begingroup
+%                     \renewcommand*\descriptionlabel[1]{\hspace\labelsep
+%                                     \normalfont #1}
+%                     \begin{description}
+%                       \item[\meta{page number}:] Page number of the
+%                          inserted page.
+%                       \item[\meta{section}:] \LaTeX\ sectioning name
+%                          -- e.g., section, subsection, \ldots
+%                       \item[\meta{level}:] Number, denoting depth of
+%                          section -- e.g., section=1, subsection=2,
+%                          \ldots
+%                       \item[\meta{heading}:] Title inserted in the 
+%                          table of contents.
+%                       \item[\meta{label}:] Name of the label. This label
+%                          can be refered to with |\ref| and |\pageref|.
+%                      \end{description}
+%                      \endgroup
+%
+%                      Note: The order of the five arguments must not
+%                      not be mixed. Otherwise you will get very strange
+%                      error messages.
+%
+%                      It is possible to add another entry to
+%                      the table of contents by specifying another
+%                      set of the above mentioned five arguments, separated
+%                      by a comma from the first set. The |addtotoc| option
+%                      accepts multiple sets of the above mentioned five
+%                      arguments, all separated by commas. The sets must
+%                      be sorted such that the \meta{page number}s are in 
+%                      ascending order. (Strictly speaking they must have
+%                      the same order as the page numbers specified by
+%                      the |pages| option.
+%
+%
+%        \item[addtolist] \hskip0pt\marginpar{\marginstyle new}
+%                      Adds an entry to the list of figures, the
+%                      list of tables, or any other list. This option
+%                      requires four arguments, separated by commas:
+%
+%                      \texttt{addtolist=\{\meta{page number},^^A
+%                      \meta{type},\meta{heading},\meta{label}\}}
+%
+%                     \begingroup
+%                     \renewcommand*\descriptionlabel[1]{\hspace\labelsep
+%                                     \normalfont #1}
+%                     \begin{description}
+%                       \item[\meta{page number}:] Page number of the
+%                          inserted page.
+%                       \item[\meta{type}:] The name of a floating
+%                          environment. This is mainly \texttt{figure}
+%                          or \texttt{table}.
+%                       \item[\meta{heading}:] Title inserted into lof,
+%                          lot, \ldots
+%                       \item[\meta{label}:] Name of the label. This label
+%                          can be refered to with |\ref| and |\pageref|.
+%                      \end{description}
+%                      \endgroup
+%
+%                      Like \texttt{addtotoc}, \texttt{addtolist} accepts
+%                      multiple sets of the above mentioned four arguments,
+%                      all separated by commas.
+%
+%      \end{description}
+%
 %    \item Obsolete options:
 %
 %      \begingroup
 %      \renewcommand*\descriptionlabel[1]{\hspace\labelsep
 %                                \normalfont\slshape #1}
 %      \begin{description}{\small}
-%      \makeatletter\@beginparpenalty=10000\makeatother
+%        \makeatletter\@beginparpenalty=10000\makeatother
 %        \item[deltax] Puts some horizontal space between the
-%                     logical pages. The argument should be one dimension,
-%                     separated by space. \df{deltax=0}.
+%                      logical pages. The argument should be one dimension,
+%                      separated by space. \df{deltax=0}.
 %        \item[deltay] Puts some vertical space between the
-%                     logical pages. The argument should be one dimension,
-%                     separated by space. \df{deltay=0}.
+%                      logical pages. The argument should be one dimension,
+%                      separated by space. \df{deltay=0}.
 %      \end{description}
 %      \endgroup
 %    \end{itemize}
@@ -477,9 +571,9 @@
 %    If you are confused about horizontal\,(|x|)
 %    and vertical\,(|y|) directions, just set the option
 %    |turn=false|. Now your PDF viewer shows the pages in
-%    the \textit{same} orientation as in figure~\ref{fig:layout}.
+%    the \textit{same} orientation as in Figure~\ref{fig:layout}.
 %    And the options |delta| and |offset| have
-%    the \textit{same} meaning as in figure~\ref{fig:layout}.
+%    the \textit{same} meaning as in Figure~\ref{fig:layout}.
 %    Regardless of any other options.
 %
 %
@@ -552,21 +646,21 @@
 %    \begin{macrocode}
 \begingroup
 \@ifundefined{pdfoutput}
-    {\PackageError{pdfpages}
-             {You're either not using pdfLaTeX\MessageBreak
-              or have turn off PDF output.\MessageBreak
-              `pdfpages' only works with pdfLaTeX\MessageBreak
-              and PDF output}
-             {Use `pdflatex' instead of `latex'\MessageBreak
-              and set output to PDF (use: \pdfoutput = 1)!}
-     \endinput}
-    {\ifnum\pdfoutput=\z@
-       \PackageError{pdfpages}
-             {You don't produce PDF output, which\MessageBreak
-              is required for the `pdfpages' package}
-             {Set output to PDF. (use: \pdfoutput = 1)}
-       \expandafter\endinput
-     \fi}
+   {\PackageError{pdfpages}
+            {You're either not using pdfLaTeX\MessageBreak
+             or have turn off PDF output.\MessageBreak
+             `pdfpages' only works with pdfLaTeX\MessageBreak
+             and PDF output}
+            {Use `pdflatex' instead of `latex'\MessageBreak
+             and set output to PDF (use: \pdfoutput = 1)!}
+    \endinput}
+   {\ifnum\pdfoutput=\z@
+      \PackageError{pdfpages}
+            {You don't produce PDF output, which\MessageBreak
+             is required for the `pdfpages' package}
+            {Set output to PDF. (use: \pdfoutput = 1)}
+      \expandafter\endinput
+    \fi}
 \endgroup
 %    \end{macrocode}
 %    Required Packages.
@@ -622,8 +716,8 @@
 %    \subsection{Package Options}
 %    \begin{macrocode}
 \newcommand*{\AM@draft}{false}
-\DeclareOption{draft}{\def\AM@draft{true}}  
-\DeclareOption{final}{\def\AM@draft{false}} 
+\DeclareOption{draft}{\def\AM@draft{true}}
+\DeclareOption{final}{\def\AM@draft{false}}
 \ProcessOptions  
 %    \end{macrocode}
 %    \subsection{Booleans}
@@ -638,7 +732,7 @@
 \newboolean{AM@column}\setboolean{AM@column}{false}
 \newboolean{AM@columnstrict}\setboolean{AM@columnstrict}{false}
 \newboolean{AM@noautoscale}\setboolean{AM@noautoscale}{false}
-\newboolean{AM@fitpaper}{\setboolean{AM@fitpaper}{false}
+\newboolean{AM@fitpaper}\setboolean{AM@fitpaper}{false}
 \newif\ifAM@linkfilename\AM@linkfilenamefalse
 %    \end{macrocode}
 %    \subsection{Commands}
@@ -647,10 +741,12 @@
 \newcommand*{\AM@pagestemp}{1}
 \newcommand*{\AM@pagecommand}{\thispagestyle{empty}}
 \newcommand*{\AM@lscape@rot}{0}
-\newcommand*{\AM@threadname}{}\newcommand{\AM@linkname}{}
+\newcommand*{\AM@threadname}{}\newcommand*{\AM@linkname}{}
 \newcommand*{\AM@linkname@option}{}
-\newcommand*{\AM@linkfit}{fitr}\newcommand{\AM@linktodocfit}{/Fit}
+\newcommand*{\AM@linkfit}{fitr}\newcommand*{\AM@linktodocfit}{/Fit}
 \newcommand*{\threadinfodict}{}
+\newcommand*{\AM@toclist}{}\newcommand*{\AM@loflist}{}
+\newcommand*{\AM@signature}{}
 %    \end{macrocode}
 %    \macro{\AM@setlscape}
 %    Check, if `pdflscape.sty' is loaded.
@@ -706,6 +802,7 @@
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup
+  \setcounter{totalnumber}{0}%
   \IfFileExists{#2}{\edef\AM@currentdocname{#2}}
     {\IfFileExists{#2.pdf}{\edef\AM@currentdocname{#2.pdf}}
        {\PackageError{pdfpages}{Cannot find file #2}{}}}%
@@ -721,6 +818,7 @@
 %    \begin{macrocode}
 \newcommand*{\includepdfmerge}[2][]{%
   \begingroup
+  \setcounter{totalnumber}{0}%
   \def\AM@currentdocname{}%
   \AM@readlist{#2}%
   \AM@output{#1}%
@@ -749,10 +847,8 @@
   \def\AM@doclist{}%
   \AM@readlisti#1,\END,
   \ifAM@defaultone\AM@addtolist{1}\fi
-  \let\saveAM@doclist\AM@doclist
-  \edef\AM@doclist{\expandafter\@gobble\saveAM@doclist}%
-  \let\saveAM@pagelist\AM@pagelist
-  \edef\AM@pagelist{\expandafter\@gobble\saveAM@pagelist}%
+  \edef\AM@doclist{\expandafter\@gobble\AM@doclist}%
+  \edef\AM@pagelist{\expandafter\@gobble\AM@pagelist}%
 }
 %    \end{macrocode}
 %    \begin{macrocode}
@@ -838,6 +934,14 @@
   \edef\AM@doclist{\saveAM@doclist,\AM@currentdocname}%
   \let\saveAM@pagelist\AM@pagelist
   \edef\AM@pagelist{\saveAM@pagelist,#1}%
+
+  \ifAM@doublepages
+    \let\saveAM@doclist\AM@doclist
+    \edef\AM@doclist{\saveAM@doclist,\AM@currentdocname}%
+    \let\saveAM@pagelist\AM@pagelist
+    \edef\AM@pagelist{\saveAM@pagelist,#1}%
+  \fi
+
   \AM@defaultonefalse
 }
 %    \end{macrocode}
@@ -1097,8 +1201,6 @@
 %    \end{macrocode}
 %    Some preparations before starting the output.
 %    \begin{macrocode}
-  \AM@setphantom
-  \AM@filluppagelist
   \ifthenelse{\boolean{AM@landscape}}
     {\def\AM@lscape@rot{90}%
      \@ifundefined{AM@shortnupsyntax}{}
@@ -1106,6 +1208,15 @@
         \let\AM@xnup\AM@ynup
         \let\AM@ynup\AM@temp}%
     }{}
+  \AM@setphantom
+  \ifx\AM@signature\@empty\AM@filluppagelist
+  \else\AM@prepare@signature\fi
+%    \end{macrocode}
+%    \begin{macrocode}
+  \@tempcnta=\AM@xnup\relax \advance\@tempcnta\m@ne
+  \edef\AM@xnupminusi{\the\@tempcnta}%
+  \@tempcnta=\AM@ynup\relax \advance\@tempcnta\m@ne
+  \edef\AM@ynupminusi{\the\@tempcnta}%
 %    \end{macrocode}
 %    \begin{macrocode}
   \ifthenelse{\boolean{AM@column}%
@@ -1220,8 +1331,7 @@
 %    \begin{macrocode}
     \let\AM@filelist@save\@filelist
     \setbox\@tempboxa=\hbox{%
-      \includegraphics[page=\AM@page,
-                       scale=\AM@scale, 
+      \includegraphics[page=\AM@page, scale=\AM@scale, 
                        angle=\AM@lscape@rot, #1]{\AM@docname}}%
     \let\@filelist\AM@filelist@save
     \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
@@ -1265,7 +1375,6 @@
       \@ifundefined{AM@linkname@option}
         {\edef\AM@linkname{\the\toks@}}
         {\edef\AM@linkname{\AM@linkname@option}}%
-    \newpage
 %    \end{macrocode}
 %    Each logical page has an element number of
 %    |(\AM@xnupi,\AM@ynupi)|, where |(1,1)| indicates the upper
@@ -1358,6 +1467,7 @@
       \AM@shippage
       \global\let\@filelist\AM@filelist@save
     }%
+    \AM@toclof{\AM@page}
     \ifnum\AM@xnupi=\AM@xnup\relax
       \ifnum\AM@ynupi=\AM@ynup\relax
         \begingroup\AM@pagecommand\endgroup
@@ -1382,7 +1492,6 @@
 %    Remove the \texttt{scale} item from the options list (|#1|)
 %    and then save it in |\AM@options|.
 %    \begin{macrocode}
-
 \newif\ifAM@scale
 \newcommand{\AM@remove@scale}{}
 \def\AM@remove@scale#1{%
@@ -1399,8 +1508,8 @@
     \AM@remove@scaleii#1=\END
     \ifAM@scale
     \else
-      \ifx\empty
-        \AM@options\edef\AM@options{#1}%
+      \ifx\empty\AM@options
+        \edef\AM@options{#1}%
       \else
         \toks@\expandafter{\AM@options,#1}%
         \edef\AM@options{\the\toks@}%
@@ -1546,6 +1655,86 @@
     \edef\AM@doclist{\saveAM@doclist,\AM@phantomdoc}%
   }%
 }
+
+%    \end{macrocode}
+%    \macro{\AM@prepare@signature}
+%    Sort the pages in order to create signatures.
+%    \begin{macrocode}
+\newcommand{\AM@prepare@signature}{}
+\def\AM@prepare@signature{%
+  \def\AM@newpagelist{}%
+  \def\AM@newdoclist{}%
+%    \end{macrocode}
+%    Make |\AM@signature| a multiply of 4.
+%    \begin{macrocode}
+  \@tempcnta=\AM@signature\relax
+  \divide\@tempcnta by 4
+  \multiply\@tempcnta by 4
+  \ifnum\@tempcnta=0\@tempcnta=4\fi
+  \edef\AM@signature{\the\@tempcnta}%
+%    \end{macrocode}
+%    Make |\AM@pagelist| and |\AM@doclist| contain a multiply
+%    of |\AM@signuature| items. (Similar to |\AM@filluppagelist|.)
+%    \begin{macrocode}
+  \AM@countpagelist
+  \count@=\@tempcnta
+  \@tempcntb=\AM@signature\relax
+  \divide\count@\@tempcntb
+  \multiply\count@\@tempcntb
+  \advance\@tempcnta-\count@
+  \ifnum\@tempcnta=0 \@tempcntb=0
+  \else\advance\@tempcntb-\@tempcnta
+  \fi
+  \whiledo{\@tempcntb>\z@}{%
+    \edef\AM@pagelist{\AM@pagelist,}%
+    \edef\AM@doclist{\AM@doclist,\AM@phantomdoc}%
+    \advance\@tempcntb\m@ne
+  }%
+%    \end{macrocode}
+%    Now sort the pages.
+%    \begin{macrocode}
+  \def\AM@sort{%
+    \def\AM@sigpagelist{}%
+    \def\AM@sigdoclist{}%
+    \@tempcntb=\AM@signature\relax
+    \AM@getlastn{\AM@pagelist}{\@tempcntb}%
+    \edef\AM@lastnpages{\AM@lastnitems}%
+    \AM@getlastn{\AM@doclist}{\@tempcntb}%
+    \edef\AM@lastndocs{\AM@lastnitems}%
+    \@tempcnta=0
+    \def\AM@first{%
+      \AM@getfirst{\AM@lastnpages}%
+      \edef\AM@sigpagelist{\AM@sigpagelist,\the\toks@}%
+      \AM@getfirst{\AM@lastndocs}%
+      \edef\AM@sigdoclist{\AM@sigdoclist,\the\toks@}%
+    }%
+    \def\AM@last{%
+      \AM@getlast{\AM@lastnpages}%
+      \edef\AM@sigpagelist{\AM@sigpagelist,\AM@lastitem}%
+      \AM@getlast{\AM@lastndocs}%
+      \edef\AM@sigdoclist{\AM@sigdoclist,\AM@lastitem}%
+    }%
+    \whiledo{\@tempcnta<\@tempcntb}{%
+      \AM@last\AM@first\AM@first\AM@last
+      \advance\@tempcnta by 4
+    }%
+    \edef\AM@newpagelist{\AM@sigpagelist\AM@newpagelist}%
+    \edef\AM@newdoclist{\AM@sigdoclist\AM@newdoclist}%
+    \ifx\AM@pagelist\@empty
+    \else\expandafter\AM@sort
+    \fi
+  }%
+  \AM@sort
+  \edef\AM@pagelist{\expandafter\@gobble\AM@newpagelist}%
+  \edef\AM@doclist{\expandafter\@gobble\AM@newdoclist}%
+%    \end{macrocode}
+%    \begin{macrocode}
+  \ifdim\pdfpagewidth<\pdfpageheight
+    \def\AM@xnup{\@ne}\def\AM@ynup{\tw@}%
+  \else
+    \def\AM@xnup{\tw@}\def\AM@ynup{\@ne}%
+  \fi
+}
 %    \end{macrocode}
 %    \macro{\AM@setphantom}
 %    \macro{\AM@setphantompage}
@@ -1575,6 +1764,160 @@
 \newcommand{\AM@setphatomdoc}{}
 \def\AM@setphantomdoc#1,#2\END{\edef\AM@phantomdoc{#1}}
 %    \end{macrocode}
+%    \macro{\AM@addtotoc} 
+%    \macro{\AM@parse@toclist}
+%    \macro{\AM@parse@toclisti}
+%    \macro{\AM@rm@from@toclist}
+%    \macro{\AM@rm@from@toclisti}
+%    These macros add entries to the table of contents (toc).
+%    
+%    |\AM@parse@addtotoc| reads the next entries from the list
+%    |\AM@toclist| and prepares some macros (|\AM@toc@page|,
+%    |\AM@toc@section|, etc.), which are used by |\AM@addtotoc|.
+%    
+%    The list |\AM@toclist| is a comma separated list and must
+%    contain a multiple of five entries, which there are:
+%    \meta{page number}, \meta{section}, \meta{level},
+%    \meta{heading} and \meta{label}. 
+%    \meta{section} is e.g., `chapter', `section', `subsection', etc.
+%    and \meta{level} is a number, denoting depth of section e.g.,
+%    chapter=0, section=1, etc.
+%    \begin{macrocode}
+\newcommand{\AM@addtotoc@hook}{\relax}
+\newcommand{\AM@addtotoc}{}
+\def\AM@addtotoc{%
+  \begingroup
+  \def\@seccntformat##1{}\def\@makechapterhead##1{}%
+  \def\@endpart{}\def\partname{}%
+  \def\autodot{}% KOMA classes
+  \let\AM@addcontentsline\addcontentsline
+  \def\addcontentsline##1##2##3{%
+    \AM@addcontentsline{##1}{##2}{##3}%
+    \def\thepart{}}%
+  \AM@addtotoc@hook
+  \@ifundefined{@\AM@toc@section}
+    {\@sect{\AM@toc@section}{\AM@toc@level}
+           {\z@}{\z@}{\z@}{}[\AM@toc@heading]{}
+     \hskip\z@\par\vskip-\parskip\vskip-\baselineskip\hskip\z@}
+    {\@nameuse{@\AM@toc@section}[\AM@toc@heading]{}}%
+  \label{\AM@toc@label}%
+  \endgroup
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\AM@parse@toclist}{}
+\def\AM@parse@toclist{%
+  \ifx\AM@toclist\empty \def\AM@toc@page{0}%
+  \else \expandafter\AM@parse@toclisti\AM@toclist\END
+  \fi
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\AM@parse@toclisti}{}
+\def\AM@parse@toclisti#1,#2,#3,#4,#5,#6\END{%
+  \def\AM@toc@page{\AM@trim@space{#1}}%
+  \def\AM@toc@section{\AM@trim@space{#2}}%
+  \def\AM@toc@level{\AM@trim@space{#3}}%
+  \def\AM@toc@heading{#4}%
+  \def\AM@toc@label{\AM@trim@space{#5}}%
+  \AM@checkinteger{\AM@toc@page}%
+  \ifAM@integer\else \typeout{++++ Error !!!!!!!!!!!} \fi
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\AM@rm@from@toclist}{}
+\def\AM@rm@from@toclist{%
+    \expandafter\AM@rm@from@toclisti\AM@toclist\END
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\AM@rm@from@toclisti}{}
+\def\AM@rm@from@toclisti#1,#2,#3,#4,#5,#6\END{%
+  \def\AM@toclist{#6}
+}
+%    \end{macrocode}
+%    \macro{\AM@addtolof}
+%    \macro{\AM@parse@loflist}
+%    \macro{\AM@parse@loflisti}
+%    \macro{\AM@rm@from@loflist}
+%    \macro{\AM@rm@from@loflisti}
+%    These macros add entries to the list of figures (lof),
+%    the list of tables (lot) or any other list.
+%
+%    |\AM@loflist| is a comma separated list similar to
+%     |\AM@toclist|, which must contain the entries:
+%     \meta{page number}, \meta{figure}, \meta{heading} and
+%     \meta{label}.
+%    \begin{macrocode}
+\newcommand{\AM@addtolof@hook}{\relax}
+\newcommand{\AM@addtolof}{}
+\def\AM@addtolof{% figure, heading, label
+  \def\@captype{\AM@lof@list}%
+  \long\def\@makecaption##1##2{}%
+  \caption{\AM@lof@heading}%
+  \AM@addtolof@hook
+  \@ifundefined{hyper@@anchor}{}{\hyper@@anchor{\@currentHref}{\relax}}%
+  \label{\AM@lof@label}%
+  \vskip-\baselineskip
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\AM@parse@loflist}{}
+\def\AM@parse@loflist{%
+  \ifx\AM@loflist\empty \def\AM@lof@page{0}%
+  \else \expandafter\AM@parse@loflisti\AM@loflist\END
+  \fi
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\AM@parse@loflisti}{}
+\def\AM@parse@loflisti#1,#2,#3,#4,#5\END{%
+  \def\AM@lof@page{\AM@trim@space{#1}}%
+  \def\AM@lof@list{\AM@trim@space{#2}}%
+  \def\AM@lof@heading{#3}%
+  \def\AM@lof@label{\AM@trim@space{#4}}%
+  \AM@checkinteger{\AM@lof@page}%
+  \ifAM@integer\else \typeout{++++ Error !!!!!!!!!!!1} \fi
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\AM@rm@fromloflist}{}
+\def\AM@rm@from@loflist{%
+    \expandafter\AM@rm@from@loflisti\AM@loflist\END
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\AM@rm@from@loflisti}{}
+\def\AM@rm@from@loflisti#1,#2,#3,#4,#5\END{%
+  \def\AM@loflist{#5}
+}
+%    \end{macrocode}
+%    \macro{\AM@toclof}
+%    \begin{macrocode}
+\newcommand{\AM@toclof}{}
+\def\AM@toclof#1{%
+  \AM@parse@toclist
+  \whiledo{#1=\AM@toc@page}{%
+    \ifx\AM@toclist\empty
+    \else
+      \AM@addtotoc
+      \AM@rm@from@toclist
+      \def\AM@toc@page{0}
+      \AM@parse@toclist
+    \fi
+  }%
+  \AM@parse@loflist
+  \whiledo{#1=\AM@lof@page}{%
+    \ifx\AM@loflist\empty
+    \else
+      \AM@addtolof
+      \AM@rm@from@loflist
+      \def\AM@lof@page{0}
+      \AM@parse@loflist
+    \fi
+  }%
+}
+%    \end{macrocode}
 %    \subsection{Options of \texttt{\protect\bslash includepdf}}
 %    \begin{macrocode}
 \define@key{Gin}{pages}{\def\AM@pagestemp{#1}}
@@ -1601,6 +1944,15 @@
 \define@key{Gin}{linkfilename}{\pdfstringdef\AM@linkfilename{#1}%
                                \AM@linkfilenametrue}
 \define@key{Gin}{fitpaper}[true]{\setboolean{AM@fitpaper}{#1}}
+
+
+\define@key{Gin}{addtotoc}{\def\AM@toclist{#1,}}
+\define@key{Gin}{addtolist}{\def\AM@loflist{#1,}}
+
+\newboolean{AM@doublepages}\setboolean{AM@doublepages}{false}
+\define@key{Gin}{doublepages}[true]{\setboolean{AM@doublepages}{#1}}
+
+\define@key{Gin}{signature}{\def\AM@signature{#1}}
 %    \end{macrocode}
 %    \macro{\AM@parse@nup}
 %    Parsing \texttt{nup} item.
@@ -1623,10 +1975,6 @@
     \def\AM@xnup{#1}%
     \AM@parse@nupi#2%
   \fi
-  \@tempcnta=\AM@xnup\relax \advance\@tempcnta\m@ne
-  \edef\AM@xnupminusi{\the\@tempcnta}%
-  \@tempcnta=\AM@ynup\relax \advance\@tempcnta\m@ne
-  \edef\AM@ynupminusi{\the\@tempcnta}%
 }
 \def\AM@parse@nupi#1x{\def\AM@ynup{#1}}
 %    \end{macrocode}
@@ -1665,6 +2013,11 @@
     \fi
 }
 %    \end{macrocode}
+%    Load patch file, if one exists.
+%    \begin{macrocode}
+\InputIfFileExists{pdfpages.fix}{%
+  \PackageInfo{pdfpages}{Loading patch file `pdfpages.fix'}}{}
+%    \end{macrocode}
 %
 %
 %    \section{History}
@@ -1702,7 +2055,14 @@
 %      \item Option |fitpaper| added.
 %    \end{itemize}
 %
+%    \subsection*{2001/03/?? v0.2f}
+%    \begin{itemize}
+%      \item Option |signature| added.
+%      \item Options |addtotoc| and |addtolist| added.
+%      \item Option |doublepages| added.
+%    \end{itemize}
 %    \iffalse
+%
 %</package>
 %    \fi
 %

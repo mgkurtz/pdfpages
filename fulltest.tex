@@ -1,7 +1,6 @@
+%\pdfoutput=0
 \documentclass[a4paper]{article}
 \usepackage{hyperref}
-%\pdfoutput=0
-
 %\usepackage{graphicx}
 \usepackage{pdfpages}
 \listfiles
@@ -16,39 +15,67 @@
 \begin{document}
 \Huge
 
-\includepdf[nup=4, lastpage=4, frame]{dummy}
+\includepdf[nup=4, pages=-4, frame]{dummy}
 
 
-\iffalse
-Zur\"uckschalten auf Standardwere.\\
+%\iffalse
+\begingroup
+Zur\"uckschalten auf Standardwerte.
 Jede zweite Seite ist wieder in Originaldarstellung.
 \includepdf{dummy}
-\includepdf[lastpage=5, firstpage=5, offset=10mm 10mm, frame, scale=.6]{dummy}
+\includepdf[pages=5, offset=10mm 10mm, frame, scale=.6]{dummy}
 \includepdf{dummy}
-\includepdf[nup=2, lastpage=6, firstpage=5, offset=10mm 10mm, frame, scale=.6]{dummy}
+\includepdf[nup=2, pages=5-6, offset=10mm 10mm, frame, scale=.6,landscape]{dummy}
 \includepdf{dummy}
-\includepdf[nup=4, lastpage=8, firstpage=5, offset=10mm 10mm, frame, scale=.6]{dummy}
+\includepdf[nup=4, pages=5-8, offset=10mm 10mm, frame, scale=.6]{dummy}
 \includepdf{dummy}
 \includepdf[trim=0 40mm 0 40mm, clip, pagecommand={}]{dummy}
 \includepdf{dummy}
 \includepdf[landscape]{dummy}
 \includepdf{dummy}
-\fi
+\endgroup
+%\fi
 
 
-\iffalse
+%\iffalse
+\begingroup
 Teste globale Optionen:\\
 1. und 3.\,Seite mit globalen Optionen (sind identisch),
 2.\,Seite mit lokalen (unterschiedlich).
-\includepdfset{nup=4, firstpage=4, lastpage=6, openright,
+\includepdfset{nup=4, pages=4-6, openright,
                deltax=5mm, deltay=10mm, offset=20mm 20mm,
                pagecommand={\Large und hier ein kleiner Test ...}, frame, scale=.4}
 
 \includepdf{dummy}
-\includepdf[nup=2, firstpage=3, lastpage=4, openright=false,
+\includepdf[nup=2, pages=3-4, openright=false, landscape,
             deltax=0mm, deltay=0mm, offset=0mm 0mm,
             pagecommand={\thispagestyle{empty}}, frame=false]{dummy}
 \includepdf{dummy}
-\fi
+\endgroup
+%\fi
+
+%\iffalse
+\begingroup
+Die n\"achsten 4 Seiten:
+\begin{itemize}
+  \item column
+  \item columnstrict
+  \item column=false, linktodoc=false
+  \item column
+\end{itemize}
+\includepdfset{column, pages=1-5, nup=3x3, linktodoc}
+\includepdf{dummy}
+\includepdf[columnstrict]{dummy}
+\includepdf[column=false, linktodoc=false, thread=false]{dummy}
+\includepdf{dummy}
+\endgroup
+%\fi
+
+%\iffalse
+\begingroup
+\includepdf[fitpaper]{dum/a5-l.pdf}
+\includepdfmerge{dummy.pdf,-,dummy,3,4,dummy}
+\endgroup
+%\fi
 
 \end{document}

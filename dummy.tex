@@ -1,0 +1,42 @@
+\documentclass[executivepaper, landscape]{article}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{lscape}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\addtolength{\headheight}{6pt}
+
+%\setlength{\paperwidth}{297mm}
+%\setlength{\paperheight}{420mm}
+
+\setlength{\pdfpagewidth}{\paperwidth}
+\setlength{\pdfpageheight}{\paperheight}
+
+
+%\setlength{\textwidth}{598pt}
+%\setlength{\oddsidemargin}{53pt}
+
+\begin{document}
+%\pagecolor{blue}
+
+\pagestyle{fancy}
+\chead{\Large This is the header of the included pdf document}
+\cfoot{\Large This is the footer of the included pdf document}
+
+\newcounter{mypage}
+\setcounter{mypage}{1}
+%\begin{landscape}
+%\pdfpageattr{/Rotate 90}
+\whiledo{\themypage < 11}{
+  \vspace*{\fill}
+  \centering\scalebox{4}{\Huge Executive -- \themypage}
+  \vspace*{\fill}
+  \newpage
+  \stepcounter{mypage}
+}
+%\end{landscape}
+
+\end{document}
