@@ -18,8 +18,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.1c",
-%    date           = "3 February 2001",
+%    version        = "0.1d",
+%    date           = "6 February 2001",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -39,7 +39,7 @@
 %</dtx>
 %    \fi
 %
-%    \CheckSum{444}
+%    \CheckSum{620}
 %%
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -59,9 +59,9 @@
 %%
 %    \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{pdfpages}[2001/02/03 v0.1c Include pages of external PDF documents (AM)]
+%<package>\ProvidesPackage{pdfpages}[2001/02/06 v0.1d Include pages of external PDF documents (AM)]
 % \fi
-%        \ProvidesFile{pdfpages.dtx}[2001/02/03 v0.1c Include pages of external PDF documents (AM)]
+%        \ProvidesFile{pdfpages.dtx}[2001/02/06 v0.1d Include pages of external PDF documents (AM)]
 % \iffalse
 %
 %<*driver>
@@ -161,6 +161,25 @@
 %                      \df{lastpage=firstpage}
 %      \item[nup] Put multiple logical pages on one physical sheet of paper.
 %                 Possible values are: 1, 2 and 4. \df{nup=1}
+%      \item[landscape] Inlcude pages that are set in landscape format.
+%           \renewcommand*\descriptionlabel[1]{\hspace\labelsep
+%                                               \normalfont \ttfamily #1}
+%           \begin{description}
+%             \item[landscape=normal] If external pages are displayed
+%                  in landscape format. You don't have to specify
+%                  \texttt{normal}, which is the default. 
+%                  (\texttt{landscape} alone is sufficient.)
+%             \item[landscape=fake] If external pages are set in
+%                  landscape format, but displayed in the PDF viewer
+%                  in portrait format.
+%             \item[landscape=none] This is just usefull, if you have
+%                  switched to landscape format within the |\includepdfset|
+%                  command, and now want to deactivate it.
+%           \end{description}
+%       \item[turn] Some pages are displayed in landscape format. With
+%                   \texttt{turn=false} this can be prohibit.
+%                   Either `true' or `false' (or no value, which
+%                   is equivalent to `true'). \df{turn=true}
 %      \item[openright] Put first page on the right side. (Just in combination
 %                       with |nup=2| and |nup=4|.)
 %                       Either `true' or `false' (or no value, which
@@ -339,9 +358,15 @@
 \newcommand{\AM@xposi}{0}\newcommand{\AM@xposii}{0pt}
 \newcommand{\AM@yposi}{0}\newcommand{\AM@yposii}{0pt}
 \newcommand{\AM@pagecommand}{\thispagestyle{empty}}
+\newcommand{\saveAM@pagecommand}{}
 \newcommand{\AM@fbox}{}
-\newsavebox{\AM@pdfpagebox}
+\newsavebox{\AM@pagebox}
 \newcommand{\AM@xcoef}{.5}\newcommand{\AM@ycoef}{.5}
+\newcommand{\AM@lscape@nupi}{0}\newcommand{\AM@lscape@nupii}{0}
+\newcommand{\AM@lscape@nupiv}{0}
+\newcommand{\AM@lscape@mode}{none}
+\newcommand{\AM@pagebox@ht}{}
+\newcommand{\AM@turn}{true}
 %    \end{macrocode}
 %    \macro{\includepdfset}
 %    This command sets global options for \verb|\includepdf|.
@@ -380,30 +405,38 @@
 %    The coordinates for 1up. \texttt{(nup=1)}
 %    \begin{macrocode}
       \ifthenelse{\value{AM@nup} = 1}{%
-        \savebox{\AM@pdfpagebox}{%
-                 \includegraphics[page=\theAM@page, #1]{#2}}
+        \savebox{\AM@pagebox}{%
+                 \includegraphics[page=\theAM@page,
+                                  angle=\AM@lscape@nupi, #1]{#2}}
+        \ifdim\ht\AM@pagebox>\dp\AM@pagebox%
+            \def\AM@pagebox@ht{\ht\AM@pagebox}\else
+            \def\AM@pagebox@ht{\dp\AM@pagebox*{-1}}\fi
         \def\AM@xposi{\AM@xcoef\paperwidth%
-                      - \AM@xcoef\wd\AM@pdfpagebox%
+                      - \AM@xcoef\wd\AM@pagebox%
                       + \AM@xoffset}
         \def\AM@yposi{\AM@ycoef\paperheight%
-                      - \AM@ycoef\ht\AM@pdfpagebox%
+                      - \AM@ycoef\AM@pagebox@ht%
                       + \AM@yoffset}}{}
 %    \end{macrocode}
 %    The coordinates for 2up. \texttt{(nup=2)}
 %    \begin{macrocode}
       \ifthenelse{\value{AM@nup} = 2}{%
-        \savebox{\AM@pdfpagebox}{\AM@fbox{%
+        \savebox{\AM@pagebox}{\AM@fbox{%
                  \includegraphics[page=\theAM@page,
-                                  angle=90, scale=.7071, #1]{#2}}}
+                                  angle=90, scale=.7071,
+                                  angle=-\AM@lscape@nupii, #1]{#2}}}
+        \ifdim\ht\AM@pagebox>\dp\AM@pagebox%
+            \def\AM@pagebox@ht{\ht\AM@pagebox}\else
+            \def\AM@pagebox@ht{\dp\AM@pagebox*{-1}}\fi
         \def\AM@xposi{\paperwidth*\real{\AM@xcoef}%
-                      - \wd\AM@pdfpagebox*\real{\AM@xcoef}%
+                      - \wd\AM@pagebox*\real{\AM@xcoef}%
                       + \AM@xoffset}
         \def\AM@yposi{\paperheight*\real{\AM@ycoef}%
-                      - \ht\AM@pdfpagebox*2*\real{\AM@ycoef}%
+                      - \AM@pagebox@ht*2*\real{\AM@ycoef}%
                       - \AM@deltay*\real{\AM@ycoef}%
                       + \AM@yoffset}
         \def\AM@yposii{\AM@yposi\p@%
-                       + \ht\AM@pdfpagebox%
+                       + \AM@pagebox@ht%
                        + \AM@deltay%
                        - \fboxrule}
 }{}
@@ -411,23 +444,24 @@
 %    The coordinates for 4up. \texttt{(nup=4)}
 %    \begin{macrocode}
       \ifthenelse{\value{AM@nup} = 4}{%
-        \savebox{\AM@pdfpagebox}{\AM@fbox{%
+        \savebox{\AM@pagebox}{\AM@fbox{%
                  \includegraphics[page=\theAM@page,
+                                  angle=\AM@lscape@nupiv,
                                   scale=.5, #1]{#2}}}
         \def\AM@xposi{\paperwidth*\real{\AM@xcoef}%
-                      - \wd\AM@pdfpagebox*2*\real{\AM@xcoef}%
+                      - \wd\AM@pagebox*2*\real{\AM@xcoef}%
                       - \AM@deltax*\real{\AM@xcoef}%
                       + \AM@xoffset}
         \def\AM@xposii{\AM@xposi\p@%
-                       + \wd\AM@pdfpagebox%
+                       + \wd\AM@pagebox%
                        + \AM@deltax%
                        - \fboxrule}
         \def\AM@yposi{\paperheight*\real{\AM@ycoef}%
-                      - \ht\AM@pdfpagebox*2*\real{\AM@ycoef}%
+                      - \ht\AM@pagebox*2*\real{\AM@ycoef}%
                       - \AM@deltay*\real{\AM@ycoef}%
                       + \AM@yoffset}
         \def\AM@yposii{\AM@yposi\p@%
-                       + \ht\AM@pdfpagebox%
+                       + \ht\AM@pagebox%
                        + \AM@deltay}
 }{}
 %    \end{macrocode}
@@ -446,27 +480,58 @@
 %    \begin{macrocode}
      \ifthenelse{\value{AM@nup} = 1}{%
         \put(\AM@xposi,\AM@yposi){%
-             \AM@fbox{\usebox{\AM@pdfpagebox}}}}{}
+             \AM@fbox{\usebox{\AM@pagebox}}}}{}
 %    \end{macrocode}
 %    Arrange two PDF pages per sheet. (\texttt{nup=2})
 %    \begin{macrocode}
       \ifthenelse{\value{AM@nup} = 2}{%
         \ifthenelse{\boolean{AM@openright}\and%
                     \value{AM@page}=\value{AM@firstpage}}{}{%
-          \put(\AM@xposi,\AM@yposi){\usebox{\AM@pdfpagebox}}
+          \put(\AM@xposi,\AM@yposi){\usebox{\AM@pagebox}}
           \stepcounter{AM@page}}
         \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
           \put(\AM@xposi,\AM@yposii){\AM@fbox{%
-               \includegraphics[page=\theAM@page,
-                                angle=90, scale=.7071, #1]{#2}}}}{}
+               \includegraphics[page=\theAM@page, angle=90,
+                                angle=-\AM@lscape@nupii,
+                                scale=.7071, #1]{#2}}}}{}
       }{}
 %    \end{macrocode}
 %    Arrange four PDF pages per sheet. (\texttt{nup=4})
 %    \begin{macrocode}
       \ifthenelse{\value{AM@nup} = 4}{%
+%    \end{macrocode}
+%    Landscape.
+%    \begin{macrocode}    
+      \def\tempa{normal}
+      \ifx\tempa\AM@lscape@mode
         \ifthenelse{\boolean{AM@openright}\and%
                     \value{AM@page}=\value{AM@firstpage}}{}{%
-          \put(\AM@xposi,\AM@yposii){\usebox{\AM@pdfpagebox}}
+          \put(\AM@xposi,\AM@yposi){\usebox{\AM@pagebox}}
+          \stepcounter{AM@page}}
+        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
+          \put(\AM@xposi,\AM@yposii){\AM@fbox{%
+               \includegraphics[page=\theAM@page,
+                                angle=\AM@lscape@nupiv,
+                                scale=.5, #1]{#2}}}
+          \stepcounter{AM@page}}{}
+        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
+          \put(\AM@xposii,\AM@yposi){\AM@fbox{%
+               \includegraphics[page=\theAM@page,
+                                angle=\AM@lscape@nupiv,
+                                scale=.5, #1]{#2}}}
+          \stepcounter{AM@page}}{}
+        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
+          \put(\AM@xposii,\AM@yposii){\AM@fbox{%
+               \includegraphics[page=\theAM@page,
+                                angle=\AM@lscape@nupiv,
+                                scale=.5, #1]{#2}}}}{}
+      \else
+%    \end{macrocode}
+%    Portrait.
+%    \begin{macrocode}
+        \ifthenelse{\boolean{AM@openright}\and%
+                    \value{AM@page}=\value{AM@firstpage}}{}{%
+          \put(\AM@xposi,\AM@yposii){\usebox{\AM@pagebox}}
           \stepcounter{AM@page}}
         \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
           \put(\AM@xposii,\AM@yposii){\AM@fbox{%
@@ -482,9 +547,21 @@
           \put(\AM@xposii,\AM@yposi){\AM@fbox{%
                \includegraphics[page=\theAM@page,
                                 scale=.5, #1]{#2}}}}{}
+      \fi
       }{}
     }% AddToShipoutPicture
+%    \end{macrocode}
+%    Turn pages to display them in landscape format.
+%    \begin{macrocode}
     \AM@pagecommand
+    \ifthenelse{\equal{\AM@lscape@mode}{normal}%
+                \and\not\value{AM@nup}=2%
+                \and\equal{\AM@turn}{true}}%
+               {\pdfpageattr{/Rotate 90}}{}
+    \ifthenelse{\equal{\AM@lscape@mode}{none}%
+                \and\value{AM@nup}=2%
+                \and\equal{\AM@turn}{true}}%
+               {\pdfpageattr{/Rotate 90}}{}
     \hskip0pt
     \newpage
     \stepcounter{AM@page}
@@ -515,6 +592,31 @@
 \define@key{Gin}{openright}[true]{\setboolean{AM@openright}{#1}}
 \define@key{Gin}{pagecommand}{\renewcommand{\AM@pagecommand}{#1}}
 \define@key{Gin}{pos}{\AM@parse@pos#1 \\}
+\define@key{Gin}{landscape}[normal]{%
+                 \def\tempa{#1}%
+                 \def\temp@norm{normal}\def\temp@updo{updown}
+                 \def\temp@none{none}\def\temp@fake{fake}%
+                 \ifx \tempa\temp@norm
+                      \def\AM@lscape@nupi{90}%
+                      \def\AM@lscape@nupii{90}%
+                      \def\AM@lscape@nupiv{90}%
+                      \def\AM@lscape@mode{#1}\fi
+                 \ifx \tempa\temp@updo
+                      \def\AM@lscape@nupi{270}%
+                      \def\AM@lscape@nupii{270}%
+                      \def\AM@lscape@nupiv{270}%
+                      \def\AM@lscape@mode{#1}\fi
+                 \ifx \tempa\temp@none
+                      \def\AM@lscape@nupi{0}%
+                      \def\AM@lscape@nupii{0}%
+                      \def\AM@lscape@nupiv{0}%
+                      \def\AM@lscape@mode{#1}\fi
+                 \ifx \tempa\temp@fake
+                      \def\AM@lscape@nupi{0}%
+                      \def\AM@lscape@nupii{180}%
+                      \def\AM@lscape@nupiv{0}%
+                      \def\AM@lscape@mode{normal}\fi}
+\define@key{Gin}{turn}[true]{\def\AM@turn{#1}}
 %    \end{macrocode}
 %    Parsing option entries. These lines are derived
 %    from \texttt{graphicx.sty}.
@@ -594,6 +696,16 @@ Arranging two logical pages on one physical sheet of paper.
 \includepdf[nup=2,
             firstpage=4, lastpage=7]{dummy}
 
+With the option \texttt{turn=false} you can prohibit
+the pages being shown in landscape mode.
+
+\begin{example}
+\includepdf[nup=2, turn=false,
+            firstpage=4, lastpage=7]{dummy}
+\end{example}
+\includepdf[nup=2, turn=false,
+            firstpage=4, lastpage=7]{dummy}
+
 \noindent
 Arranging four logical pages on one physical sheet of paper.
 
@@ -615,6 +727,30 @@ on the right side. This can be done with the \texttt{openright} Option.
 \includepdf[nup=4,
             firstpage=5, lastpage=7,
             openright]{dummy}
+
+\section{The \texttt{landscape} Mode}
+
+Use the option \texttt{landscape}, if the pages are set in landscape
+format \textit{and} if they are diplayed in the PDF viewer in landscape
+format.
+
+\begin{example}
+\includepdf[nup=2, landscape,
+           firstpage=11, lastpage=12]{dummy}
+\end{example}
+\includepdf[nup=2, landscape,
+           firstpage=11, lastpage=12]{dummy}
+
+If the pages are set in landscape format, but displayed in the
+viewer in portrait format, use the option 
+\texttt{landscape=fake}.
+
+\begin{example}
+\includepdf[nup=2, landscape=fake,
+            firstpage=15, lastpage=16]{dummy}
+\end{example}
+\includepdf[nup=2, landscape=fake,
+            firstpage=15, lastpage=16]{dummy}
 
 \section{Changing Layout}
 
@@ -652,6 +788,19 @@ $$210\,\mathrm{mm} \times 0.5 \times 0.8 = 84\,\mathrm{mm}$$
 \includepdf[nup=4, firstpage=3, lastpage=6,
             scale=.8, deltax=8mm, deltay=11mm,
             frame]{dummy}
+
+
+The same with pages in landscape format.
+
+\begin{example}
+\includepdf[nup=4, firstpage=11, lastpage=14,
+            scale=.8, deltax=8mm, deltay=11mm,
+            frame, landscape]{dummy}
+\end{example}
+\includepdf[nup=4, firstpage=11, lastpage=14,
+            scale=.8, deltax=8mm, deltay=11mm,
+            frame, landscape]{dummy}
+
 
 \noindent
 The output is centered by default as you could see in
