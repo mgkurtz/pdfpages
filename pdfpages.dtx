@@ -18,8 +18,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.1d",
-%    date           = "6 February 2001",
+%    version        = "0.1e",
+%    date           = "10 March 2001",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -39,7 +39,7 @@
 %</dtx>
 %    \fi
 %
-%    \CheckSum{620}
+%    \CheckSum{473}
 %%
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -59,9 +59,9 @@
 %%
 %    \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{pdfpages}[2001/02/06 v0.1d Include pages of external PDF documents (AM)]
+%<package>\ProvidesPackage{pdfpages}[2001/03/10 v0.1e Include pages of external PDF documents (AM)]
 % \fi
-%        \ProvidesFile{pdfpages.dtx}[2001/02/06 v0.1d Include pages of external PDF documents (AM)]
+%        \ProvidesFile{pdfpages.dtx}[2001/03/10 v0.1e Include pages of external PDF documents (AM)]
 % \iffalse
 %
 %<*driver>
@@ -161,22 +161,10 @@
 %                      \df{lastpage=firstpage}
 %      \item[nup] Put multiple logical pages on one physical sheet of paper.
 %                 Possible values are: 1, 2 and 4. \df{nup=1}
-%      \item[landscape] Inlcude pages that are set in landscape format.
-%           \renewcommand*\descriptionlabel[1]{\hspace\labelsep
-%                                               \normalfont \ttfamily #1}
-%           \begin{description}
-%             \item[landscape=normal] If external pages are displayed
-%                  in landscape format. You don't have to specify
-%                  \texttt{normal}, which is the default. 
-%                  (\texttt{landscape} alone is sufficient.)
-%             \item[landscape=fake] If external pages are set in
-%                  landscape format, but displayed in the PDF viewer
-%                  in portrait format.
-%             \item[landscape=none] This is just usefull, if you have
-%                  switched to landscape format within the |\includepdfset|
-%                  command, and now want to deactivate it.
-%           \end{description}
-%       \item[turn] Some pages are displayed in landscape format. With
+%      \item[landscape] Include pages in landscape format. See
+%                  section\,\ref{landscape} for more information
+%                  on landscape format.
+%       \item[turn] Some pages are displayed in landscape orientation. With
 %                   \texttt{turn=false} this can be prohibit.
 %                   Either `true' or `false' (or no value, which
 %                   is equivalent to `true'). \df{turn=true}
@@ -193,21 +181,10 @@
 %      \item[deltay] Put some space between the logical pages in
 %                    vertical direction. The argument should be one
 %                    dimension. \df{deltay=0}
-%      \item[pos] Included pages are centered by default. This can be
-%                 changed with the |pos| options. It´s syntax is:
-%                 |pos=|\meta{hpos}\meta{vpos}. The \meta{hpos} 
-%                 parameter can take one of the letters
-%                 |l|, |c| or |r| (\textbf{l}eft, \textbf{c}entered,
-%                 \textbf{r}ight) to control the horizontal alignment.
-%                 The \meta{vpos} parameter controls the vertical
-%                 alignment and stands for |t|, |c| or |b|
-%                 (\textbf{t}op, \textbf{c}entered, \textbf{b}ottom).
-%                 \df{pos=cc}
 %      \item[pagecommand] \LaTeX{} commands, which are executed on each
 %                         physical sheet of paper.
 %                         \df{pagecommand=\{\bslash thispagestyle\{empty\}\}}
-%      \item[offset] Displace the origin of the included page relatively
-%                    to the alignment set by the |pos| option. 
+%      \item[offset] Displace the origin of the included pages.
 %                    The argument should be
 %                    two dimensions, separated by space. \df{offset=0 0}
 %    \end{description}
@@ -239,12 +216,61 @@
 %    |\includepdfset|. Options of the graphicx package are not
 %    concerned.
 %
-%    \section{Changes}
-%    Included pages are now centered, whereas in former versions they
-%    were arranged at the lower left corner of the sheet. To get the
-%    same output as with older versions of |pdfpages|, add the
-%    following line to your document:\\
-%    |\includpdfset{pos=lb}|
+%    \subsection{Remarks on Landscape Format}
+%    \label{landscape}
+%    To include pages in landscape format use the option |landscape|.
+%    However, this only works satisfyingly, if the included pages are
+%    in `real' landscape format. This means that the pages are 
+%    wider than high. In the PDF file such pages are described
+%    e.\,g. as:
+%    \begin{verbatim}
+%    /MediaBox [0 0 841.887 595.273]
+%    \end{verbatim}
+%    \vskip-\bigskipamount
+%    
+%    Nevertheless there exists another way, how to describe a
+%    landscape page in a PDF file. E.\,g.:
+%    \begin{verbatim}
+%    /MediaBox [0 0 595.273 841.887]
+%    /Rotate 90
+%    \end{verbatim}
+%    \vskip-\bigskipamount
+%
+%    This means that the page is in portrait format (the page is
+%    higher than wide), but it is rotated by 90 degrees. I call
+%    this a `fake' landscape. This is what you get with the
+%    following \LaTeX{} (pdfLaTeX) code fragment:
+%    \begin{verbatim}
+%    \usepackage{lscape}
+%    ...
+%    \begin{landscape}
+%    \pdfpageattr{/Rotate 90}
+%    ...
+%    \end{landscape}
+%    \end{verbatim}
+%    \vskip-\bigskipamount
+%    
+%    Keep in mind that `real' and `fake' landscape pages look
+%    the same in the PDF Viewer. And unfortunately until now
+%    pdfLaTeX does not support the user with any information
+%    about the |/Rotate| entry.
+%    
+%    Here is an example, how to include `real' landscape pages:
+%    
+%    \trivlist \item\relax \hskip\parindent
+%    |\includepdf[page=4, landscape]{|\meta{file}|}|
+%    \endtrivlist
+%    
+%    To include `fake' landscape pages you have to rotate the
+%    pages by using the option entry |angle=-90| like in
+%    the following example:
+%    
+%    \trivlist \item\relax \hskip\parindent
+%    |\includepdf[page=4, landscape, angle=-90]{|\meta{file}|}|
+%    \endtrivlist
+%    
+%    Sorry, but there is no way to do this automatically. 
+%    
 %
 %    \section{Acknowledgment}
 %    I would like to thank \textsc{Rolf Niepraschk} and
@@ -340,33 +366,25 @@
 %    \subsection{Counters and Booleans}
 %    \begin{macrocode}
 \newcounter{AM@firstpage}\setcounter{AM@firstpage}{1}
-\newcounter{saveAM@firstpage}
 \newcounter{AM@lastpage}\setcounter{AM@lastpage}{2}
-\newcounter{saveAM@lastpage}
 \newcounter{AM@nup}\setcounter{AM@nup}{1}
-\newcounter{saveAM@nup}
 \newboolean{AM@openright}\setboolean{AM@openright}{false}
 \newboolean{AM@frame}\setboolean{AM@frame}{false}
+\newboolean{AM@landscape}\setboolean{AM@landscape}{false}
+\newboolean{AM@turn}\setboolean{AM@turn}{true}
 \newcounter{AM@page}\setcounter{AM@page}{1}
-\renewcommand{\theAM@page}{\the\value{AM@page}}
 %    \end{macrocode}
 %    \subsection{Commands}
 %    \begin{macrocode}
 \newcommand{\AM@xoffset}{0pt}\newcommand{\AM@yoffset}{0pt}
 \newcommand{\AM@deltax}{0pt}\newcommand{\AM@deltay}{0pt}
-\newcommand{\AM@vpos}{}\newcommand{\AM@hpos}{}
-\newcommand{\AM@xposi}{0}\newcommand{\AM@xposii}{0pt}
-\newcommand{\AM@yposi}{0}\newcommand{\AM@yposii}{0pt}
+\newcommand{\AM@xpos}{0pt}\newcommand{\AM@ypos}{0pt}
+\newcommand{\AM@rotate}{0}
+\newcommand{\AM@lscape@roti}{0}
+\newcommand{\AM@lscape@rotii}{0}
 \newcommand{\AM@pagecommand}{\thispagestyle{empty}}
-\newcommand{\saveAM@pagecommand}{}
 \newcommand{\AM@fbox}{}
 \newsavebox{\AM@pagebox}
-\newcommand{\AM@xcoef}{.5}\newcommand{\AM@ycoef}{.5}
-\newcommand{\AM@lscape@nupi}{0}\newcommand{\AM@lscape@nupii}{0}
-\newcommand{\AM@lscape@nupiv}{0}
-\newcommand{\AM@lscape@mode}{none}
-\newcommand{\AM@pagebox@ht}{}
-\newcommand{\AM@turn}{true}
 %    \end{macrocode}
 %    \macro{\includepdfset}
 %    This command sets global options for \verb|\includepdf|.
@@ -382,9 +400,12 @@
 %    \end{macrocode}
 %    Save counters.
 %    \begin{macrocode}
-  \setcounter{saveAM@firstpage}{\value{AM@firstpage}}
-  \setcounter{saveAM@lastpage}{\value{AM@lastpage}}
-  \setcounter{saveAM@nup}{\value{AM@nup}}
+  \newcommand{\saveAM@firstpage}{}
+  \edef\saveAM@firstpage{\arabic{AM@firstpage}}
+  \newcommand{\saveAM@lastpagexxx}{}
+  \edef\saveAM@lastpage{\arabic{AM@lastpage}}
+  \newcommand{\saveAM@nup}{}
+  \edef\saveAM@nup{\arabic{AM@nup}}
 %    \end{macrocode}
 %    Read in optional parameters.
 %    \begin{macrocode}
@@ -402,177 +423,190 @@
       \setlength{\unitlength}{1pt}
       \setlength{\fboxsep}{0pt}
 %    \end{macrocode}
-%    The coordinates for 1up. \texttt{(nup=1)}
+%    Arrange one PDF pages per sheet. (\texttt{nup=1})
 %    \begin{macrocode}
-      \ifthenelse{\value{AM@nup} = 1}{%
-        \savebox{\AM@pagebox}{%
-                 \includegraphics[page=\theAM@page,
-                                  angle=\AM@lscape@nupi, #1]{#2}}
-        \ifdim\ht\AM@pagebox>\dp\AM@pagebox%
-            \def\AM@pagebox@ht{\ht\AM@pagebox}\else
-            \def\AM@pagebox@ht{\dp\AM@pagebox*{-1}}\fi
-        \def\AM@xposi{\AM@xcoef\paperwidth%
-                      - \AM@xcoef\wd\AM@pagebox%
-                      + \AM@xoffset}
-        \def\AM@yposi{\AM@ycoef\paperheight%
-                      - \AM@ycoef\AM@pagebox@ht%
-                      + \AM@yoffset}}{}
-%    \end{macrocode}
-%    The coordinates for 2up. \texttt{(nup=2)}
-%    \begin{macrocode}
-      \ifthenelse{\value{AM@nup} = 2}{%
-        \savebox{\AM@pagebox}{\AM@fbox{%
-                 \includegraphics[page=\theAM@page,
-                                  angle=90, scale=.7071,
-                                  angle=-\AM@lscape@nupii, #1]{#2}}}
-        \ifdim\ht\AM@pagebox>\dp\AM@pagebox%
-            \def\AM@pagebox@ht{\ht\AM@pagebox}\else
-            \def\AM@pagebox@ht{\dp\AM@pagebox*{-1}}\fi
-        \def\AM@xposi{\paperwidth*\real{\AM@xcoef}%
-                      - \wd\AM@pagebox*\real{\AM@xcoef}%
-                      + \AM@xoffset}
-        \def\AM@yposi{\paperheight*\real{\AM@ycoef}%
-                      - \AM@pagebox@ht*2*\real{\AM@ycoef}%
-                      - \AM@deltay*\real{\AM@ycoef}%
-                      + \AM@yoffset}
-        \def\AM@yposii{\AM@yposi\p@%
-                       + \AM@pagebox@ht%
-                       + \AM@deltay%
-                       - \fboxrule}
-}{}
-%    \end{macrocode}
-%    The coordinates for 4up. \texttt{(nup=4)}
-%    \begin{macrocode}
-      \ifthenelse{\value{AM@nup} = 4}{%
-        \savebox{\AM@pagebox}{\AM@fbox{%
-                 \includegraphics[page=\theAM@page,
-                                  angle=\AM@lscape@nupiv,
-                                  scale=.5, #1]{#2}}}
-        \def\AM@xposi{\paperwidth*\real{\AM@xcoef}%
-                      - \wd\AM@pagebox*2*\real{\AM@xcoef}%
-                      - \AM@deltax*\real{\AM@xcoef}%
-                      + \AM@xoffset}
-        \def\AM@xposii{\AM@xposi\p@%
-                       + \wd\AM@pagebox%
-                       + \AM@deltax%
-                       - \fboxrule}
-        \def\AM@yposi{\paperheight*\real{\AM@ycoef}%
-                      - \ht\AM@pagebox*2*\real{\AM@ycoef}%
-                      - \AM@deltay*\real{\AM@ycoef}%
-                      + \AM@yoffset}
-        \def\AM@yposii{\AM@yposi\p@%
-                       + \ht\AM@pagebox%
-                       + \AM@deltay}
-}{}
-%    \end{macrocode}
-%    Strip units.
-%    \begin{macrocode}
-          \setlength{\@tempdima}{\AM@xposi}
-          \edef\AM@xposi{\strip@pt\@tempdima}
-          \setlength{\@tempdima}{\AM@yposi}
-          \edef\AM@yposi{\strip@pt\@tempdima}
-          \setlength{\@tempdima}{\AM@xposii}
-          \edef\AM@xposii{\strip@pt\@tempdima}
-          \setlength{\@tempdima}{\AM@yposii}
-          \edef\AM@yposii{\strip@pt\@tempdima}
-%    \end{macrocode}
-%    Arrange one PDF page per sheet. (\texttt{nup=1})
-%    \begin{macrocode}
-     \ifthenelse{\value{AM@nup} = 1}{%
-        \put(\AM@xposi,\AM@yposi){%
-             \AM@fbox{\usebox{\AM@pagebox}}}}{}
+      \ifthenelse{\value{AM@nup} = 1}
+        {\savebox{\AM@pagebox}{\AM@fbox{%
+           \includegraphics[page=\theAM@page, angle=\AM@lscape@rotii,
+                            angle=\AM@rotate, #1]{#2}}%
+           \stepcounter{AM@page}}}
+        {}
 %    \end{macrocode}
 %    Arrange two PDF pages per sheet. (\texttt{nup=2})
 %    \begin{macrocode}
       \ifthenelse{\value{AM@nup} = 2}{%
-        \ifthenelse{\boolean{AM@openright}\and%
-                    \value{AM@page}=\value{AM@firstpage}}{}{%
-          \put(\AM@xposi,\AM@yposi){\usebox{\AM@pagebox}}
-          \stepcounter{AM@page}}
-        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
-          \put(\AM@xposi,\AM@yposii){\AM@fbox{%
+        \def\AM@smallpage{%
+          \ifthenelse{\value{AM@page} < \value{AM@lastpage}}
+            {\AM@fbox{%
                \includegraphics[page=\theAM@page, angle=90,
-                                angle=-\AM@lscape@nupii,
-                                scale=.7071, #1]{#2}}}}{}
+                                angle=\AM@lscape@roti, angle=\AM@rotate,
+                                scale=.7071, #1]{#2}}}
+            {\phantom{\AM@fbox{%
+               \includegraphics[page=\theAM@firstpage, angle=90,
+                                angle=\AM@lscape@roti, angle=\AM@rotate,
+                                scale=.7071, #1]{#2}}}}}
+        \ifthenelse{\boolean{AM@openright}\and%
+                          \value{AM@page}=\value{AM@firstpage}}
+          {\savebox{\AM@pagebox}{%
+             \vbox{%
+               \hbox{%
+                 \AM@smallpage%
+                 \stepcounter{AM@page}%
+               }% hbox
+               \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
+               \hbox{%
+                 \phantom{\AM@smallpage}%
+               }% hbox
+           }}}% vbox, savebox, ifthen
+          {\savebox{\AM@pagebox}{%
+             \vbox{%
+               \hbox{%
+                 \ifthenelse{\boolean{AM@landscape}}
+                   {\AM@smallpage%
+                    \stepcounter{AM@page}}
+                   {\stepcounter{AM@page}%
+                    \AM@smallpage%
+                    \addtocounter{AM@page}{-1}}%
+               }% hbox
+               \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
+               \hbox{%
+                 \ifthenelse{\boolean{AM@landscape}}
+                   {\AM@smallpage%
+                    \stepcounter{AM@page}}
+                   {\AM@smallpage%
+                    \addtocounter{AM@page}{2}}%
+               }% hbox
+           }}}% vbox, savebox, ifthen
       }{}
 %    \end{macrocode}
 %    Arrange four PDF pages per sheet. (\texttt{nup=4})
 %    \begin{macrocode}
       \ifthenelse{\value{AM@nup} = 4}{%
-%    \end{macrocode}
-%    Landscape.
-%    \begin{macrocode}    
-      \def\tempa{normal}
-      \ifx\tempa\AM@lscape@mode
+        \def\AM@smallpage{%
+          \ifthenelse{\value{AM@page} < \value{AM@lastpage}}
+            {\AM@fbox{%
+               \includegraphics[page=\theAM@page,
+                               angle=\AM@lscape@rotii, angle=\AM@rotate,
+                               scale=.5, #1]{#2}}}
+            {\phantom{\AM@fbox{%
+               \includegraphics[page=\theAM@firstpage,
+                               angle=\AM@lscape@rotii, angle=\AM@rotate,
+                               scale=.5, #1]{#2}}}}}
         \ifthenelse{\boolean{AM@openright}\and%
-                    \value{AM@page}=\value{AM@firstpage}}{}{%
-          \put(\AM@xposi,\AM@yposi){\usebox{\AM@pagebox}}
-          \stepcounter{AM@page}}
-        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
-          \put(\AM@xposi,\AM@yposii){\AM@fbox{%
-               \includegraphics[page=\theAM@page,
-                                angle=\AM@lscape@nupiv,
-                                scale=.5, #1]{#2}}}
-          \stepcounter{AM@page}}{}
-        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
-          \put(\AM@xposii,\AM@yposi){\AM@fbox{%
-               \includegraphics[page=\theAM@page,
-                                angle=\AM@lscape@nupiv,
-                                scale=.5, #1]{#2}}}
-          \stepcounter{AM@page}}{}
-        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
-          \put(\AM@xposii,\AM@yposii){\AM@fbox{%
-               \includegraphics[page=\theAM@page,
-                                angle=\AM@lscape@nupiv,
-                                scale=.5, #1]{#2}}}}{}
-      \else
-%    \end{macrocode}
-%    Portrait.
-%    \begin{macrocode}
-        \ifthenelse{\boolean{AM@openright}\and%
-                    \value{AM@page}=\value{AM@firstpage}}{}{%
-          \put(\AM@xposi,\AM@yposii){\usebox{\AM@pagebox}}
-          \stepcounter{AM@page}}
-        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
-          \put(\AM@xposii,\AM@yposii){\AM@fbox{%
-               \includegraphics[page=\theAM@page,
-                                scale=.5, #1]{#2}}}
-          \stepcounter{AM@page}}{}
-        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
-          \put(\AM@xposi,\AM@yposi){\AM@fbox{%
-               \includegraphics[page=\theAM@page,
-                                scale=.5, #1]{#2}}}
-          \stepcounter{AM@page}}{}
-        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
-          \put(\AM@xposii,\AM@yposi){\AM@fbox{%
-               \includegraphics[page=\theAM@page,
-                                scale=.5, #1]{#2}}}}{}
-      \fi
+                    \value{AM@page}=\value{AM@firstpage}}
+          {\ifthenelse{\boolean{AM@landscape}}
+             {\savebox{\AM@pagebox}{%
+                \vbox{%
+                  \hbox{%
+                    \AM@smallpage%
+                    \addtocounter{AM@page}{2}%
+                    \hskip-\fboxrule\hskip\AM@deltax%
+                    \AM@smallpage%
+                    \addtocounter{AM@page}{-1}%
+                  }% hbox
+                  \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
+                  \hbox{%
+                    \phantom{\AM@smallpage}%
+                    \hskip-\fboxrule\hskip\AM@deltax%
+                    \AM@smallpage%
+                    \addtocounter{AM@page}{2}%
+                  }% hbox
+             }}}% vbox, savebox, ifthen
+             {\savebox{\AM@pagebox}{%
+                \vbox{%
+                  \hbox{%
+                    \phantom{\AM@smallpage}%
+                    \hskip-\fboxrule\hskip\AM@deltax%
+                    \AM@smallpage%
+                    \stepcounter{AM@page}%
+                  }% hbox
+                  \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
+                  \hbox{%
+                    \AM@smallpage%
+                    \stepcounter{AM@page}%
+                    \hskip-\fboxrule\hskip\AM@deltax%
+                    \AM@smallpage%
+                    \stepcounter{AM@page}%
+                  }% hbox
+             }}}}% vbox, savebox, ifthen, ifthen
+          {\ifthenelse{\boolean{AM@landscape}}
+             {\savebox{\AM@pagebox}{%
+                \vbox{%
+                  \hbox{%
+                    \stepcounter{AM@page}%
+                    \AM@smallpage%
+                    \addtocounter{AM@page}{2}%
+                    \hskip-\fboxrule\hskip\AM@deltax%
+                    \AM@smallpage%
+                    \addtocounter{AM@page}{-3}%
+                  }% hbox
+                  \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
+                  \hbox{%
+                    \AM@smallpage%
+                    \addtocounter{AM@page}{2}%
+                    \hskip-\fboxrule\hskip\AM@deltax%
+                    \AM@smallpage%
+                    \addtocounter{AM@page}{2}%
+                  }% hbox
+             }}}% vbox, savebox, ifthen
+             {\savebox{\AM@pagebox}{%
+                \vbox{%
+                  \hbox{%
+                    \AM@smallpage%
+                    \stepcounter{AM@page}%
+                    \hskip-\fboxrule\hskip\AM@deltax%
+                    \AM@smallpage%
+                    \stepcounter{AM@page}%
+                  }% hbox
+                  \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
+                  \hbox{%
+                    \AM@smallpage%
+                    \stepcounter{AM@page}%
+                    \hskip-\fboxrule\hskip\AM@deltax%
+                    \AM@smallpage%
+                    \stepcounter{AM@page}%
+                  }% hbox
+             }}}}% vbox, savebox, ifthen, ifthen
       }{}
+%    \end{macrocode}
+%    Page output.
+%    \begin{macrocode}
+        \def\AM@add{+}
+        \if@twoside\ifodd\value{page}\else\def\AM@add{-}\fi\fi
+        \def\AM@xpos{.5\paperwidth-.5\wd\AM@pagebox \AM@add\AM@xoffset}
+        \def\AM@ypos{.5\paperheight-.5\ht\AM@pagebox+%
+                     .5\dp\AM@pagebox+\AM@yoffset}
+        \setlength{\@tempdima}{\AM@xpos}
+        \edef\AM@xpos{\strip@pt\@tempdima}
+        \setlength{\@tempdima}{\AM@ypos}
+        \edef\AM@ypos{\strip@pt\@tempdima}
+        \put(\AM@xpos,\AM@ypos){\usebox{\AM@pagebox}}
     }% AddToShipoutPicture
 %    \end{macrocode}
-%    Turn pages to display them in landscape format.
+%    Some pages are displayed in landscape format,
+%    if the |turn|-Option is `true'.
+%    \begin{macrocode}
+    \ifthenelse{\boolean{AM@turn}}
+      {\ifthenelse{\boolean{AM@landscape}}
+         {\ifthenelse{\value{AM@nup}=1}{\pdfpageattr{/Rotate 90}}{}
+          \ifthenelse{\value{AM@nup}=4}{\pdfpageattr{/Rotate 90}}{}}
+         {\ifthenelse{\value{AM@nup}=2}{\pdfpageattr{/Rotate 90}}{}}
+      }{}
+%    \end{macrocode}
 %    \begin{macrocode}
     \AM@pagecommand
-    \ifthenelse{\equal{\AM@lscape@mode}{normal}%
-                \and\not\value{AM@nup}=2%
-                \and\equal{\AM@turn}{true}}%
-               {\pdfpageattr{/Rotate 90}}{}
-    \ifthenelse{\equal{\AM@lscape@mode}{none}%
-                \and\value{AM@nup}=2%
-                \and\equal{\AM@turn}{true}}%
-               {\pdfpageattr{/Rotate 90}}{}
     \hskip0pt
     \newpage
-    \stepcounter{AM@page}
     \ClearShipoutPicture
   }% whiledo
 %    \end{macrocode}
 %    Write back saved counters.
 %    \begin{macrocode}
-  \setcounter{AM@firstpage}{\value{saveAM@firstpage}}
-  \setcounter{AM@lastpage}{\value{saveAM@lastpage}}
-  \setcounter{AM@nup}{\value{saveAM@nup}}
+  \setcounter{AM@firstpage}{\saveAM@firstpage}
+  \setcounter{AM@lastpage}{\saveAM@lastpage}
+  \setcounter{AM@nup}{\saveAM@nup}
+%    \end{macrocode}
+%    \begin{macrocode}
   \endgroup% setkey
   \ClearShipoutPicture
 }% includepdf
@@ -591,43 +625,30 @@
 \define@key{Gin}{frame}[true]{\setboolean{AM@frame}{#1}}
 \define@key{Gin}{openright}[true]{\setboolean{AM@openright}{#1}}
 \define@key{Gin}{pagecommand}{\renewcommand{\AM@pagecommand}{#1}}
-\define@key{Gin}{pos}{\AM@parse@pos#1 \\}
-\define@key{Gin}{landscape}[normal]{%
-                 \def\tempa{#1}%
-                 \def\temp@norm{normal}\def\temp@updo{updown}
-                 \def\temp@none{none}\def\temp@fake{fake}%
-                 \ifx \tempa\temp@norm
-                      \def\AM@lscape@nupi{90}%
-                      \def\AM@lscape@nupii{90}%
-                      \def\AM@lscape@nupiv{90}%
-                      \def\AM@lscape@mode{#1}\fi
-                 \ifx \tempa\temp@updo
-                      \def\AM@lscape@nupi{270}%
-                      \def\AM@lscape@nupii{270}%
-                      \def\AM@lscape@nupiv{270}%
-                      \def\AM@lscape@mode{#1}\fi
-                 \ifx \tempa\temp@none
-                      \def\AM@lscape@nupi{0}%
-                      \def\AM@lscape@nupii{0}%
-                      \def\AM@lscape@nupiv{0}%
-                      \def\AM@lscape@mode{#1}\fi
-                 \ifx \tempa\temp@fake
-                      \def\AM@lscape@nupi{0}%
-                      \def\AM@lscape@nupii{180}%
-                      \def\AM@lscape@nupiv{0}%
-                      \def\AM@lscape@mode{normal}\fi}
-\define@key{Gin}{turn}[true]{\def\AM@turn{#1}}
+\define@key{Gin}{rotate}{\def\AM@rotate{#1}}
+\define@key{Gin}{landscape}[true]{\setboolean{AM@landscape}{#1}%
+                                  \def\AM@lscape@roti{-90}%
+                                  \def\AM@lscape@rotii{90}}
+\define@key{Gin}{turn}[true]{\setboolean{AM@turn}{#1}}
 %    \end{macrocode}
 %    Parsing option entries. These lines are derived
 %    from \texttt{graphicx.sty}.
 %    \begin{macrocode}
 \def\AM@parse@deltax#1 #2\\{\AMGin@defaultbp\AM@deltax{#1}}
+%    \end{macrocode}
+%    \begin{macrocode}
 \def\AM@parse@deltay#1 #2\\{\AMGin@defaultbp\AM@deltay{#1}}
+%    \end{macrocode}
+%    \begin{macrocode}
 \def\AM@parse@offset#1 #2 #3\\{%
   \AMGin@defaultbp\AM@xoffset{#1}%
   \AMGin@defaultbp\AM@yoffset{#2}}
+%    \end{macrocode}
+%    \begin{macrocode}
 \def\AMGin@defaultbp#1#2{%
   \afterassignment\AMGin@def@bp\dimen@#2bp\relax{#1}{#2}}
+%    \end{macrocode}
+%    \begin{macrocode}
 \def\AMGin@def@bp#1\relax#2#3{%
    \if!#1!%
      \def#2{#3bp}%
@@ -635,14 +656,26 @@
       \dimen@.99626\dimen@
       \edef#2{\strip@pt\dimen@ bp}%
     \fi}
-\def\AM@parse@pos#1#2#3\\{%
-  \if l#1\def\AM@xcoef{0}\fi
-  \if c#1\def\AM@xcoef{.5}\fi
-  \if r#1\def\AM@xcoef{1}\fi
-  \if b#2\def\AM@ycoef{0}\fi
-  \if c#2\def\AM@ycoef{.5}\fi
-  \if t#2\def\AM@ycoef{1}\fi}
 %    \end{macrocode}
+%
+%    \section{History}
+%
+%    \subsection*{2001/01/17 v0.1b}
+%    \begin{itemize}
+%    \item The first released version.
+%    \end{itemize}
+%
+%    \subsection*{2001/02/03 v0.1c}
+%    \begin{itemize}
+%    \item Pages are being centered automatically.
+%    \end{itemize}
+%
+%    \subsection*{2001/03/10 v0.1e}
+%    \begin{itemize}
+%    \item Support of landscape format.
+%    \item The |offset| option recognizes the class option |twoside|.
+%    \end{itemize}
+%
 %    \iffalse
 %</package>
 %    \fi
@@ -696,8 +729,11 @@ Arranging two logical pages on one physical sheet of paper.
 \includepdf[nup=2,
             firstpage=4, lastpage=7]{dummy}
 
-With the option \texttt{turn=false} you can prohibit
-the pages being shown in landscape mode.
+Use the option \texttt{turn=false}, if the pages
+should not be displayed in landscape orientation.
+(If the last two pages were not displayed in
+landscape orientation, you use a PDF viewer that
+does not support this option.)
 
 \begin{example}
 \includepdf[nup=2, turn=false,
@@ -730,27 +766,15 @@ on the right side. This can be done with the \texttt{openright} Option.
 
 \section{The \texttt{landscape} Mode}
 
-Use the option \texttt{landscape}, if the pages are set in landscape
-format \textit{and} if they are diplayed in the PDF viewer in landscape
-format.
+If the pages to include are in landscape format, use the
+option \texttt{landscape}.
 
 \begin{example}
 \includepdf[nup=2, landscape,
-           firstpage=11, lastpage=12]{dummy}
+           firstpage=1, lastpage=2]{dummy-l}
 \end{example}
 \includepdf[nup=2, landscape,
-           firstpage=11, lastpage=12]{dummy}
-
-If the pages are set in landscape format, but displayed in the
-viewer in portrait format, use the option 
-\texttt{landscape=fake}.
-
-\begin{example}
-\includepdf[nup=2, landscape=fake,
-            firstpage=15, lastpage=16]{dummy}
-\end{example}
-\includepdf[nup=2, landscape=fake,
-            firstpage=15, lastpage=16]{dummy}
+           firstpage=1, lastpage=2]{dummy-l}
 
 \section{Changing Layout}
 
@@ -789,22 +813,22 @@ $$210\,\mathrm{mm} \times 0.5 \times 0.8 = 84\,\mathrm{mm}$$
             scale=.8, deltax=8mm, deltay=11mm,
             frame]{dummy}
 
-
+\noindent
 The same with pages in landscape format.
 
 \begin{example}
-\includepdf[nup=4, firstpage=11, lastpage=14,
+\includepdf[nup=4, firstpage=1, lastpage=4,
             scale=.8, deltax=8mm, deltay=11mm,
-            frame, landscape]{dummy}
+            frame, landscape]{dummy-l}
 \end{example}
-\includepdf[nup=4, firstpage=11, lastpage=14,
+\includepdf[nup=4, firstpage=1, lastpage=4,
             scale=.8, deltax=8mm, deltay=11mm,
-            frame, landscape]{dummy}
+            frame, landscape]{dummy-l}
 
 
 \noindent
 The output is centered by default as you could see in
-the last example. With the \texttt{offset} option it is
+the last examples. With the \texttt{offset} option it is
 possible to displace the output.
 
 \begin{example}

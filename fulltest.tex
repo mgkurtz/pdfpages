@@ -1,0 +1,54 @@
+\documentclass[a4paper]{article}
+\usepackage{hyperref}
+%\pdfoutput=0
+
+%\usepackage{graphicx}
+\usepackage{pdfpages}
+\listfiles
+
+\usepackage{fancyhdr}
+\chead{Kopfzeile}
+\cfoot{Fu\ss zeile}
+\setlength{\footrulewidth}{.4pt}
+\pagestyle{fancy}
+
+
+\begin{document}
+\Huge
+
+\includepdf[nup=4, lastpage=4, frame]{dummy}
+
+
+\iffalse
+Zur\"uckschalten auf Standardwere.\\
+Jede zweite Seite ist wieder in Originaldarstellung.
+\includepdf{dummy}
+\includepdf[lastpage=5, firstpage=5, offset=10mm 10mm, frame, scale=.6]{dummy}
+\includepdf{dummy}
+\includepdf[nup=2, lastpage=6, firstpage=5, offset=10mm 10mm, frame, scale=.6]{dummy}
+\includepdf{dummy}
+\includepdf[nup=4, lastpage=8, firstpage=5, offset=10mm 10mm, frame, scale=.6]{dummy}
+\includepdf{dummy}
+\includepdf[trim=0 40mm 0 40mm, clip, pagecommand={}]{dummy}
+\includepdf{dummy}
+\includepdf[landscape]{dummy}
+\includepdf{dummy}
+\fi
+
+
+\iffalse
+Teste globale Optionen:\\
+1. und 3.\,Seite mit globalen Optionen (sind identisch),
+2.\,Seite mit lokalen (unterschiedlich).
+\includepdfset{nup=4, firstpage=4, lastpage=6, openright,
+               deltax=5mm, deltay=10mm, offset=20mm 20mm,
+               pagecommand={\Large und hier ein kleiner Test ...}, frame, scale=.4}
+
+\includepdf{dummy}
+\includepdf[nup=2, firstpage=3, lastpage=4, openright=false,
+            deltax=0mm, deltay=0mm, offset=0mm 0mm,
+            pagecommand={\thispagestyle{empty}}, frame=false]{dummy}
+\includepdf{dummy}
+\fi
+
+\end{document}
