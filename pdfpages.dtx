@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2i",
-%    date           = "2002-07-24",
+%    version        = "0.2j",
+%    date           = "2002-08-15",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -42,14 +42,14 @@
 %</dtx>
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdfpages}[2002/07/24 v0.2i Insert pages of external PDF documents (AM)]
-\def\AM@version{0.2i}
+\ProvidesPackage{pdfpages}[2002/08/15 v0.2j Insert pages of external PDF documents (AM)]
+\def\AM@version{0.2j}
 %</package>
 %    \fi
-%\ProvidesFile{pdfpages.dtx}[2002/07/24 v0.2i Insert pages of external PDF documents (AM)]
+%\ProvidesFile{pdfpages.dtx}[2002/08/15 v0.2j Insert pages of external PDF documents (AM)]
 %
 %
-%    \CheckSum{2453}
+%    \CheckSum{2458}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -231,9 +231,14 @@
 %                     separated by space. See Chapter~\ref{sec:layout} and
 %                     Figure~\ref{fig:layout}. \df{delta=0 0}.
 %        \item[offset] Displaces the origin of the inserted pages.
-%                      The argument should be two dimensions, separated
-%                      by space. See Chapter~\ref{sec:layout} and 
-%                      Figure~\ref{fig:layout}. \df{offset=0 0}
+%                     The argument should be two dimensions, separated
+%                     by space. In `oneside' documents positive values
+%                     shift the pages to the \emph{right} and to the
+%                     \emph{top} margin, respectively, whereas in `twoside'
+%                     documents positive values shift the pages to the
+%                     \emph{outer} and to the \emph{top} margin,
+%                     respectively. See Chapter~\ref{sec:layout} and 
+%                     Figure~\ref{fig:layout}. \df{offset=0 0}
 %        \item[frame] Puts a frame around each logical page. Either `true'
 %                     or `false' (or no value, which is equivalent to `true').
 %                     \df{frame=false}
@@ -641,6 +646,10 @@
 %    |offset=10mm 14mm| means that the logical pages are displaced
 %    by 10\,mm in horizontal direction and by 14\,mm in vertical
 %    direction.
+%    In `oneside' documents positive values shift the pages to
+%    the \emph{right} and to the \emph{top} margin, respectively,
+%    whereas in `twoside' documents positive values shift the pages
+%    to the \emph{outer} and to the \emph{top} margin, respectively.
 %    
 %    By default logical pages are being arranged side by side.
 %    To put some space between them, use the |delta| option,
@@ -2023,9 +2032,9 @@
     \def\thepart{}}%
   \AM@addtotoc@hook
   \edef\AM@temp{{\AM@toc@section}{\AM@toc@level}%
-           {\z@}{\z@}{\z@}{}[\AM@trim@leadingspace\AM@toc@heading]{}}%
+           {\z@}{\z@}{\z@}{}[\the\AM@toc@title]{}}%
   \edef\AM@tempi{\noexpand\csname @\AM@toc@section\noexpand\endcsname%
-                 [\AM@trim@leadingspace\AM@toc@heading]{}}%
+                 [\the\AM@toc@title]{}}%
   \@ifundefined{@\AM@toc@section}
     {\expandafter\@sect\AM@temp
      \hskip\z@\par\vskip-\parskip\vskip-\baselineskip\hskip\z@}
@@ -2044,12 +2053,13 @@
 }
 %    \end{macrocode}
 %    \begin{macrocode}
+\newtoks\AM@toc@title
 \newcommand{\AM@parse@toclisti}{}
 \def\AM@parse@toclisti#1,#2,#3,#4,#5,#6\END{%
   \def\AM@toc@page{\AM@trim@space{#1}}%
   \def\AM@toc@section{\AM@trim@space{#2}}%
   \def\AM@toc@level{\AM@trim@space{#3}}%
-  \def\AM@toc@heading{#4}%
+  \AM@toc@title\expandafter{\ifdim\z@=0pt#4}\fi
   \def\AM@toc@label{\AM@trim@space{#5}}%
   \AM@checkinteger{\AM@toc@page}%
   \ifAM@integer\else
