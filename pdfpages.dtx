@@ -39,7 +39,7 @@
 %</dtx>
 %    \fi
 %
-%    \CheckSum{381}
+%    \CheckSum{389}
 %%
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -59,9 +59,9 @@
 %%
 %    \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{pdfpages}[2001/01/12 v0.1a Include pages of external PDF documents (AM)]
+%<package>\ProvidesPackage{pdfpages}[2001/01/17 v0.1b Include pages of external PDF documents (AM)]
 % \fi
-%        \ProvidesFile{pdfpages.dtx}[2001/01/12 v0.1a Include pages of external PDF documents (AM)]
+%        \ProvidesFile{pdfpages.dtx}[2001/01/17 v0.1b Include pages of external PDF documents (AM)]
 % \iffalse
 %
 %<*driver>
@@ -158,7 +158,7 @@
 %      \item[firstpage] Page number of the first page to include.
 %                       \df{firstpage=1}
 %      \item[lastpage] Page number of the last page to include.\\
-%                      \df{lastpage=firstpage+1}
+%                      \df{lastpage=firstpage}
 %      \item[nup] Put multiple logical pages on one physical sheet of paper.
 %                 Possible values are: 1, 2 and 4. \df{nup=1}
 %      \item[openright] Put first page on the right side. (Just in combination
@@ -209,7 +209,8 @@
 %    
 %    
 %    \section{Acknowledgment}
-%    I would like to thank \textsc{Rolf Niepraschk} for his useful
+%    I would like to thank \textsc{Rolf Niepraschk} and
+%    \textsc{Heiko Oberdiek} for their useful
 %    hints and suggestions.
 %
 %
@@ -230,6 +231,7 @@
 %    \texttt{pdfoutput} (\verb|\let\pdfoutput\@undefined|),
 %    if the document contains the line \verb|\pdfoutput=0|.
 %    \begin{macrocode}
+\begingroup
 \@ifundefined{pdfoutput}
     {\PackageError{pdfpages}
             {You're either not using pdfLaTeX\MessageBreak
@@ -238,6 +240,7 @@
              and PDF output}
             {Use `pdflatex' instead of `latex'\MessageBreak
              and set output to PDF (use: \pdfoutput = 1)!}
+     \expandafter\endinput
     }{}
 %    \end{macrocode}
 %    Check for producing PDF output.
@@ -247,15 +250,16 @@
             {You don't produce PDF output, which\MessageBreak
              is required for the `pdfpages' package}
             {Set output to PDF. (use: \pdfoutput = 1)}
+    \expandafter\endinput
 \fi
+\endgroup
 %    \end{macrocode}
 %    Check for \texttt{pdftex.def} version: This is done with
-%    the following macros, which are derived from
-%    \verb|\@pkgextension| and \verb|\@ifpackagelater|
+%    the following macro, which is derived from
+%    \verb|\@ifpackagelater|
 %    from the standard \LaTeX{} kernel.
 %    \begin{macrocode}
-\def\@driverextension{def}
-\def\@ifdriverlater{\@ifl@ter\@driverextension}
+\def\AM@ifdriverlater{\@ifl@ter{def}}
 %    \end{macrocode}
 %    Check for \texttt{pdftex.def} version \texttt{2000/05/12 v0.02u} or higher:
 %    \begin{list}{$\ast$}{\versionlist}
@@ -263,13 +267,13 @@
 %    \end{list}
 %    \begin{macrocode}
 \AtBeginDocument{%
-  \@ifdriverlater{pdftex}{2000/05/12}{}{%
+  \AM@ifdriverlater{pdftex}{2000/05/12}{}{%
       \PackageError{pdfpages}{%
            You have an old `pdftex.def'.\MessageBreak%
            There is no multipage support\MessageBreak%
            in `pdftex.def' < 0.02u.\MessageBreak%
-           Update your `pdftex.def'}%
-           {Update your `pdftex.def'!}}%
+           Update your `pdftex.def'}
+           {Update your `pdftex.def'!}}
 %    \end{macrocode}
 %    Check for \texttt{pdftex.def} version \texttt{2000/09/14 v0.03d} or higher:
 %    \begin{list}{$\ast$}{\versionlist}
@@ -277,13 +281,13 @@
 %    \item Clip support added for viewport and trim (HO).
 %    \end{list}
 %    \begin{macrocode}
-  \@ifdriverlater{pdftex}{2000/09/14}{}{%
+  \AM@ifdriverlater{pdftex}{2000/09/14}{}{%
       \PackageWarning{pdfpages}{%
            You have an old `pdftex.def'.\MessageBreak%
            There might be problems with\MessageBreak%
            the `trim' and `clip' options.\MessageBreak%
-           Update your `pdftex.def'!\MessageBreak}}%
-}%
+           Update your `pdftex.def'!\MessageBreak}}
+}
 %    \end{macrocode}
 %    \subsection{Required Packages}
 %    \begin{macrocode}
@@ -307,6 +311,7 @@
 \newboolean{AM@openright}\setboolean{AM@openright}{false}
 \newboolean{AM@frame}\setboolean{AM@frame}{false}
 \newcounter{AM@page}\setcounter{AM@page}{1}
+\renewcommand{\theAM@page}{\the\value{AM@page}}
 %    \end{macrocode}
 %    \subsection{Commands}
 %    \begin{macrocode}
@@ -322,128 +327,128 @@
 %    \macro{\includepdfset}
 %    This command sets global options for \verb|\includepdf|.
 %    \begin{macrocode}
-\newcommand{\includepdfset}[1]{\setkeys{Gin}{#1}}
+\newcommand*{\includepdfset}[1]{\setkeys{Gin}{#1}}
 %    \end{macrocode}
 %    \macro{\includepdf}
 %    This command includes one or more pages of an external 
 %    PDF document.
 %    \begin{macrocode}
-\newcommand{\includepdf}[2][]{{%setkey
+\newcommand*{\includepdf}[2][]{%
+  \begingroup% setkey
 %    \end{macrocode}
 %    Save counters.
 %    \begin{macrocode}
-  \setcounter{saveAM@firstpage}{\value{AM@firstpage}}%
-  \setcounter{saveAM@lastpage}{\value{AM@lastpage}}%
-  \setcounter{saveAM@nup}{\value{AM@nup}}%
+  \setcounter{saveAM@firstpage}{\value{AM@firstpage}}
+  \setcounter{saveAM@lastpage}{\value{AM@lastpage}}
+  \setcounter{saveAM@nup}{\value{AM@nup}}
 %    \end{macrocode}
 %    Read in optional parameters.
 %    \begin{macrocode}
-  \setkeys{Gin}{draft=\AM@draft, #1}%
+  \setkeys{Gin}{draft=\AM@draft, #1}
   \ifthenelse{\boolean{AM@frame}}
-         {\let\AM@fbox\fbox}{\let\AM@fbox\relax}%
+         {\let\AM@fbox\fbox}{\let\AM@fbox\relax}
 %    \end{macrocode}
 %    Arrange logical PDF pages on one physical sheet of paper.
 %    \begin{macrocode}
-  \setcounter{AM@page}{\value{AM@firstpage}}%
+  \setcounter{AM@page}{\value{AM@firstpage}}
   \whiledo{\value{AM@page} < \value{AM@lastpage}}{%
-    \newpage%
+    \newpage
     \AddToShipoutPicture{%
-      \setlength{\fboxsep}{0pt}%
+      \setlength{\unitlength}{1bp}
+      \setlength{\fboxsep}{0pt}
 %    \end{macrocode}
 %    One PDF page per sheet. (\texttt{nup=1})
 %    \begin{macrocode}
       \ifthenelse{\value{AM@nup} = 1}{%
         \savebox{\AM@pdfpagebox}{%
-                 \includegraphics[page=\arabic{AM@page}, #1]{#2}}%
+                 \includegraphics[page=\theAM@page, #1]{#2}}
         \put(\AM@xoffset,\AM@yoffset){%
-             \AM@fbox{\usebox{\AM@pdfpagebox}}}%
-      }{}%
+             \AM@fbox{\usebox{\AM@pdfpagebox}}}
+      }{}
 %    \end{macrocode}
 %    Two PDF pages per sheet. (\texttt{nup=2})
 %    \begin{macrocode}
       \ifthenelse{\value{AM@nup} = 2}{%
         \savebox{\AM@pdfpagebox}{\AM@fbox{%
-                 \includegraphics[page=\arabic{AM@page},
-                                  angle=90, scale=.7071, #1]{#2}}}%
-        \let\AM@xposi\AM@xoffset%
-        \let\AM@yposi\AM@yoffset%
-        \let\AM@yposii\AM@yoffset%
+                 \includegraphics[page=\theAM@page,
+                                  angle=90, scale=.7071, #1]{#2}}}
+        \let\AM@xposi\AM@xoffset
+        \let\AM@yposi\AM@yoffset
+        \let\AM@yposii\AM@yoffset
           \dimen@\AM@yposii\p@\advance\dimen@\ht\AM@pdfpagebox%
                              \edef\AM@yposii{\strip@pt\dimen@}%
           \dimen@\AM@yposii\p@\advance\dimen@\AM@deltay\p@%
                              \edef\AM@yposii{\strip@pt\dimen@}%
         \ifthenelse{\boolean{AM@openright}\and%
                     \value{AM@page}=\value{AM@firstpage}}{}{%
-          \put(\AM@xposi,\AM@yposi){\usebox{\AM@pdfpagebox}}%
-          \stepcounter{AM@page}}%
+          \put(\AM@xposi,\AM@yposi){\usebox{\AM@pdfpagebox}}
+          \stepcounter{AM@page}}
         \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
           \put(\AM@xposi,\AM@yposii){\AM@fbox{%
-               \includegraphics[page=\arabic{AM@page},
-                                angle=90, scale=.7071, #1]{#2}}}}{}%
-      }{}%
+               \includegraphics[page=\theAM@page,
+                                angle=90, scale=.7071, #1]{#2}}}}{}
+      }{}
 %    \end{macrocode}
 %    Four PDF pages per sheet. (\texttt{nup=4})
 %    \begin{macrocode}
       \ifthenelse{\value{AM@nup} = 4}{%
         \savebox{\AM@pdfpagebox}{\AM@fbox{%
-                 \includegraphics[page=\arabic{AM@page},
-                                  scale=.5, #1]{#2}}}%
-        \let\AM@xposi\AM@xoffset%
-        \let\AM@xposii\AM@xoffset%
+                 \includegraphics[page=\theAM@page,
+                                  scale=.5, #1]{#2}}}
+        \let\AM@xposi\AM@xoffset
+        \let\AM@xposii\AM@xoffset
           \dimen@\AM@xposii\p@\advance\dimen@\wd\AM@pdfpagebox%
                              \edef\AM@xposii{\strip@pt\dimen@}%
           \dimen@\AM@xposii\p@\advance\dimen@\AM@deltax\p@%
                              \edef\AM@xposii{\strip@pt\dimen@}%
           \dimen@\AM@xposii\p@\advance\dimen@ -\fboxrule%
                              \edef\AM@xposii{\strip@pt\dimen@}%
-        \let\AM@yposi\AM@yoffset%
-        \let\AM@yposii\AM@yoffset%
+        \let\AM@yposi\AM@yoffset
+        \let\AM@yposii\AM@yoffset
           \dimen@\AM@yposii\p@\advance\dimen@\ht\AM@pdfpagebox%
                              \edef\AM@yposii{\strip@pt\dimen@}%
           \dimen@\AM@yposii\p@\advance\dimen@\AM@deltay\p@%
                              \edef\AM@yposii{\strip@pt\dimen@}%
         \ifthenelse{\boolean{AM@openright}\and%
                     \value{AM@page}=\value{AM@firstpage}}{}{%
-          \put(\AM@xposi,\AM@yposii){\usebox{\AM@pdfpagebox}}%
-          \stepcounter{AM@page}}%
+          \put(\AM@xposi,\AM@yposii){\usebox{\AM@pdfpagebox}}
+          \stepcounter{AM@page}}
         \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
           \put(\AM@xposii,\AM@yposii){\AM@fbox{%
-               \includegraphics[page=\arabic{AM@page},
-                                scale=.5, #1]{#2}}}%
-          \stepcounter{AM@page}}{}%
+               \includegraphics[page=\theAM@page,
+                                scale=.5, #1]{#2}}}
+          \stepcounter{AM@page}}{}
         \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
           \put(\AM@xposi,\AM@yposi){\AM@fbox{%
-               \includegraphics[page=\arabic{AM@page},
+               \includegraphics[page=\theAM@page,
                                 scale=.5, #1]{#2}}}
-          \stepcounter{AM@page}}{}%
+          \stepcounter{AM@page}}{}
         \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
           \put(\AM@xposii,\AM@yposi){\AM@fbox{%
-               \includegraphics[page=\arabic{AM@page},
-                                scale=.5, #1]{#2}}}}{}%
-      }{}%
-    }%AddToShipoutPicture
-    \AM@pagecommand%
-    \hskip0pt%
-    \newpage%
-    \stepcounter{AM@page}%
-    \ClearShipoutPicture%
-  }%whiledo
+               \includegraphics[page=\theAM@page,
+                                scale=.5, #1]{#2}}}}{}
+      }{}
+    }% AddToShipoutPicture
+    \AM@pagecommand
+    \hskip0pt
+    \newpage
+    \stepcounter{AM@page}
+    \ClearShipoutPicture
+  }% whiledo
 %    \end{macrocode}
 %    Write back saved counters.
 %    \begin{macrocode}
-  \setcounter{AM@firstpage}{\value{saveAM@firstpage}}%
-  \setcounter{AM@lastpage}{\value{saveAM@lastpage}}%
-  \setcounter{AM@nup}{\value{saveAM@nup}}%
-  }%setkey
-  \ClearShipoutPicture%
-}%includepdf
+  \setcounter{AM@firstpage}{\value{saveAM@firstpage}}
+  \setcounter{AM@lastpage}{\value{saveAM@lastpage}}
+  \setcounter{AM@nup}{\value{saveAM@nup}}
+  \endgroup% setkey
+  \ClearShipoutPicture
+}% includepdf
 %    \end{macrocode}
 %    \subsection{Options of \texttt{\protect\bslash includepdf}}
 %    \begin{macrocode}
 \define@key{Gin}{firstpage}{%
-                   \setcounter{AM@firstpage}{#1}%
-                   \setcounter{AM@lastpage}{\value{AM@firstpage}}%
-                   \stepcounter{AM@lastpage}}
+                   \setcounter{AM@firstpage}{#1}}
 \define@key{Gin}{lastpage}{%
                    \setcounter{AM@lastpage}{#1}%
                    \stepcounter{AM@lastpage}}
@@ -451,8 +456,8 @@
 \define@key{Gin}{nup}{\setcounter{AM@nup}{#1}}
 \define@key{Gin}{deltax}{\AM@parse@deltax#1 \\}
 \define@key{Gin}{deltay}{\AM@parse@deltay#1 \\}
-\define@key{Gin}{frame}[true]{\setboolean{AM@frame}{#1}}%
-\define@key{Gin}{openright}[true]{\setboolean{AM@openright}{#1}}%
+\define@key{Gin}{frame}[true]{\setboolean{AM@frame}{#1}}
+\define@key{Gin}{openright}[true]{\setboolean{AM@openright}{#1}}
 \define@key{Gin}{pagecommand}{\renewcommand{\AM@pagecommand}{#1}}
 %    \end{macrocode}
 %    Parsing option entries. These lines are derived
