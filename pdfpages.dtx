@@ -1,7 +1,7 @@
 %
 %    \iffalse
 %
-% pdfpages.dtx Copyright (C) 2001 2002 Andreas MATTHIAS
+% pdfpages.dtx Copyright (C) 2001-2003 Andreas MATTHIAS
 %
 %<*package>
 %% This program may be distributed and/or modified under the
@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2l",
-%    date           = "2002-12-14",
+%    version        = "0.2m",
+%    date           = "2003-06-02",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -47,9 +47,9 @@
 %    \fi
 %
 %    \ProvidesFile{pdfpages.dtx}
-   [2002/12/14 v0.2l Insert pages of external PDF documents (AM)]
+   [2003/06/02 v0.2m Insert pages of external PDF documents (AM)]
 %    \iffalse
-%<package>\def\AM@version{0.2l}
+%<package>\def\AM@version{0.2m}
 %
 %
 %</!example1&!example2&!example3>
@@ -57,7 +57,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{2642}
+%    \CheckSum{3037}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -206,13 +206,17 @@
 %                     and 15.
 %                     \par
 %                     Page ranges are specified by the following syntax:
-%                     \meta{m}|-|\meta{n}. This selects all pages between
-%                     \meta{m} and \meta{n}. Omitting \meta{m} defaults
-%                     to the first page, omitting \meta{n} defaults to
-%                     the last page of the document.
+%                     \meta{m}|-|\meta{n}. This selects all pages from
+%                     \meta{m} to \meta{n}. Omitting \meta{m} defaults
+%                     to the first page; omitting \meta{n} defaults to
+%                     the last page of the document. Another way to 
+%                     select the last page of the document, is to use the
+%                     keyword |last|. (This is only permitted in a
+%                     page range.)
 %                     \par
 %                     E.g.: |pages=-| will insert \emph{all} pages
-%                     of the document.
+%                     of the document, and |pages=last-1| will insert
+%                     all pages in revers order.
 %                     \par\df{pages=1}
 %        \item[nup]   Puts multiple logical pages onto each sheet
 %                     of paper. The syntax of this option is: 
@@ -226,7 +230,7 @@
 %                     \emph{not} affect the logical pages, which
 %                     will \emph{not} be rotated by the `landscape'
 %                     option. To rotate the logical pages use the
-%                     `angle' option (e.g. `angle=90').
+%                     `angle' option (e.g.~`angle=90').
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{landscape=false}
 %      \end{description}
@@ -306,7 +310,7 @@
 %                     This can be suppressed with the 
 %                     \texttt{noautoscale} option.
 %                     In combination with the \texttt{scale} option
-%                     (from graphicx) you has full control over
+%                     (from graphicx) the user has full control over
 %                     the scaling process.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{noautoscale=false}
@@ -329,6 +333,33 @@
 %                     \hspace*{6em} |landscape]{portrait-doc.pdf}|\par
 %                     An example for documents in landscape orientation:\par
 %                     |\includepdf[pages=-, signature=8]{landscape-doc.pdf}|
+%       \item[picturecommand] Declares picture commands which are executed
+%                      on every page within a picture environment with the
+%                      base point at the lower left corner of the page.
+%                      (The base point does not change if the page is
+%                      rotated, e.g.~by the |landscape| option.)
+%                      \df{picturecommand=\{\}}
+%       \item[picturecommand*] Like |picturecommand|, but with the restriction
+%                      that |picturecommand*| executes its picture commands
+%                      only on the very first page.
+%                      \df{picturecommand*=\{\}}
+%        \item[pagetemplate] By default the first inserted page will be
+%                     used as a template. This means that all further
+%                     pages are scaled to match within the contour of this
+%                     first page. This option allows to declare another
+%                     page to be used as a template; which is only useful
+%                     if a \PDF\ document contains different page sizes
+%                     or page orientations. The argument should
+%                     be a page number.
+%                     \df{pagetemplate=\meta{first inserted page}}
+%        \item[rotateoversize] This option allows to rotate oversized
+%                     pages. E.g.\ pages in landscape orientation are
+%                     oversized relatively to their portrait counterpart,
+%                     because they do not match within the contour of
+%                     a portrait page without rotating them. By default
+%                     oversized pages are scale and are \emph{not} rotated.
+%                     Either `true' or `false' (or no value, which
+%                     is equivalent to `true'). \df{rotateoversize=false}
 %      \end{description}
 %
 %
@@ -339,14 +370,14 @@
 %        \item[link] Inserted pages become a target
 %                    of a hyperlink. The name of the link is 
 %                    `\texttt{\meta{filename}.\meta{page number}}'.
-%                    The file extension of \meta{filename} 
+%                    The filename extension of \meta{filename} 
 %                    \emph{must not} be stripped.
 %                    Either `true' or `false' (or no value, which
 %                    is equivalent to `true').
 %                    \df{link=false}
 %        \item[linkname] Changes the default linkname created by the option 
 %                        \texttt{link}. Instead of \meta{filename} the
-%                        value of this option is used. E.g. \texttt{
+%                        value of this option is used. E.g.~\texttt{
 %                        linkname=mylink} produces the linknames
 %                        `\texttt{mylink.\meta{page number}}'.
 %        \item[thread] Combines inserted pages to an article thread.
@@ -354,13 +385,13 @@
 %                     is equivalent to `true'). \df{thread=false}
 %        \item[threadname] Several threads are distinguished by their 
 %                          threadnames. By default the threadname is equal
-%                          to the filename, but it
+%                          to the filename (plus filename extension), but it
 %                          can be changed with this option. This is useful if 
 %                          the same file is inserted twice or more times and
 %                          should not be combined to one single thread.
 %                          Or the other way round if pages from different
 %                          documents should be combined to one single thread.
-%                          \df{threadname=\meta{filename}}
+%                          \df{threadname=\meta{filename.ext}}
 %        \item[linktodoc] Lets the inserted pages be hyperlinks to the
 %                         document from which they were extracted.
 %                         Note that the \PDF-Viewer will not find the
@@ -395,7 +426,7 @@
 %        \item[linkfilename] Sets the name (with path) of the file to be
 %                            linked to by the option \texttt{linktodoc}.
 %                            You will hardly ever need this option.
-%                            \df{linkfilename=\meta{filename}}
+%                            \df{linkfilename=\meta{filename.ext}}
 %      \end{description}
 %
 %
@@ -453,7 +484,7 @@
 %
 %        \item[addtolist] Adds an entry to the list of figures, the
 %                      list of tables, or any other list
-%                      (e.g. from \emph{float.sty}). This option
+%                      (e.g.~from \emph{float.sty}). This option
 %                      requires four arguments, separated by commas:
 %
 %                      \texttt{addtolist=\{\meta{page number},^^A
@@ -529,7 +560,7 @@
 %  pdflatex '\PassOptionsToPackage{final}{pdfpages} \input{slides}'
 %\end{verbatim}
 %\endgroup
-%                      instead of exchanging |draft| and |final|.
+%                      instead of exchanging |draft| for |final|.
 %
 %                      Either `true' or `false' (or no value, which
 %                      is equivalent to `true'). \df{survey=false}
@@ -548,7 +579,7 @@
 %  \externaldocument{slides}
 %  \usepackage[enable-survey]{pdfpages}
 %  \begin{document}
-%    \includepdf[survey-nolink]{slides.pdf}
+%    \includepdf[survey-nolink, nup=1x2]{slides.pdf}
 %  \end{document}
 %\end{verbatim}
 %
@@ -557,7 +588,7 @@
 %
 %
 %        \item[xr-prefix] Adjusts a prefix to the labels |\includepdf| is
-%                      is looking for. The name of the prefix must be the
+%                      looking for. The name of the prefix must be the
 %                      same as the name of the optional argument of
 %                      |\externaldocument|.
 %                      \df{xr-prefix=\{\}}
@@ -703,7 +734,7 @@
 %    
 %    The inserted logical pages are being centered on the
 %    sheet of paper by default. To displace them use the |offset|
-%     option, which argument should be two dimensions. E.g.\
+%     option, which argument should be two dimensions. E.g.~
 %    |offset=10mm 14mm| means that the logical pages are displaced
 %    by 10\,mm in horizontal direction and by 14\,mm in vertical
 %    direction.
@@ -798,7 +829,7 @@
 %      http://www.tug.org/applications/pdftex/pdftex-s.pdf
 %    \bibitem{PDFRef} \textit{PDF Reference}, Third Edition, Version 1.4,
 %      Adobe Systems Incorporated,\\
-%      http://partners.adobe.com/asn/developer/technotes/acrobatpdf.html
+%      http://partners.adobe.com/asn/tech/pdf/specifications.jsp
 %    \end{thebibliography}
 %    }
 %
@@ -918,6 +949,9 @@
 \newif\ifAM@signature\AM@signaturefalse
 \newif\ifAM@sigrotate\AM@sigrotatefalse
 \newif\ifAM@newwindow\AM@newwindowtrue
+\newif\ifAM@rescale\AM@rescalefalse
+\newif\ifAM@rotateoversize\AM@rotateoversizefalse
+\newif\ifAM@firstpage\AM@firstpagefalse
 %    \end{macrocode}
 %    \subsection{Commands}
 %    Declare macro names and define default values.
@@ -933,6 +967,7 @@
 \newcommand*{\AM@signature}{}
 \newcommand*{\AM@ARBug@hook}{}
 \newcommand*{\AM@xrprefix}{}
+\newcommand*{\AM@picturecommand}{}\newcommand*{\AM@picturecommandstar}{}
 %    \end{macrocode}
 %    \macro{\AM@setlscape}
 %    Check, if `pdflscape.sty' is loaded.
@@ -976,6 +1011,36 @@
   \fi
 }
 %    \end{macrocode}
+%    \macro{\AM@findfile}
+%    Find file and set |\AM@currentdocname|.
+%    \begin{macrocode}
+\newcommand*{\AM@findfile}[1]{%
+  \let\AM@currentdocname\relax
+  \IfFileExists{#1.pdf}{\edef\AM@currentdocname{#1.pdf}}{%
+     \IfFileExists{#1}{\edef\AM@currentdocname{#1}}{%
+       \ifx\Ginput@path\@undefined\else
+         \expandafter\@tfor\expandafter\AM@dir\expandafter
+                   :\expandafter=\Ginput@path\do{%
+           \IfFileExists{\AM@dir#1.pdf}{%
+             \ifx\AM@currentdocname\relax
+               \edef\AM@currentdocname{\AM@dir#1.pdf}%
+             \fi
+           }{%
+             \IfFileExists{\AM@dir#1}{%
+               \ifx\AM@currentdocname\relax
+                 \edef\AM@currentdocname{\AM@dir#1}%
+               \fi
+             }%
+           }%
+         }% \@tfor
+       \fi
+     }%
+   }%
+  \ifx\AM@currentdocname\relax
+    \PackageError{pdfpages}{Cannot find file `#1'}{}%
+  \fi
+}
+%    \end{macrocode}
 %    \macro{\includepdfset}
 %    This command sets global options for |\includepdf|
 %    and |\includepdfmerge|.
@@ -992,20 +1057,22 @@
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup
-  \c@totalnumber=0%
+  \c@totalnumber=0
+  \let\AM@threadname\relax
   \AM@split@options{pdfpages}{#1}%
   \edef\AM@temp{{pdfpages}{\the\@temptokena}}%
   \expandafter\setkeys\AM@temp
-  \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}
-    {\def\AM@currentdocname{}%
-     \renewcommand\includegraphics[2][]{%
-        Survey/Draft}%
-    }
-    {\IfFileExists{#2}{\edef\AM@currentdocname{#2}}
-       {\IfFileExists{#2.pdf}{\edef\AM@currentdocname{#2.pdf}}
-          {\PackageError{pdfpages}{Cannot find file `#2'}{}}}%
-     \def\AM@threadname{\AM@currentdocname}%
-    }
+%    \end{macrocode}
+%    \begin{macrocode}
+  \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}{%
+    \let\AM@currentdocname\relax
+    \renewcommand\includegraphics[2][]{Survey in draft-mode}%
+  }{%
+    \AM@findfile{#2}%
+    \if\AM@threadname\relax
+      \def\AM@threadname{\AM@currentdocname}%
+    \fi
+  }%
 %    \end{macrocode}
 %    Gather all pdfpages' labels form the |aux| file and store
 %    the page numbers in |\AM@pagestemp|. If there are no labels
@@ -1019,18 +1086,18 @@
          {\let\foo\relax}
          {\expandafter\ifx\expandafter\\\AM@pagestemp\\
              \edef\AM@pagestemp{%
-                  \AM@pageref{\AM@xrprefix pdfpages@page\the\@tempcnta}}
+                \AM@pageref{\AM@xrprefix pdfpages@page\the\@tempcnta}}%
           \else
             \edef\AM@pagestemp{\AM@pagestemp,%
-                  \AM@pageref{\AM@xrprefix pdfpages@page\the\@tempcnta}}
+               \AM@pageref{\AM@xrprefix pdfpages@page\the\@tempcnta}}%
           \fi
           \advance\@tempcnta 1\relax
-         }
+         }%
       \foo
-    }
+    }%
     \foo
     \expandafter\ifx\expandafter\\\AM@pagestemp\\
-      \def\AM@pagestemp{1}
+      \def\AM@pagestemp{1}%
     \fi
   \fi
 %    \end{macrocode}
@@ -1052,7 +1119,7 @@
 \newcommand*{\includepdfmerge}[2][]{%
   \begingroup
   \c@totalnumber=0%
-  \def\AM@currentdocname{}%
+  \let\AM@currentdocname\relax
   \AM@readlist{#2}%
   \AM@split@options{pdfpages}{#1}%
   \edef\AM@temp{{pdfpages}{\the\@temptokena}}%
@@ -1151,10 +1218,13 @@
 %    \end{macrocode}
 %    \begin{macrocode}
   \ifthenelse{\boolean{AM@column}}
-         {\def\AM@xnupi{\@ne}
+         {\def\AM@xnupi{\@ne}%
           \def\AM@ynupi{\z@}}
-         {\def\AM@xnupi{\z@}
+         {\def\AM@xnupi{\z@}%
           \def\AM@ynupi{\@ne}}%
+%    \end{macrocode}
+%    \begin{macrocode}
+  \AM@firstpagetrue
 %    \end{macrocode}
 %    \begin{macrocode}
   \setlength{\fboxsep}{\z@}%
@@ -1167,33 +1237,36 @@
 %    But they are \textit{not} discarded when finally being 
 %    shipped out.
 %    \begin{macrocode}
-    \AM@readfirst{\AM@pagelist}%
-    \edef\AM@page{\the\toks@}%
+  \@ifundefined{AM@pagetemplate}
+      {\AM@readfirst{\AM@pagelist}%
+       \edef\AM@page{\the\toks@}}
+      {\edef\AM@page{\AM@pagetemplate}}%
     \AM@readfirst{\AM@doclist}%
     \edef\AM@docname{\the\toks@}%
     \newpage
     \ifAM@noautoscale
-      \def\AM@scale{1}%
+      \def\AM@globalscale{1}%
     \else
       \AM@isphantom
       \AM@split@options{Gin@noscale}{#1}%
+      \let\AM@filelist@save\@filelist
       \setbox\@tempboxa=\hbox{%
         \expandafter\includegraphics\expandafter[\the\@temptokena,
            page=\AM@page, angle=\AM@lscape@rot]{\AM@docname}}%
 %    \end{macrocode}
 %    Adjust the paper size.
 %    \begin{macrocode}
-    \ifthenelse{\boolean{AM@fitpaper}}
-      {\setlength{\paperwidth}{\the\wd\@tempboxa}%
-       \setlength{\paperheight}{\the\ht\@tempboxa}%
-       \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
-       \setlength{\pdfpageheight}{\the\ht\@tempboxa}%
-       \@ifundefined{stockwidth}{}{%
-         \setlength{\stockwidth}{\paperwidth}%
-         \setlength{\stockheight}{\paperheight}%
-         \setlength{\trimtop}{0pt}%
-         \setlength{\trimedge}{0pt}}%
-      }{}%
+      \ifthenelse{\boolean{AM@fitpaper}}
+        {\setlength{\paperwidth}{\the\wd\@tempboxa}%
+         \setlength{\paperheight}{\the\ht\@tempboxa}%
+         \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
+         \setlength{\pdfpageheight}{\the\ht\@tempboxa}%
+         \@ifundefined{stockwidth}{}{%
+           \setlength{\stockwidth}{\paperwidth}%
+           \setlength{\stockheight}{\paperheight}%
+           \setlength{\trimtop}{0pt}%
+           \setlength{\trimedge}{0pt}}%
+        }{}%
 %    \end{macrocode}
 %    Calculate required scaling in horizontal direction.
 %    \begin{macrocode}
@@ -1217,14 +1290,14 @@
       \edef\AM@yscale{\strip@pt\@tempdima}%
 %    \end{macrocode}
 %    The lower value of |\AM@xscale| and |\AM@yscale| is used
-%    as the overall scaling factor |\AM@scale|.
+%    as the overall scaling factor |\AM@globalscale|.
 %    \begin{macrocode}
       \@tempdima=\AM@xscale\p@
       \@tempdimb=\AM@yscale\p@
       \ifdim\@tempdima<\@tempdimb
-        \let\AM@scale\AM@xscale
+        \let\AM@globalscale\AM@xscale
       \else
-        \let\AM@scale\AM@yscale
+        \let\AM@globalscale\AM@yscale
       \fi
     \fi
 %    \end{macrocode}
@@ -1236,9 +1309,12 @@
     \AM@split@options{Gin}{#1}%
     \setbox\@tempboxa=\hbox{%
       \expandafter\includegraphics\expandafter[\the\@temptokena,
-                       page=\AM@page, scale=\AM@scale,
+                       page=\AM@page, scale=\AM@globalscale,
                        angle=\AM@lscape@rot]{\AM@docname}}%
     \let\@filelist\AM@filelist@save
+    \edef\AM@templatewidth{\the\wd\@tempboxa}%
+    \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}%
+    \edef\AM@templateheight{\the\@tempdima}%
     \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
     \def\AM@xmargin{%
       (\paperwidth - (\wd\@tempboxa+\tw@\fboxrule)*\AM@xnup
@@ -1255,8 +1331,8 @@
 %    \end{macrocode}
 %    \begin{macrocode}
     \ifthenelse{\boolean{AM@landscape}}
-         {\edef\AM@temp{\AM@xnup}
-          \edef\AM@xnup{\AM@ynup}
+         {\edef\AM@temp{\AM@xnup}%
+          \edef\AM@xnup{\AM@ynup}%
           \edef\AM@ynup{\AM@temp}}
          {}%
     \ifAM@signature
@@ -1280,7 +1356,7 @@
       \else
         \let\AM@linkfilename\AM@docname
       \fi
-      \ifx\@empty\AM@linkname@option \edef\AM@linkname{\the\toks@}
+      \ifx\@empty\AM@linkname@option \edef\AM@linkname{\the\toks@}%
       \else \edef\AM@linkname{\AM@linkname@option} \fi
 %    \end{macrocode}
 %    Each logical page has an element number of
@@ -1322,6 +1398,88 @@
        \fi
       }%
 %    \end{macrocode}
+%    Load next page and verify if it has the same page size as the
+%    page template. If not, adjust the scale |\AM@localscale| and
+%    the local offset |\AM@localxoff| and |\AM@localyoff|.
+%    \begin{macrocode}
+    \setbox\@tempboxa=\hbox{%
+      \expandafter\includegraphics\expandafter[\the\@temptokena,
+                       page=\AM@page, scale=\AM@globalscale,
+                       angle=\AM@lscape@rot]{\AM@docname}}%
+    \edef\AM@localwd{\the\wd\@tempboxa}%
+    \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}%
+    \edef\AM@localht{\the\@tempdima}%
+    \AM@rescalefalse
+    \ifdim\AM@localwd=\AM@templatewidth \else \AM@rescaletrue \fi
+    \ifdim\AM@localht=\AM@templateheight \else \AM@rescaletrue \fi
+    \def\AM@localxoff{\z@}%
+    \def\AM@localyoff{\z@}%
+    \def\AM@rotateoversize{0}%
+    \def\AM@localscale{\p@}%
+    \ifAM@rescale
+      \ifthenelse{\lengthtest{\AM@localwd<\AM@templatewidth} \and
+                  \lengthtest{\AM@localht<\AM@templateheight}}{%
+%    \end{macrocode}
+%    Smaller pages are \emph{not} scaled up, just their local offset
+%    is adjusted.
+%    \begin{macrocode}
+        \setlength{\@tempdima}{(\AM@templatewidth - \AM@localwd) 
+             * \real{.5}}%
+        \edef\AM@localxoff{\the\@tempdima}%
+        \setlength{\@tempdima}{(\AM@templateheight - \AM@localht)
+             * \real{.5}}%
+        \edef\AM@localyoff{\the\@tempdima}%
+      }{%
+%    \end{macrocode}
+%    Larger pages are scaled down and their local offset is adjusted.
+%    \begin{macrocode}
+        \ifAM@rotateoversize
+          \def\AM@rotateoversize{90}%
+          \let\AM@filelist@save\@filelist
+          \setbox\@tempboxa=\hbox{%
+            \expandafter\includegraphics\expandafter
+                [\the\@temptokena, page=\AM@page,
+                 scale=\AM@globalscale,
+                 angle=\AM@lscape@rot, angle=90]{\AM@docname}}%
+          \let\@filelist\AM@filelist@save
+          \edef\AM@localwd{\the\wd\@tempboxa}%
+          \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}%
+          \edef\AM@localht{\the\@tempdima}%
+        \fi
+        \setlength{\@tempdima}
+                  {\p@ * \ratio{\AM@templatewidth}{\AM@localwd}}%
+        \edef\AM@localxscale{\the\@tempdima}%
+        \setlength{\@tempdima}
+                  {\p@ * \ratio{\AM@templateheight}{\AM@localht}}%
+        \edef\AM@localyscale{\the\@tempdima}%
+        \ifdim\AM@localxscale<\AM@localyscale
+          \let\AM@localscale\AM@localxscale
+          \setlength{\@tempdima}{\AM@localxscale}%
+          \setlength{\@tempdima}{(\AM@templateheight -
+            \AM@localht * \real{\strip@pt\@tempdima}) * \real{.5}}%
+          \edef\AM@localyoff{\the\@tempdima}%
+        \else
+          \let\AM@localscale\AM@localyscale
+          \setlength{\@tempdima}{\AM@localyscale}%
+          \setlength{\@tempdima}{(\AM@templatewidth -
+             \AM@localwd * \real{\strip@pt\@tempdima}) * \real{.5}}%
+          \edef\AM@localxoff{\the\@tempdima}%
+        \fi
+      }
+    \fi
+    \setlength{\@tempdima}{\AM@localscale}
+    \edef\AM@localscale{\strip@pt\@tempdima}
+%    \end{macrocode}
+%    \begin{macrocode}
+    \let\AM@filelist@save\@filelist
+    \AM@split@options{Gin}{#1}%
+    \setbox\@tempboxa=\hbox{%
+      \expandafter\includegraphics\expandafter[\the\@temptokena,
+                       page=\AM@page, scale=\AM@globalscale,
+                       angle=\AM@lscape@rot]{\AM@docname}}%
+    \let\@filelist\AM@filelist@save
+    \setlength{\@tempdimc}{\ht\@tempboxa + \dp\@tempboxa}%
+%    \end{macrocode}
 %    Determine the position (coordinates) of the logical pages.
 %    These are |\AM@xpos| and |\AM@ypos|.
 %    \begin{macrocode}
@@ -1330,21 +1488,25 @@
     \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
     \ifthenelse{\boolean{AM@landscape}}
       {\def\AM@xpos{%
-         \AM@xmargin \AM@add\AM@xoffset + 
-         (\wd\@tempboxa + \AM@deltax + \tw@\fboxrule)*(\AM@ynupi - 1)
+         \AM@xmargin \AM@add\AM@xoffset + \AM@localxoff +
+         (\AM@templatewidth + \AM@deltax + \tw@\fboxrule) *
+         (\AM@ynupi - 1)
        }%
        \def\AM@ypos{%
-         \AM@ymargin + \AM@yoffset +
-         (\@tempdimb + \AM@deltay + \tw@\fboxrule)*(\AM@xnupi - 1)
+         \AM@ymargin + \AM@yoffset + \AM@localyoff +
+         (\AM@templateheight + \AM@deltay + \tw@\fboxrule) *
+         (\AM@xnupi - 1)
        }%
       }
       {\def\AM@xpos{%
-         \AM@xmargin \AM@add\AM@xoffset + 
-         (\wd\@tempboxa + \AM@deltax + \tw@\fboxrule)*(\AM@xnupi - 1)
+         \AM@xmargin \AM@add\AM@xoffset + \AM@localxoff +
+         (\AM@templatewidth + \AM@deltax + \tw@\fboxrule) *
+         (\AM@xnupi - 1)
        }%
        \def\AM@ypos{%
-         \AM@ymargin + \AM@yoffset +
-         (\@tempdimb + \AM@deltay + \tw@\fboxrule)*(\AM@ynup-\AM@ynupi)
+         \AM@ymargin + \AM@yoffset + \AM@localyoff +
+         (\AM@templateheight + \AM@deltay + \tw@\fboxrule) *
+         (\AM@ynup-\AM@ynupi)
        }%
       }%
     \setlength{\@tempdima}{\AM@xpos}%
@@ -1365,8 +1527,10 @@
         \AM@hyper\noexpand\AM@fbox{%
           \noexpand\AM@ARBug@hook
           \noexpand\includegraphics[\the\@temptokena,
-                    page=\AM@page,scale=\AM@scale,
+                    page=\AM@page, scale=\AM@globalscale,
+                    scale=\AM@localscale,
                     \ifAM@sigrotate angle=180\fi,
+                    angle=\AM@rotateoversize,
                     angle=\AM@lscape@rot]{\AM@docname}}}}%
       }%
     \fi
@@ -1385,6 +1549,12 @@
           {\ifthenelse{\boolean{AM@landscape}}
              {\AM@setlscape}{}}
           {}%
+        \AM@AddToShipoutPicture{\begingroup\AM@picturecommand\endgroup}%
+        \ifAM@firstpage
+          \AM@AddToShipoutPicture{%
+            \begingroup\AM@picturecommandstar\endgroup}%
+          \AM@firstpagefalse
+        \fi
         \newpage
         \ifAM@pdflscape\PLS@Rotate{0}\fi
         \AM@ClearShipoutPicture
@@ -1406,6 +1576,7 @@
 %    \macro{\AM@readlisti}
 %    \macro{\AM@checkrange}
 %    \macro{\AM@checklast}
+%    \macro{\AM@checkpagenumber}
 %    \macro{\AM@setnewdocname}
 %    \macro{\AM@append}
 %    These macros parse a comma separated list, which contains
@@ -1430,6 +1601,10 @@
 %    \begin{macrocode}
 \newcommand{\AM@readlisti}{}
 \def\AM@readlisti#1,{%
+  \ifx\AM@currentdocname\relax
+  \else
+    \pdfximage{\AM@currentdocname}%
+  \fi
   \def\AM@temp{#1}%
   \ifx\END#1
   \else
@@ -1444,7 +1619,9 @@
   \edef\AM@tempi{\AM@trim@space{#1}}%
   \ifx\\#2\\%
     \AM@checkinteger{\AM@tempi}%
-    \ifAM@integer\AM@append{\AM@tempi}%
+    \ifAM@integer
+      \AM@checkpagenumber{\AM@tempi}%
+      \AM@append{\AM@tempi}%
     \else
       \expandafter\ifx\expandafter\\\AM@tempi\\\AM@append{}%
       \else\AM@setnewdocname{\AM@tempi}\fi
@@ -1454,12 +1631,19 @@
       \@tempcnta=1\relax
       \AM@checklast#2\END
     \else
-      \AM@checkinteger{\AM@tempi}%
-      \ifAM@integer
-        \@tempcnta=\AM@tempi\relax
+      \def\AM@cmp{last}
+      \ifx\AM@cmp\AM@tempi
+        \@tempcnta=\pdflastximagepages
         \AM@checklast#2\END
       \else
-        \AM@setnewdocname{\AM@temp}%
+        \AM@checkinteger{\AM@tempi}%
+        \ifAM@integer
+          \@tempcnta=\AM@tempi\relax
+          \AM@checkpagenumber{\the\@tempcnta}%
+          \AM@checklast#2\END
+        \else
+          \AM@setnewdocname{\AM@temp}%
+        \fi
       \fi
     \fi
   \fi
@@ -1470,7 +1654,6 @@
 \def\AM@checklast#1-\END{%
   \edef\AM@tempii{\AM@trim@space{#1}}%
   \expandafter\ifx\expandafter\\\AM@tempii\\
-    \pdfximage{\AM@currentdocname}%
     \@tempcntb=\the\pdflastximagepages\relax
     \advance\@tempcntb\@ne
     \whiledo{\@tempcnta<\@tempcntb}{%
@@ -1478,13 +1661,20 @@
       \advance\@tempcnta\@ne
     }%
   \else
+    \def\AM@cmp{last}
+    \ifx\AM@cmp\AM@tempii
+      \def\AM@tempii{\the\pdflastximagepages}%
+    \fi
     \AM@checkinteger{\AM@tempii}%
     \ifAM@integer
       \@tempcntb=\AM@tempii\relax
-      \advance\@tempcntb\@ne
-      \whiledo{\@tempcnta<\@tempcntb}{%
+      \AM@checkpagenumber{\the\@tempcntb}%
+      \ifnum\@tempcnta<\@tempcntb \def\AM@rel{<}\def\AM@inc{\@ne}%
+      \else \def\AM@rel{>}\def\AM@inc{\m@ne}\fi
+      \advance\@tempcntb\AM@inc
+      \whiledo{\@tempcnta\AM@rel\@tempcntb}{%
         \AM@append{\the\@tempcnta}%
-        \advance\@tempcnta\@ne
+        \advance\@tempcnta\AM@inc
       }%
     \else
       \AM@setnewdocname{\AM@temp}%
@@ -1493,19 +1683,31 @@
 }
 %    \end{macrocode}
 %    \begin{macrocode}
-\newcommand{\AM@setnewdocname}[1]{%
+\newcommand*{\AM@checkpagenumber}[1]{%
+  \ifnum#1>\pdflastximagepages
+    \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}{%
+    }{%
+      \PackageError{pdfpages}
+        {page number #1 of `\AM@currentdocname' does not exist}
+        {You have set a wrong page number in the `pages' option.
+         Document \MessageBreak `\AM@currentdocname' does not
+         have #1 pages.}%
+    }%
+  \fi
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand*{\AM@setnewdocname}[1]{%
   \ifAM@defaultone
     \AM@append{1}%
   \fi
   \edef\AM@temp{\AM@trim@space{#1}}%
-  \IfFileExists{\AM@temp}{\edef\AM@currentdocname{\AM@temp}}
-    {\IfFileExists{\AM@temp.pdf}{\edef\AM@currentdocname{\AM@temp.pdf}}
-       {\PackageError{pdfpages}{Cannot find file `\AM@temp'}{}}}%
+  \AM@findfile{\AM@temp}%
   \AM@defaultonetrue
 }
 %    \end{macrocode}
 %    \begin{macrocode}
-\newcommand{\AM@append}[1]{%
+\newcommand*{\AM@append}[1]{%
   \edef\AM@doclist{\AM@doclist,\AM@currentdocname}%
   \edef\AM@pagelist{\AM@pagelist,#1}%
   \ifAM@doublepages
@@ -1804,7 +2006,6 @@
 %    are stored in |@temptokena|.
 %    \begin{macrocode}
 \newif\ifAM@pdfpages@options
-\newif\ifAM@scale
 \newcommand{\AM@split@options}{}
 \def\AM@split@options#1#2{%
   \def\AM@param{#1}%
@@ -1870,7 +2071,12 @@
               \equal{addtotoc}{\AM@temp}\or
               \equal{addtolist}{\AM@temp}\or
               \equal{doublepages}{\AM@temp}\or
-              \equal{signature}{\AM@temp}}{\AM@pdfpages@optionstrue}{}%
+              \equal{signature}{\AM@temp}\or
+              \equal{pagetemplate}{\AM@temp}\or
+              \equal{rotateoversize}{\AM@temp}\or
+              \equal{picturecommand}{\AM@temp}\or
+              \equal{picturecommand*}{\AM@temp}}
+             {\AM@pdfpages@optionstrue}{}%
   \ifthenelse{\equal{scale}{\AM@temp}}{\AM@scaletrue}{}%
 }
 %    \end{macrocode}
@@ -1919,7 +2125,10 @@
     \pdfdest name {\AM@linkname.\AM@page} \AM@linkfit%
   \fi
 %    \end{macrocode}
-%    Page is linked to the original document.
+%    Survey linking to pages.\par
+%    FIXME: In |/D [page ...]| \meta{page} must be a \emph{indirect
+%    reference} and not a \emph{page number}, according to the
+%    \PDF\ Reference. However, AcrobatReader accepts page numbers.
 %    \begin{macrocode}
   \ifAM@survey \ifAM@surveynolink\else
     \pdfannot width \wd\@tempboxa
@@ -1930,7 +2139,8 @@
                      /D [\AM@page@linktodoc \AM@linktodocfit] >>}%
   \fi \fi
 %    \end{macrocode}
-%    Page is linked to the original document.
+%    Page is linked to the original document.\par
+%    FIXME: Wrong destination as described in the last paragraph.
 %    \begin{macrocode}
   \ifAM@linktodoc
     \pdfannot width \wd\@tempboxa
@@ -2106,7 +2316,9 @@
 %    |\AM@phantompage| is the page number of the phantom page.
 %    \begin{macrocode}
 \newcommand*{\AM@setphantom}{%
-  \expandafter\AM@setphantompage\AM@pagelist,\END,
+  \@ifundefined{AM@pagetemplate}
+    {\expandafter\AM@setphantompage\AM@pagelist,\END,}
+    {\edef\AM@phantompage{\AM@pagetemplate}}%
   \expandafter\AM@setphantomdoc\AM@doclist,\END
 }
 %    \end{macrocode}
@@ -2372,6 +2584,11 @@
 \define@key{pdfpages}{doublepages}[true]%
                      {\setboolean{AM@doublepages}{#1}}
 \define@key{pdfpages}{signature}{\def\AM@signature{#1}}
+\define@key{pdfpages}{pagetemplate}{\def\AM@pagetemplate{#1}}
+\define@key{pdfpages}{rotateoversize}[true]%
+                     {\setboolean{AM@rotateoversize}{#1}}
+\define@key{pdfpages}{picturecommand}{\def\AM@picturecommand{#1}}
+\define@key{pdfpages}{picturecommand*}{\def\AM@picturecommandstar{#1}}
 %    \end{macrocode}
 %    \macro{\AM@parse@nup}
 %    Parsing \texttt{nup} item.
@@ -2487,8 +2704,17 @@
 %    \begin{itemize}
 %      \item Survey functionality added.
 %    \end{itemize}
-%    \iffalse
 %
+%    \subsection*{2003/06/02 v0.2m}
+%    \begin{itemize}
+%      \item Support of \PDF s with mixed portrait/landscape pages.
+%            Options |pagetemplate| and |rotateoversize| added.
+%      \item Support of |\graphicspath|.
+%      \item Options |picturecommand| and |picturecommand*| added.
+%      \item Reverse page order: |pages=7-3|, |pages=last-5|
+%    \end{itemize}
+%
+%    \iffalse
 %</package>
 %    \fi
 %
