@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2h",
-%    date           = "2002-04-23",
+%    version        = "0.2i",
+%    date           = "2002-07-24",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -42,14 +42,14 @@
 %</dtx>
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdfpages}[2002/04/23 v0.2h Insert pages of external PDF documents (AM)]
-\def\AM@version{0.2h}
+\ProvidesPackage{pdfpages}[2002/07/24 v0.2i Insert pages of external PDF documents (AM)]
+\def\AM@version{0.2i}
 %</package>
 %    \fi
-%\ProvidesFile{pdfpages.dtx}[2002/04/23 v0.2h Insert pages of external PDF documents (AM)]
+%\ProvidesFile{pdfpages.dtx}[2002/07/24 v0.2i Insert pages of external PDF documents (AM)]
 %
 %
-%    \CheckSum{2450}
+%    \CheckSum{2453}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -2030,6 +2030,7 @@
     {\expandafter\@sect\AM@temp
      \hskip\z@\par\vskip-\parskip\vskip-\baselineskip\hskip\z@}
     {\AM@tempi}%
+  \xdef\@currentlabel{\@currentlabel}%
   \label{\AM@toc@label}%
   \endgroup
 }

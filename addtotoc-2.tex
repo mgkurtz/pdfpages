@@ -4,7 +4,7 @@
 \usepackage{pdfpages}
 \usepackage[bookmarksopen, bookmarksopenlevel=5]{hyperref}
 \pagestyle{headings}
-\setcounter{secnumdepth}{1}
+\setcounter{secnumdepth}{2}
 
 \begin{document}
 \Large
@@ -19,19 +19,22 @@
 \ref{sec:1} & \pageref{sec:1} & \nameref{sec:1}\\
 \ref{sec:2} & \pageref{sec:2} & \nameref{sec:2}\\
 \ref{sec:3} & \pageref{sec:3} & \nameref{sec:3}\\
+\ref{subsec:3} & \pageref{subsec:3} & \nameref{subsec:3}\\
 \ref{sec:4} & \pageref{sec:4} & \nameref{sec:4}\\
 \ref{sec:5} & \pageref{sec:5} & \nameref{sec:5}\\\hline
 \end{tabular}
 
 \includepdf[pages=1-4, pagecommand={},
-            addtotoc={1, part,       0, Erster Teil (Seite 1),  sec:1,
+            addtotoc={1, part,       -1, Erster Teil (Seite 1),  sec:1,
                       1, section,    1, Section 1 (Seite 1),    sec:2,
                       3, subsection, 2, Subsection A (Seite 3), sec:3,
+                      3, subsubsection, 3, Subsubsection A (Seite 3), subsec:3,
                       4, section,    1, Section 2 (Seite 4),    sec:4,
                       4, subsection, 2, Subsection B (Seite 4), sec:5},
             trim=0 120 0 120, clip]{dummy}
 
 \subsection{Weiter}\label{weiter}
+\subsubsection{fdsa}
 \section{Test}
 
 \end{document}
