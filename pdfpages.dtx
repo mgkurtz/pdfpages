@@ -18,8 +18,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2d",
-%    date           = "25. January 2002",
+%    version        = "0.2e",
+%    date           = "27. January 2002",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -59,9 +59,9 @@
 %%
 %    \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{pdfpages}[2002/01/25 v0.2d Insert pages of external PDF documents (AM)]
+%<package>\ProvidesPackage{pdfpages}[2002/01/27 v0.2e Insert pages of external PDF documents (AM)]
 %    \fi
-%         \ProvidesFile{pdfpages.dtx}[2002/01/25 v0.2d Insert pages of external PDF documents (AM)]
+%         \ProvidesFile{pdfpages.dtx}[2002/01/27 v0.2e Insert pages of external PDF documents (AM)]
 %    \iffalse
 %
 %<*driver>
@@ -706,8 +706,8 @@
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup
-  \IfFileExists{#2}{\def\AM@currentdocname{#2}}
-    {\IfFileExists{#2.pdf}{\def\AM@currentdocname{#2.pdf}}
+  \IfFileExists{#2}{\edef\AM@currentdocname{#2}}
+    {\IfFileExists{#2.pdf}{\edef\AM@currentdocname{#2.pdf}}
        {\PackageError{pdfpages}{Cannot find file #2}{}}}%
   \setkeys{Gin}{#1}%
   \expandafter\AM@readlist\expandafter{\AM@pagestemp}%
@@ -826,11 +826,9 @@
     \AM@addtolist{1}%
   \fi
   \edef\AM@temp{\AM@trim@space{#1}}%
-  \IfFileExists{\AM@temp}{\def\AM@currentdocname{\AM@temp}}
-    {\IfFileExists{\AM@temp.pdf}{\def\AM@currentdocname{\AM@temp.pdf}}
+  \IfFileExists{\AM@temp}{\edef\AM@currentdocname{\AM@temp}}
+    {\IfFileExists{\AM@temp.pdf}{\edef\AM@currentdocname{\AM@temp.pdf}}
        {\PackageError{pdfpages}{Cannot find file \AM@temp}{}}}%
-
-
   \AM@defaultonetrue
 }
 %    \end{macrocode}
