@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2k",
-%    date           = "2002-10-01",
+%    version        = "0.2l",
+%    date           = "2002-12-14",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -40,16 +40,24 @@
 %<*dtx>
            \ProvidesFile{pdfpages.dtx}
 %</dtx>
-%<*package>
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdfpages}[2002/10/01 v0.2k Insert pages of external PDF documents (AM)]
-\def\AM@version{0.2k}
-%</package>
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{pdfpages}
+%<driver>\ProvidesFile{pdfpages.drv}
+%<*!example1&!example2&!example3>
 %    \fi
-%\ProvidesFile{pdfpages.dtx}[2002/10/01 v0.2k Insert pages of external PDF documents (AM)]
+%
+%    \ProvidesFile{pdfpages.dtx}
+   [2002/12/14 v0.2l Insert pages of external PDF documents (AM)]
+%    \iffalse
+%<package>\def\AM@version{0.2l}
 %
 %
-%    \CheckSum{2458}
+%</!example1&!example2&!example3>
+%    \fi
+%
+%    \GetFileInfo{pdfpages.dtx}
+%
+%    \CheckSum{2642}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -67,30 +75,29 @@
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %   Right brace   \}     Tilde         \~}
 %
-%    \iffalse
 %
+%    \iffalse
 %<*driver>
 \documentclass{ltxdoc}
-\OnlyDescription
 \usepackage{array}
-  \newcommand*{\versionlist}{%
-    \setlength{\topsep}{0pt}%
-    \setlength{\itemsep}{0pt}%
-    \setlength{\leftmargin}{20pt}%
-    \setlength{\parsep}{0pt}}
-  \newcommand{\marginstyle}
-    {\raggedleft\itshape\small}
+\OnlyDescription
 \begin{document}
   \DocInput{pdfpages.dtx}
 \end{document}
 %</driver>
 %    \fi
 %
-%  \GetFileInfo{pdfpages.dtx}
-%
+%   \newcommand*{\versionlist}{%
+%     \setlength{\topsep}{0pt}%
+%     \setlength{\itemsep}{0pt}%
+%     \setlength{\leftmargin}{20pt}%
+%     \setlength{\parsep}{0pt}}
+%   \newcommand{\marginstyle}
+%     {\raggedleft\itshape\small}
 %
 %    \def\pdfTeX{pdf\kern.04em\TeX}
 %    \def\pdfLaTeX{pdf\kern.06em\LaTeX}
+%    \def\PDF{{\small PDF}}
 %
 %    \title{The \textsf{pdfpages} Package\thanks{This file
 %           has version number \fileversion, last revised \filedate.}}
@@ -112,8 +119,8 @@
 %
 %
 %    \section{Introduction}
-%    Creating PDF documents, it is sometimes useful to insert
-%    pages of other, external PDF documents. This can be done
+%    Creating \PDF\ documents, it is sometimes useful to insert
+%    pages of other, external \PDF\ documents. This can be done
 %    with the |\includegraphics| command from the
 %    \texttt{graphics} package. But a simple
 %    |\includegraphics{doc.pdf}| normally produces
@@ -122,13 +129,13 @@
 %    print space.
 %    
 %    The |pdfpages| package makes it easy to insert 
-%    pages of external PDF documents without worrying about
+%    pages of external \PDF\ documents without worrying about
 %    the print space. Here are some features of the
 %    |pdfpages| package: Several logical pages can be arranged
 %    onto each sheet of paper and the layout can be changed
 %    individually. A lot of hypertext operations are supported,
 %    like links to the inserted pages, links to the original
-%    PDF document, threads, etc.
+%    \PDF\ document, threads, etc.
 %  
 %    \section{Usage}
 %    \subsection{Package Options}
@@ -137,13 +144,18 @@
 %    |\usepackage[|\meta{options}|]{pdfpages}|
 %
 %    \begin{quote}
-%    \begin{tabular}{@{}r@{~}r@{~}>{\raggedright}p{.7\linewidth}}
-%        \meta{option} --  & |final|:& Inserts pages. This is the default.
-%                                      \tabularnewline[.25\baselineskip]
-%                          & |draft|:& Does not insert pages, but
-%                                      prints a box and the filename
-%                                      instead.
-%    \end{tabular}
+%      \meta{option} -- 
+%         \begin{minipage}[t]{.8\linewidth}
+%            \setlength\leftmargini{3.5em}
+%            \begin{description}
+%               \setlength\itemsep{0pt}
+%               \item[|final|:] Inserts pages. This is the default.
+%               \item[|draft|:] Does not insert pages, but prints a box
+%                               and the filename instead.
+%               \item[|enable-survey|:] Activates survey functionalities.
+%                               (\emph{experimental, subject to change})
+%            \end{description}
+%         \end{minipage}
 %    \end{quote}
 %    \end{minipage}
 %    
@@ -151,7 +163,7 @@
 %    \subsection{Commands}
 %    
 %    \DescribeMacro{\includepdf}
-%    Inserts pages of an external PDF document.
+%    Inserts pages of an external \PDF\ document.
 %    
 %    \medskip\noindent
 %    \begin{minipage}{\linewidth}
@@ -161,8 +173,8 @@
 %    \begin{tabular}{@{}l@{\,--~}>{\raggedright}p{.8\linewidth}}
 %        \meta{key=val}   & A comma separated list of options
 %                   using the \meta{key}=\meta{value} syntax.
-%                   \tabularnewline
-%        \meta{filename} & Filename of the PDF document. (The
+%                   \tabularnewline[.25\baselineskip]
+%        \meta{filename} & Filename of the \PDF\ document. (The
 %                   filename \emph{must not} contain any blanks!)
 %    \end{tabular}
 %    \end{quote}
@@ -282,11 +294,11 @@
 %                      is inserted in front of the first page.
 %                      Either `true' or `false' (or no value, which
 %                      is equivalent to `true'). \df{openright=false}
-%        \item[pagecommand] Declares \LaTeX{} commands, which are executed
+%        \item[pagecommand] Declares \LaTeX\ commands, which are executed
 %                      on each sheet of paper.
 %                      \df{pagecommand=\{\bslash thispagestyle\{empty\}\}}
 %         \item[turn] By default pages in landscape format are displayed 
-%                     in landscape orientation (if the PDF viewer supports
+%                     in landscape orientation (if the \PDF\ viewer supports
 %                     this). With \texttt{turn=false} this can be prohibited.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{turn=true}
@@ -351,7 +363,7 @@
 %                          \df{threadname=\meta{filename}}
 %        \item[linktodoc] Lets the inserted pages be hyperlinks to the
 %                         document from which they were extracted.
-%                         Note that the PDF-Viewer will not find the
+%                         Note that the \PDF-Viewer will not find the
 %                         file, if \meta{filename} has not filename
 %                         extension (.pdf).
 %                         Either `true' or `false' (or no value, which
@@ -375,7 +387,7 @@
 %        \item[linktodocfit] By default the option \texttt{linktodoc} opens
 %                            the page in `Fit in Window' view.
 %                            Another view can be specified with this option.
-%                            Possible values are the legal PDF tokens:
+%                            Possible values are the legal \PDF\ tokens:
 %                            \texttt{/FitH} \meta{top}, \texttt{/FitV}
 %                            \meta{left}, etc.
 %                            (See \cite{PDFRef} for more details.)
@@ -473,6 +485,84 @@
 %                      \meta{lof-list} $\rightarrow$ \meta{page number},^^A
 %                      \meta{type},\meta{heading},\meta{label}^^A
 %                      [,\meta{lof-list}]
+%
+%
+%        \item[survey] Creates a survey of those pages of the document, which
+%                      are marked with |\AddToSurvey|. (|\AddToSurvey| is
+%                      a simple command with no arguments. It just writes out
+%                      labels to the |.aux| file.)
+%                      This option may be used when preparing slides to
+%                      create a survey of only `finished' pages -- if
+%                      pages are build up incrementally.
+%
+%                      To use this option a special sequence of production
+%                      steps must be obeyed. Here is a small example:
+%
+%\begin{verbatim}
+%  --- slides.tex ---
+%  \documentclass{article}
+%  \usepackage[draft,enable-survey]{pdfpages}
+%  \begin{document}
+%    ... some text ...
+%    \AddToSurvey
+%    ... some text ...
+%    \includepdf[survey,nup=2x2]{slides-tmp.pdf}
+%  \end{document}
+%\end{verbatim}
+%
+%                      This is the outline of a document, called |slides.tex|.
+%                      Run it through \pdfLaTeX\ several times until all
+%                      cross-references are solved. (\LaTeX\ will produce a
+%                      warning, if cross-references are not solved, yet.)
+%                      Now copy the file |slides.pdf| to |slides-tmp.pdf|
+%                      and rename |draft| (package option of pdfpages) to
+%                      |final|. The next and final run through \pdfLaTeX\
+%                      will actually insert the desired pages, whereas the
+%                      former runs with |draft| did just insert blank pages.
+%                      The inserted pages are hyperlink to the orignial
+%                      pages.
+%
+%                      Experienced users would certainly call
+%\begingroup
+%\setlength\topsep{0pt}
+%\begin{verbatim}
+%  pdflatex '\PassOptionsToPackage{final}{pdfpages} \input{slides}'
+%\end{verbatim}
+%\endgroup
+%                      instead of exchanging |draft| and |final|.
+%
+%                      Either `true' or `false' (or no value, which
+%                      is equivalent to `true'). \df{survey=false}
+%
+%
+%        \item[survey-nolink] Same as option |survey| except that the
+%                      inserted pages do not become hyperlinks.
+%                      This option may be used to create an external survey.
+%                      To continue the example above (|slides.tex|), it
+%                      is now possible to create handouts of the `finished'
+%                      slides as an external document.
+%
+%\begin{verbatim}
+%  \documentclass{article}
+%  \usepackage{xr}
+%  \externaldocument{slides}
+%  \usepackage[enable-survey]{pdfpages}
+%  \begin{document}
+%    \includepdf[survey-nolink]{slides.pdf}
+%  \end{document}
+%\end{verbatim}
+%
+%                      Either `true' or `false' (or no value, which
+%                      is equivalent to `true'). \df{survey-nolink=false}
+%
+%
+%        \item[xr-prefix] Adjusts a prefix to the labels |\includepdf| is
+%                      is looking for. The name of the prefix must be the
+%                      same as the name of the optional argument of
+%                      |\externaldocument|.
+%                      \df{xr-prefix=\{\}}
+%
+%                      
 %      \end{description}
 %
 %    \end{itemize}
@@ -504,7 +594,7 @@
 %    \begin{samepage}
 %    \bigskip\noindent
 %    \DescribeMacro{\includepdfmerge}
-%    Inserts pages of several external PDF documents.
+%    Inserts pages of several external \PDF\ documents.
 %
 %    \medskip\noindent
 %    |\includepdfmerge[|\meta{key=val}|]{|\meta{file-page-list}|}|
@@ -537,7 +627,7 @@
 %    only the first page will be inserted.
 %
 %    \paragraph{Examples:}
-%    To create a kind of summary of three PDF documents, it might
+%    To create a kind of summary of three \PDF\ documents, it might
 %    be nice to insert just the first page of each document and
 %    to provide links to the original documents:
 %
@@ -596,7 +686,7 @@
 %    which contains informations about the thread, such as its title,
 %    author, and creation date. The macro |\threadinfodict| is used
 %    to set these informations. It can be redefined and must contain
-%    the thread information dictionary in low-level PDF commands.
+%    the thread information dictionary in low-level \PDF\ commands.
 %    (See \cite{PDFRef} for more information.)
 %    
 %    \smallskip
@@ -634,7 +724,7 @@
 %    
 %    If you are confused about horizontal\,(|x|)
 %    and vertical\,(|y|) directions, just set the option
-%    |turn=false|. Now your PDF viewer shows the pages in
+%    |turn=false|. Now your \PDF\ viewer shows the pages in
 %    the \textit{same} orientation as in Figure~\ref{fig:layout}.
 %    And the options |delta| and |offset| have
 %    the \textit{same} meaning as in Figure~\ref{fig:layout}.
@@ -667,9 +757,9 @@
 %
 %    \begin{description}
 %      \item[eso-pic]
-%            \texttt{CTAN:macros/latex/contrib/supported/ms/contrib/}
-%            Download the whole \texttt{ms/} directory, because 
-%            eso-pic.sty requires everyshi.sty from that directory.
+%            \texttt{CTAN:macros/latex/contrib/supported/eso-pic/}
+%      \item[everyshi]
+%            \texttt{CTAN:macros/latex/contrib/supported/ms/}
 %      \item[graphicx, ifthen, calc]
 %            These packages belong to the standard \LaTeX\
 %            distribution.
@@ -684,7 +774,7 @@
 %
 %    \noindent
 %    Since pdf\TeX, Version 3.14159-1.00a-pretest-20010806,
-%    PDF import has improved a lot. This
+%    \PDF\ import has improved a lot. This
 %    results in much smaller file sizes, faster processing and the
 %    intuitively correct treatment of landscape pages.
 %    The latest version of pdf\TeX\ can be found at:
@@ -708,8 +798,7 @@
 %      http://www.tug.org/applications/pdftex/pdftex-s.pdf
 %    \bibitem{PDFRef} \textit{PDF Reference}, Third Edition, Version 1.4,
 %      Adobe Systems Incorporated,\\
-%      http://partners.adobe.com/asn/developer/acrosdk/docs^^A
-%            /filefmtspecs/\\\hfill PDFReference.pdf
+%      http://partners.adobe.com/asn/developer/technotes/acrobatpdf.html
 %    \end{thebibliography}
 %    }
 %
@@ -718,10 +807,19 @@
 %<*package>
 %    \fi
 %    \section{Implementation}
+%
+%    \subsection{Package Options}
 %    \begin{macrocode}
+\newif\ifAM@pkg@draft \AM@pkg@draftfalse
+\newif\ifAM@pkg@survey \AM@pkg@surveyfalse
+\DeclareOption{draft}{\AM@pkg@drafttrue}
+\DeclareOption{final}{\AM@pkg@draftfalse}
+\DeclareOption{enable-survey}{\AM@pkg@surveytrue}
+\DeclareOption{disable-survey}{\AM@pkg@surveyfalse}
+\ProcessOptions  
 %    \end{macrocode}
 %    \subsection{Required Packages and Version Checking}
-%    Check for using PDF\LaTeX and producing PDF output. 
+%    Check for using \pdfLaTeX\ and producing \PDF\ output. 
 %    -- Note: 
 %    If \texttt{graphics.sty} is loaded before this package,
 %    \texttt{pdfoutput} may be undefined, even if \pdfLaTeX\
@@ -751,11 +849,12 @@
 %    Required Packages.
 %    \begin{macrocode}
 \RequirePackage{ifthen, graphicx, calc, eso-pic}
+\ifAM@pkg@survey \RequirePackage{count1to}\fi
 %    \end{macrocode}
 %    Check for \texttt{pdftex.def} version: This is done with
 %    the following macro, which is derived from
 %    \verb|\@ifpackagelater|
-%    from the standard \LaTeX{} kernel.
+%    from the standard \LaTeX\ kernel.
 %    \begin{macrocode}
 \def\AM@ifdriverlater{\@ifl@ter{def}}
 %    \end{macrocode}
@@ -763,7 +862,7 @@
 %    or higher:
 %    \begin{list}{$\ast$}{\versionlist}
 %      \makeatletter\@beginparpenalty=10000\makeatother
-%      \item support for multipage PDF files, option `page' added (HO).
+%      \item support for multipage \PDF\ files, option `page' added (HO).
 %    \end{list}
 %    \begin{macrocode}
 \AM@ifdriverlater{pdftex}{2000/05/12}{}{%
@@ -798,13 +897,6 @@
   {\def\AM@AddToShipoutPicture{\AddToShipoutPicture}%
    \def\AM@ClearShipoutPicture{\ClearShipoutPicture}}
 %    \end{macrocode}
-%    \subsection{Package Options}
-%    \begin{macrocode}
-\newcommand*{\AM@draft}{false}
-\DeclareOption{draft}{\def\AM@draft{true}}
-\DeclareOption{final}{\def\AM@draft{false}}
-\ProcessOptions  
-%    \end{macrocode}
 %    \subsection{Booleans}
 %    \begin{macrocode}
 \newif\ifAM@openright\AM@openrightfalse
@@ -814,6 +906,9 @@
 \newif\ifAM@thread\AM@threadfalse
 \newif\ifAM@link\AM@linkfalse
 \newif\ifAM@linktodoc\AM@linktodocfalse
+\newif\ifAM@survey\AM@surveyfalse
+\newif\ifAM@surveynolink\AM@surveynolinkfalse
+\newif\ifAM@output\AM@outputtrue
 \newif\ifAM@column\AM@columnfalse
 \newif\ifAM@columnstrict\AM@columnstrictfalse
 \newif\ifAM@noautoscale\AM@noautoscalefalse
@@ -836,6 +931,8 @@
 \newcommand*{\threadinfodict}{}
 \newcommand*{\AM@toclist}{}\newcommand*{\AM@loflist}{}
 \newcommand*{\AM@signature}{}
+\newcommand*{\AM@ARBug@hook}{}
+\newcommand*{\AM@xrprefix}{}
 %    \end{macrocode}
 %    \macro{\AM@setlscape}
 %    Check, if `pdflscape.sty' is loaded.
@@ -891,27 +988,66 @@
 %    \end{macrocode}
 %    \macro{\includepdf}
 %    This command inserts any pages of an external 
-%    PDF document.
+%    \PDF\ document.
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup
   \c@totalnumber=0%
-  \IfFileExists{#2}{\edef\AM@currentdocname{#2}}
-    {\IfFileExists{#2.pdf}{\edef\AM@currentdocname{#2.pdf}}
-       {\PackageError{pdfpages}{Cannot find file `#2'}{}}}%
-  \def\AM@threadname{\AM@currentdocname}%
   \AM@split@options{pdfpages}{#1}%
   \edef\AM@temp{{pdfpages}{\the\@temptokena}}%
   \expandafter\setkeys\AM@temp
-  \expandafter\AM@readlist\expandafter{\AM@pagestemp}%
-  \AM@output{#1}%
+  \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}
+    {\def\AM@currentdocname{}%
+     \renewcommand\includegraphics[2][]{%
+        Survey/Draft}%
+    }
+    {\IfFileExists{#2}{\edef\AM@currentdocname{#2}}
+       {\IfFileExists{#2.pdf}{\edef\AM@currentdocname{#2.pdf}}
+          {\PackageError{pdfpages}{Cannot find file `#2'}{}}}%
+     \def\AM@threadname{\AM@currentdocname}%
+    }
+%    \end{macrocode}
+%    Gather all pdfpages' labels form the |aux| file and store
+%    the page numbers in |\AM@pagestemp|. If there are no labels
+%    reset |\AM@pagestemp|.
+%    \begin{macrocode}
+  \ifAM@survey
+    \def\AM@pagestemp{}
+    \@tempcnta=0
+    \def\foo{%
+      \@ifundefined{r@\AM@xrprefix pdfpages@page\the\@tempcnta}
+         {\let\foo\relax}
+         {\expandafter\ifx\expandafter\\\AM@pagestemp\\
+             \edef\AM@pagestemp{%
+                  \AM@pageref{\AM@xrprefix pdfpages@page\the\@tempcnta}}
+          \else
+            \edef\AM@pagestemp{\AM@pagestemp,%
+                  \AM@pageref{\AM@xrprefix pdfpages@page\the\@tempcnta}}
+          \fi
+          \advance\@tempcnta 1\relax
+         }
+      \foo
+    }
+    \foo
+    \expandafter\ifx\expandafter\\\AM@pagestemp\\
+      \def\AM@pagestemp{1}
+    \fi
+  \fi
+%    \end{macrocode}
+%    \begin{macrocode}
+  \ifAM@output
+    \expandafter\AM@readlist\expandafter{\AM@pagestemp}%
+    \AM@output{#1}%
+  \fi
+%    \end{macrocode}
+%    \begin{macrocode}
   \AM@CheckAtEnd
   \endgroup
   \AM@ClearShipoutPicture
 }
 %    \end{macrocode}
 %    \macro{\includepdfmerge}
-%    This command merges pages of several PDF documents.
+%    This command merges pages of several \PDF\ documents.
 %    \begin{macrocode}
 \newcommand*{\includepdfmerge}[2][]{%
   \begingroup
@@ -965,7 +1101,9 @@
 %    \end{macrocode}
 %    Read in optional parameters.
 %    \begin{macrocode}
-  \setkeys{Gin}{draft=\AM@draft}%
+  \ifAM@pkg@draft \setkeys{Gin}{draft=true}%
+  \else \setkeys{Gin}{draft=false}%
+  \fi
 %    \end{macrocode}
 %    Some preparations before starting the output.
 %    \begin{macrocode}
@@ -1125,7 +1263,7 @@
       \ifAM@landscape\AM@sigrotatefalse\else\AM@sigrotatetrue\fi
     \fi
 %    \end{macrocode}
-%    This loop arranges one or more PDF pages onto each sheet
+%    This loop arranges one or more \PDF\ pages onto each sheet
 %    of paper.
 %    \begin{macrocode}
   \setboolean{AM@endoflist}{false}%
@@ -1225,7 +1363,8 @@
         \noexpand\put(\AM@xpos,\AM@ypos){%
         \noexpand\raisebox{\dp\@tempboxa}{%
         \AM@hyper\noexpand\AM@fbox{%
-        \noexpand\includegraphics[\the\@temptokena,
+          \noexpand\AM@ARBug@hook
+          \noexpand\includegraphics[\the\@temptokena,
                     page=\AM@page,scale=\AM@scale,
                     \ifAM@sigrotate angle=180\fi,
                     angle=\AM@lscape@rot]{\AM@docname}}}}%
@@ -1429,6 +1568,9 @@
 }
 %    \end{macrocode}
 %    \begin{macrocode}
+\def\AM@ReturnAfterFi#1\fi{\fi#1}
+%    \end{macrocode}
+%    \begin{macrocode}
 \newcommand{\AM@getlasti}{}
 \def\AM@getlasti#1,#2\END{%
   \ifx\\#2\\%
@@ -1437,7 +1579,7 @@
     \@ifundefined{AM@temp}
       {\edef\AM@temp{#1}}
       {\edef\AM@temp{\AM@temp,#1}}%
-    \AM@getlasti#2\END
+    \AM@ReturnAfterFi{\AM@getlasti#2\END}%
   \fi
 }
 %    \end{macrocode}
@@ -1720,6 +1862,10 @@
               \equal{linktodoc}{\AM@temp}\or
               \equal{linktodocfit}{\AM@temp}\or
               \equal{linkfilename}{\AM@temp}\or
+              \equal{survey}{\AM@temp}\or
+              \equal{survey-nolink}{\AM@temp}\or
+              \equal{output}{\AM@temp}\or
+              \equal{xr-prefix}{\AM@temp}\or
               \equal{fitpaper}{\AM@temp}\or
               \equal{addtotoc}{\AM@temp}\or
               \equal{addtolist}{\AM@temp}\or
@@ -1772,6 +1918,17 @@
   \ifAM@link
     \pdfdest name {\AM@linkname.\AM@page} \AM@linkfit%
   \fi
+%    \end{macrocode}
+%    Page is linked to the original document.
+%    \begin{macrocode}
+  \ifAM@survey \ifAM@surveynolink\else
+    \pdfannot width \wd\@tempboxa
+              height \ht\@tempboxa
+              depth \dp\@tempboxa
+              {/Subtype /Link /Border [0 0 0]
+               /A << /S /GoTo
+                     /D [\AM@page@linktodoc \AM@linktodocfit] >>}%
+  \fi \fi
 %    \end{macrocode}
 %    Page is linked to the original document.
 %    \begin{macrocode}
@@ -1966,7 +2123,7 @@
 }
 %    \end{macrocode}
 %    \begin{macrocode}
-\newcommand{\AM@setphatomdoc}{}
+\newcommand{\AM@setphantomdoc}{}
 \def\AM@setphantomdoc#1,#2\END{\edef\AM@phantomdoc{#1}}
 %    \end{macrocode}
 %    \macro{\AM@addtotoc} 
@@ -2142,6 +2299,38 @@
   }%
 }
 %    \end{macrocode}
+%    \macro{\AM@AddToSurvey}
+%     Add page to survey.
+%    \begin{macrocode}
+\ifAM@pkg@survey
+  \newcommand{\AddToSurvey}{%
+      \protected@write\@auxout{\let\AM@abs@page\relax}
+         {\string\newlabel{\AM@xrprefix pdfpages@page\the\c@AM@survey}%
+            {{}{\AM@abs@page}}}%
+      \stepcounter{AM@survey}%
+  }
+  \let\r@TotalPages\undefined
+\else
+  \newcommand{\AddToSurvey}{}
+\fi
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcounter{AM@survey}
+%    \end{macrocode}
+%    |count1to.sty| saves the absolute page number in |\count1|.
+%    \begin{macrocode}
+\def\AM@abs@page{\the\count1}
+%    \end{macrocode}
+%    \macro{\AM@pageref}
+%    |\AM@pageref| expands to a page number (and nothing more).
+%    \begin{macrocode}
+\newcommand{\AM@pageref}{}
+\newcommand{\AM@@pageref}{}
+\newcommand{\AM@secondarg}{}
+\def\AM@pageref#1{\expandafter\AM@@pageref\csname r@#1\endcsname}
+\def\AM@@pageref#1{\expandafter\AM@secondarg#1\@nil}
+\def\AM@secondarg#1#2#3\@nil{#2}
+%    \end{macrocode}
 %    \subsection{Options of \texttt{\protect\bslash includepdf}}
 %    \begin{macrocode}
 \define@key{pdfpages}{pages}{\def\AM@pagestemp{#1}}
@@ -2169,6 +2358,14 @@
 \define@key{pdfpages}{linktodocfit}{\def\AM@linktodocfit{#1}}
 \define@key{pdfpages}{linkfilename}{\pdfstringdef\AM@linkfilename{#1}%
                                \AM@linkfilenametrue}
+\define@key{pdfpages}{survey}[true]{%
+                      \ifAM@pkg@survey\setboolean{AM@survey}{#1}%
+                      \else\AM@outputfalse\fi}
+\define@key{pdfpages}{survey-nolink}[true]{%
+                      \ifAM@pkg@survey\setboolean{AM@surveynolink}{#1}%
+                                      \setboolean{AM@survey}{#1}
+                      \else\AM@outputfalse\fi}
+\define@key{pdfpages}{xr-prefix}{\def\AM@xrprefix{#1}}
 \define@key{pdfpages}{fitpaper}[true]{\setboolean{AM@fitpaper}{#1}}
 \define@key{pdfpages}{addtotoc}{\def\AM@toclist{#1,}}
 \define@key{pdfpages}{addtolist}{\def\AM@loflist{#1,}}
@@ -2284,6 +2481,11 @@
 %      \item Option |doublepages| added.
 %      \item Options now have their own namespace |pdfpages| and
 %        do not extent the |Gin| (graphicx) namespace any longer.
+%    \end{itemize}
+%
+%    \subsection*{2002/12/14 v0.2l}
+%    \begin{itemize}
+%      \item Survey functionality added.
 %    \end{itemize}
 %    \iffalse
 %
@@ -2517,14 +2719,14 @@ To get the documentation run: `latex pdfpages.dtx'
 
 Hyperlinks are created by using the option \texttt{link}
 of the \verb|\includepdf| command. Each inserted page
-gets a linkname consisting of the filename and
+gets a link name consisting of the filename and
 the page number: \link{filename}{page number}
 
 \begin{example}
 \includepdf[pages=1-2, link]{dummy.pdf}
 \end{example}
 
-In this example the two pages have the linknames
+In this example the two pages have the link names
 `\texttt{dummy.pdf.1}' and `\texttt{dummy.pdf.2}'.
 Setting links to these
 pages, can be done easily with the \verb|\hyperlink|
@@ -2545,7 +2747,7 @@ and the \hyperlink{dummy.pdf.2}{second page}.
 
 
 Inserting the same page twice would result in two 
-identical linknames. To prevent this use, the option
+identical link names. To prevent this use, the option
 \texttt{linkname} to specify another name for the links.
 
 \begin{example}
@@ -2591,7 +2793,7 @@ With the option \texttt{thread} the inserted pages become
 an article thread.
 
 \begin{example}
-\includepdf[pages=1-4, nup=2x2, 
+\includepdf[pages=1-4, nup=2x2, column,
             landscape, thread]{dummy-l.pdf}
 \end{example}
 
@@ -2600,7 +2802,7 @@ a little arrow in it when moved over an article thread.
 By clicking on the page you can easily follow the logical
 structure of the article thread.
 
-\includepdf[pages=1-4, nup=2x2, 
+\includepdf[pages=1-4, nup=2x2, column,
             landscape, thread]{dummy-l.pdf}
 
 \end{document}
