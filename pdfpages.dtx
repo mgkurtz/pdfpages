@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2j",
-%    date           = "2002-08-15",
+%    version        = "0.2k",
+%    date           = "2002-10-01",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -42,11 +42,11 @@
 %</dtx>
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdfpages}[2002/08/15 v0.2j Insert pages of external PDF documents (AM)]
-\def\AM@version{0.2j}
+\ProvidesPackage{pdfpages}[2002/10/01 v0.2k Insert pages of external PDF documents (AM)]
+\def\AM@version{0.2k}
 %</package>
 %    \fi
-%\ProvidesFile{pdfpages.dtx}[2002/08/15 v0.2j Insert pages of external PDF documents (AM)]
+%\ProvidesFile{pdfpages.dtx}[2002/10/01 v0.2k Insert pages of external PDF documents (AM)]
 %
 %
 %    \CheckSum{2458}
@@ -172,9 +172,6 @@
 %    \noindent
 %    The following list describes all possible options of
 %    |\includepdf|. All options are using the \meta{key=value} syntax.
-%    If options are marked with `\emph{changed}' on the left margin, their
-%    syntax or meaning has changed since pdfpages v0.1i. New options
-%    are marked with `\emph{new}'.
 %    
 %    \newcommand*{\df}[1]{(Default: \mbox{|#1|})}
 %
@@ -205,17 +202,19 @@
 %                     E.g.: |pages=-| will insert \emph{all} pages
 %                     of the document.
 %                     \par\df{pages=1}
-%        \item[nup] \hskip0pt\marginpar{\marginstyle changed}
-%                     Puts multiple logical pages onto each sheet
+%        \item[nup]   Puts multiple logical pages onto each sheet
 %                     of paper. The syntax of this option is: 
 %                     |nup=|\meta{xnup}|x|\meta{ynup}. Where
 %                     \meta{xnup} and \meta{ynup} specify the number of
 %                     logical pages in horizontal and vertical direction,
 %                     which are arranged on each sheet of paper.
 %                     \df{nup=1x1}
-%        \item[landscape] \hskip0pt\marginpar{\marginstyle changed}
-%                     Specifies the format of the sheet
-%                     of paper (and \emph{not} of the logical pages).
+%        \item[landscape] Specifies the format of the sheet of paper,
+%                     which is rotated by 90~degrees. This does
+%                     \emph{not} affect the logical pages, which
+%                     will \emph{not} be rotated by the `landscape'
+%                     option. To rotate the logical pages use the
+%                     `angle' option (e.g. `angle=90').
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{landscape=false}
 %      \end{description}
@@ -225,8 +224,7 @@
 %
 %      \begin{description}
 %      \makeatletter\@beginparpenalty=10000\makeatother
-%        \item[delta] \hskip0pt\marginpar{\marginstyle new}
-%                     Puts some horizontal and vertical space between the
+%        \item[delta] Puts some horizontal and vertical space between the
 %                     logical pages. The argument should be two dimensions,
 %                     separated by space. See Chapter~\ref{sec:layout} and
 %                     Figure~\ref{fig:layout}. \df{delta=0 0}.
@@ -242,16 +240,14 @@
 %        \item[frame] Puts a frame around each logical page. Either `true'
 %                     or `false' (or no value, which is equivalent to `true').
 %                     \df{frame=false}
-%        \item[column] \hskip0pt\marginpar{\marginstyle new}
-%                     Pdfpages normally uses `row-major' layout, where 
+%        \item[column] Pdfpages normally uses `row-major' layout, where 
 %                     successive pages are placed in rows along the paper.
 %                     The |column| option changes the output into a
 %                     `column-major' layout, where successive pages are 
 %                     arranged in columns down the paper.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{column=false}
-%        \item[columnstrict] \hskip0pt\marginpar{\marginstyle new}
-%                     By default the last page is not set in a
+%        \item[columnstrict] By default the last page is not set in a
 %                     strict `column-major' layout, if the logical
 %                     pages do not fill up the whole page. The
 %                     |columnstrict| option forces a strict
@@ -294,8 +290,7 @@
 %                     this). With \texttt{turn=false} this can be prohibited.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{turn=true}
-%         \item[noautoscale] \hskip0pt\marginpar{\marginstyle new}
-%                     By default pages are scaled automatically.
+%         \item[noautoscale] By default pages are scaled automatically.
 %                     This can be suppressed with the 
 %                     \texttt{noautoscale} option.
 %                     In combination with the \texttt{scale} option
@@ -303,19 +298,16 @@
 %                     the scaling process.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{noautoscale=false}
-%         \item[fitpaper] \hskip0pt\marginpar{\marginstyle new}
-%                      Adjusts the paper size to the one of the
+%         \item[fitpaper] Adjusts the paper size to the one of the
 %                      inserted document.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{fitpaper=false}
-%         \item[doublepages] \hskip0pt\marginpar{\marginstyle new}
-%                     Inserts every page twice. This is useful for
+%         \item[doublepages] Inserts every page twice. This is useful for
 %                     2-up printing, if one wants to cut the stack of paper
 %                     afterwards to get two copies.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{doublepages=false}
-%        \item[signature] \hskip0pt\marginpar{\marginstyle new}
-%                     Creates booklets by rearranging
+%        \item[signature] Creates booklets by rearranging
 %                     pages into signatures and setting
 %                     |nup=1x2| or |nup=2x1|, respectively. This option
 %                     takes one argument specifying the size of the
@@ -332,8 +324,7 @@
 %
 %      \begin{description}
 %        \makeatletter\@beginparpenalty=10000\makeatother
-%        \item[link] \hskip0pt\marginpar{\marginstyle changed}
-%                    Inserted pages become a target
+%        \item[link] Inserted pages become a target
 %                    of a hyperlink. The name of the link is 
 %                    `\texttt{\meta{filename}.\meta{page number}}'.
 %                    The file extension of \meta{filename} 
@@ -401,8 +392,7 @@
 %      \begin{description}
 %        \makeatletter\@beginparpenalty=10000\makeatother
 %
-%        \item[addtotoc] \hskip0pt\marginpar{\marginstyle new}
-%                     Adds an entry to the table of contents. This
+%        \item[addtotoc] Adds an entry to the table of contents. This
 %                     option requires five arguments, separated by commas:
 %
 %                     \texttt{addtotoc=\{\meta{page number},^^A
@@ -449,8 +439,7 @@
 %                     \meta{label}[,\meta{toc-list}]
 %
 %
-%        \item[addtolist] \hskip0pt\marginpar{\marginstyle new}
-%                      Adds an entry to the list of figures, the
+%        \item[addtolist] Adds an entry to the list of figures, the
 %                      list of tables, or any other list
 %                      (e.g. from \emph{float.sty}). This option
 %                      requires four arguments, separated by commas:
@@ -484,26 +473,8 @@
 %                      \meta{lof-list} $\rightarrow$ \meta{page number},^^A
 %                      \meta{type},\meta{heading},\meta{label}^^A
 %                      [,\meta{lof-list}]
-%
-%
-%
 %      \end{description}
 %
-%    \item Obsolete options:
-%
-%      \begingroup
-%      \renewcommand*\descriptionlabel[1]{\hspace\labelsep
-%                                \normalfont\slshape #1}
-%      \begin{description}{\small}
-%        \makeatletter\@beginparpenalty=10000\makeatother
-%        \item[deltax] Puts some horizontal space between the
-%                      logical pages. The argument should be one dimension,
-%                      separated by space. \df{deltax=0}.
-%        \item[deltay] Puts some vertical space between the
-%                      logical pages. The argument should be one dimension,
-%                      separated by space. \df{deltay=0}.
-%      \end{description}
-%      \endgroup
 %    \end{itemize}
 % 
 %
@@ -1006,6 +977,8 @@
         \let\AM@ynup\AM@temp}%
     }{}%
   \AM@setphantom
+  \ifthenelse{\boolean{AM@openright}}
+         {\AM@openright}{}%
   \ifx\AM@signature\@empty\AM@filluppagelist
   \else\AM@prepare@signature\AM@signaturetrue\AM@turnfalse\fi
 %    \end{macrocode}
@@ -1039,10 +1012,6 @@
           \setlength{\fboxrule}{\z@}}%
 %    \end{macrocode}
 %    \begin{macrocode}
-  \ifthenelse{\boolean{AM@openright}}
-         {\AM@openright}{}%
-%    \end{macrocode}
-%    \begin{macrocode}
   \ifthenelse{\boolean{AM@column}}
          {\def\AM@xnupi{\@ne}
           \def\AM@ynupi{\z@}}
@@ -1064,6 +1033,7 @@
     \edef\AM@page{\the\toks@}%
     \AM@readfirst{\AM@doclist}%
     \edef\AM@docname{\the\toks@}%
+    \newpage
     \ifAM@noautoscale
       \def\AM@scale{1}%
     \else
@@ -1075,7 +1045,6 @@
 %    \end{macrocode}
 %    Adjust the paper size.
 %    \begin{macrocode}
-    \newpage
     \ifthenelse{\boolean{AM@fitpaper}}
       {\setlength{\paperwidth}{\the\wd\@tempboxa}%
        \setlength{\paperheight}{\the\ht\@tempboxa}%
