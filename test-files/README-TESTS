@@ -1,0 +1,22 @@
+This are tests of pdfpages.sty
+
+*) fulltest.tex		some basic test
+   fullpost.tex         VTeX: include PostScript (vlatex and vlatexp)
+
+*) mixed.tex		inclusion of mixed portait/landscape PDFs
+
+*) slides.tex		test `survey' option:
+   			1) compile with `draft' option
+			2) cp slides.pdf slides-tmp.pdf
+			3) compile with 'final' option
+
+*) addtotoc-1.tex	TOC (std classes, koma, memoir)
+   addtotoc-2.tex
+   addtotoc-3.tex
+
+   addtolist-1.tex	List of ... (std classes, koma, memoir)
+   addtolist-2.tex
+
+   addto-tocloft.tex
+   addtotoc-jura.tex
+
