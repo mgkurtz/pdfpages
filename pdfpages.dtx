@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.3c",
-%    date           = "2003-09-25",
+%    version        = "0.3d",
+%    date           = "2003-10-09",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -49,7 +49,7 @@
 %    \fi
 %
 %    \ProvidesFile{pdfpages.dtx}
-   [2003/09/25 v0.3c
+   [2003/10/09 v0.3d-beta
 %
 %    \iffalse
 %</!example1&!example2&!example3>
@@ -63,13 +63,13 @@
 %<pppdftexdef>    Pdfpages driver for pdfTeX (AM)]
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
 %
-%<package>\def\AM@version{0.3c}
+%<package>\def\AM@version{0.3d}
 %
 %    \fi
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{3329}
+%    \CheckSum{3359}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -446,7 +446,10 @@
 %                       \texttt{xyz zoom \meta{integer}}, etc.
 %                       These are destinations (|\pdfdest|) like they are
 %                       described in \cite{pdftex}.
-%                       \df{linkfit=fitr}
+%                       Pdfpages adds one additional destination named
+%                       |region|, which scales a page such that it fits
+%                       exactly into the window of the \PDF\ viewer.
+%                       \df{linkfit=fit}
 %        \item[linktodocfit] By default the option \texttt{linktodoc} opens
 %                            the page in `Fit in Window' view.
 %                            Another view can be specified with this option.
@@ -969,7 +972,7 @@
 \newcommand*{\AM@lscape@rot}{0}
 \newcommand*{\AM@threadname}{}\newcommand*{\AM@linkname}{}
 \newcommand*{\AM@linkname@option}{}
-\newcommand*{\AM@linkfit}{fitr}\newcommand*{\AM@linktodocfit}{/Fit}
+\newcommand*{\AM@linkfit}{fit}\newcommand*{\AM@linktodocfit}{/Fit}
 \newcommand*{\threadinfodict}{}
 \newcommand*{\AM@toclist}{}\newcommand*{\AM@loflist}{}
 \newcommand*{\AM@signature}{}
@@ -1287,12 +1290,12 @@
     \ifdim\AM@pagewidth=\z@
       \AM@pagewidth=210mm
       \PackageWarningNoLine{pdfpages}{%
-        Erroneous page width of 0.0pt is corrected}
+        Erroneous page width of 0.0pt is corrected}%
     \fi
     \ifdim\AM@pageheight=\z@
       \AM@pageheight=297mm
       \PackageWarningNoLine{pdfpages}{%
-        Erroneous page height of 0.0pt is corrected}
+        Erroneous page height of 0.0pt is corrected}%
     \fi
 %    \end{macrocode}
 %    |eso-pic| needs |\paperwidth| and |\paperheight|, which may
@@ -1552,6 +1555,15 @@
     \edef\AM@ypos{\strip@pt\@tempdima}%
     \setlength{\fboxsep}{\z@}%
 %    \end{macrocode}
+%    Calculate |fitr| coordinates, if |linkfit=region|.
+%    \begin{macrocode}
+    \def\AM@region{region}%
+    \ifx\AM@linkfit\AM@region
+      \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}%
+      \edef\AM@linkfit{fitr width\the\wd\@tempboxa\space
+                            height0pt depth\the\@tempdima}%
+    \fi
+%    \end{macrocode}
 %    Ship out page.
 %    \begin{macrocode}
     \ifAM@phantompage
@@ -1561,7 +1573,13 @@
       \edef\AM@shippage{%
         \noexpand\put(\AM@xpos,\AM@ypos){%
         \noexpand\raisebox{\dp\@tempboxa}{%
-        \AM@hyper@begin\noexpand\AM@fbox{%
+%    /end{macrocode}
+%    Raise the target of a link to the top of the included page.
+%    /begin{macrocode}
+        \noexpand\raise \ht\@tempboxa \hbox{\AM@hyper@begin@i}%
+%    \end{macrocode}
+%    \begin{macrocode}
+        \AM@hyper@begin@ii\noexpand\AM@fbox{%
           \noexpand\AM@ARBug@hook
           \noexpand\includegraphics[\the\@temptokena,
                     page=\AM@page, scale=\AM@globalscale,
@@ -2166,16 +2184,22 @@
   \fi
 }
 %    \end{macrocode}
-%    \macro{\AM@hyper@begin}
+%    \macro{\AM@hyper@begin@i}
+%    \macro{\AM@hyper@begin@ii}
 %    \macro{\AM@hyper@end}
 %    Add hypertext operations (targets, links and threads) to 
 %    the inserted pages.
 %    \begin{macrocode}
-\newcommand{\AM@hyper@begin}{%
+
+\newcommand{\AM@hyper@begin@i}{%
 %    \end{macrocode}
 %    Page is a target for a link.
 %    \begin{macrocode}
   \ifAM@link \AM@dest@special\fi
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\AM@hyper@begin@ii}{%
 %    \end{macrocode}
 %    Survey linking to pages.\par
 %    \begin{macrocode}
