@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2g",
-%    date           = "2002-03-31",
+%    version        = "0.2h",
+%    date           = "2002-04-23",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -42,11 +42,11 @@
 %</dtx>
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdfpages}[2002/03/31 v0.2g Insert pages of external PDF documents (AM)]
-\def\AM@version{0.2g}
+\ProvidesPackage{pdfpages}[2002/04/23 v0.2h Insert pages of external PDF documents (AM)]
+\def\AM@version{0.2h}
 %</package>
 %    \fi
-%\ProvidesFile{pdfpages.dtx}[2002/03/31 v0.2g Insert pages of external PDF documents (AM)]
+%\ProvidesFile{pdfpages.dtx}[2002/04/23 v0.2h Insert pages of external PDF documents (AM)]
 %
 %
 %    \CheckSum{2450}
@@ -192,7 +192,7 @@
 %                     (|pages={4-9}|) or any combination.
 %                     To insert empty pages use |{}|.
 %                     \par
-%                     E.\,g.: |pages={3,{},8-11,15}| will insert
+%                     E.g.: |pages={3,{},8-11,15}| will insert
 %                     page 3, an empty page, and pages 8, 9, 10, 11,
 %                     and 15.
 %                     \par
@@ -202,7 +202,7 @@
 %                     to the first page, omitting \meta{n} defaults to
 %                     the last page of the document.
 %                     \par
-%                     E.\,g.: |pages=-| will insert \emph{all} pages
+%                     E.g.: |pages=-| will insert \emph{all} pages
 %                     of the document.
 %                     \par\df{pages=1}
 %        \item[nup] \hskip0pt\marginpar{\marginstyle changed}
@@ -338,9 +338,9 @@
 %                    \df{link=false}
 %        \item[linkname] Changes the default linkname created by the option 
 %                        \texttt{link}. Instead of \meta{filename} the
-%                        value of this option is used. E.\,g. \texttt{
+%                        value of this option is used. E.g. \texttt{
 %                        linkname=mylink} produces the linknames
-%                        `\texttt{mylink.\meta{page number}}'.\\
+%                        `\texttt{mylink.\meta{page number}}'.
 %        \item[thread] Combines inserted pages to an article thread.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{thread=false}
@@ -411,9 +411,9 @@
 %                       \item[\meta{page number}:] Page number of the
 %                          inserted page.
 %                       \item[\meta{section}:] \LaTeX\ sectioning name
-%                          -- e.\,g., section, subsection, \ldots
+%                          -- e.g., section, subsection, \ldots
 %                       \item[\meta{level}:] Number, denoting depth of
-%                          section -- e.\,g., section=1, subsection=2,
+%                          section -- e.g., section=1, subsection=2,
 %                          \ldots
 %                       \item[\meta{heading}:] Title inserted in the 
 %                          table of contents.
@@ -447,7 +447,7 @@
 %        \item[addtolist] \hskip0pt\marginpar{\marginstyle new}
 %                      Adds an entry to the list of figures, the
 %                      list of tables, or any other list
-%                      (e.\,g. from \emph{float.sty}). This option
+%                      (e.g. from \emph{float.sty}). This option
 %                      requires four arguments, separated by commas:
 %
 %                      \texttt{addtolist=\{\meta{page number},^^A
@@ -637,7 +637,7 @@
 %    
 %    The inserted logical pages are being centered on the
 %    sheet of paper by default. To displace them use the |offset|
-%     option, which argument should be two dimensions. E.\,g.\
+%     option, which argument should be two dimensions. E.g.\
 %    |offset=10mm 14mm| means that the logical pages are displaced
 %    by 10\,mm in horizontal direction and by 14\,mm in vertical
 %    direction.
@@ -915,7 +915,7 @@
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup
-  \setcounter{totalnumber}{0}%
+  \c@totalnumber=0%
   \IfFileExists{#2}{\edef\AM@currentdocname{#2}}
     {\IfFileExists{#2.pdf}{\edef\AM@currentdocname{#2.pdf}}
        {\PackageError{pdfpages}{Cannot find file `#2'}{}}}%
@@ -935,7 +935,7 @@
 %    \begin{macrocode}
 \newcommand*{\includepdfmerge}[2][]{%
   \begingroup
-  \setcounter{totalnumber}{0}%
+  \c@totalnumber=0%
   \def\AM@currentdocname{}%
   \AM@readlist{#2}%
   \AM@split@options{pdfpages}{#1}%
@@ -1525,7 +1525,7 @@
 %    |\AM@lastndocs| the corresponding documents which
 %    should get resorted.
 %
-%    E.\,g.: After resorting a page that contains only 5 of 9
+%    E.g.: After resorting a page that contains only 5 of 9
 %    logical pages, it looks like (b) instead of (a).
 %
 %    \smallskip\par
@@ -2006,8 +2006,8 @@
 %    contain a multiple of five entries, which there are:
 %    \meta{page number}, \meta{section}, \meta{level},
 %    \meta{heading} and \meta{label}. 
-%    \meta{section} is e.\,g., `chapter', `section', `subsection', etc.
-%    and \meta{level} is a number, denoting depth of section e.\,g.,
+%    \meta{section} is e.g., `chapter', `section', `subsection', etc.
+%    and \meta{level} is a number, denoting depth of section e.g.,
 %    chapter=0, section=1, etc.
 %    \begin{macrocode}
 \newcommand{\AM@addtotoc@hook}{\relax}
