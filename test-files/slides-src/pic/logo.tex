@@ -1,0 +1,33 @@
+\documentclass{article}
+%
+% Andreas Matthias, 2002
+% Public domain.
+%
+\usepackage{pstricks}
+\usepackage{pst-char}
+\usepackage[tiling]{pst-fill}
+\usepackage{pst-grad}
+
+\pagestyle{empty}
+\begin{document}
+
+\newlength\logosize
+\setlength\logosize{45mm}
+
+\DeclareFixedFont{\Bigf}{T1}{ptm}{b}{it}{\logosize}
+\DeclareFixedFont{\bigf}{T1}{ptm}{b}{it}{.78\logosize}
+
+\def\myLaTeX{\Bigf L\kern-.22em\lower-.3ex\hbox{{\bigf A}}\kern-.1em\TeX}
+
+\psboxfill{\LaTeX}
+\centering
+\begin{pspicture}(0,0)
+    \pscharpath[linestyle=none,
+                fillstyle=gradient, 
+                gradangle=-45, gradmidpoint=0.5,
+                addfillstyle=boxfill,
+                fillcyclex=2, fillsepx=.1, fillsepy=.2, fillangle=45]
+               {\rput(0,0){\myLaTeX}}
+\end{pspicture}
+
+\end{document}
