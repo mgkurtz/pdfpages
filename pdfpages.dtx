@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.3b-beta1",
-%    date           = "2003-07-16",
+%    version        = "0.3c",
+%    date           = "2003-09-25",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -49,7 +49,7 @@
 %    \fi
 %
 %    \ProvidesFile{pdfpages.dtx}
-   [2003/07/16 v0.3b-beta1
+   [2003/09/25 v0.3c
 %
 %    \iffalse
 %</!example1&!example2&!example3>
@@ -63,13 +63,13 @@
 %<pppdftexdef>    Pdfpages driver for pdfTeX (AM)]
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
 %
-%<package>\def\AM@version{0.3b}
+%<package>\def\AM@version{0.3c}
 %
 %    \fi
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{3278}
+%    \CheckSum{3329}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -266,7 +266,8 @@
 %                     \emph{outer} and to the \emph{top} margin,
 %                     respectively. See Chapter~\ref{sec:layout} and 
 %                     Figure~\ref{fig:layout}. \df{offset=0 0}
-%        \item[frame] Puts a frame around each logical page. Either `true'
+%        \item[frame] Puts a frame around each logical page. The frame is
+%                     made of lines of thickness |\fboxrule|. Either `true'
 %                     or `false' (or no value, which is equivalent to `true').
 %                     \df{frame=false}
 %        \item[column] Pdfpages normally uses `row-major' layout, where 
@@ -331,11 +332,6 @@
 %                      inserted document.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{fitpaper=false}
-%         \item[doublepages] Inserts every page twice. This is useful for
-%                     2-up printing, if one wants to cut the stack of paper
-%                     afterwards to get two copies.
-%                     Either `true' or `false' (or no value, which
-%                     is equivalent to `true'). \df{doublepages=false}
 %        \item[signature] Creates booklets by rearranging
 %                     pages into signatures and setting
 %                     |nup=1x2| or |nup=2x1|, respectively. This option
@@ -373,6 +369,29 @@
 %                     oversized pages are scale and are \emph{not} rotated.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{rotateoversize=false}
+%         \item[doublepages] Inserts every page twice. This is useful for
+%                     2-up printing, if one wants to cut the stack of paper
+%                     afterwards to get two copies.
+%                     Either `true' or `false' (or no value, which
+%                     is equivalent to `true'). \df{doublepages=false}
+%        \item[doublepagestwist] Whereas with |doublepages| the cutting
+%                     edge is once on the inner side and ones on the outer
+%                     side, |doublepagestwist| turns the pages such, that
+%                     the cutting edge is always on the inner side.
+%                     Either `true' or `false' (or no value, which is
+%                     equivalent to `true'). \df{doublepagestwist=false}
+%         \item[doublepagestwistodd] Turns the pages such, that the 
+%                     cutting edge is always on the outer side.
+%                     Either `true' or `false' (or no value, which is
+%                     equivalent to `true'). \df{doublepagestwistodd=false}
+%         \item[doublepagestwist*] Like |doublepagestwist| but for
+%                     double side printing.
+%                     Either `true' or `false' (or no value, which is
+%                     equivalent to `true'). \df{doublepagestwist*=false}
+%         \item[doublepagestwistodd*] Like |doublepagestwistodd| but for
+%                     double side printing
+%                     Either `true' or `false' (or no value, which is
+%                     equivalent to `true'). \df{doublepagestwistodd*=false}
 %      \end{description}
 %
 %
@@ -1253,6 +1272,8 @@
     \ifthenelse{\boolean{AM@fitpaper}}
       {\setlength{\AM@pagewidth}{\the\wd\@tempboxa}%
        \setlength{\AM@pageheight}{\the\ht\@tempboxa}%
+       \setlength{\paperwidth}{\the\wd\@tempboxa}%
+       \setlength{\paperheight}{\the\ht\@tempboxa}%
        \AM@fitpaper@special
        \AM@setpagedimen
        \@ifundefined{stockwidth}{}{%
@@ -1274,10 +1295,20 @@
         Erroneous page height of 0.0pt is corrected}
     \fi
 %    \end{macrocode}
+%    |eso-pic| needs |\paperwidth| and |\paperheight|, which may
+%    not be defined, e.g. with |minimal.cls|.
+%    \begin{macrocode}
+    \ifdim\paperwidth=\z@
+      \let\paperwidth\AM@pagewidth
+    \fi
+    \ifdim\paperheight=\z@
+      \let\paperheight\AM@pageheight
+    \fi
+%    \end{macrocode}
 %    Calculate required scaling in horizontal direction.
 %    \begin{macrocode}
     \def\AM@xscale{%
-      (\AM@pagewidth - \tw@\fboxrule*\AM@xnup 
+      (\paperwidth - \tw@\fboxrule*\AM@xnup 
        - \AM@deltax * \AM@xnupminusi) /
       (\AM@xnup * \real{\strip@pt\wd\@tempboxa})
     }%
@@ -1288,7 +1319,7 @@
 %    \begin{macrocode}
     \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
     \def\AM@yscale{
-      (\AM@pageheight - \tw@\fboxrule*\AM@ynup 
+      (\paperheight - \tw@\fboxrule*\AM@ynup 
        - \AM@deltay *\AM@ynupminusi) /
       (\AM@ynup * \real{\strip@pt\@tempdimb})
     }%
@@ -1323,11 +1354,11 @@
   \edef\AM@templateheight{\the\@tempdima}%
   \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
   \def\AM@xmargin{%
-    (\AM@pagewidth - (\wd\@tempboxa+\tw@\fboxrule)*\AM@xnup
+    (\paperwidth - (\wd\@tempboxa+\tw@\fboxrule)*\AM@xnup
      - \AM@deltax * \AM@xnupminusi) * \real{.5}%
   }%
   \def\AM@ymargin{%
-    (\AM@pageheight - (\@tempdimb+\tw@\fboxrule)*\AM@ynup
+    (\paperheight - (\@tempdimb+\tw@\fboxrule)*\AM@ynup
      - \AM@deltay * \AM@ynupminusi) * \real{.5}%
   }%
   \setlength{\@tempdima}{\AM@xmargin}%
@@ -1520,12 +1551,6 @@
     \setlength{\@tempdima}{\AM@ypos}%
     \edef\AM@ypos{\strip@pt\@tempdima}%
     \setlength{\fboxsep}{\z@}%
-%    \end{macrocode}
-%    |eso-pic| needs |\paperwidth| and |\paperheight|, which may
-%    not be defined, e.g. with |minimal.cls|.
-%    \begin{macrocode}
-    \let\paperwidth\AM@pagewidth
-    \let\paperheight\AM@pageheight
 %    \end{macrocode}
 %    Ship out page.
 %    \begin{macrocode}
