@@ -1,0 +1,92 @@
+\makeatletter
+\documentclass[a4paper]{jura}
+\usepackage{pdfpages}
+\usepackage[bookmarksopen, bookmarksopenlevel=5]{hyperref}
+%\def\nameref#1{}
+
+% hyperref bookmark levels
+\providecommand*{\toclevel@lvla}{0}
+\providecommand*{\toclevel@lvlb}{1}
+\providecommand*{\toclevel@lvlc}{2}
+\providecommand*{\toclevel@lvld}{3}
+\providecommand*{\toclevel@lvle}{4}
+
+\begin{document}
+
+\let\ORGref\ref
+\renewcommand*{\ref}{%
+\@ifstar{\@tempswatrue\ORGref}{\@tempswafalse\ORGref}}
+
+\def\@setref#1#2#3{% csname, extract group, refname
+  \ifx#1\relax
+    \protect\G@refundefinedtrue
+    \nfss@text{\reset@font\bfseries ??}%
+    \@latex@warning{%
+      Reference `#3' on page \thepage \space undefined%
+    }%
+  \else
+    \ifx#2\@firstoffive
+      \ifcat_\ifnum9<1\expandafter\@firstoffive#1_\else X\fi
+        \hyper@@link
+          {\expandafter\@fifthoffive#1}%
+          {\expandafter\@fourthoffive#1\@empty\@empty}%
+          {\expandafter#2#1\@empty\@empty\null}%
+      \else
+        \hyper@@link
+          {\expandafter\@fifthoffive#1}%
+          {\expandafter\@fourthoffive#1\@empty\@empty}%
+          {\expandafter\expandafter\expandafter
+           \J@refA\expandafter\@firstoffive#1\@empty\@empty\null}%
+      \fi
+    \else
+      \hyper@@link
+        {\expandafter\@fifthoffive#1}%
+        {\expandafter\@fourthoffive#1\@empty\@empty}%
+        {\expandafter#2#1\@empty\@empty\null}%
+    \fi
+  \fi
+}
+
+
+\Large
+\tableofcontents
+
+\toc{Testing \texttt{addtotoc}}
+\leveldown\toc{References}
+
+Siehe auch \ref{weiter} (\ref*{weiter}).
+Abbildung \ref{fig}.
+
+\newpage
+\hskip1em
+\begin{tabular}{@{}ll@{}l}\hline
+ref         & page            & \multicolumn{1}{c}{nameref}\\\hline
+\ref{sec:1} & \pageref{sec:1} & \nameref{sec:1}\\
+\ref{sec:2} & \pageref{sec:2} & \nameref{sec:2}\\
+\ref{sec:3} & \pageref{sec:3} & \nameref{sec:3}\\\hline
+\end{tabular}
+
+\leveldown
+\includepdf[pages=1-4, pagecommand={},
+            addtotoc={1, lvlc, 2, Just (Seite 1),     sec:1,
+                      3, lvlc, 2, testing (Seite 3),  sec:2,
+                      4, lvlc, 2, jura.cls (Seite 4), sec:3},
+            trim=0 120 0 120, clip]{dummy}
+
+
+%\levelup
+%\includepdf[pages=1, addtotoc={1, lvlb, 1, B-Ebene, bebene}]{dummy}
+%\leveldown
+%\includepdf[pages=2, addtotoc={2, lvlc, 2, C-Ebene, cebene}]{dummy}
+%\leveldown
+%\includepdf[pages=3, addtotoc={3, lvld, 3, D-Ebene, debene}]{dummy}
+
+\toc{Weiter}\label{weiter}
+\levelup\toc{Test}
+
+\begin{figure}
+\caption{testing figures}
+\label{fig}
+\end{figure}
+
+\end{document}
