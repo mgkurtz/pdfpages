@@ -18,7 +18,7 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2b-pdfnup-2",
+%    version        = "0.2c",
 %    date           = "26. December 2001",
 %    filename       = "pdfpages.sty",
 %    address        = "",
@@ -39,7 +39,7 @@
 %</dtx>
 %    \fi
 %
-%    \CheckSum{1740}
+%    \CheckSum{1765}
 %%
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -59,9 +59,9 @@
 %%
 %    \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{pdfpages}[2001/12/26 v0.2b-pdfnup-2 Insert pages of external PDF documents (AM)]
+%<package>\ProvidesPackage{pdfpages}[2001/12/26 v0.2c Insert pages of external PDF documents (AM)]
 %    \fi
-%         \ProvidesFile{pdfpages.dtx}[2001/12/26 v0.2b-pdfnup-2 Insert pages of external PDF documents (AM)]
+%         \ProvidesFile{pdfpages.dtx}[2001/12/26 v0.2c Insert pages of external PDF documents (AM)]
 %    \iffalse
 %
 %<*driver>
@@ -279,18 +279,23 @@
 %                     the scaling process.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{noautoscale=false}
+%         \item[fitpaper] \hskip0pt\marginpar{\marginstyle new}
+%                      Adjusts the paper size to the one of the
+%                      inserted document.
+%                     Either `true' or `false' (or no value, which
+%                     is equivalent to `true'). \df{fitpaper=false}
 %      \end{description}
 %
 %    \item Hypertext options:
 %
 %      \begin{description}
 %      \makeatletter\@beginparpenalty=10000\makeatother
-%        \item[link] Inserted pages become a target
+%        \item[link] \hskip0pt\marginpar{\marginstyle changed}
+%                    Inserted pages become a target
 %                    of a hyperlink. The name of the link is 
 %                    `\texttt{\meta{filename}.\meta{page number}}'.
-%                    \meta{filename} is equal to the \meta{filename} of
-%                    \verb|\includepdf|, i.\,e. potential file extensions
-%                    are not stripped.
+%                    The file extension of \meta{filename} 
+%                    \emph{must not} be stripped.
 %                    Either `true' or `false' (or no value, which
 %                    is equivalent to `true').
 %                    \df{link=false}
@@ -633,6 +638,7 @@
 \newboolean{AM@column}\setboolean{AM@column}{false}
 \newboolean{AM@columnstrict}\setboolean{AM@columnstrict}{false}
 \newboolean{AM@noautoscale}\setboolean{AM@noautoscale}{false}
+\newboolean{AM@fitpaper}{\setboolean{AM@fitpaper}{false}
 \newif\ifAM@linkfilename\AM@linkfilenamefalse
 %    \end{macrocode}
 %    \subsection{Commands}
@@ -792,7 +798,6 @@
 \def\AM@checklast#1-\END{%
   \edef\AM@tempii{\AM@trim@space{#1}}%
   \expandafter\ifx\expandafter\\\AM@tempii\\
-%    \pdfximage{\AM@currentdocname.pdf}%
     \pdfximage{\AM@currentdocname}%
     \@tempcntb=\the\pdflastximagepages\relax
     \advance\@tempcntb\@ne
@@ -1076,7 +1081,7 @@
 \newcommand{\AM@output}[1]{%
 %    \end{macrocode}
 %    Some macros may already be initialized by |\includepdfset|.
-%    So do not reset them.
+%    So do not reset them here.
 %    \begin{macrocode}
   \@ifundefined{AM@xnup}
     {\def\AM@xnup{\@ne}\def\AM@ynup{\@ne}%
@@ -1162,6 +1167,16 @@
       \setbox\@tempboxa=\hbox{%
         \expandafter\includegraphics\expandafter[\the\toks@,
            page=\AM@page, angle=\AM@lscape@rot]{\AM@docname}}%
+%    \end{macrocode}
+%    Adjust the paper size.
+%    \begin{macrocode}
+    \newpage
+    \ifthenelse{\boolean{AM@fitpaper}}
+      {\setlength{\paperwidth}{\the\wd\@tempboxa}%
+       \setlength{\paperheight}{\the\ht\@tempboxa}%
+       \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
+       \setlength{\pdfpageheight}{\the\ht\@tempboxa}}
+      {}%
 %    \end{macrocode}
 %    Calculate required scaling in horizontal direction.
 %    \begin{macrocode}
@@ -1582,6 +1597,7 @@
 \define@key{Gin}{linktodocfit}{\def\AM@linktodocfit{#1}}
 \define@key{Gin}{linkfilename}{\pdfstringdef\AM@linkfilename{#1}%
                                \AM@linkfilenametrue}
+\define@key{Gin}{fitpaper}[true]{\setboolean{AM@fitpaper}{#1}}
 %    \end{macrocode}
 %    \macro{\AM@parse@nup}
 %    Parsing \texttt{nup} item.
@@ -1674,9 +1690,14 @@
 %    \begin{itemize}
 %      \item Support of |m|$\times$|n| logical pages on each
 %        sheet of paper.
+%      \item Options |column| and |columnstrict| added.
 %      \item New command |\inlcudepdfmerge|.
 %    \end{itemize}
 %
+%    \subsection*{2001/12/26 v0.2c}
+%    \begin{itemize}
+%      \item Option |fitpaper| added.
+%    \end{itemize}
 %
 %    \iffalse
 %</package>
@@ -1901,23 +1922,23 @@ the page number: \link{filename}{page number}
 \end{example}
 
 In this example the two pages have the linknames
-`\texttt{dummy.1}' and `\texttt{dummy.2}'.
+`\texttt{dummy.pdf.1}' and `\texttt{dummy.pdf.2}'.
 Setting links to these
 pages, can be done easily with the \verb|\hyperlink|
 macro from the \texttt{hyperref.sty} package:
 
 \bigskip
-\verb|\hyperlink{dummy.1}{Page 1}|\hskip10pt \hyperlink{dummy.1}{Page 1}\par
-\verb|\hyperlink{dummy.2}{Page 2}|\hskip10pt \hyperlink{dummy.2}{Page 2}
+\verb|\hyperlink{dummy.pdf.1}{Page 1}|\hskip10pt \hyperlink{dummy.pdf.1}{Page 1}\par
+\verb|\hyperlink{dummy.pdf.2}{Page 2}|\hskip10pt \hyperlink{dummy.pdf.2}{Page 2}
 \bigskip
 
-This way you can refer to the \hyperlink{dummy.1}{first}
-and the \hyperlink{dummy.2}{second page}.
+This way you can refer to the \hyperlink{dummy.pdf.1}{first}
+and the \hyperlink{dummy.pdf.2}{second page}.
 
 \includepdf[pages=1-2, link]{dummy}
 \bookmark[4]{List of Hyperfigures}{}
-\bookmark[0]{Page 1}{dummy.1}
-\bookmark[0]{Page 2}{dummy.2}
+\bookmark[0]{Page 1}{dummy.pdf.1}
+\bookmark[0]{Page 2}{dummy.pdf.2}
 
 
 Inserting the same page twice would result in two 
