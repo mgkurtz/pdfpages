@@ -1,0 +1,624 @@
+%
+%    \iffalse
+%
+% pdfpages.dtx Copyright (C) 2001 Andreas MATTHIAS
+%
+% This program may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.2
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.2 or later is part of all distributions of LaTeX 
+% version 1999/12/01 or later.
+%
+% Please send error reports and suggestions for improvements to
+%   Andreas MATTHIAS <amat@kabsi.at>.
+%
+%<*!package>
+% ===================================================================
+%  @LaTeX-package-file{
+%    author         = {Andreas MATTHIAS},
+%    version        = "0.1a",
+%    date           = "12 January 2001",
+%    filename       = "pdfpages.sty",
+%    address        = "",
+%    telephone      = "",
+%    email          = "amat@kabsi.at",
+%    codetable      = "ISO/ASCII",
+%    keywords       = "pdfLaTeX, PDF, include, page",
+%    dependences    = "ifthen, graphicx, eso-pic",
+%    supported      = "yes",
+%    docstring      = "Package for including pages of external
+%                      PDF documents. (Requiring pdfLaTeX.)"
+%  }
+% ===================================================================
+%</!package>
+%
+%<*dtx>
+          \ProvidesFile{pdfpages.dtx}
+%</dtx>
+%    \fi
+%
+%    \CheckSum{381}
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+%    \iffalse
+%<package>\NeedsTeXFormat{LaTeX2e}
+%<package>\ProvidesPackage{pdfpages}[2001/01/12 v0.1a Include pages of external PDF documents (AM)]
+% \fi
+%        \ProvidesFile{pdfpages.dtx}[2001/01/12 v0.1a Include pages of external PDF documents (AM)]
+% \iffalse
+%
+%<*driver>
+\documentclass[10pt,draft]{ltxdoc}
+\usepackage{array}
+  \newcommand{\versionlist}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\leftmargin}{20pt}%
+    \setlength{\parsep}{0pt}}
+\begin{document}
+  \DocInput{pdfpages.dtx}
+\end{document}
+%</driver>
+%    \fi
+%
+%  \GetFileInfo{pdfpages.dtx}
+%
+%
+%    \title{The \textsf{pdfpages} Package\thanks{This file
+%           has version number \fileversion, last revised \filedate.}}
+%    \author{Andreas MATTHIAS\\ \texttt{amat@kabsi.at}} 
+%
+%
+%    \date{\filedate}
+%
+%    \maketitle
+%
+%    \begin{abstract}
+%       \noindent
+%       This package makes it easy to include pages of external
+%       PDF documents. It is based on pdfLaTeX and does 
+%       \textit{not} work with \LaTeX.
+%    \end{abstract}
+%
+%    \tableofcontents
+%
+%
+%    \section{Introduction}
+%    When creating PDF documents it is sometimes useful to include
+%    pages from other, external PDF documents. This can be done
+%    with the \texttt{\bslash includegraphics} command from the
+%    \texttt{graphics} package. But a simple
+%    |\includegraphics{doc.pdf}| normally produces
+%    `|Overfull \hbox|' and `|Overfull \vbox|' warnings,
+%    because the size of the included page does not match to the
+%    print space. To circumvent this, one have to scale (reduce)
+%    the included page. However, this is sometimes not desirable.
+%    
+%    The \texttt{pdfpages} package makes it easy to include one or
+%    more pages of external PDF documents without worrying about
+%    the print space. It even gives you the possibility
+%    to arrange two or four logical pages on one physical sheet
+%    of paper. (Like `psnup'.)
+%    
+%    \section{Usage}
+%    \subsection{Package Options}
+%    |\usepackage[|\meta{options}|]{pdfpages}|
+%    
+%    \begin{quote}
+%    \begin{tabular}{@{}r@{~}r@{~}>{\raggedright}p{.7\linewidth}}
+%        \meta{option} --  & |final|:& Include pages. This is the
+%                                      default. \tabularnewline[.25\baselineskip]
+%                          & |draft|:& Do not include pages, but
+%                                      print a box and the filename
+%                                      instead.
+%    \end{tabular}
+%    \end{quote}
+%    
+%    
+%    \subsection{Commands}
+%    
+%    \DescribeMacro{\includepdf}
+%    Pages of external PDF documents are included as follows:
+%    
+%    \medskip\noindent
+%    |\includepdf[|\meta{key=val}|]{|\meta{pdf-file}|}|
+%    
+%    \begin{quote}
+%    \begin{tabular}{@{}l@{\,--~}>{\raggedright}p{.8\linewidth}}
+%        \meta{key=val}   & A comma separated list of options
+%                   using the \meta{key}=\meta{value} syntax.
+%                   \tabularnewline
+%        \meta{pdf-file} & The filename of the PDF document.
+%    \end{tabular}
+%    \end{quote}
+%    
+%    \noindent
+%    Possible options specific to |\includepdf| are:
+%    
+%    \newcommand{\df}[1]{(Default: |#1|)}
+%    
+%    \begin{description}
+%      \item[firstpage] Page number of the first page to include.
+%                       \df{firstpage=1}
+%      \item[lastpage] Page number of the last page to include.\\
+%                      \df{lastpage=firstpage+1}
+%      \item[nup] Put multiple logical pages on one physical sheet of paper.
+%                 Possible values are: 1, 2 and 4. \df{nup=1}
+%      \item[openright] Put first page on the right side. (Just in combination
+%                       with |nup=2| and |nup=4|.)
+%                       Either `true' or `false' (or no value, which
+%                       is equivalent to `true'). \df{openright=false}
+%      \item[frame] Put a frame around each logical page. Either `true'
+%                   or `false' (or no value, which is equivalent to `true').
+%                   \df{frame=false}
+%      \item[offset] Displace the origin of the included page relatively
+%                    to the lower left corner of the sheet. 
+%                    The argument should be
+%                    two dimensions, separated by space. \df{offset=0 0}
+%      \item[deltax] Put some space between the logical pages in
+%                    horizontal direction. The argument should be one
+%                    dimension. \df{deltax=0}
+%      \item[deltay] Put some space between the logical pages in
+%                    vertical direction. The argument should be one
+%                    dimension. \df{deltay=0}
+%      \item[pagecommand] \LaTeX{} commands, which are executed on each
+%                         physical sheet of paper.
+%                         \df{pagecommand=\{\bslash thispagestyle\{empty\}\}}
+%    \end{description}
+%    
+%    The |\includepdf| command calls the |\includegraphics| command from the
+%    |graphicx| (actually |graphics|) package, which makes it possible to
+%    use its options too.
+%    All options which are not interpreted by |\includepdf| are passed to
+%    |\includegraphics|.
+%    This way it is possible e.\,g.~to use the `trim' and `clip' options 
+%    of \verb|\includegraphics| by passing them to \verb|\includepdf|, to
+%    include only parts of a page. (Maybe to cut off the header and footer
+%    of the included pages.)
+%    
+%    
+%    \DescribeMacro{\includepdfset}
+%    If one needs the same options for |\includepdf| all the time, it is
+%    possible to define global options with |\includepdfset|. The
+%    argument of |\includepdfset| is a comma separated list of options,
+%    using the \meta{key}=\meta{value} syntax.
+%    These options are processed each time |\includepdf| is called.
+%    Local options (passed as an optional argument directly to |\includepdf|)
+%    are overwriting global options:
+%    
+%    |\includepdfset{|\meta{global options}|}|
+%    
+%    |\includepdf[|\meta{local options}|]{pdf-file}|
+%    
+%    
+%    \section{Acknowledgment}
+%    I would like to thank \textsc{Rolf Niepraschk} for his useful
+%    hints and suggestions.
+%
+%
+%
+%    \StopEventually{}
+%
+%    \iffalse
+%<*package>
+%    \fi
+%    \section{Implementation}
+%    \begin{macrocode}
+%    \end{macrocode}
+%    \subsection{Checking}
+%    Check for using pdfLaTeX. 
+%    -- If \texttt{graphics.sty} is loaded before this package,
+%    \texttt{pdfoutput} may be undefined, even if pdfLaTeX
+%    is used, because some \texttt{graphic.cfg} undefine
+%    \texttt{pdfoutput} (\verb|\let\pdfoutput\@undefined|),
+%    if the document contains the line \verb|\pdfoutput=0|.
+%    \begin{macrocode}
+\@ifundefined{pdfoutput}
+    {\PackageError{pdfpages}
+            {You're either not using pdfLaTeX\MessageBreak
+             or have turn off PDF output.\MessageBreak
+             `pdfpages' works only with pdfLaTeX\MessageBreak
+             and PDF output}
+            {Use `pdflatex' instead of `latex'\MessageBreak
+             and set output to PDF (use: \pdfoutput = 1)!}
+    }{}
+%    \end{macrocode}
+%    Check for producing PDF output.
+%    \begin{macrocode}
+\ifnum\pdfoutput=0
+    \PackageError{pdfpages}
+            {You don't produce PDF output, which\MessageBreak
+             is required for the `pdfpages' package}
+            {Set output to PDF. (use: \pdfoutput = 1)}
+\fi
+%    \end{macrocode}
+%    Check for \texttt{pdftex.def} version: This is done with
+%    the following macros, which are derived from
+%    \verb|\@pkgextension| and \verb|\@ifpackagelater|
+%    from the standard \LaTeX{} kernel.
+%    \begin{macrocode}
+\def\@driverextension{def}
+\def\@ifdriverlater{\@ifl@ter\@driverextension}
+%    \end{macrocode}
+%    Check for \texttt{pdftex.def} version \texttt{2000/05/12 v0.02u} or higher:
+%    \begin{list}{$\ast$}{\versionlist}
+%    \item support for multipage PDF files, option `page' added (HO).
+%    \end{list}
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \@ifdriverlater{pdftex}{2000/05/12}{}{%
+      \PackageError{pdfpages}{%
+           You have an old `pdftex.def'.\MessageBreak%
+           There is no multipage support\MessageBreak%
+           in `pdftex.def' < 0.02u.\MessageBreak%
+           Update your `pdftex.def'}%
+           {Update your `pdftex.def'!}}%
+%    \end{macrocode}
+%    Check for \texttt{pdftex.def} version \texttt{2000/09/14 v0.03d} or higher:
+%    \begin{list}{$\ast$}{\versionlist}
+%    \item Fixes for `viewport' and `trim' (HO).
+%    \item Clip support added for viewport and trim (HO).
+%    \end{list}
+%    \begin{macrocode}
+  \@ifdriverlater{pdftex}{2000/09/14}{}{%
+      \PackageWarning{pdfpages}{%
+           You have an old `pdftex.def'.\MessageBreak%
+           There might be problems with\MessageBreak%
+           the `trim' and `clip' options.\MessageBreak%
+           Update your `pdftex.def'!\MessageBreak}}%
+}%
+%    \end{macrocode}
+%    \subsection{Required Packages}
+%    \begin{macrocode}
+\RequirePackage{ifthen, graphicx, eso-pic}
+%    \end{macrocode}
+%    \subsection{Package Options}
+%    \begin{macrocode}
+\newcommand{\AM@draft}{false}
+\DeclareOption{draft}{\def\AM@draft{true}}  
+\DeclareOption{final}{\def\AM@draft{false}} 
+\ProcessOptions  
+%    \end{macrocode}
+%    \subsection{Counters and Booleans}
+%    \begin{macrocode}
+\newcounter{AM@firstpage}\setcounter{AM@firstpage}{1}
+\newcounter{saveAM@firstpage}
+\newcounter{AM@lastpage}\setcounter{AM@lastpage}{2}
+\newcounter{saveAM@lastpage}
+\newcounter{AM@nup}\setcounter{AM@nup}{1}
+\newcounter{saveAM@nup}
+\newboolean{AM@openright}\setboolean{AM@openright}{false}
+\newboolean{AM@frame}\setboolean{AM@frame}{false}
+\newcounter{AM@page}\setcounter{AM@page}{1}
+%    \end{macrocode}
+%    \subsection{Commands}
+%    \begin{macrocode}
+\newcommand{\AM@xoffset}{0}\newcommand{\saveAM@xoffset}{\AM@xoffset}
+\newcommand{\AM@yoffset}{0}\newcommand{\saveAM@yoffset}{\AM@yoffset}
+\newcommand{\AM@deltax}{0}\newcommand{\saveAM@deltax}{\AM@deltax}
+\newcommand{\AM@deltay}{0}\newcommand{\saveAM@deltay}{\AM@deltay}
+\newcommand{\AM@pagecommand}{\thispagestyle{empty}}
+\newcommand{\saveAM@pagecommand}{\AM@pagecommand}
+\newcommand{\AM@fbox}{}\newcommand{\saveAM@fbox}{\AM@fbox}
+\newsavebox{\AM@pdfpagebox}
+%    \end{macrocode}
+%    \macro{\includepdfset}
+%    This command sets global options for \verb|\includepdf|.
+%    \begin{macrocode}
+\newcommand{\includepdfset}[1]{\setkeys{Gin}{#1}}
+%    \end{macrocode}
+%    \macro{\includepdf}
+%    This command includes one or more pages of an external 
+%    PDF document.
+%    \begin{macrocode}
+\newcommand{\includepdf}[2][]{{%setkey
+%    \end{macrocode}
+%    Save counters.
+%    \begin{macrocode}
+  \setcounter{saveAM@firstpage}{\value{AM@firstpage}}%
+  \setcounter{saveAM@lastpage}{\value{AM@lastpage}}%
+  \setcounter{saveAM@nup}{\value{AM@nup}}%
+%    \end{macrocode}
+%    Read in optional parameters.
+%    \begin{macrocode}
+  \setkeys{Gin}{draft=\AM@draft, #1}%
+  \ifthenelse{\boolean{AM@frame}}
+         {\let\AM@fbox\fbox}{\let\AM@fbox\relax}%
+%    \end{macrocode}
+%    Arrange logical PDF pages on one physical sheet of paper.
+%    \begin{macrocode}
+  \setcounter{AM@page}{\value{AM@firstpage}}%
+  \whiledo{\value{AM@page} < \value{AM@lastpage}}{%
+    \newpage%
+    \AddToShipoutPicture{%
+      \setlength{\fboxsep}{0pt}%
+%    \end{macrocode}
+%    One PDF page per sheet. (\texttt{nup=1})
+%    \begin{macrocode}
+      \ifthenelse{\value{AM@nup} = 1}{%
+        \savebox{\AM@pdfpagebox}{%
+                 \includegraphics[page=\arabic{AM@page}, #1]{#2}}%
+        \put(\AM@xoffset,\AM@yoffset){%
+             \AM@fbox{\usebox{\AM@pdfpagebox}}}%
+      }{}%
+%    \end{macrocode}
+%    Two PDF pages per sheet. (\texttt{nup=2})
+%    \begin{macrocode}
+      \ifthenelse{\value{AM@nup} = 2}{%
+        \savebox{\AM@pdfpagebox}{\AM@fbox{%
+                 \includegraphics[page=\arabic{AM@page},
+                                  angle=90, scale=.7071, #1]{#2}}}%
+        \let\AM@xposi\AM@xoffset%
+        \let\AM@yposi\AM@yoffset%
+        \let\AM@yposii\AM@yoffset%
+          \dimen@\AM@yposii\p@\advance\dimen@\ht\AM@pdfpagebox%
+                             \edef\AM@yposii{\strip@pt\dimen@}%
+          \dimen@\AM@yposii\p@\advance\dimen@\AM@deltay\p@%
+                             \edef\AM@yposii{\strip@pt\dimen@}%
+        \ifthenelse{\boolean{AM@openright}\and%
+                    \value{AM@page}=\value{AM@firstpage}}{}{%
+          \put(\AM@xposi,\AM@yposi){\usebox{\AM@pdfpagebox}}%
+          \stepcounter{AM@page}}%
+        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
+          \put(\AM@xposi,\AM@yposii){\AM@fbox{%
+               \includegraphics[page=\arabic{AM@page},
+                                angle=90, scale=.7071, #1]{#2}}}}{}%
+      }{}%
+%    \end{macrocode}
+%    Four PDF pages per sheet. (\texttt{nup=4})
+%    \begin{macrocode}
+      \ifthenelse{\value{AM@nup} = 4}{%
+        \savebox{\AM@pdfpagebox}{\AM@fbox{%
+                 \includegraphics[page=\arabic{AM@page},
+                                  scale=.5, #1]{#2}}}%
+        \let\AM@xposi\AM@xoffset%
+        \let\AM@xposii\AM@xoffset%
+          \dimen@\AM@xposii\p@\advance\dimen@\wd\AM@pdfpagebox%
+                             \edef\AM@xposii{\strip@pt\dimen@}%
+          \dimen@\AM@xposii\p@\advance\dimen@\AM@deltax\p@%
+                             \edef\AM@xposii{\strip@pt\dimen@}%
+          \dimen@\AM@xposii\p@\advance\dimen@ -\fboxrule%
+                             \edef\AM@xposii{\strip@pt\dimen@}%
+        \let\AM@yposi\AM@yoffset%
+        \let\AM@yposii\AM@yoffset%
+          \dimen@\AM@yposii\p@\advance\dimen@\ht\AM@pdfpagebox%
+                             \edef\AM@yposii{\strip@pt\dimen@}%
+          \dimen@\AM@yposii\p@\advance\dimen@\AM@deltay\p@%
+                             \edef\AM@yposii{\strip@pt\dimen@}%
+        \ifthenelse{\boolean{AM@openright}\and%
+                    \value{AM@page}=\value{AM@firstpage}}{}{%
+          \put(\AM@xposi,\AM@yposii){\usebox{\AM@pdfpagebox}}%
+          \stepcounter{AM@page}}%
+        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
+          \put(\AM@xposii,\AM@yposii){\AM@fbox{%
+               \includegraphics[page=\arabic{AM@page},
+                                scale=.5, #1]{#2}}}%
+          \stepcounter{AM@page}}{}%
+        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
+          \put(\AM@xposi,\AM@yposi){\AM@fbox{%
+               \includegraphics[page=\arabic{AM@page},
+                                scale=.5, #1]{#2}}}
+          \stepcounter{AM@page}}{}%
+        \ifthenelse{\value{AM@page} < \value{AM@lastpage}}{%
+          \put(\AM@xposii,\AM@yposi){\AM@fbox{%
+               \includegraphics[page=\arabic{AM@page},
+                                scale=.5, #1]{#2}}}}{}%
+      }{}%
+    }%AddToShipoutPicture
+    \AM@pagecommand%
+    \hskip0pt%
+    \newpage%
+    \stepcounter{AM@page}%
+    \ClearShipoutPicture%
+  }%whiledo
+%    \end{macrocode}
+%    Write back saved counters.
+%    \begin{macrocode}
+  \setcounter{AM@firstpage}{\value{saveAM@firstpage}}%
+  \setcounter{AM@lastpage}{\value{saveAM@lastpage}}%
+  \setcounter{AM@nup}{\value{saveAM@nup}}%
+  }%setkey
+  \ClearShipoutPicture%
+}%includepdf
+%    \end{macrocode}
+%    \subsection{Options of \texttt{\protect\bslash includepdf}}
+%    \begin{macrocode}
+\define@key{Gin}{firstpage}{%
+                   \setcounter{AM@firstpage}{#1}%
+                   \setcounter{AM@lastpage}{\value{AM@firstpage}}%
+                   \stepcounter{AM@lastpage}}
+\define@key{Gin}{lastpage}{%
+                   \setcounter{AM@lastpage}{#1}%
+                   \stepcounter{AM@lastpage}}
+\define@key{Gin}{offset}{\AM@parse@offset#1 \\}
+\define@key{Gin}{nup}{\setcounter{AM@nup}{#1}}
+\define@key{Gin}{deltax}{\AM@parse@deltax#1 \\}
+\define@key{Gin}{deltay}{\AM@parse@deltay#1 \\}
+\define@key{Gin}{frame}[true]{\setboolean{AM@frame}{#1}}%
+\define@key{Gin}{openright}[true]{\setboolean{AM@openright}{#1}}%
+\define@key{Gin}{pagecommand}{\renewcommand{\AM@pagecommand}{#1}}
+%    \end{macrocode}
+%    Parsing option entries. These lines are derived
+%    from \texttt{graphicx.sty}.
+%    \begin{macrocode}
+\def\AM@parse@deltax#1 #2\\{\AMGin@defaultbp\AM@deltax{#1}}
+\def\AM@parse@deltay#1 #2\\{\AMGin@defaultbp\AM@deltay{#1}}
+\def\AM@parse@offset#1 #2 #3\\{%
+  \AMGin@defaultbp\AM@xoffset{#1}%
+  \AMGin@defaultbp\AM@yoffset{#2}}
+\def\AMGin@defaultbp#1#2{%
+  \afterassignment\AMGin@def@bp\dimen@#2bp\relax{#1}{#2}}
+\def\AMGin@def@bp#1\relax#2#3{%
+   \if!#1!%
+     \def#2{#3}%
+    \else
+      \dimen@.99626\dimen@
+      \edef#2{\strip@pt\dimen@}%
+    \fi}
+%    \end{macrocode}
+%    \iffalse
+%</package>
+%    \fi
+%
+%    \Finale
+%
+%    \iffalse
+%<*example>
+\documentclass[a4paper,12pt, draft]{article}
+\usepackage[final]{pdfpages}
+\usepackage{verbatim}
+
+\newcounter{example}
+\setcounter{example}{1}
+
+\newenvironment{example}
+  {\par\vskip\topsep%
+   \noindent\textbf{Example \arabic{example}:}%
+   \stepcounter{example}%
+   \par\vskip\topsep%
+   \minipage{.8\linewidth}%
+   \verbatim}
+  {\endverbatim%
+   \endminipage}
+
+\begin{document}
+
+\title{Demonstration of the \texttt{pdfpages} Package}
+\author{Andreas MATTHIAS}
+\maketitle
+
+This is a demonstration of the \texttt{pdfpages} package.
+It is \textit{not} the documentation of the package.
+To get the documentation run: `latex pdfpages.dtx'
+
+\tableofcontents
+
+\section{Including Pages:}
+\begin{example}
+\includepdf[firstpage=3, lastpage=5]{dummy}
+\end{example}
+\includepdf[firstpage=3, lastpage=5]{dummy}
+
+\section{Using the \texttt{nup} Option}
+Arranging two logical pages on one physical sheet of paper.
+
+\begin{example}
+\includepdf[nup=2,
+            firstpage=4, lastpage=7]{dummy}
+\end{example}
+\includepdf[nup=2,
+            firstpage=4, lastpage=7]{dummy}
+
+\noindent
+Arranging four logical pages on one physical sheet of paper.
+
+\begin{example}
+\includepdf[nup=4,
+            firstpage=4, lastpage=7]{dummy}
+\end{example}
+\includepdf[nup=4,
+            firstpage=4, lastpage=7]{dummy}
+
+\noindent
+Sometimes it might be useful to put the first page
+on the right side. This can be done with the \texttt{openright} Option.
+\begin{example}
+\includepdf[nup=4,
+            firstpage=5, lastpage=7,
+            openright]{dummy}
+\end{example}
+\includepdf[nup=4,
+            firstpage=5, lastpage=7,
+            openright]{dummy}
+
+\section{Changing Layout}
+
+To put same space between the logical pages, use the options
+\texttt{deltax} and \texttt{deltay}, which set the
+horizontal and vertical space between the pages.
+To displace the origin (the lower left corner) use the
+\texttt{offset} option.
+
+Any options of \verb|\includegraphics| are allowed in
+\verb|\includepdf| as well. See the \texttt{scale}
+option in the next example.
+
+\begin{example}
+\includepdf[nup=4, firstpage=3, lastpage=6,
+            scale=.8, offset=11mm 20mm,
+            deltax=20mm, deltay=20mm,
+            frame]{dummy}
+\end{example}
+
+\small
+A short explanation about \texttt{scale} in the above
+example:
+To put four pages on one physical sheet of paper, the
+pages are scaled by $0.5$. This is done internally in
+\verb|\includepdf|. The entry \texttt{scale=.8} in the
+above example is an additional scale operation. This
+means that on the whole the pages are scale by $0.5$
+\textit{and} $0.8$. 
+
+If the included paper format is A4 (\texttt{a4paper}),
+which has a width of $210\,$mm, the pages are scaled to
+a width of $84\,$mm:
+$$210\,\mathrm{mm} \times 0.5 \times 0.8 = 84\,\mathrm{mm}$$
+\normalsize
+
+\includepdf[nup=4, firstpage=3, lastpage=6,
+            scale=.8, offset=11mm 20mm,
+            deltax=20mm, deltay=20mm,
+            frame]{dummy}
+
+\noindent
+To remove the header and the footer of the included
+document use the \texttt{trim} and \texttt{clip}
+options.
+
+\begin{example}
+\includepdf[page=3,
+            trim=0 105 0 110, clip,
+            offset=0 105,
+            pagecommand={}]{dummy}
+\end{example}
+
+%As a default \verb|\includepdf| uses the option 
+%\verb|pagecommand={\thispagestyle{empty}}|.
+%To remove this (if you want to use the headers and
+%footers of your document) you can say:
+%\verb|pagecommand={}|
+
+The option
+\verb|pagecommand={\thispagestyle{empty}}|
+is set by default.
+To remove this (if you want to use the headers and
+footers of your document) you can set:
+\verb|pagecommand={}|
+
+\includepdf[page=3,
+            trim=0 105 0 110, clip,
+            offset=0 105,
+            pagecommand={}]{dummy}
+
+\end{document}
+%</example>
+%\fi
+\endinput
