@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.3a",
-%    date           = "2003-06-21",
+%    version        = "0.3b-beta1",
+%    date           = "2003-07-16",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -49,7 +49,7 @@
 %    \fi
 %
 %    \ProvidesFile{pdfpages.dtx}
-   [2003/06/21 v0.3a
+   [2003/07/16 v0.3b-beta1
 %
 %    \iffalse
 %</!example1&!example2&!example3>
@@ -63,13 +63,13 @@
 %<pppdftexdef>    Pdfpages driver for pdfTeX (AM)]
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
 %
-%<package>\def\AM@version{0.3a}
+%<package>\def\AM@version{0.3b}
 %
 %    \fi
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{3247}
+%    \CheckSum{3278}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -930,6 +930,10 @@
 \newif\ifAM@noautoscale\AM@noautoscalefalse
 \newif\ifAM@fitpaper\AM@fitpaperfalse
 \newif\ifAM@doublepages\AM@doublepagesfalse
+\newif\ifAM@doublepagestwist\AM@doublepagestwistfalse
+\newif\ifAM@doublepagestwistx\AM@doublepagestwistxfalse
+\newif\ifAM@doublepagestmp\AM@doublepagestmpfalse
+\newif\ifAM@doublepagestmpi\AM@doublepagestmpifalse
 \newif\ifAM@linkfilename\AM@linkfilenamefalse
 \newif\ifAM@signature\AM@signaturefalse
 \newif\ifAM@sigrotate\AM@sigrotatefalse
@@ -1537,11 +1541,20 @@
           \noexpand\includegraphics[\the\@temptokena,
                     page=\AM@page, scale=\AM@globalscale,
                     scale=\AM@localscale,
-                    \ifAM@sigrotate angle=180\fi,
+                    \ifAM@sigrotate angle=180,\fi
+                    \ifAM@doublepagestwist\ifAM@doublepagestmp
+                      angle=180,\fi\fi
                     angle=\AM@rotateoversize,
                     angle=\AM@lscape@rot]{\AM@docname}}%
         \AM@hyper@end}}%
       }%
+    \fi
+    \ifAM@doublepagestwist
+      \ifAM@doublepagestmpi
+        \ifAM@doublepagestwistx\AM@doublepagestmpifalse\fi
+        \ifAM@doublepagestmp\AM@doublepagestmpfalse
+        \else\AM@doublepagestmptrue\fi
+      \else\AM@doublepagestmpitrue\fi
     \fi
     \AM@AddToShipoutPicture{\setlength{\unitlength}{\p@}%
       \global\let\AM@filelist@save\@filelist}%
@@ -2081,6 +2094,10 @@
               \equal{addtotoc}{\AM@temp}\or
               \equal{addtolist}{\AM@temp}\or
               \equal{doublepages}{\AM@temp}\or
+              \equal{doublepagestwist}{\AM@temp}\or
+              \equal{doublepagestwistodd}{\AM@temp}\or
+              \equal{doublepagestwist*}{\AM@temp}\or
+              \equal{doublepagestwistodd*}{\AM@temp}\or
               \equal{signature}{\AM@temp}\or
               \equal{pagetemplate}{\AM@temp}\or
               \equal{rotateoversize}{\AM@temp}\or
@@ -2578,6 +2595,24 @@
 \define@key{pdfpages}{addtolist}{\def\AM@loflist{#1,}}
 \define@key{pdfpages}{doublepages}[true]%
                      {\setboolean{AM@doublepages}{#1}}
+\define@key{pdfpages}{doublepagestwist}[true]%
+                     {\setboolean{AM@doublepages}{#1}%
+                      \setboolean{AM@doublepagestwist}{#1}%
+                      \AM@doublepagestmptrue\AM@doublepagestmpitrue}
+\define@key{pdfpages}{doublepagestwistodd}[true]%
+                     {\setboolean{AM@doublepages}{#1}%
+                      \setboolean{AM@doublepagestwist}{#1}%
+                      \AM@doublepagestmpfalse\AM@doublepagestmpitrue}
+\define@key{pdfpages}{doublepagestwist*}[true]%
+                     {\setboolean{AM@doublepages}{#1}%
+                      \setboolean{AM@doublepagestwist}{#1}%
+                      \AM@doublepagestmptrue\AM@doublepagestmpitrue
+                      \AM@doublepagestwistxtrue}
+\define@key{pdfpages}{doublepagestwistodd*}[true]%
+                     {\setboolean{AM@doublepages}{#1}%
+                      \setboolean{AM@doublepagestwist}{#1}%
+                      \AM@doublepagestmpfalse\AM@doublepagestmpitrue
+                      \AM@doublepagestwistxtrue}
 \define@key{pdfpages}{signature}{\def\AM@signature{#1}}
 \define@key{pdfpages}{pagetemplate}{\def\AM@pagetemplate{#1}}
 \define@key{pdfpages}{rotateoversize}[true]%
