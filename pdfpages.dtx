@@ -18,8 +18,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2c",
-%    date           = "26. December 2001",
+%    version        = "0.2d",
+%    date           = "25. January 2002",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -39,7 +39,7 @@
 %</dtx>
 %    \fi
 %
-%    \CheckSum{1765}
+%    \CheckSum{1776}
 %%
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -59,9 +59,9 @@
 %%
 %    \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{pdfpages}[2001/12/26 v0.2c Insert pages of external PDF documents (AM)]
+%<package>\ProvidesPackage{pdfpages}[2002/01/25 v0.2d Insert pages of external PDF documents (AM)]
 %    \fi
-%         \ProvidesFile{pdfpages.dtx}[2001/12/26 v0.2c Insert pages of external PDF documents (AM)]
+%         \ProvidesFile{pdfpages.dtx}[2002/01/25 v0.2d Insert pages of external PDF documents (AM)]
 %    \iffalse
 %
 %<*driver>
@@ -1175,8 +1175,13 @@
       {\setlength{\paperwidth}{\the\wd\@tempboxa}%
        \setlength{\paperheight}{\the\ht\@tempboxa}%
        \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
-       \setlength{\pdfpageheight}{\the\ht\@tempboxa}}
-      {}%
+       \setlength{\pdfpageheight}{\the\ht\@tempboxa}%
+       \@ifundefined{stockwidth}{}{%
+         \setlength{\stockwidth}{\paperwidth}%
+         \setlength{\stockheight}{\paperheight}%
+         \setlength{\trimtop}{0pt}%
+         \setlength{\trimedge}{0pt}}%
+      }{}%
 %    \end{macrocode}
 %    Calculate required scaling in horizontal direction.
 %    \begin{macrocode}
@@ -1307,7 +1312,7 @@
 %    These are |\AM@xpos| and |\AM@ypos|.
 %    \begin{macrocode}
     \def\AM@add{+}%
-    \if@twoside\ifodd\value{page}\else\def\AM@add{-}\fi\fi
+    \if@twoside\ifodd\c@page\else\def\AM@add{-}\fi\fi
     \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
     \ifthenelse{\boolean{AM@landscape}}
       {\def\AM@xpos{%
