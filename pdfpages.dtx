@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.3e",
-%    date           = "2004-01-31",
+%    version        = "0.3f-beta3",
+%    date           = "2004-03-27",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -49,7 +49,7 @@
 %    \fi
 %
 %    \ProvidesFile{pdfpages.dtx}
-   [2004/01/31 v0.3e
+   [2004/03/27 v0.3f-beta3
 %
 %    \iffalse
 %</!example1&!example2&!example3>
@@ -63,13 +63,13 @@
 %<pppdftexdef>    Pdfpages driver for pdfTeX (AM)]
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
 %
-%<package>\def\AM@version{0.3e}
+%<package>\def\AM@version{0.3f}
 %
 %    \fi
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{3495}
+%    \CheckSum{3635}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -229,7 +229,7 @@
 %                     \par
 %                     E.g.: |pages=-| will insert \emph{all} pages
 %                     of the document, and |pages=last-1| will insert
-%                     all pages in revers order.
+%                     all pages in reverse order.
 %                     \par\df{pages=1}
 %        \item[nup]   Puts multiple logical pages onto each sheet
 %                     of paper. The syntax of this option is: 
@@ -337,12 +337,14 @@
 %                     pages into signatures and setting
 %                     |nup=1x2| or |nup=2x1|, respectively. This option
 %                     takes one argument specifying the size of the
-%                     signature, which should be a multiply of 4.\par
+%                     signature, which should be a multiple of 4.\par
 %                     An example for documents in portrait orientation:\par
 %                     |\includepdf[pages=-, signature=8,|\\
 %                     \hspace*{6em} |landscape]{portrait-doc.pdf}|\par
 %                     An example for documents in landscape orientation:\par
 %                     |\includepdf[pages=-, signature=8]{landscape-doc.pdf}|
+%       \item[signature*] Similar to |signature|, but now for right-edge
+%                     binding.
 %       \item[picturecommand] Declares picture commands which are executed
 %                      on every page within a picture environment with the
 %                      base point at the lower left corner of the page.
@@ -939,6 +941,7 @@
    \def\AM@ClearShipoutPicture{\relax}}
   {\def\AM@AddToShipoutPicture{\AddToShipoutPicture}%
    \def\AM@ClearShipoutPicture{\ClearShipoutPicture}}
+ \let\Orig@AM@AddToShipoutPicture\AM@AddToShipoutPicture
 %    \end{macrocode}
 %    \subsection{Booleans}
 %    \begin{macrocode}
@@ -963,6 +966,8 @@
 \newif\ifAM@doublepagestmpi\AM@doublepagestmpifalse
 \newif\ifAM@linkfilename\AM@linkfilenamefalse
 \newif\ifAM@signature\AM@signaturefalse
+\newif\ifAM@signaturestar\AM@signaturestarfalse
+\newif\ifAM@booklet\AM@bookletfalse
 \newif\ifAM@sigrotate\AM@sigrotatefalse
 \newif\ifAM@newwindow\AM@newwindowtrue
 \newif\ifAM@rescale\AM@rescalefalse
@@ -986,10 +991,7 @@
 \newcommand*{\AM@ARBug@hook}{}
 \newcommand*{\AM@xrprefix}{}
 \newcommand*{\AM@picturecommand}{}\newcommand*{\AM@picturecommandstar}{}
-
-
 \newsavebox{\AM@pagebox}
-
 %    \end{macrocode}
 %    \macro{\AM@setlscape}
 %    |\AM@setlscape| is defined in the driver files but may be
@@ -1245,7 +1247,7 @@
   \ifthenelse{\boolean{AM@reflect}}
          {\let\AM@reflectbox\reflectbox}
          {\let\AM@reflectbox\relax}%
-\setbox\AM@pagebox\null
+  \setbox\AM@pagebox\null
 %    \end{macrocode}
 %    \begin{macrocode}
   \ifthenelse{\boolean{AM@column}}
@@ -1618,7 +1620,7 @@
     \AM@AddToShipoutPicture{\setlength{\unitlength}{\p@}%
       \global\let\AM@filelist@save\@filelist}%
 %    \end{macrocode}
-%    |\AM@pagebox| is only use for option |reflect|, which was added
+%    |\AM@pagebox| is only used for option |reflect|, which was added
 %    lately. Probabley it would be better to use |\AM@pagebox| in
 %    all cases?
 %    \begin{macrocode}
@@ -1875,6 +1877,7 @@
 %    \end{macrocode}
 %    \begin{macrocode}
 \def\AM@ReturnAfterFi#1\fi{\fi#1}
+\def\AM@ReturnAfterFiFi#1\fi\fi{\fi\fi#1}
 %    \end{macrocode}
 %    \begin{macrocode}
 \newcommand{\AM@getlasti}{}
@@ -1903,6 +1906,38 @@
     \advance\@tempcnta\@ne
   \repeat
   \edef\AM@lastnitems{\AM@templist}%
+}
+%    \end{macrocode}
+%    \macro{\AM@split@firstn}
+%    Removes the first |n=#2| items from the cvs=list, which
+%    is specified by the name of a macro in |#1|. These |n|
+%    items are split into two lists with the names |#1@firstn|
+%    and |#1@lastn|. The latter one is sorted backwards. This
+%    is needed for a faster processing of the |signature| option.
+%    \begin{macrocode}
+\newcommand{\AM@split@firstn}{}
+\def\AM@split@firstn#1#2{%
+  \edef\AM@tmp{\expandafter\@gobble\string#1@firstn}%
+  \AM@getfirst{#1}%
+  \expandafter\edef\csname\AM@tmp\endcsname{\the\toks@}%
+  \@tempcnta=\@ne
+  \@tempcntb=#2 \divide\@tempcntb\tw@
+  \loop\ifnum\@tempcnta<\@tempcntb
+    \AM@getfirst{#1}%
+    \expandafter\edef\csname\AM@tmp\endcsname
+        {\@nameuse{\AM@tmp},\the\toks@}%
+    \advance\@tempcnta\@ne
+  \repeat
+  \edef\AM@tmp{\expandafter\@gobble\string#1@lastn}%
+  \AM@getfirst{#1}%
+  \expandafter\edef\csname\AM@tmp\endcsname{\the\toks@}%
+  \@tempcnta=\@ne
+  \loop\ifnum\@tempcnta<\@tempcntb
+    \AM@getfirst{#1}%
+    \expandafter\edef\csname\AM@tmp\endcsname
+        {\the\toks@,\@nameuse{\AM@tmp}}%
+    \advance\@tempcnta\@ne
+  \repeat
 }
 %    \end{macrocode}
 %    \macro{\AM@count}
@@ -2180,6 +2215,8 @@
               \equal{doublepagestwist*}{\AM@temp}\or
               \equal{doublepagestwistodd*}{\AM@temp}\or
               \equal{signature}{\AM@temp}\or
+              \equal{signature*}{\AM@temp}\or
+              \equal{booklet}{\AM@temp}\or
               \equal{pagetemplate}{\AM@temp}\or
               \equal{rotateoversize}{\AM@temp}\or
               \equal{picturecommand}{\AM@temp}\or
@@ -2334,6 +2371,18 @@
   \def\AM@newpagelist{}%
   \def\AM@newdoclist{}%
 %    \end{macrocode}
+%    Calculate value of |\AM@signature| for option |booklet|.
+%    \begin{macrocode}
+\ifAM@booklet
+  \AM@countpagelist
+  \@tempcntb=\@tempcnta
+  \divide\@tempcnta by 4
+  \multiply\@tempcnta by 4
+  \advance\@tempcntb-\@tempcnta
+  \ifnum\@tempcntb=0\else \advance\@tempcnta by 4\fi
+  \edef\AM@signature{\the\@tempcnta}%
+\fi
+%    \end{macrocode}
 %    Make |\AM@signature| a multiply of 4.
 %    \begin{macrocode}
   \@tempcnta=\AM@signature\relax
@@ -2365,34 +2414,36 @@
   \def\AM@sort{%
     \def\AM@sigpagelist{}%
     \def\AM@sigdoclist{}%
-    \@tempcntb=\AM@signature\relax
-    \AM@getlastn{\AM@pagelist}{\@tempcntb}%
-    \edef\AM@lastnpages{\AM@lastnitems}%
-    \AM@getlastn{\AM@doclist}{\@tempcntb}%
-    \edef\AM@lastndocs{\AM@lastnitems}%
-    \@tempcnta=0
+    \AM@split@firstn{\AM@pagelist}{\AM@signature}%
+    \AM@split@firstn{\AM@doclist}{\AM@signature}%
     \def\AM@first{%
-      \AM@getfirst{\AM@lastnpages}%
+      \AM@getfirst{\AM@pagelist@firstn}%
       \edef\AM@sigpagelist{\AM@sigpagelist,\the\toks@}%
-      \AM@getfirst{\AM@lastndocs}%
+      \AM@getfirst{\AM@doclist@firstn}%
       \edef\AM@sigdoclist{\AM@sigdoclist,\the\toks@}%
     }%
     \def\AM@last{%
-      \AM@getlast{\AM@lastnpages}%
-      \edef\AM@sigpagelist{\AM@sigpagelist,\AM@lastitem}%
-      \AM@getlast{\AM@lastndocs}%
-      \edef\AM@sigdoclist{\AM@sigdoclist,\AM@lastitem}%
+      \AM@getfirst{\AM@pagelist@lastn}%
+      \edef\AM@sigpagelist{\AM@sigpagelist,\the\toks@}%
+      \AM@getfirst{\AM@doclist@lastn}%
+      \edef\AM@sigdoclist{\AM@sigdoclist,\the\toks@}%
     }%
-    \whiledo{\@tempcnta<\@tempcntb}{%
+    \@tempcnta=\z@
+    \@tempcntb=\AM@signature\relax
+    \whiledo{\@tempcnta<\@tempcntb}{%   
       \ifAM@landscape
-        \AM@last\AM@first\AM@last\AM@first
+        \ifAM@signaturestar
+          \AM@first\AM@last\AM@first\AM@last
+        \else
+          \AM@last\AM@first\AM@last\AM@first
+        \fi
       \else
         \AM@first\AM@last\AM@first\AM@last
       \fi
       \advance\@tempcnta by 4
     }%
-    \edef\AM@newpagelist{\AM@sigpagelist\AM@newpagelist}%
-    \edef\AM@newdoclist{\AM@sigdoclist\AM@newdoclist}%
+    \edef\AM@newpagelist{\AM@newpagelist\AM@sigpagelist}%
+    \edef\AM@newdoclist{\AM@newdoclist\AM@sigdoclist}%
     \ifx\AM@pagelist\@empty
     \else\expandafter\AM@sort
     \fi
@@ -2676,9 +2727,17 @@
 }
 \AtBeginDocument{\AM@TeXpower@hook}
 %    \end{macrocode}
+%    \begin{macrocode}
+\def\AM@CheckValue#1#2{%
+  \ifx\\#2\\\PackageError{pdfpages}
+             {Option `#1' must have a non-empty value}%
+  \fi
+}
+%    \end{macrocode}
 %    \subsection{Options of \texttt{\protect\bslash includepdf}}
 %    \begin{macrocode}
-\define@key{pdfpages}{pages}{\def\AM@pagestemp{#1}}
+\define@key{pdfpages}{pages}{\AM@CheckValue{pages}{#1}%
+                             \def\AM@pagestemp{#1}}
 \define@key{pdfpages}{nup}{\AM@parse@nup#1x\END}
 \define@key{pdfpages}{deltax}{\AM@parse@deltax#1 \\}
 \define@key{pdfpages}{deltay}{\AM@parse@deltay#1 \\}
@@ -2735,7 +2794,12 @@
                       \AM@doublepagestmpfalse\AM@doublepagestmpitrue
                       \AM@doublepagestwistxtrue}
 \define@key{pdfpages}{signature}{\def\AM@signature{#1}}
-\define@key{pdfpages}{pagetemplate}{\def\AM@pagetemplate{#1}}
+\define@key{pdfpages}{signature*}{\def\AM@signature{#1}%
+                                  \AM@signaturestartrue}
+\define@key{pdfpages}{booklet}[true]{\setboolean{AM@booklet}{#1}%
+                                     \def\AM@signature{x}}
+\define@key{pdfpages}{pagetemplate}{\AM@CheckValue{pagetemplate}{#1}%
+                                    \def\AM@pagetemplate{#1}}
 \define@key{pdfpages}{rotateoversize}[true]%
                      {\setboolean{AM@rotateoversize}{#1}}
 \define@key{pdfpages}{picturecommand}{\def\AM@picturecommand{#1}}
@@ -3134,7 +3198,12 @@
 %      \item Option |reflect| added.
 %      \item Made |\AddToSurvey| work within TeXpower's |\stepwise|.
 %    \end{itemize}
-
+%
+%    \subsection*{2004/02/21 v0.3f}
+%    \begin{itemize}
+%      \item Option |signature*| (right-edge binding) added.
+%      \item Optimizations for a faster processing of signatures.
+%    \end{itemize}
 %
 %    \Finale
 %

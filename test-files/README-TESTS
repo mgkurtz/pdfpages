@@ -20,3 +20,7 @@ This are tests of pdfpages.sty
    addto-tocloft.tex
    addtotoc-jura.tex
 
+*) minimal.tex		minimal.cls does not set \paperwidth and \paperheight
+
+*) crop-test.tex	\paperwidth != \pdfpagewidth
+
