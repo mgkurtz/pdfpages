@@ -1,0 +1,87 @@
+\setlength{\unitlength}{.55mm}
+\def\thick{.7pt}
+\def\thin{.2pt}
+\begin{picture}(210,310)
+\small
+^^A nup=1
+\put(0,168){
+  \linethickness{\thick}
+  \put(0,0){\framebox(100,142){}}
+  \linethickness{\thin}
+  \put(15,21.5){\dashbox(70,99){}}
+  \put(7,10){
+    \put(15,21.5){\framebox(70,99){}}}
+  \put(15,21.5){\vector(1,0){7}}
+  \put(22,21.5){\vector(0,1){10}}
+  \put(13,15){\textit{offx}}
+  \put(24,24){\textit{offy}}
+  \put(0,-12){\makebox(100,12){Layout for |nup=1|}}
+}
+^^A nup=2
+\put(0,12){
+  \linethickness{\thick}
+  \put(0,0){\framebox(100,142){}}
+  \linethickness{\thin}
+  \put(15,15){\dashbox(70,49){}}
+  \put(15,79){\dashbox(70,49){}}
+  \put(7,10){
+    \put(15,15){\framebox(70,49){}}
+    \put(15,79){\framebox(70,49){}}
+    \put(50,64){\vector(0,1){15}}
+    \put(50,79){\vector(0,-1){15}}
+    \put(37,70){\textit{dely}}}
+  \put(15,15){\vector(1,0){7}}
+  \put(22,15){\vector(0,1){10}}
+  \put(13,08){\textit{offx}}
+  \put(24,18){\textit{offy}}
+  \put(0,-12){\makebox(100,12){Layout for |nup=2|}}
+}
+^^A nup=4
+\put(110,12){
+  \linethickness{\thick}
+  \put(0,0){\framebox(100,142){}}
+  \linethickness{\thin}
+  \put(10,78){\dashbox(35,49){}}
+  \put(55,78){\dashbox(35,49){}}
+  \put(10,15){\dashbox(35,49){}}
+  \put(55,15){\dashbox(35,49){}}
+  \put(5,7){
+    \put(10,78){\framebox(35,49){}}
+    \put(55,78){\framebox(35,49){}}
+    \put(10,15){\framebox(35,49){}}
+    \put(55,15){\framebox(35,49){}}
+    \put(72,64){\vector(0,1){14}}
+    \put(72,78){\vector(0,-1){14}}
+    \put(60,70){\textit{dely}}
+    \put(45,36){\vector(1,0){10}}
+    \put(55,36){\vector(-1,0){10}}
+    \put(44.5,38){\textit{delx}}}
+  \put(10,15){\vector(1,0){5}}
+  \put(15,15){\vector(0,1){7}}
+  \put(8,8){\textit{offx}}
+  \put(17,17){\textit{offy}}
+  \put(0,-12){\makebox(100,12){Layout for |nup=4|}}
+}
+^^A legend
+\setlength{\fboxsep}{4pt}
+\newbox{\boxa}
+\savebox{\boxa}{%
+  \raisebox{.8ex}{\line(1,0){5}} physical sheet of paper}
+\put(110,160){%
+  \makebox(100,142){%
+    \fbox{\parbox{\wd\boxa}{%
+      \setlength{\baselineskip}{13pt}
+      \linethickness{\thick}
+      \raisebox{.8ex}{\line(1,0){5}}
+         physical sheet of paper\\
+      \linethickness{\thin}
+      \raisebox{.8ex}{\line(1,0){5}}
+        logical page\\
+      \raisebox{.8ex}{\line(1,0){1}\hskip.55mm\line(1,0){1}
+        \hskip.55mm\line(1,0){1}} centered position\\[1ex]
+      \phantom{\line(1,0){5}} |deltax=|\meta{delx}\\
+      \phantom{\line(1,0){5}} |deltay=|\meta{dely}\\
+      \phantom{\line(1,0){5}} |offset=|\meta{offx}\meta{offy}
+  }}}
+}
+\end{picture}

@@ -18,8 +18,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.1e",
-%    date           = "10 March 2001",
+%    version        = "0.1g",
+%    date           = "26 March 2001",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -39,7 +39,7 @@
 %</dtx>
 %    \fi
 %
-%    \CheckSum{473}
+%    \CheckSum{751}
 %%
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -59,9 +59,9 @@
 %%
 %    \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{pdfpages}[2001/03/10 v0.1e Include pages of external PDF documents (AM)]
+%<package>\ProvidesPackage{pdfpages}[2001/03/26 v0.1g Include pages of external PDF documents (AM)]
 % \fi
-%        \ProvidesFile{pdfpages.dtx}[2001/03/10 v0.1e Include pages of external PDF documents (AM)]
+%        \ProvidesFile{pdfpages.dtx}[2001/03/26 v0.1g Include pages of external PDF documents (AM)]
 % \iffalse
 %
 %<*driver>
@@ -103,7 +103,7 @@
 %    \section{Introduction}
 %    When creating PDF documents it is sometimes useful to include
 %    pages from other, external PDF documents. This can be done
-%    with the \texttt{\bslash includegraphics} command from the
+%    with the |\includegraphics| command from the
 %    \texttt{graphics} package. But a simple
 %    |\includegraphics{doc.pdf}| normally produces
 %    `|Overfull \hbox|' and `|Overfull \vbox|' warnings,
@@ -155,21 +155,25 @@
 %    \newcommand{\df}[1]{(Default: |#1|)}
 %    
 %    \begin{description}
-%      \item[firstpage] Page number of the first page to include.
-%                       \df{firstpage=1}
-%      \item[lastpage] Page number of the last page to include.\\
-%                      \df{lastpage=firstpage}
+%      \item[pages] Select pages to include. The argument is a comma
+%                   separated list containing page numbers (|pages={3,5,6}|),
+%                   areas of page numbers (|pages={4-9}|) or any combination
+%                   of them. To insert empty pages use the tag |{}|.\par
+%                   E.\,g.: |pages={3,{},8-11,15}|. This will include the
+%                   page 3, an empty page, the pages 8, 9, 10, 11, and 15.
 %      \item[nup] Put multiple logical pages on one physical sheet of paper.
 %                 Possible values are: 1, 2 and 4. \df{nup=1}
 %      \item[landscape] Include pages in landscape format. See
 %                  section\,\ref{landscape} for more information
 %                  on landscape format.
+%                  Either `true' or `false' (or no value, which
+%                  ie equivalent to `true'). \df{landscape=false}
 %       \item[turn] Some pages are displayed in landscape orientation. With
 %                   \texttt{turn=false} this can be prohibit.
 %                   Either `true' or `false' (or no value, which
 %                   is equivalent to `true'). \df{turn=true}
-%      \item[openright] Put first page on the right side. (Just in combination
-%                       with |nup=2| and |nup=4|.)
+%      \item[openright] Put the first page on the right side. (Just in
+%                       combination  with |nup=2| and |nup=4|.)
 %                       Either `true' or `false' (or no value, which
 %                       is equivalent to `true'). \df{openright=false}
 %      \item[frame] Put a frame around each logical page. Either `true'
@@ -177,21 +181,38 @@
 %                   \df{frame=false}
 %      \item[deltax] Put some space between the logical pages in
 %                    horizontal direction. The argument should be one
-%                    dimension. \df{deltax=0}
+%                    dimension. See figure\,\ref{layout}. \df{deltax=0}
 %      \item[deltay] Put some space between the logical pages in
 %                    vertical direction. The argument should be one
-%                    dimension. \df{deltay=0}
+%                    dimension. See figure\,\ref{layout}. \df{deltay=0}
+%      \item[offset] Displace the origin of the included pages.
+%                    The argument should be two dimensions, separated
+%                    by space. See figure\,\ref{layout}. \df{offset=0 0}
 %      \item[pagecommand] \LaTeX{} commands, which are executed on each
 %                         physical sheet of paper.
 %                         \df{pagecommand=\{\bslash thispagestyle\{empty\}\}}
-%      \item[offset] Displace the origin of the included pages.
-%                    The argument should be
-%                    two dimensions, separated by space. \df{offset=0 0}
+%      \item[firstpage] \hskip0pt\marginpar{\raggedleft\itshape\small obsolete}
+%                       Page number of the first page to include.
+%      \item[lastpage] \hskip0pt\marginpar{\raggedleft\itshape\small obsolete}
+%                      Page number of the last page to include.
 %    \end{description}
 %    
+%
+%    \begin{figure}
+%    \centering\input{pic.tex}
+%    \caption{Layout}
+%    \label{layout}
+%    \end{figure}
+%
+%
+%    Do not use the options |firstpage| and |lastpage| any more. They are
+%    \textit{obsolete} and exist only to keep compatibility with older
+%    version. They are likely to be removed in future version. Use the
+%    option |pages| instead.
+%
 %    The |\includepdf| command calls the |\includegraphics| command from the
 %    |graphicx| (actually |graphics|) package, which makes it possible to
-%    use its options too.
+%    use the options of |\includegraphics| too.
 %    All options which are not interpreted by |\includepdf| are passed to
 %    |\includegraphics|.
 %    This way it is possible e.\,g.~to use the `trim' and `clip' options 
@@ -215,6 +236,41 @@
 %    Only options specific to this package can be made global by
 %    |\includepdfset|. Options of the graphicx package are not
 %    concerned.
+%
+%
+%    \subsection{The Layout}
+%    
+%    The default layout can be changed by the options |deltax|,
+%    |deltay| and |offset|. Figure\,\ref{layout} shows the
+%    meaning of these options.
+%    
+%    The included logical pages are being centered on the physical
+%    sheet of paper by default. To displace them use the |offset|
+%     option, whose argument should be two dimensions. E.\,g.\
+%    |offset=10mm 14mm| means that the logical pages are displaced
+%    by 10\,mm in horizontal direction and by 14\,mm in vertical
+%    direction.
+%    
+%    By default logical pages are being arranged side by side.
+%    To put some space between them, use the options |deltax|
+%    and |deltay|. Figure\,\ref{layout} shows the meaning of
+%    |deltax| and |deltay|.
+%    
+%    The layout options |deltax|, |deltay| and |offset|
+%    \textit{always} refer to a sheet of paper in portrait
+%    orientation. No matter wether you are including pages
+%    in landscape orientation or in portrait orientation
+%    or wether your PDF viewer shows the page in landscape
+%    mode. 
+%    
+%    If you are confused about horizontal\,(|x|)
+%    and vertical\,(|y|) directions, just set the option
+%    |turn=false|. Now your PDF viewer shows the pages in
+%    the \textit{same} orientation as in figure\,\ref{layout}.
+%    And the options |deltax|, |deltay| and |offset| have
+%    the \textit{same} meaning as in figure\,\ref{layout}.
+%    Regardless of any other options.
+%
 %
 %    \subsection{Remarks on Landscape Format}
 %    \label{landscape}
@@ -253,7 +309,7 @@
 %    Keep in mind that `real' and `fake' landscape pages look
 %    the same in the PDF Viewer. And unfortunately until now
 %    pdfLaTeX does not support the user with any information
-%    about the |/Rotate| entry.
+%    about the |/Rotate| attribute.
 %    
 %    Here is an example, how to include `real' landscape pages:
 %    
@@ -261,8 +317,8 @@
 %    |\includepdf[page=4, landscape]{|\meta{file}|}|
 %    \endtrivlist
 %    
-%    To include `fake' landscape pages you have to rotate the
-%    pages by using the option entry |angle=-90| like in
+%    To include `fake' landscape pages, you have to rotate the
+%    pages by using the option |angle=-90| like in
 %    the following example:
 %    
 %    \trivlist \item\relax \hskip\parindent
@@ -365,14 +421,12 @@
 %    \end{macrocode}
 %    \subsection{Counters and Booleans}
 %    \begin{macrocode}
-\newcounter{AM@firstpage}\setcounter{AM@firstpage}{1}
-\newcounter{AM@lastpage}\setcounter{AM@lastpage}{2}
-\newcounter{AM@nup}\setcounter{AM@nup}{1}
+%\newcounter{AM@nup}\setcounter{AM@nup}{1}
 \newboolean{AM@openright}\setboolean{AM@openright}{false}
 \newboolean{AM@frame}\setboolean{AM@frame}{false}
 \newboolean{AM@landscape}\setboolean{AM@landscape}{false}
 \newboolean{AM@turn}\setboolean{AM@turn}{true}
-\newcounter{AM@page}\setcounter{AM@page}{1}
+\newboolean{AM@compatibility}\setboolean{AM@compatibility}{false}
 %    \end{macrocode}
 %    \subsection{Commands}
 %    \begin{macrocode}
@@ -380,11 +434,17 @@
 \newcommand{\AM@deltax}{0pt}\newcommand{\AM@deltay}{0pt}
 \newcommand{\AM@xpos}{0pt}\newcommand{\AM@ypos}{0pt}
 \newcommand{\AM@rotate}{0}
-\newcommand{\AM@lscape@roti}{0}
-\newcommand{\AM@lscape@rotii}{0}
+\newcommand{\AM@lscape@roti}{0}\newcommand{\AM@lscape@rotii}{0}
 \newcommand{\AM@pagecommand}{\thispagestyle{empty}}
 \newcommand{\AM@fbox}{}
+\newcommand{\AM@ph}{}
+\newcommand{\AM@pagestemp}{1}
+\newcommand{\AM@pagei}{}\newcommand{\AM@pageii}{}
+\newcommand{\AM@pageiii}{}\newcommand{\AM@pageiv}{}
+\newcommand{\AM@smallpage}{}
 \newsavebox{\AM@pagebox}
+\newcommand{\AM@firstpage}{1}\newcommand{\AM@lastpage}{1}
+\newcommand{\AM@nup}{1}
 %    \end{macrocode}
 %    \macro{\includepdfset}
 %    This command sets global options for \verb|\includepdf|.
@@ -398,189 +458,121 @@
 \newcommand*{\includepdf}[2][]{%
   \begingroup% setkey
 %    \end{macrocode}
-%    Save counters.
-%    \begin{macrocode}
-  \newcommand{\saveAM@firstpage}{}
-  \edef\saveAM@firstpage{\arabic{AM@firstpage}}
-  \newcommand{\saveAM@lastpagexxx}{}
-  \edef\saveAM@lastpage{\arabic{AM@lastpage}}
-  \newcommand{\saveAM@nup}{}
-  \edef\saveAM@nup{\arabic{AM@nup}}
-%    \end{macrocode}
 %    Read in optional parameters.
 %    \begin{macrocode}
-  \setkeys{Gin}{draft=\AM@draft, #1}
+  \setkeys{Gin}{draft=\AM@draft, #1}%
+%    \end{macrocode}
+%    If the options |firstpage| and/or |lastpage| are used,
+%    switch to compatibility mode.
+%    \begin{macrocode}
+  \ifthenelse{\boolean{AM@compatibility}}
+    {\def\AM@pagestemp{\AM@firstpage-\AM@lastpage}}{}%
+%    \end{macrocode}
+%    Some preparations before starting the output.
+%    \begin{macrocode}
   \ifthenelse{\boolean{AM@frame}}
-         {\let\AM@fbox\fbox}{\let\AM@fbox\relax}
+         {\let\AM@fbox\fbox}{\let\AM@fbox\relax}%
+  \expandafter\AM@pagenumbers\expandafter{\AM@pagestemp}%
+  \ifthenelse{\boolean{AM@openright}}{\AM@openright}{}%
+  \AM@setphantom
+  \AM@filluppagelist
+  \setlength{\fboxsep}{0pt}%
 %    \end{macrocode}
 %    This loop arranges one or more PDF pages onto each sheet
 %    of paper.
 %    \begin{macrocode}
-  \setcounter{AM@page}{\value{AM@firstpage}}
-  \whiledo{\value{AM@page} < \value{AM@lastpage}}{%
+  \whiledo{\not\boolean{endofpagelist}}{%
     \newpage
-    \AddToShipoutPicture{%
-      \setlength{\unitlength}{1pt}
-      \setlength{\fboxsep}{0pt}
+    \AM@getpages{\AM@nup}%
 %    \end{macrocode}
 %    Arrange one PDF pages per sheet. (\texttt{nup=1})
 %    \begin{macrocode}
-      \ifthenelse{\value{AM@nup} = 1}
-        {\savebox{\AM@pagebox}{\AM@fbox{%
-           \includegraphics[page=\theAM@page, angle=\AM@lscape@rotii,
-                            angle=\AM@rotate, #1]{#2}}%
-           \stepcounter{AM@page}}}
-        {}
+      \ifthenelse{\equal{1}{\AM@nup}}
+        {\expandafter\ifx\expandafter\\\AM@pagei\\%
+             \def\AM@pagei{\AM@phantompage}%
+             \let\AM@ph\phantom
+           \else \let\AM@ph\relax\fi
+         \savebox{\AM@pagebox}{\AM@ph{\AM@fbox{%
+           \includegraphics[page=\AM@pagei, angle=\AM@lscape@rotii,
+                            angle=\AM@rotate, #1]{#2}}}}%
+        }{}%
 %    \end{macrocode}
 %    Arrange two PDF pages per sheet. (\texttt{nup=2})
 %    \begin{macrocode}
-      \ifthenelse{\value{AM@nup} = 2}{%
+      \ifthenelse{\equal{2}{\AM@nup}}{%
         \def\AM@smallpage{%
-          \ifthenelse{\value{AM@page} < \value{AM@lastpage}}
-            {\AM@fbox{%
-               \includegraphics[page=\theAM@page, angle=90,
+          \expandafter\ifx\expandafter\\\AM@page\\%
+             \let\AM@page\AM@phantompage
+             \let\AM@ph\phantom
+           \else \let\AM@ph\relax\fi
+        \AM@ph{\AM@fbox{\includegraphics[page=\AM@page, angle=90,
                                 angle=\AM@lscape@roti, angle=\AM@rotate,
-                                scale=.7071, #1]{#2}}}
-            {\phantom{\AM@fbox{%
-               \includegraphics[page=\theAM@firstpage, angle=90,
-                                angle=\AM@lscape@roti, angle=\AM@rotate,
-                                scale=.7071, #1]{#2}}}}}
-        \ifthenelse{\boolean{AM@openright}\and%
-                          \value{AM@page}=\value{AM@firstpage}}
-          {\savebox{\AM@pagebox}{%
-             \vbox{%
-               \hbox{%
-                 \AM@smallpage%
-                 \stepcounter{AM@page}%
-               }% hbox
-               \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
-               \hbox{%
-                 \phantom{\AM@smallpage}%
-               }% hbox
-           }}}% vbox, savebox, ifthen
-          {\savebox{\AM@pagebox}{%
-             \vbox{%
-               \hbox{%
-                 \ifthenelse{\boolean{AM@landscape}}
-                   {\AM@smallpage%
-                    \stepcounter{AM@page}}
-                   {\stepcounter{AM@page}%
-                    \AM@smallpage%
-                    \addtocounter{AM@page}{-1}}%
-               }% hbox
-               \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
-               \hbox{%
-                 \ifthenelse{\boolean{AM@landscape}}
-                   {\AM@smallpage%
-                    \stepcounter{AM@page}}
-                   {\AM@smallpage%
-                    \addtocounter{AM@page}{2}}%
-               }% hbox
-           }}}% vbox, savebox, ifthen
-      }{}
+                                scale=.7071, #1]{#2}}}}%
+        \savebox{\AM@pagebox}{%
+          \vbox{%
+            \hbox{%
+              \ifthenelse{\boolean{AM@landscape}}
+                {\let\AM@page\AM@pagei\AM@smallpage}
+                {\let\AM@page\AM@pageii\AM@smallpage}%
+            }% hbox
+            \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
+            \hbox{%
+              \ifthenelse{\boolean{AM@landscape}}
+                {\let\AM@page\AM@pageii\AM@smallpage}
+                {\let\AM@page\AM@pagei\AM@smallpage}%
+            }% hbox
+        }}% vbox, savebox
+      }{}%
 %    \end{macrocode}
 %    Arrange four PDF pages per sheet. (\texttt{nup=4})
 %    \begin{macrocode}
-      \ifthenelse{\value{AM@nup} = 4}{%
-        \def\AM@smallpage{%
-          \ifthenelse{\value{AM@page} < \value{AM@lastpage}}
-            {\AM@fbox{%
-               \includegraphics[page=\theAM@page,
-                               angle=\AM@lscape@rotii, angle=\AM@rotate,
-                               scale=.5, #1]{#2}}}
-            {\phantom{\AM@fbox{%
-               \includegraphics[page=\theAM@firstpage,
-                               angle=\AM@lscape@rotii, angle=\AM@rotate,
-                               scale=.5, #1]{#2}}}}}
-        \ifthenelse{\boolean{AM@openright}\and%
-                    \value{AM@page}=\value{AM@firstpage}}
-          {\ifthenelse{\boolean{AM@landscape}}
-             {\savebox{\AM@pagebox}{%
-                \vbox{%
-                  \hbox{%
-                    \AM@smallpage%
-                    \addtocounter{AM@page}{2}%
-                    \hskip-\fboxrule\hskip\AM@deltax%
-                    \AM@smallpage%
-                    \addtocounter{AM@page}{-1}%
-                  }% hbox
-                  \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
-                  \hbox{%
-                    \phantom{\AM@smallpage}%
-                    \hskip-\fboxrule\hskip\AM@deltax%
-                    \AM@smallpage%
-                    \addtocounter{AM@page}{2}%
-                  }% hbox
-             }}}% vbox, savebox, ifthen
-             {\savebox{\AM@pagebox}{%
-                \vbox{%
-                  \hbox{%
-                    \phantom{\AM@smallpage}%
-                    \hskip-\fboxrule\hskip\AM@deltax%
-                    \AM@smallpage%
-                    \stepcounter{AM@page}%
-                  }% hbox
-                  \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
-                  \hbox{%
-                    \AM@smallpage%
-                    \stepcounter{AM@page}%
-                    \hskip-\fboxrule\hskip\AM@deltax%
-                    \AM@smallpage%
-                    \stepcounter{AM@page}%
-                  }% hbox
-             }}}}% vbox, savebox, ifthen, ifthen
-          {\ifthenelse{\boolean{AM@landscape}}
-             {\savebox{\AM@pagebox}{%
-                \vbox{%
-                  \hbox{%
-                    \stepcounter{AM@page}%
-                    \AM@smallpage%
-                    \addtocounter{AM@page}{2}%
-                    \hskip-\fboxrule\hskip\AM@deltax%
-                    \AM@smallpage%
-                    \addtocounter{AM@page}{-3}%
-                  }% hbox
-                  \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
-                  \hbox{%
-                    \AM@smallpage%
-                    \addtocounter{AM@page}{2}%
-                    \hskip-\fboxrule\hskip\AM@deltax%
-                    \AM@smallpage%
-                    \addtocounter{AM@page}{2}%
-                  }% hbox
-             }}}% vbox, savebox, ifthen
-             {\savebox{\AM@pagebox}{%
-                \vbox{%
-                  \hbox{%
-                    \AM@smallpage%
-                    \stepcounter{AM@page}%
-                    \hskip-\fboxrule\hskip\AM@deltax%
-                    \AM@smallpage%
-                    \stepcounter{AM@page}%
-                  }% hbox
-                  \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
-                  \hbox{%
-                    \AM@smallpage%
-                    \stepcounter{AM@page}%
-                    \hskip-\fboxrule\hskip\AM@deltax%
-                    \AM@smallpage%
-                    \stepcounter{AM@page}%
-                  }% hbox
-             }}}}% vbox, savebox, ifthen, ifthen
-      }{}
+      \ifthenelse{\equal{4}{\AM@nup}}{%
+         \def\AM@smallpage{%
+           \expandafter\ifx\expandafter\\\AM@page\\%
+              \let\AM@page\AM@phantompage
+              \let\AM@ph\phantom
+            \else \let\AM@ph\relax\fi
+         \AM@ph{\AM@fbox{%
+            \includegraphics[page=\AM@page, angle=\AM@lscape@rotii,
+                             angle=\AM@rotate, scale=.5, #1]{#2}}}}%
+         \savebox{\AM@pagebox}{%
+           \vbox{%
+             \hbox{%
+               \ifthenelse{\boolean{AM@landscape}}
+                 {\let\AM@page\AM@pageii\AM@smallpage}
+                 {\let\AM@page\AM@pagei\AM@smallpage}%
+               \hskip-\fboxrule\hskip\AM@deltax%
+               \ifthenelse{\boolean{AM@landscape}}
+                 {\let\AM@page\AM@pageiv\AM@smallpage}
+                 {\let\AM@page\AM@pageii\AM@smallpage}%
+             }% hbox
+             \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
+             \hbox{%
+               \ifthenelse{\boolean{AM@landscape}}
+                 {\let\AM@page\AM@pagei\AM@smallpage}
+                 {\let\AM@page\AM@pageiii\AM@smallpage}%
+               \hskip-\fboxrule\hskip\AM@deltax%
+               \ifthenelse{\boolean{AM@landscape}}
+                 {\let\AM@page\AM@pageiii\AM@smallpage}
+                 {\let\AM@page\AM@pageiv\AM@smallpage}%
+             }% hbox
+         }}% vbox, savebox
+      }{}%
 %    \end{macrocode}
 %    Page output.
 %    \begin{macrocode}
-        \def\AM@add{+}
+    \AddToShipoutPicture{%
+      \setlength{\unitlength}{1pt}%
+        \def\AM@add{+}%
         \if@twoside\ifodd\value{page}\else\def\AM@add{-}\fi\fi
-        \def\AM@xpos{.5\paperwidth-.5\wd\AM@pagebox \AM@add\AM@xoffset}
+        \def\AM@xpos{.5\paperwidth-.5\wd\AM@pagebox \AM@add\AM@xoffset}%
         \def\AM@ypos{.5\paperheight-.5\ht\AM@pagebox+%
-                     .5\dp\AM@pagebox+\AM@yoffset}
-        \setlength{\@tempdima}{\AM@xpos}
-        \edef\AM@xpos{\strip@pt\@tempdima}
-        \setlength{\@tempdima}{\AM@ypos}
-        \edef\AM@ypos{\strip@pt\@tempdima}
-        \put(\AM@xpos,\AM@ypos){\usebox{\AM@pagebox}}
+                     .5\dp\AM@pagebox+\AM@yoffset}%
+        \setlength{\@tempdima}{\AM@xpos}%
+        \edef\AM@xpos{\strip@pt\@tempdima}%
+        \setlength{\@tempdima}{\AM@ypos}%
+        \edef\AM@ypos{\strip@pt\@tempdima}%
+        \put(\AM@xpos,\AM@ypos){\usebox{\AM@pagebox}}%
     }% AddToShipoutPicture
 %    \end{macrocode}
 %    Some pages are displayed in landscape format,
@@ -588,10 +580,10 @@
 %    \begin{macrocode}
     \ifthenelse{\boolean{AM@turn}}
       {\ifthenelse{\boolean{AM@landscape}}
-         {\ifthenelse{\value{AM@nup}=1}{\pdfpageattr{/Rotate 90}}{}
-          \ifthenelse{\value{AM@nup}=4}{\pdfpageattr{/Rotate 90}}{}}
-         {\ifthenelse{\value{AM@nup}=2}{\pdfpageattr{/Rotate 90}}{}}
-      }{}
+         {\ifthenelse{\equal{1}{\AM@nup}}{\pdfpageattr{/Rotate 90}}{}%
+          \ifthenelse{\equal{4}{\AM@nup}}{\pdfpageattr{/Rotate 90}}{}}
+         {\ifthenelse{\equal{2}{\AM@nup}}{\pdfpageattr{/Rotate 90}}{}}%
+      }{}%
 %    \end{macrocode}
 %    \begin{macrocode}
     \AM@pagecommand
@@ -599,29 +591,195 @@
     \newpage
     \ClearShipoutPicture
   }% whiledo
-%    \end{macrocode}
-%    Write back saved counters.
-%    \begin{macrocode}
-  \setcounter{AM@firstpage}{\saveAM@firstpage}
-  \setcounter{AM@lastpage}{\saveAM@lastpage}
-  \setcounter{AM@nup}{\saveAM@nup}
-%    \end{macrocode}
-%    \begin{macrocode}
   \endgroup% setkey
   \ClearShipoutPicture
 }% includepdf
 %    \end{macrocode}
+%    \macro{\AM@pagelist}
+%    This macro contains a list of page numbers, terminated with |\END|.
+%    \begin{macrocode}
+\newcommand{\AM@pagelist}{}
+\newcommand{\saveAM@pagelist}{}
+\newboolean{endofpagelist}
+%    \end{macrocode}
+%    \macro{\AM@pagenumbers}
+%    Read in page numbers and store them in |\AM@pagelist|
+%    \begin{macrocode}
+\newcommand{\AM@pagenumbers}{1}
+\def\AM@pagenumbers#1{%
+  \AM@@pagenumbers#1,\END
+  \let\saveAM@pagelist\AM@pagelist
+  \edef\AM@pagelist{\saveAM@pagelist\noexpand\END}%
+}
+\newcommand{\AM@@pagenumbers}{}
+\def\AM@@pagenumbers#1,#2{%
+  \AM@pagearea#1-\END
+  \ifx#2\END \def\next{\relax}%
+    \else \def\next{\AM@@pagenumbers #2}%
+  \fi
+  \next
+}
+%    \end{macrocode}
+%    \macro{\AM@pagearea}
+%    Parse arguments of option |pages|. One item can be be a single
+%    page number or a whole area of page numbers (e.\,g.: |11-15|).
+%    \begin{macrocode}
+\newcommand{\AM@pagearea}{}
+\def\AM@pagearea#1-#2\END{%
+  \ifx\\#2\\%
+    \AM@addtopagelist{#1}%
+  \else
+    \AM@last#2 
+    \@tempcnta=#1
+    \whiledo{\@tempcnta<\@tempcntb}{%
+      \AM@addtopagelist{\the\@tempcnta}%
+      \advance\@tempcnta by 1
+    }%
+  \fi}
+\newcommand{\AM@last}{}
+\def\AM@last#1-{%
+  \@tempcntb=#1 \advance\@tempcntb by 1
+  \def\lastpage{#1}%
+}
+%    \end{macrocode}
+%    \macro{\AM@addtopagelist}
+%    Add an item at the end of |\AM@pagelist|.
+%    \begin{macrocode}
+\newcommand{\AM@addtopagelist}{}
+\def\AM@addtopagelist#1{%
+  \let\saveAM@pagelist\AM@pagelist
+  \edef\AM@pagelist{\saveAM@pagelist#1,}%
+}
+%    \end{macrocode}
+%    \macro{\AM@openright}
+%    Insert an empty item at the beginning of |\AM@pagelist|.
+%    \begin{macrocode}
+\newcommand{\AM@openright}{}
+\def\AM@openright{\expandafter\AM@@openright\AM@pagelist}
+\newcommand{\AM@@openright}{}
+\def\AM@@openright#1\END{%
+  \edef\AM@pagelist{,#1\noexpand\END}%
+}
+%    \end{macrocode}
+%    \macro{\AM@getpages}
+%    Read |#1| items (page numbers) from the beginning of
+%    |\AM@pagelist| and delete them from the list.
+%    If the next item in the list is |\END| set
+%    |endofpagelist| to |true|.
+%    \begin{macrocode}
+\newcommand{\AM@getpages}{}
+\def\AM@getpages#1{%
+  \ifcase#1
+    \or
+    \expandafter\AM@getipages\AM@pagelist \or
+    \expandafter\AM@getiipages\AM@pagelist \or\or
+    \expandafter\AM@getivpages\AM@pagelist \fi
+}
+\newcommand{\AM@getipages}{}
+\def\AM@getipages#1,#2\END{%
+  \def\AM@pagei{#1}%
+  %remove page from list
+  \def\AM@pagelist{#2\END}%
+  % checking end of list
+  \ifx\\#2\\\setboolean{endofpagelist}{true}\fi
+}
+\newcommand{\AM@getiipages}{}
+\def\AM@getiipages#1,#2,#3\END{%
+  \def\AM@pagei{#1}%
+  \def\AM@pageii{#2}%
+  %remove pages from list
+  \def\AM@pagelist{#3\END}%
+  % checking end of list
+  \ifx\\#3\\\setboolean{endofpagelist}{true}\fi
+}
+\newcommand{\AM@getivpages}{}
+\def\AM@getivpages#1,#2,#3,#4,#5\END{%
+  \def\AM@pagei{#1}%
+  \def\AM@pageii{#2}%
+  \def\AM@pageiii{#3}%
+  \def\AM@pageiv{#4}%
+  %remove pages from list
+  \def\AM@pagelist{#5\END}%
+  % checking end of list
+  \ifx\\#5\\\setboolean{endofpagelist}{true}\fi
+}
+%    \end{macrocode}
+%    \macro{\AM@countpagelist}
+%    Count items in |\AM@pagelist|. The number
+%    of items is stored in |\@tempcnta|.
+%    \begin{macrocode}
+\newcommand{\AM@countpagelist}{}
+\def\AM@countpagelist{%
+  \@tempcnta=0 \expandafter\AM@@countpagelist\AM@pagelist}
+\newcommand{\AM@@countpagelist}{}
+\def\AM@@countpagelist#1,#2{%
+  \ifx#2\END\def\next{\relax}%
+    \else\def\next{\AM@@countpagelist #2}%
+  \fi
+  \advance\@tempcnta by 1
+  \next
+}
+%    \end{macrocode}
+%    \macro{\AM@filluppagelist}
+%    Check if the number of items in |\AM@pagelist| is a
+%    multiple of |\AM@nup|. If not, fill up the list with
+%    empty items.
+%    \begin{macrocode}
+\newcommand{\AM@filluppagelist}{}
+\def\AM@filluppagelist{%
+  \AM@countpagelist
+  \@tempcntb=\@tempcnta
+  \divide\@tempcntb by \AM@nup%
+  \multiply\@tempcntb by \AM@nup%
+  \advance\@tempcnta by -\@tempcntb
+  \ifnum\@tempcnta=0
+    \else
+      \advance\@tempcnta by -\AM@nup%
+      \multiply\@tempcnta by -1
+  \fi
+  \expandafter\AM@removeend\AM@pagelist
+  \whiledo{\@tempcnta > 0}{%
+    \let\saveAM@pagelist\AM@pagelist
+    \edef\AM@pagelist{\saveAM@pagelist ,}%
+    \advance\@tempcnta by -1
+  }%
+  \let\saveAM@pagelist\AM@pagelist
+  \edef\AM@pagelist{\saveAM@pagelist\noexpand\END}%
+}
+%    \end{macrocode}
+%    \macro{\AM@removeend}
+%    Remove |\END| token from |\AM@pagelist|.
+%    \begin{macrocode}
+\newcommand{\AM@removeend}{}
+\def\AM@removeend#1\END{%
+  \let\saveAM@pagelist\AM@pagelist
+  \edef\AM@pagelist{#1}%
+}
+%    \end{macrocode}
+%    \macro{\AM@setphantom}
+%    The first page number in |\AM@pagelist| will be used as
+%    the page number of the phantom page. The box measures
+%    of the phantom page will be used to create empty pages.
+%    \begin{macrocode}
+\newcommand{\AM@setphantom}{}
+\def\AM@setphantom{\expandafter\AM@@setphantom\AM@pagelist}
+\newcommand{\AM@@setphantom}{}
+\def\AM@@setphantom#1,#2\END{%
+  \ifx\\#1\\ \def\next{\AM@@setphantom#2\END}% 
+  \else 
+    \edef\AM@phantompage{#1}%
+    \def\next{\relax}%
+  \fi
+  \next
+}
+%    \end{macrocode}
 %    \subsection{Options of \texttt{\protect\bslash includepdf}}
 %    \begin{macrocode}
-\define@key{Gin}{firstpage}{%
-                   \setcounter{AM@firstpage}{#1}}
-\define@key{Gin}{lastpage}{%
-                   \setcounter{AM@lastpage}{#1}%
-                   \stepcounter{AM@lastpage}}
-\define@key{Gin}{offset}{\AM@parse@offset#1 \\}
-\define@key{Gin}{nup}{\setcounter{AM@nup}{#1}}
+\define@key{Gin}{pages}{\def\AM@pagestemp{#1}}
+\define@key{Gin}{nup}{\def\AM@nup{#1}}
 \define@key{Gin}{deltax}{\AM@parse@deltax#1 \\}
 \define@key{Gin}{deltay}{\AM@parse@deltay#1 \\}
+\define@key{Gin}{offset}{\AM@parse@offset#1 \\}
 \define@key{Gin}{frame}[true]{\setboolean{AM@frame}{#1}}
 \define@key{Gin}{openright}[true]{\setboolean{AM@openright}{#1}}
 \define@key{Gin}{pagecommand}{\renewcommand{\AM@pagecommand}{#1}}
@@ -630,8 +788,15 @@
                                   \def\AM@lscape@roti{-90}%
                                   \def\AM@lscape@rotii{90}}
 \define@key{Gin}{turn}[true]{\setboolean{AM@turn}{#1}}
+\define@key{Gin}{firstpage}{\def\AM@firstpage{#1}%
+                     \setboolean{AM@compatibility}{true}}
+\define@key{Gin}{lastpage}{\def\AM@lastpage{#1}%
+                     \setboolean{AM@compatibility}{true}}
 %    \end{macrocode}
-%    Parsing option entries. These lines are derived
+%    \macro{\AM@parse@deltax}
+%    \macro{\AM@parse@deltay}
+%    \macro{\AM@parse@offset}
+%    Parsing arguments. These lines are derived
 %    from \texttt{graphicx.sty}.
 %    \begin{macrocode}
 \def\AM@parse@deltax#1 #2\\{\AMGin@defaultbp\AM@deltax{#1}}
@@ -662,20 +827,28 @@
 %
 %    \subsection*{2001/01/17 v0.1b}
 %    \begin{itemize}
-%    \item The first released version.
+%      \item The first released version.
 %    \end{itemize}
 %
 %    \subsection*{2001/02/03 v0.1c}
 %    \begin{itemize}
-%    \item Pages are being centered automatically.
+%      \item Pages are being centered automatically.
 %    \end{itemize}
 %
 %    \subsection*{2001/03/10 v0.1e}
 %    \begin{itemize}
-%    \item Support of landscape format.
-%    \item The |offset| option recognizes the class option |twoside|.
+%      \item Support of landscape format.
+%      \item The |offset| option recognizes the class option |twoside|.
 %    \end{itemize}
 %
+%    \subsection*{2001/03/16 v0.1f}
+%    \begin{itemize}
+%      \item Option |pages| added.
+%    \end{itemize}
+
+
+
+
 %    \iffalse
 %</package>
 %    \fi
@@ -696,10 +869,10 @@
    \noindent\textbf{Example \arabic{example}:}%
    \stepcounter{example}%
    \par\vskip\topsep%
-   \minipage{.8\linewidth}%
+   \minipage{.9\linewidth}%
    \verbatim}
   {\endverbatim%
-   \endminipage}
+   \endminipage\par}
 
 \begin{document}
 
@@ -715,19 +888,18 @@ To get the documentation run: `latex pdfpages.dtx'
 
 \section{Including Pages:}
 \begin{example}
-\includepdf[firstpage=3, lastpage=5]{dummy}
+\includepdf[pages={3-5}]{dummy}
 \end{example}
-\includepdf[firstpage=3, lastpage=5]{dummy}
+\includepdf[pages={3-5}]{dummy}
+
 
 \section{Using the \texttt{nup} Option}
 Arranging two logical pages on one physical sheet of paper.
 
 \begin{example}
-\includepdf[nup=2,
-            firstpage=4, lastpage=7]{dummy}
+\includepdf[nup=2, pages={4-7}]{dummy}
 \end{example}
-\includepdf[nup=2,
-            firstpage=4, lastpage=7]{dummy}
+\includepdf[nup=2, pages={4-7}]{dummy}
 
 Use the option \texttt{turn=false}, if the pages
 should not be displayed in landscape orientation.
@@ -736,33 +908,25 @@ landscape orientation, you use a PDF viewer that
 does not support this option.)
 
 \begin{example}
-\includepdf[nup=2, turn=false,
-            firstpage=4, lastpage=7]{dummy}
+\includepdf[nup=2, pages={4-7}, turn=false]{dummy}
 \end{example}
-\includepdf[nup=2, turn=false,
-            firstpage=4, lastpage=7]{dummy}
+\includepdf[nup=2, pages={4-7}, turn=false]{dummy}
 
 \noindent
 Arranging four logical pages on one physical sheet of paper.
 
 \begin{example}
-\includepdf[nup=4,
-            firstpage=4, lastpage=7]{dummy}
+\includepdf[nup=4, pages={4-7}]{dummy}
 \end{example}
-\includepdf[nup=4,
-            firstpage=4, lastpage=7]{dummy}
+\includepdf[nup=4, pages={4-7}]{dummy}
 
 \noindent
 Sometimes it might be useful to put the first page
 on the right side. This can be done with the \texttt{openright} Option.
 \begin{example}
-\includepdf[nup=4,
-            firstpage=5, lastpage=7,
-            openright]{dummy}
+\includepdf[nup=4, pages={5-7}, openright]{dummy}
 \end{example}
-\includepdf[nup=4,
-            firstpage=5, lastpage=7,
-            openright]{dummy}
+\includepdf[nup=4, pages={5-7}, openright]{dummy}
 
 \section{The \texttt{landscape} Mode}
 
@@ -770,11 +934,9 @@ If the pages to include are in landscape format, use the
 option \texttt{landscape}.
 
 \begin{example}
-\includepdf[nup=2, landscape,
-           firstpage=1, lastpage=2]{dummy-l}
+\includepdf[nup=2, landscape, pages={1,2}]{dummy-l}
 \end{example}
-\includepdf[nup=2, landscape,
-           firstpage=1, lastpage=2]{dummy-l}
+\includepdf[nup=2, landscape, pages={1,2}]{dummy-l}
 
 \section{Changing Layout}
 
@@ -787,9 +949,8 @@ Any options of \verb|\includegraphics| are allowed in
 option in the next example.
 
 \begin{example}
-\includepdf[nup=4, firstpage=3, lastpage=6,
-            scale=.8, deltax=10mm, deltay=15mm,
-            frame]{dummy}
+\includepdf[nup=4, pages={3-6}, scale=.8,
+            deltax=8mm, deltay=11mm, frame]{dummy}
 \end{example}
 
 
@@ -798,7 +959,7 @@ A short explanation about \texttt{scale} in the above
 example:
 To put four pages on one physical sheet of paper, the
 pages are scaled by $0.5$. This is done internally in
-\verb|\includepdf|. The entry \texttt{scale=.8} in the
+\verb|\includepdf|. The item \texttt{scale=.8} in the
 above example is an additional scale operation. This
 means that on the whole the pages are scale by $0.5$
 \textit{and} $0.8$.
@@ -809,20 +970,19 @@ a width of $84\,$mm:
 $$210\,\mathrm{mm} \times 0.5 \times 0.8 = 84\,\mathrm{mm}$$
 \normalsize
 
-\includepdf[nup=4, firstpage=3, lastpage=6,
-            scale=.8, deltax=8mm, deltay=11mm,
-            frame]{dummy}
+\includepdf[nup=4, pages={3-6}, scale=.8,
+            deltax=8mm, deltay=11mm, frame]{dummy}
 
 \noindent
 The same with pages in landscape format.
 
 \begin{example}
-\includepdf[nup=4, firstpage=1, lastpage=4,
-            scale=.8, deltax=8mm, deltay=11mm,
+\includepdf[nup=4, pages={1-4}, scale=.8,
+            deltax=8mm, deltay=11mm,
             frame, landscape]{dummy-l}
 \end{example}
-\includepdf[nup=4, firstpage=1, lastpage=4,
-            scale=.8, deltax=8mm, deltay=11mm,
+\includepdf[nup=4, pages={1-4}, scale=.8,
+            deltax=8mm, deltay=11mm,
             frame, landscape]{dummy-l}
 
 
@@ -832,14 +992,11 @@ the last examples. With the \texttt{offset} option it is
 possible to displace the output.
 
 \begin{example}
-\includepdf[nup=4, firstpage=3, lastpage=6,
-            scale=.8, offset=5mm 7mm,
-            frame]{dummy}
+\includepdf[nup=4, pages={3-6}, scale=.8,
+            offset=5mm 7mm, frame]{dummy}
 \end{example}
-
-\includepdf[nup=4, firstpage=3, lastpage=6,
-            scale=.8, offset=5mm 7mm,
-            frame]{dummy}
+\includepdf[nup=4, pages={3-6}, scale=.8,
+            offset=5mm 7mm, frame]{dummy}
 
 
 \noindent
@@ -848,9 +1005,8 @@ document use the \texttt{trim} and \texttt{clip}
 options of the \texttt{graphicx} package.
 
 \begin{example}
-\includepdf[page=3,
-            trim=0 40mm 0 40mm, clip,
-            pagecommand={}]{dummy}
+\includepdf[page=3, trim=0 40mm 0 40mm,
+            clip, pagecommand={}]{dummy}
 \end{example}
 
 
@@ -862,9 +1018,21 @@ setting by using the \texttt{pagecommand} option
 as follows:
 \verb|pagecommand={}|
 
-\includepdf[page=3,
-            trim=0 40mm 0 40mm, clip,
-            pagecommand={}]{dummy}
+\includepdf[page=3, trim=0 40mm 0 40mm,
+            clip, pagecommand={}]{dummy}
+
+
+\noindent
+You like the crazy way? Then try this one \texttt{;-)}
+\begin{example}
+\includepdf[pages={3-4}, nup=2,
+            landscape, scale=.8,
+            angle=30, deltay=-60mm]{dummy-l}
+\end{example}
+\includepdf[pages={3-4}, nup=2,
+            landscape, scale=.8,
+            angle=30, deltay=-60mm]{dummy-l}
+
 
 \end{document}
 %</example>
