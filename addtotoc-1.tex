@@ -1,0 +1,37 @@
+\documentclass[a4paper, twoside]{article}
+%\documentclass[a4paper, twoside]{scrartcl}
+
+\usepackage{pdfpages}
+\usepackage[bookmarksopen, bookmarksopenlevel=5]{hyperref}
+\pagestyle{headings}
+
+\begin{document}
+\Large
+\tableofcontents
+
+\section{Testing \texttt{addtotoc}}
+\subsection{References}
+
+\hskip1em
+\begin{tabular}{@{}ll@{}l}\hline
+\texttt{ref}& \texttt{pageref}& \texttt{nameref}\\\hline
+\ref{sec:1} & \pageref{sec:1} & \nameref{sec:1}\\
+\ref{sec:2} & \pageref{sec:2} & \nameref{sec:2}\\
+\ref{sec:3} & \pageref{sec:3} & \nameref{sec:3}\\
+\ref{sec:4} & \pageref{sec:4} & \nameref{sec:4}\\
+\ref{sec:5} & \pageref{sec:5} & \nameref{sec:5}\\\hline
+\end{tabular}
+
+\includepdf[pages=1-4, pagecommand={},
+            addtotoc={1, subsection,    1, Erste Abschnitt (Seite 1),   sec:1,
+                      1, subsubsection, 2, Subsubsection 1 (Seite 1),   sec:2,
+                      3, subsubsection, 2, Subsubsection 2 (Seite 3),   sec:3,
+                      4, subsection,    1, Zweiter Abschnitt (Seite 4), sec:4,
+                      4, subsubsection, 2, Subsubsection 3 (Seite 4),   sec:5},
+            trim=0 120 0 120, clip]{dummy}
+
+\subsubsection{Weiter}\label{weiter}
+\subsection{Test}
+
+
+\end{document}

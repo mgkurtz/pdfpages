@@ -1,0 +1,43 @@
+\documentclass[a4paper]{book}
+%\documentclass[a4paper]{scrbook}
+%\documentclass[a4paper]{memoir}
+%\documentclass[a4paper, article]{memoir}
+
+\usepackage{pdfpages}
+\usepackage[bookmarksopen, bookmarksopenlevel=5]{hyperref}
+
+\setcounter{secnumdepth}{0}
+%\setcounter{tocdepth}{3}
+
+\begin{document}
+\Large
+\tableofcontents
+
+\part{Testing \texttt{addtotoc}}
+\chapter{References}
+
+\hskip1em
+\begin{tabular}{@{}ll@{}l}\hline
+\texttt{ref}& \texttt{pageref}& \texttt{nameref}\\\hline
+\ref{sec:1} & \pageref{sec:1} & \nameref{sec:1}\\
+\ref{sec:2} & \pageref{sec:2} & \nameref{sec:2}\\
+\ref{sec:3} & \pageref{sec:3} & \nameref{sec:3}\\
+\ref{sec:4} & \pageref{sec:4} & \nameref{sec:4}\\
+\ref{sec:5} & \pageref{sec:5} & \nameref{sec:5}\\
+\ref{sec:6} & \pageref{sec:6} & \nameref{sec:6}\\\hline
+\end{tabular}
+
+\includepdf[pages=1-4, pagecommand={},
+            addtotoc={1, part,      -1, Erster Teil (Seite 1),  sec:1,
+                      1, chapter,    0, Chapter 1 (Seite 1),    sec:2,
+                      1, section,    1, Section A (Seite 1),    sec:3,
+                      3, subsection, 1, Subsecection (Seite 3), sec:4,
+                      4, chapter,    0, Chapter 2 (Seite 4),    sec:5,
+                      4, section,    1, Section B (Seite 4),    sec:6},
+            trim=0 120 0 120, clip]{dummy}
+
+
+\subsection{Weiter}\label{weiter}
+\section{Test}
+
+\end{document}
