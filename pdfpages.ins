@@ -25,6 +25,12 @@ Run it through pdfLaTeX.
 \generate{\usepreamble\package
           \file{pdfpages.sty}{\from{pdfpages.dtx}{package}}}
 
+\generate{\usepreamble\package
+          \file{pppdftex.def}{\from{pdfpages.dtx}{pppdftexdef}}}
+
+\generate{\usepreamble\package
+          \file{ppvtex.def}{\from{pdfpages.dtx}{ppvtexdef}}}
+
 %% \generate{\usepreamble\package
 %%           \file{pdfpages.drv}{\from{pdfpages.dtx}{driver}}}
 
@@ -40,9 +46,11 @@ Run it through pdfLaTeX.
 \Msg{**************************************************************}
 \Msg{*}
 \Msg{* To finish the installation you have to move the following}
-\Msg{* file into a directory searched by LaTeX:}
+\Msg{* files into a directory searched by LaTeX:}
 \Msg{*}
 \Msg{*  \space\space pdfpages.sty}
+\Msg{*  \space\space pppdftex.def}
+\Msg{*  \space\space ppvtex.def}
 \Msg{*}
 \Msg{* To produce the documentation, run the following}
 \Msg{* file through LaTeX:}

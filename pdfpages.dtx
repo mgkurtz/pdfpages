@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2m",
-%    date           = "2003-06-02",
+%    version        = "0.3a",
+%    date           = "2003-06-21",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -42,22 +42,34 @@
 %</dtx>
 %<package>\NeedsTeXFormat{LaTeX2e}
 %<package>\ProvidesPackage{pdfpages}
+%<pppdftexdef>\ProvidesFile{pppdftex.def}
+%<ppvtexdef>\ProvidesFile{ppvtex.def}
 %<driver>\ProvidesFile{pdfpages.drv}
 %<*!example1&!example2&!example3>
 %    \fi
 %
 %    \ProvidesFile{pdfpages.dtx}
-   [2003/06/02 v0.2m Insert pages of external PDF documents (AM)]
+   [2003/06/21 v0.3a
+%
 %    \iffalse
-%<package>\def\AM@version{0.2m}
-%
-%
 %</!example1&!example2&!example3>
+%<*none>
+%    \fi
+]
+%    \iffalse
+%</none>
+%
+%<package>    Insert pages of external PDF documents (AM)]
+%<pppdftexdef>    Pdfpages driver for pdfTeX (AM)]
+%<ppvtexdef>    Pdfpages driver for VTeX (AM)]
+%
+%<package>\def\AM@version{0.3a}
+%
 %    \fi
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{3037}
+%    \CheckSum{3247}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -97,6 +109,7 @@
 %
 %    \def\pdfTeX{pdf\kern.04em\TeX}
 %    \def\pdfLaTeX{pdf\kern.06em\LaTeX}
+%    \def\VTeX{V\kern-.05em\TeX}
 %    \def\PDF{{\small PDF}}
 %
 %    \title{The \textsf{pdfpages} Package\thanks{This file
@@ -111,8 +124,8 @@
 %    \begin{abstract}
 %       \noindent
 %       This package makes it easy to insert pages of external
-%       PDF documents. It is based on \pdfLaTeX\ and does 
-%       \textit{not} work with \LaTeX.
+%       PDF documents. It supports \pdfLaTeX\ and \VTeX\, but
+%       does \textit{not} work with \LaTeX.
 %    \end{abstract}
 %
 %    \tableofcontents
@@ -423,6 +436,10 @@
 %                            \meta{left}, etc.
 %                            (See \cite{PDFRef} for more details.)
 %                            \df{linktodocfit=/Fit}
+%        \item[newwindow] By default option |linktodoc| opens a new
+%                         window. This can be changed with option |newwindow|.
+%                         Either `true' or `false' (or no value, which
+%                         is equivalent to `true'). \df{newwindow=true}
 %        \item[linkfilename] Sets the name (with path) of the file to be
 %                            linked to by the option \texttt{linktodoc}.
 %                            You will hardly ever need this option.
@@ -716,13 +733,14 @@
 %    may be useful to create a thread information dictionary, too,
 %    which contains informations about the thread, such as its title,
 %    author, and creation date. The macro |\threadinfodict| is used
-%    to set these informations. It can be redefined and must contain
-%    the thread information dictionary in low-level \PDF\ commands.
+%    to set these informations. It can be redefined and may contain
+%    entries of a thread information dictionary in low-level \PDF\
+%    commands.
 %    (See \cite{PDFRef} for more information.)
 %    
 %    \smallskip
 %    |\renewcommand*{\threadinfodict}|\\\hspace*{\parindent}
-%    |  {/I << /Title (My first thread) /Author (That's me!) >>}|
+%    |  {/Title (My first thread) /Author (That's me!)}|
 %    
 %    
 %
@@ -777,7 +795,7 @@
 %           The color is nonrelevant, it can be changed afterwards
 %           by using |\pagecolor| again. Just the order (first
 %           |\pagecolor| before |\usepackage{pdfpages}|) is
-%           important.
+%           important. -- This is not needed when using \VTeX.
 %    \end{description}
 %
 %
@@ -788,9 +806,9 @@
 %
 %    \begin{description}
 %      \item[eso-pic]
-%            \texttt{CTAN:macros/latex/contrib/supported/eso-pic/}
+%            \texttt{CTAN:macros/latex/contrib/eso-pic/}
 %      \item[everyshi]
-%            \texttt{CTAN:macros/latex/contrib/supported/ms/}
+%            \texttt{CTAN:macros/latex/contrib/ms/}
 %      \item[graphicx, ifthen, calc]
 %            These packages belong to the standard \LaTeX\
 %            distribution.
@@ -800,7 +818,7 @@
 %    Furthermore it requires a recent version of:
 %    \begin{description}
 %      \item[pdftex.def]
-%            \texttt{ http://www.tug.org/applications/pdftex/pdftex.def}
+%            \texttt{ http://www.tug.org/applications/pdftex/}
 %    \end{description}
 %
 %    \noindent
@@ -850,7 +868,19 @@
 \ProcessOptions  
 %    \end{macrocode}
 %    \subsection{Required Packages and Version Checking}
-%    Check for using \pdfLaTeX\ and producing \PDF\ output. 
+%
+%    Required Packages.
+%    \begin{macrocode}
+\RequirePackage{ifthen, graphicx, calc, eso-pic}
+\ifAM@pkg@survey \RequirePackage{count1to,hyperref}\fi
+%    \end{macrocode}
+%    |\AM@ifdriverlater| checks that the driver loaded is more recent
+%    than the given date. See |\@ifpackagelater| from the standard
+%    \LaTeX\ kernel.
+%    \begin{macrocode}
+\def\AM@ifdriverlater{\@ifl@ter{def}}
+%    \end{macrocode}
+%    Check for using \pdfTeX\ of \VTeX. 
 %    -- Note: 
 %    If \texttt{graphics.sty} is loaded before this package,
 %    \texttt{pdfoutput} may be undefined, even if \pdfLaTeX\
@@ -858,71 +888,26 @@
 %    \texttt{pdfoutput} (\verb|\let\pdfoutput\@undefined|),
 %    if the document contains the line \verb|\pdfoutput=0|.
 %    \begin{macrocode}
+\def\AM@driver{pdftex}
 \begingroup
-\@ifundefined{pdfoutput}
-   {\PackageError{pdfpages}
-            {You're either not using pdfLaTeX\MessageBreak
-             or have turn off PDF output.\MessageBreak
-             `pdfpages' only works with pdfLaTeX\MessageBreak
-             and PDF output}
-            {Use `pdflatex' instead of `latex'\MessageBreak
-             and set output to PDF (use: \pdfoutput = 1)!}
-    \endinput}
-   {\ifnum\pdfoutput=\z@
-      \PackageError{pdfpages}
-            {You don't produce PDF output, which\MessageBreak
-             is required for the `pdfpages' package}
-            {Set output to PDF. (use: \pdfoutput = 1)}
-      \expandafter\endinput
-    \fi}
+\@ifundefined{pdfoutput}{%
+  \@ifundefined{OpMode}{%
+     \PackageError{pdfpages}
+            {You are using neither pdfTeX nor VTeX.\MessageBreak
+             Package pdfpages does not work with other\MessageBreak
+             TeX implementations}
+            {Please, change to pdfTeX or VTeX to use this
+             package!}%
+     \aftergroup\endinput
+  }{\gdef\AM@driver{vtex}}%
+}{}
 \endgroup
-%    \end{macrocode}
-%    Required Packages.
-%    \begin{macrocode}
-\RequirePackage{ifthen, graphicx, calc, eso-pic}
-\ifAM@pkg@survey \RequirePackage{count1to}\fi
-%    \end{macrocode}
-%    Check for \texttt{pdftex.def} version: This is done with
-%    the following macro, which is derived from
-%    \verb|\@ifpackagelater|
-%    from the standard \LaTeX\ kernel.
-%    \begin{macrocode}
-\def\AM@ifdriverlater{\@ifl@ter{def}}
-%    \end{macrocode}
-%    Check for \texttt{pdftex.def} version \texttt{2000/05/12 v0.02u} 
-%    or higher:
-%    \begin{list}{$\ast$}{\versionlist}
-%      \makeatletter\@beginparpenalty=10000\makeatother
-%      \item support for multipage \PDF\ files, option `page' added (HO).
-%    \end{list}
-%    \begin{macrocode}
-\AM@ifdriverlater{pdftex}{2000/05/12}{}{%
-    \PackageError{pdfpages}{%
-         You have an old `pdftex.def'.\MessageBreak%
-         There is no multipage support\MessageBreak%
-         in `pdftex.def' < 0.02u.\MessageBreak%
-         Update your `pdftex.def'}
-         {Update your `pdftex.def'!}}
-%    \end{macrocode}
-%    Check for \texttt{pdftex.def} version \texttt{2000/09/14 v0.03d}
-%     or higher:
-%    \begin{list}{$\ast$}{\versionlist}
-%      \makeatletter\@beginparpenalty=10000\makeatother
-%      \item Fixes for `viewport' and `trim' (HO).
-%      \item Clip support added for viewport and trim (HO).
-%    \end{list}
-%    \begin{macrocode}
-\AM@ifdriverlater{pdftex}{2000/09/14}{}{%
-    \PackageWarning{pdfpages}{%
-         You have an old `pdftex.def'.\MessageBreak%
-         There might be problems with\MessageBreak%
-         the `trim' and `clip' options.\MessageBreak%
-         Update your `pdftex.def'!\MessageBreak}}
+\input{pp\AM@driver.def}
+\ifx\AM@endinput\relax\endinput\fi
 %    \end{macrocode}
 %    Checking for new versions of \texttt{eso-pic.sty}.
 %    \begin{macrocode}
-\def\AM@ifdriverlater{\@ifl@ter{sty}}
-\AM@ifdriverlater{eso-pic}{2001/07/20}
+\@ifpackagelater{eso-pic}{2001/07/20}
   {\def\AM@AddToShipoutPicture{\AddToShipoutPicture*}%
    \def\AM@ClearShipoutPicture{\relax}}
   {\def\AM@AddToShipoutPicture{\AddToShipoutPicture}%
@@ -970,33 +955,28 @@
 \newcommand*{\AM@picturecommand}{}\newcommand*{\AM@picturecommandstar}{}
 %    \end{macrocode}
 %    \macro{\AM@setlscape}
-%    Check, if `pdflscape.sty' is loaded.
+%    |\AM@setlscape| is defined in the driver files but may be
+%    redefined here, if `pdflscape.sty' is loaded.
 %    This package is necessary, if landscape pages are produced
 %    \textit{and} `thumbpdf.sty' is used.
 %    \begin{macrocode}
 \newif\ifAM@thumbpdf
 \newif\ifAM@pdflscape
-\newcommand*{\AM@setlscape}{}
 \AtBeginDocument{%
   \@ifpackageloaded{thumbpdf}{\AM@thumbpdftrue}{\AM@thumbpdffalse}%
   \@ifpackageloaded{pdflscape}{\AM@pdflscapetrue}{\AM@pdflscapefalse}%
   \ifAM@thumbpdf
     \ifAM@pdflscape
       \def\AM@setlscape{\PLS@Rotate{90}}%
-    \else
-      \def\AM@setlscape{\pdfpageattr{/Rotate 90}\AM@thumbpdfwarning}%
+    \else 
+      \PackageWarningNoLine{pdfpages}{%
+        You are using `thumbpdf.sty' but not\MessageBreak
+        `pdflscape.sty'.\MessageBreak
+        Please, insert `pdflscape.sty' in  your document\MessageBreak
+        to get a pleasant PDF document with thumbs}%
     \fi
-  \else
-    \def\AM@setlscape{\pdfpageattr{/Rotate 90}}%
-  \fi}
-\newif\ifAM@thumbpdfwarning
-\newcommand*{\AM@thumbpdfwarning}{%
-  \ifAM@thumbpdfwarning\else\global\AM@thumbpdfwarningtrue
-  \PackageWarning{pdfpages}{%
-    You are using `thumbpdf.sty' but not\MessageBreak
-    `pdflscape.sty'. \MessageBreak
-    Please insert `pdflscape.sty' in  your document\MessageBreak
-    to get a pleasant PDF document with thumbs.\MessageBreak}\fi}
+  \fi
+}
 %    \end{macrocode}
 %    \macro{\AM@checkinteger}
 %    Check, if |#1| is a positive integer.
@@ -1014,16 +994,16 @@
 %    \macro{\AM@findfile}
 %    Find file and set |\AM@currentdocname|.
 %    \begin{macrocode}
-\newcommand*{\AM@findfile}[1]{%
+\newcommand*{\AM@findfile@i}[2]{%
   \let\AM@currentdocname\relax
-  \IfFileExists{#1.pdf}{\edef\AM@currentdocname{#1.pdf}}{%
+  \IfFileExists{#1.#2}{\edef\AM@currentdocname{#1.#2}}{%
      \IfFileExists{#1}{\edef\AM@currentdocname{#1}}{%
        \ifx\Ginput@path\@undefined\else
          \expandafter\@tfor\expandafter\AM@dir\expandafter
                    :\expandafter=\Ginput@path\do{%
-           \IfFileExists{\AM@dir#1.pdf}{%
+           \IfFileExists{\AM@dir#1.#2}{%
              \ifx\AM@currentdocname\relax
-               \edef\AM@currentdocname{\AM@dir#1.pdf}%
+               \edef\AM@currentdocname{\AM@dir#1.#2}%
              \fi
            }{%
              \IfFileExists{\AM@dir#1}{%
@@ -1036,6 +1016,8 @@
        \fi
      }%
    }%
+}
+\newcommand*{\AM@findfile@ii}[1]{%
   \ifx\AM@currentdocname\relax
     \PackageError{pdfpages}{Cannot find file `#1'}{}%
   \fi
@@ -1057,7 +1039,6 @@
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup
-  \c@totalnumber=0
   \let\AM@threadname\relax
   \AM@split@options{pdfpages}{#1}%
   \edef\AM@temp{{pdfpages}{\the\@temptokena}}%
@@ -1067,6 +1048,7 @@
   \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}{%
     \let\AM@currentdocname\relax
     \renewcommand\includegraphics[2][]{Survey in draft-mode}%
+    \def\AM@pagecount{0}%
   }{%
     \AM@findfile{#2}%
     \if\AM@threadname\relax
@@ -1079,10 +1061,10 @@
 %    reset |\AM@pagestemp|.
 %    \begin{macrocode}
   \ifAM@survey
-    \def\AM@pagestemp{}
+    \def\AM@pagestemp{}%
     \@tempcnta=0
     \def\foo{%
-      \@ifundefined{r@\AM@xrprefix pdfpages@page\the\@tempcnta}
+      \@ifundefined{r@\AM@xrprefix pdfpages@page\the\@tempcnta}%
          {\let\foo\relax}
          {\expandafter\ifx\expandafter\\\AM@pagestemp\\
              \edef\AM@pagestemp{%
@@ -1118,7 +1100,6 @@
 %    \begin{macrocode}
 \newcommand*{\includepdfmerge}[2][]{%
   \begingroup
-  \c@totalnumber=0%
   \let\AM@currentdocname\relax
   \AM@readlist{#2}%
   \AM@split@options{pdfpages}{#1}%
@@ -1154,6 +1135,11 @@
 %    \begin{macrocode}
 \newcommand{\AM@output}[1]{%
 %    \end{macrocode}
+%    Tune some \LaTeX\ parameters.
+%    \begin{macrocode}
+  \c@totalnumber=0
+  \if@twocolumn\let\AM@twocolumn\relax \onecolumn \fi
+%    \end{macrocode}
 %    Some macros may already be initialized by |\includepdfset|.
 %    So do not reset them here.
 %    \begin{macrocode}
@@ -1173,6 +1159,10 @@
   \fi
 %    \end{macrocode}
 %    Some preparations before starting the output.
+%    \begin{macrocode}
+  \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}
+    {}{\AM@getpagecount}
+%    \end{macrocode}
 %    \begin{macrocode}
   \ifthenelse{\boolean{AM@landscape}}
     {\def\AM@lscape@rot{90}%
@@ -1241,103 +1231,115 @@
       {\AM@readfirst{\AM@pagelist}%
        \edef\AM@page{\the\toks@}}
       {\edef\AM@page{\AM@pagetemplate}}%
-    \AM@readfirst{\AM@doclist}%
-    \edef\AM@docname{\the\toks@}%
-    \newpage
-    \ifAM@noautoscale
-      \def\AM@globalscale{1}%
-    \else
-      \AM@isphantom
-      \AM@split@options{Gin@noscale}{#1}%
-      \let\AM@filelist@save\@filelist
-      \setbox\@tempboxa=\hbox{%
-        \expandafter\includegraphics\expandafter[\the\@temptokena,
-           page=\AM@page, angle=\AM@lscape@rot]{\AM@docname}}%
+  \AM@readfirst{\AM@doclist}%
+  \edef\AM@docname{\the\toks@}%
+  \newpage
+  \AM@isphantom
+  \ifAM@noautoscale
+    \def\AM@globalscale{1}%
+  \else
+    \AM@split@options{Gin@noscale}{#1}%
+    \let\AM@filelist@save\@filelist
+    \setbox\@tempboxa=\hbox{%
+      \expandafter\includegraphics\expandafter[\the\@temptokena,
+         page=\AM@page, angle=\AM@lscape@rot]{\AM@docname}}%
 %    \end{macrocode}
 %    Adjust the paper size.
 %    \begin{macrocode}
-      \ifthenelse{\boolean{AM@fitpaper}}
-        {\setlength{\paperwidth}{\the\wd\@tempboxa}%
-         \setlength{\paperheight}{\the\ht\@tempboxa}%
-         \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
-         \setlength{\pdfpageheight}{\the\ht\@tempboxa}%
-         \@ifundefined{stockwidth}{}{%
-           \setlength{\stockwidth}{\paperwidth}%
-           \setlength{\stockheight}{\paperheight}%
-           \setlength{\trimtop}{0pt}%
-           \setlength{\trimedge}{0pt}}%
-        }{}%
+    \ifthenelse{\boolean{AM@fitpaper}}
+      {\setlength{\AM@pagewidth}{\the\wd\@tempboxa}%
+       \setlength{\AM@pageheight}{\the\ht\@tempboxa}%
+       \AM@fitpaper@special
+       \AM@setpagedimen
+       \@ifundefined{stockwidth}{}{%
+         \setlength{\stockwidth}{\AM@pagewidth}%
+         \setlength{\stockheight}{\AM@pageheight}%
+         \setlength{\trimtop}{0pt}%
+         \setlength{\trimedge}{0pt}}%
+      }{}%
+%    \end{macrocode}
+%    \begin{macrocode}
+    \ifdim\AM@pagewidth=\z@
+      \AM@pagewidth=210mm
+      \PackageWarningNoLine{pdfpages}{%
+        Erroneous page width of 0.0pt is corrected}
+    \fi
+    \ifdim\AM@pageheight=\z@
+      \AM@pageheight=297mm
+      \PackageWarningNoLine{pdfpages}{%
+        Erroneous page height of 0.0pt is corrected}
+    \fi
 %    \end{macrocode}
 %    Calculate required scaling in horizontal direction.
 %    \begin{macrocode}
-      \def\AM@xscale{%
-        (\paperwidth - \tw@\fboxrule*\AM@xnup 
-         - \AM@deltax * \AM@xnupminusi) /
-        (\AM@xnup * \real{\strip@pt\wd\@tempboxa})
-      }%
-      \setlength{\@tempdima}{\AM@xscale}%
-      \edef\AM@xscale{\strip@pt\@tempdima}%
+    \def\AM@xscale{%
+      (\AM@pagewidth - \tw@\fboxrule*\AM@xnup 
+       - \AM@deltax * \AM@xnupminusi) /
+      (\AM@xnup * \real{\strip@pt\wd\@tempboxa})
+    }%
+    \setlength{\@tempdima}{\AM@xscale}%
+    \edef\AM@xscale{\strip@pt\@tempdima}%
 %    \end{macrocode}
 %    Calculate required scaling in vertical direction.
 %    \begin{macrocode}
-      \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
-      \def\AM@yscale{
-        (\paperheight - \tw@\fboxrule*\AM@ynup 
-         - \AM@deltay *\AM@ynupminusi) /
-        (\AM@ynup * \real{\strip@pt\@tempdimb})
-      }%
-      \setlength{\@tempdima}{\AM@yscale}%
-      \edef\AM@yscale{\strip@pt\@tempdima}%
+    \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
+    \def\AM@yscale{
+      (\AM@pageheight - \tw@\fboxrule*\AM@ynup 
+       - \AM@deltay *\AM@ynupminusi) /
+      (\AM@ynup * \real{\strip@pt\@tempdimb})
+    }%
+    \setlength{\@tempdima}{\AM@yscale}%
+    \edef\AM@yscale{\strip@pt\@tempdima}%
 %    \end{macrocode}
 %    The lower value of |\AM@xscale| and |\AM@yscale| is used
 %    as the overall scaling factor |\AM@globalscale|.
 %    \begin{macrocode}
-      \@tempdima=\AM@xscale\p@
-      \@tempdimb=\AM@yscale\p@
-      \ifdim\@tempdima<\@tempdimb
-        \let\AM@globalscale\AM@xscale
-      \else
-        \let\AM@globalscale\AM@yscale
-      \fi
+    \@tempdima=\AM@xscale\p@
+    \@tempdimb=\AM@yscale\p@
+    \ifdim\@tempdima<\@tempdimb
+      \let\AM@globalscale\AM@xscale
+    \else
+      \let\AM@globalscale\AM@yscale
     \fi
+  \fi
 %    \end{macrocode}
 %    Determine horizontal and vertical margins.
 %    |\AM@xoffset| and |\AM@yoffset| are \textit{not} 
 %    taken into account for this calculation.
 %    \begin{macrocode}
-    \let\AM@filelist@save\@filelist
-    \AM@split@options{Gin}{#1}%
-    \setbox\@tempboxa=\hbox{%
-      \expandafter\includegraphics\expandafter[\the\@temptokena,
-                       page=\AM@page, scale=\AM@globalscale,
-                       angle=\AM@lscape@rot]{\AM@docname}}%
-    \let\@filelist\AM@filelist@save
-    \edef\AM@templatewidth{\the\wd\@tempboxa}%
-    \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}%
-    \edef\AM@templateheight{\the\@tempdima}%
-    \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
-    \def\AM@xmargin{%
-      (\paperwidth - (\wd\@tempboxa+\tw@\fboxrule)*\AM@xnup
-       - \AM@deltax * \AM@xnupminusi) * \real{.5}%
-    }%
-    \def\AM@ymargin{%
-      (\paperheight - (\@tempdimb+\tw@\fboxrule)*\AM@ynup
-       - \AM@deltay * \AM@ynupminusi) * \real{.5}%
-    }%
-    \setlength{\@tempdima}{\AM@xmargin}%
-    \edef\AM@xmargin{\the\@tempdima}%
-    \setlength{\@tempdima}{\AM@ymargin}%
-    \edef\AM@ymargin{\the\@tempdima}%
+  \let\AM@filelist@save\@filelist
+  \AM@split@options{Gin}{#1}%
+  \setbox\@tempboxa=\hbox{%
+    \expandafter\includegraphics\expandafter[\the\@temptokena,
+                     page=\AM@page, scale=\AM@globalscale,
+                     angle=\AM@lscape@rot]{\AM@docname}}%
+  \let\@filelist\AM@filelist@save
+  \edef\AM@templatewidth{\the\wd\@tempboxa}%
+  \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}%
+  \edef\AM@templateheight{\the\@tempdima}%
+  \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
+  \def\AM@xmargin{%
+    (\AM@pagewidth - (\wd\@tempboxa+\tw@\fboxrule)*\AM@xnup
+     - \AM@deltax * \AM@xnupminusi) * \real{.5}%
+  }%
+  \def\AM@ymargin{%
+    (\AM@pageheight - (\@tempdimb+\tw@\fboxrule)*\AM@ynup
+     - \AM@deltay * \AM@ynupminusi) * \real{.5}%
+  }%
+  \setlength{\@tempdima}{\AM@xmargin}%
+  \edef\AM@xmargin{\the\@tempdima}%
+  \setlength{\@tempdima}{\AM@ymargin}%
+  \edef\AM@ymargin{\the\@tempdima}%
 %    \end{macrocode}
 %    \begin{macrocode}
-    \ifthenelse{\boolean{AM@landscape}}
-         {\edef\AM@temp{\AM@xnup}%
-          \edef\AM@xnup{\AM@ynup}%
-          \edef\AM@ynup{\AM@temp}}
-         {}%
-    \ifAM@signature
-      \ifAM@landscape\AM@sigrotatefalse\else\AM@sigrotatetrue\fi
-    \fi
+  \ifthenelse{\boolean{AM@landscape}}
+       {\edef\AM@temp{\AM@xnup}%
+        \edef\AM@xnup{\AM@ynup}%
+        \edef\AM@ynup{\AM@temp}}
+       {}%
+  \ifAM@signature
+    \ifAM@landscape\AM@sigrotatefalse\else\AM@sigrotatetrue\fi
+  \fi
 %    \end{macrocode}
 %    This loop arranges one or more \PDF\ pages onto each sheet
 %    of paper.
@@ -1348,8 +1350,9 @@
       \edef\AM@page{\the\toks@}%
       \AM@isphantom
       \@tempcnta=\AM@page\relax
+      \edef\AM@linktodoc@page{\the\@tempcnta}%
       \advance\@tempcnta\m@ne
-      \edef\AM@page@linktodoc{\the\@tempcnta}%
+      \edef\AM@linktodoc@page@m@ne{\the\@tempcnta}%
     \AM@getfirst{\AM@doclist}%
       \edef\AM@docname{\the\toks@}%
       \ifAM@linkfilename
@@ -1390,7 +1393,6 @@
          \edef\AM@ynupi{\the\@tempcntb}%
        \fi
        \edef\AM@xnupi{\the\@tempcnta}%
-
        \@tempcnta=\AM@ynupi\relax
        \@tempcntb=\AM@ynup\relax
        \ifnum\@tempcnta>\@tempcntb
@@ -1465,10 +1467,10 @@
              \AM@localwd * \real{\strip@pt\@tempdima}) * \real{.5}}%
           \edef\AM@localxoff{\the\@tempdima}%
         \fi
-      }
+      }%
     \fi
-    \setlength{\@tempdima}{\AM@localscale}
-    \edef\AM@localscale{\strip@pt\@tempdima}
+    \setlength{\@tempdima}{\AM@localscale}%
+    \edef\AM@localscale{\strip@pt\@tempdima}%
 %    \end{macrocode}
 %    \begin{macrocode}
     \let\AM@filelist@save\@filelist
@@ -1515,6 +1517,12 @@
     \edef\AM@ypos{\strip@pt\@tempdima}%
     \setlength{\fboxsep}{\z@}%
 %    \end{macrocode}
+%    |eso-pic| needs |\paperwidth| and |\paperheight|, which may
+%    not be defined, e.g. with |minimal.cls|.
+%    \begin{macrocode}
+    \let\paperwidth\AM@pagewidth
+    \let\paperheight\AM@pageheight
+%    \end{macrocode}
 %    Ship out page.
 %    \begin{macrocode}
     \ifAM@phantompage
@@ -1524,14 +1532,15 @@
       \edef\AM@shippage{%
         \noexpand\put(\AM@xpos,\AM@ypos){%
         \noexpand\raisebox{\dp\@tempboxa}{%
-        \AM@hyper\noexpand\AM@fbox{%
+        \AM@hyper@begin\noexpand\AM@fbox{%
           \noexpand\AM@ARBug@hook
           \noexpand\includegraphics[\the\@temptokena,
                     page=\AM@page, scale=\AM@globalscale,
                     scale=\AM@localscale,
                     \ifAM@sigrotate angle=180\fi,
                     angle=\AM@rotateoversize,
-                    angle=\AM@lscape@rot]{\AM@docname}}}}%
+                    angle=\AM@lscape@rot]{\AM@docname}}%
+        \AM@hyper@end}}%
       }%
     \fi
     \AM@AddToShipoutPicture{\setlength{\unitlength}{\p@}%
@@ -1570,6 +1579,7 @@
 %    \end{macrocode}
 %    \begin{macrocode}
   }% whiledo
+  \ifx\AM@twocolumn\relax\twocolumn\fi
 }% AM@output
 %    \end{macrocode}
 %    \macro{\AM@readlist}
@@ -1584,7 +1594,7 @@
 %    results are stored in two macros: |\AM@pagelist| which
 %    contains only page numbers (page ranges are split into
 %    several page numbers) and |\AM@doclist| which contains
-%    the document names. One name for each page number in
+%    the document names; one name for each page number in
 %    |\AM@pagelist|.
 %    \begin{macrocode}
 \newif\ifAM@defaultone
@@ -1603,7 +1613,7 @@
 \def\AM@readlisti#1,{%
   \ifx\AM@currentdocname\relax
   \else
-    \pdfximage{\AM@currentdocname}%
+    \AM@getpagecount
   \fi
   \def\AM@temp{#1}%
   \ifx\END#1
@@ -1631,9 +1641,9 @@
       \@tempcnta=1\relax
       \AM@checklast#2\END
     \else
-      \def\AM@cmp{last}
+      \def\AM@cmp{last}%
       \ifx\AM@cmp\AM@tempi
-        \@tempcnta=\pdflastximagepages
+        \@tempcnta=\AM@pagecount\relax
         \AM@checklast#2\END
       \else
         \AM@checkinteger{\AM@tempi}%
@@ -1654,16 +1664,16 @@
 \def\AM@checklast#1-\END{%
   \edef\AM@tempii{\AM@trim@space{#1}}%
   \expandafter\ifx\expandafter\\\AM@tempii\\
-    \@tempcntb=\the\pdflastximagepages\relax
+    \@tempcntb=\AM@pagecount\relax
     \advance\@tempcntb\@ne
     \whiledo{\@tempcnta<\@tempcntb}{%
       \AM@append{\the\@tempcnta}%
       \advance\@tempcnta\@ne
     }%
   \else
-    \def\AM@cmp{last}
+    \def\AM@cmp{last}%
     \ifx\AM@cmp\AM@tempii
-      \def\AM@tempii{\the\pdflastximagepages}%
+      \let\AM@tempii\AM@pagecount
     \fi
     \AM@checkinteger{\AM@tempii}%
     \ifAM@integer
@@ -1684,7 +1694,7 @@
 %    \end{macrocode}
 %    \begin{macrocode}
 \newcommand*{\AM@checkpagenumber}[1]{%
-  \ifnum#1>\pdflastximagepages
+  \ifnum#1>\AM@pagecount\relax
     \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}{%
     }{%
       \PackageError{pdfpages}
@@ -2075,7 +2085,8 @@
               \equal{pagetemplate}{\AM@temp}\or
               \equal{rotateoversize}{\AM@temp}\or
               \equal{picturecommand}{\AM@temp}\or
-              \equal{picturecommand*}{\AM@temp}}
+              \equal{picturecommand*}{\AM@temp}\or
+              \equal{newwindow}{\AM@temp}}
              {\AM@pdfpages@optionstrue}{}%
   \ifthenelse{\equal{scale}{\AM@temp}}{\AM@scaletrue}{}%
 }
@@ -2113,55 +2124,39 @@
   \fi
 }
 %    \end{macrocode}
-%    \macro{\AM@hyper}
+%    \macro{\AM@hyper@begin}
+%    \macro{\AM@hyper@end}
 %    Add hypertext operations (targets, links and threads) to 
 %    the inserted pages.
 %    \begin{macrocode}
-\newcommand{\AM@hyper}{%
+\newcommand{\AM@hyper@begin}{%
 %    \end{macrocode}
 %    Page is a target for a link.
 %    \begin{macrocode}
-  \ifAM@link
-    \pdfdest name {\AM@linkname.\AM@page} \AM@linkfit%
-  \fi
+  \ifAM@link \AM@dest@special\fi
 %    \end{macrocode}
 %    Survey linking to pages.\par
-%    FIXME: In |/D [page ...]| \meta{page} must be a \emph{indirect
-%    reference} and not a \emph{page number}, according to the
-%    \PDF\ Reference. However, AcrobatReader accepts page numbers.
 %    \begin{macrocode}
   \ifAM@survey \ifAM@surveynolink\else
-    \pdfannot width \wd\@tempboxa
-              height \ht\@tempboxa
-              depth \dp\@tempboxa
-              {/Subtype /Link /Border [0 0 0]
-               /A << /S /GoTo
-                     /D [\AM@page@linktodoc \AM@linktodocfit] >>}%
-  \fi \fi
+    \AM@survey@special@begin
+  \fi\fi
 %    \end{macrocode}
 %    Page is linked to the original document.\par
-%    FIXME: Wrong destination as described in the last paragraph.
 %    \begin{macrocode}
-  \ifAM@linktodoc
-    \pdfannot width \wd\@tempboxa
-              height \ht\@tempboxa
-              depth \dp\@tempboxa
-              {/Subtype /Link /Border [0 0 0]
-               /A << /S /GoToR
-                     /F (\AM@linkfilename)
-                     /D [\AM@page@linktodoc \AM@linktodocfit]
-                     \ifAM@newwindow/NewWindow true\fi >>}%
-  \fi
+  \ifAM@linktodoc\AM@linktodoc@special@begin\fi
 %    \end{macrocode}
 %    Page is a bead in a thread.
 %    \begin{macrocode}
-  \ifAM@thread
-      \pdfthread width \wd\@tempboxa
-                 height \ht\@tempboxa
-                 depth \dp\@tempboxa
-                 attr {\threadinfodict}%
-                 name {\AM@threadname}%
-  \fi
+  \ifAM@thread\AM@thread@special@begin\fi
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\AM@hyper@end}{%
+  \ifAM@survey \ifAM@surveynolink\else
+    \AM@survey@special@end
+  \fi \fi
+  \ifAM@linktodoc\AM@linktodoc@special@end\fi
+  \ifAM@thread\AM@thread@special@end\fi
 }
 %    \end{macrocode}
 %    \macro{\AM@openright}
@@ -2301,7 +2296,7 @@
   \edef\AM@doclist{\expandafter\@gobble\AM@newdoclist}%
 %    \end{macrocode}
 %    \begin{macrocode}
-  \ifdim\pdfpagewidth<\pdfpageheight
+  \ifdim\AM@pagewidth<\AM@pageheight
     \def\AM@xnup{\@ne}\def\AM@ynup{\tw@}%
   \else
     \def\AM@xnup{\tw@}\def\AM@ynup{\@ne}%
@@ -2520,7 +2515,7 @@
          {\string\newlabel{\AM@xrprefix pdfpages@page\the\c@AM@survey}%
             {{}{\AM@abs@page}}}%
       \stepcounter{AM@survey}%
-  }
+  }%
   \let\r@TotalPages\undefined
 \else
   \newcommand{\AddToSurvey}{}
@@ -2589,6 +2584,7 @@
                      {\setboolean{AM@rotateoversize}{#1}}
 \define@key{pdfpages}{picturecommand}{\def\AM@picturecommand{#1}}
 \define@key{pdfpages}{picturecommand*}{\def\AM@picturecommandstar{#1}}
+\define@key{pdfpages}{newwindow}[true]{\setboolean{AM@newwindow}{#1}}
 %    \end{macrocode}
 %    \macro{\AM@parse@nup}
 %    Parsing \texttt{nup} item.
@@ -2656,6 +2652,253 @@
 %    \end{macrocode}
 %
 %
+%    \iffalse
+%</package>
+%
+%<*pppdftexdef>
+%    \fi
+%
+%
+%    \subsection{Driver files}
+%    \subsubsection{\pdfTeX\ driver}
+%
+%    Check \pdfTeX\ version and output.
+%    \begin{macrocode}
+\ifnum\pdftexversion<100
+  \PackageError{pdfpages}
+         {Package pdfpages requires at least\MessageBreak
+          pdfTeX version 1.00}
+         {Update your TeX distribution.}
+  \let\AM@endinput\relax
+  \expandafter\endinput
+\fi
+\ifcase\pdfoutput
+  \PackageError{pdfpages}
+         {You produce DVI output but PDF output\MessageBreak
+          is needed for package pdfpages}
+         {Set output to PDF. (use: \pdfoutput = 1)}
+  \let\AM@endinput\relax
+  \expandafter\endinput
+\fi
+%    \end{macrocode}
+%    Check if the graphics package was loaded with an 
+%    incompatible driver option (e.g. dvips).
+%    \begin{macrocode}
+\begingroup
+\@ifundefined{ver@pdftex.def}{%
+  \PackageError{pdfpages}
+         {The graphics package was loaded with driver\MessageBreak
+          `\Gin@driver', which cannot be used with pdfTeX}
+         {Check the driver option of the graphics package.}
+  \global\let\AM@endinput\relax
+  \aftergroup\endinput}{}
+\endgroup
+%    \end{macrocode}
+%    Check for \texttt{pdftex.def} version \texttt{2000/05/12 v0.02u} 
+%    or higher:
+%    \begin{list}{$\ast$}{\versionlist}
+%      \makeatletter\@beginparpenalty=10000\makeatother
+%      \item support for multipage \PDF\ files, option `page' added (HO).
+%    \end{list}
+%    \begin{macrocode}
+\AM@ifdriverlater{pdftex}{2000/05/12}{}{%
+    \PackageError{pdfpages}
+         {Your version of `pdftex.def' is too old.\MessageBreak
+          There is no multipage support\MessageBreak
+          in `pdftex.def' < 0.02u}
+         {Please, update your `pdftex.def'!}}
+%    \end{macrocode}
+%    Check for \texttt{pdftex.def} version \texttt{2000/09/14 v0.03d}
+%     or higher:
+%    \begin{list}{$\ast$}{\versionlist}
+%      \makeatletter\@beginparpenalty=10000\makeatother
+%      \item Fixes for `viewport' and `trim' (HO).
+%      \item Clip support added for viewport and trim (HO).
+%    \end{list}
+%    \begin{macrocode}
+\AM@ifdriverlater{pdftex}{2000/09/14}{}{%
+    \PackageWarningNoLine{pdfpages}{%
+         Your version of `pdftex.def' is too old.\MessageBreak
+         There might be problems with\MessageBreak
+         the `trim' and `clip' options.\MessageBreak
+         Please, update your `pdftex.def'}}
+%    \end{macrocode}
+%    Get last page number.
+%    \begin{macrocode}
+\def\AM@getpagecount{%
+  \pdfximage{\AM@currentdocname}%
+  \edef\AM@pagecount{\the\pdflastximagepages}%
+}
+%    \end{macrocode}
+%    Page dimensions.
+%    \begin{macrocode}
+\let\AM@pagewidth\pdfpagewidth
+\let\AM@pageheight\pdfpageheight
+\def\AM@setpagedimen{%
+  \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
+  \setlength{\pdfpageheight}{\the\ht\@tempboxa}%
+}
+%    \end{macrocode}
+%    Change paper size.
+%    \begin{macrocode}
+\let\AM@fitpaper@special\relax
+%    \end{macrocode}
+%    Find file.
+%    \begin{macrocode}
+\def\AM@findfile#1{%
+  \AM@findfile@i{#1}{pdf}%
+  \AM@findfile@ii{#1}%
+}
+%    \end{macrocode}
+%    Rotate page.
+%    \begin{macrocode}
+\def\AM@setlscape{\pdfpageattr{/Rotate 90}}
+%    \end{macrocode}
+%    Link to original document.
+%    \begin{macrocode}
+\def\AM@linktodoc@special@begin{%
+    \pdfannot width \wd\@tempboxa
+              height \ht\@tempboxa
+              depth \dp\@tempboxa
+              {/Subtype /Link /Border [0 0 0]
+               /A << /S /GoToR
+                     /F (\AM@linkfilename)
+                     /D [\AM@linktodoc@page@m@ne \AM@linktodocfit]
+                     \ifAM@newwindow/NewWindow true\fi >>}%
+}
+\let\AM@linktodoc@special@end\relax
+%    \end{macrocode}
+%    Survey.
+%    \begin{macrocode}
+\def\AM@survey@special@begin{%
+    \pdfannot width \wd\@tempboxa
+              height \ht\@tempboxa
+              depth \dp\@tempboxa
+              {/Subtype /Link /Border [0 0 0]
+               /A << /S /GoTo
+                     /D (page.\AM@linktodoc@page) >>}%
+}
+\let\AM@survey@special@end\relax
+%    \end{macrocode}
+%    Thread.
+%    \begin{macrocode}
+\def\AM@thread@special@begin{%
+      \pdfthread width \wd\@tempboxa
+                 height \ht\@tempboxa
+                 depth \dp\@tempboxa
+                 attr {/I <<\threadinfodict>>}%
+                 name {\AM@threadname}%
+}
+\let\AM@thread@special@end\relax
+%    \end{macrocode}
+%    Destination for links.
+%    \begin{macrocode}
+\def\AM@dest@special{\pdfdest name {\AM@linkname.\AM@page} \AM@linkfit}
+%    \end{macrocode}
+%
+%    \iffalse
+%</pppdftexdef>
+%
+%<*ppvtexdef>
+%    \fi
+%
+%    \subsubsection{\VTeX\ driver}
+%
+%    Check \VTeX\ version.
+%    \begin{macrocode}
+\ifnum\VTeXversion<822
+  \PackageError{pdfpages}
+         {Package pdfpages requires at least\MessageBreak
+          VTeX version 8.22}
+         {Update your VTeX distribution.}%
+  \let\AM@endinput\relax
+\fi
+%    \end{macrocode}
+%    Check |vtex.def| version.
+%    \begin{macrocode}
+\AM@ifdriverlater{vtex}{2003/06/16}{}{%
+  \PackageError{pdfpages}{%
+       Your version of `vtex.def' is too old}
+       {Please, update your `vtex.def'!}%
+  \let\AM@endinput\relax
+  \expandafter\endinput
+}
+%    \end{macrocode}
+%    Get last page number.
+%    \begin{macrocode}
+\def\AM@getpagecount{%
+  \getpagecount\count@ \AM@currentdocname\relax
+  \edef\AM@pagecount{\the\count@}%
+}
+%    \end{macrocode}
+%    Page dimensions.
+%    \begin{macrocode}
+\let\AM@pagewidth\mediawidth
+\let\AM@pageheight\mediaheight
+\def\AM@setpagedimen{%
+  \setlength{\mediawidth}{\the\wd\@tempboxa}%
+  \setlength{\mediaheight}{\the\ht\@tempboxa}%
+}
+%    \end{macrocode}
+%    Rotate page.
+%    \begin{macrocode}
+\def\AM@setlscape{\special{pS:
+    [{ThisPage}\string<\string</Rotate 90\string>\string>%]
+    /PUT pdfmark}%
+}
+%    \end{macrocode}
+%    Change paper size.
+%    \begin{macrocode}
+\def\AM@fitpaper@special{%
+  \immediate\xspecial{option updatemediasizes="on"}}
+%    \end{macrocode}
+%    Find file.
+%    \begin{macrocode}
+\def\AM@findfile#1{%
+  \AM@findfile@i{#1}{pdf}%
+  \ifx\AM@currentdocname\relax
+    \AM@findfile@i{#1}{ps}%
+  \fi
+  \AM@findfile@ii{#1}%
+}
+%    \end{macrocode}
+%    Link to original document.
+%    \begin{macrocode}
+\def\AM@linktodoc@special@begin{%
+  \special{!aref <\ifAM@newwindow n\fi
+           f=\AM@linkfilename>!\AM@linktodoc@page;
+           a=</Border [0 0 0]>}%
+}
+\def\AM@linktodoc@special@end{%
+  \special{!endaref}%
+}
+%    \end{macrocode}
+%    Survey.
+%    \begin{macrocode}
+\def\AM@survey@special@begin{%
+  \special{!aref page.\AM@linktodoc@page; a=</Border [0 0 0]>}%
+}
+\def\AM@survey@special@end{%
+  \special{!endaref}%
+}
+%    \end{macrocode}
+%    Thread.
+%    \begin{macrocode}
+\def\AM@thread@special@begin{%
+  \special{!thread <\threadinfodict> \AM@threadname}%
+}
+\def\AM@thread@special@end{\special{!endthread}}
+%    \end{macrocode}
+%    Destination for links.
+%    \begin{macrocode}
+\def\AM@dest@special{\special{!aname \AM@linkname.\AM@page}}
+%    \end{macrocode}
+%
+%    \iffalse
+%</ppvtexdef>
+%    \fi
+%
+%
 %    \section{History}
 %
 %    \subsection*{2001/01/17 v0.1b}
@@ -2714,20 +2957,24 @@
 %      \item Reverse page order: |pages=7-3|, |pages=last-5|
 %    \end{itemize}
 %
-%    \iffalse
-%</package>
-%    \fi
+%    \subsection*{2003/06/21 v0.3a}
+%    \begin{itemize}
+%      \item Support of \VTeX.
+%      \item Driver layer added. All driver specific macros are
+%        defined in |.def| driver files.
+%    \end{itemize}
+%
 %
 %    \Finale
 %
 %    \iffalse
 %<*example1>
-\documentclass[a4paper,12pt, draft]{article}
+\documentclass[a4paper,12pt]{article}
 \usepackage[final]{pdfpages}
+\usepackage{verbatim}
 %% Uncomment the following lines, if you want to produce thumbnails.
 %%\usepackage{pdflscape}
 %%\usepackage{thumbpdf}
-\usepackage{verbatim}
 
 \newcounter{example}
 \setcounter{example}{1}
@@ -2741,13 +2988,6 @@
    \verbatim}
   {\endverbatim%
    \endminipage\par\vskip\topsep}
-
-\pdfinfo{%
-  /Title    (A Demonstration of the pdfpages Package)
-  /Author   (Andreas MATTHIAS)
-  /Subject  (A pdfLaTeX package to insert pages of external PDF documents.)
-  /Keywords (pdfpages, pdfLaTeX, PDF, include, insert, page)
-}
 
 \begin{document}
 
@@ -2894,10 +3134,10 @@ You like the crazy way? Then try this one \texttt{;-)}
 %<*example2>
 \documentclass[a4paper,12pt]{article}
 \usepackage[final]{pdfpages}
+\usepackage{verbatim}
 %% Uncomment the following lines, if you want to produce thumbnails.
 %%\usepackage{pdflscape}
 %%\usepackage{thumbpdf}
-\usepackage{verbatim}
 \usepackage[bookmarksopen]{hyperref}
 
 \newcounter{example}
@@ -2919,13 +3159,6 @@ You like the crazy way? Then try this one \texttt{;-)}
 \newcommand*{\bookmark}[3][0]{%
   \pdfoutline user {<< /S /GoTo /D (#3) >>} count #1 {#2}}
 
-\pdfinfo{%
-  /Title    (A Demonstration of the Hypertext Operations
-             of the pdfpages Package)
-  /Author   (Andreas MATTHIAS)
-  /Subject  (A pdfLaTeX package to insert pages of external PDF documents.)
-  /Keywords (pdfpages, pdfLaTeX, PDF, include, insert, page)
-}
 
 \begin{document}
 
@@ -2967,13 +3200,10 @@ This way you can refer to the \hyperlink{dummy.pdf.1}{first}
 and the \hyperlink{dummy.pdf.2}{second page}.
 
 \includepdf[pages=1-2, link]{dummy.pdf}
-\bookmark[4]{List of Hyperfigures}{}
-\bookmark[0]{Page 1}{dummy.pdf.1}
-\bookmark[0]{Page 2}{dummy.pdf.2}
 
 
 Inserting the same page twice would result in two 
-identical link names. To prevent this use, the option
+identical link names. To prevent this use the option
 \texttt{linkname} to specify another name for the links.
 
 \begin{example}
@@ -2991,9 +3221,6 @@ Now the links are called `\texttt{mylink.1}' and
 
 \includepdf[pages=1-2, nup=1x2, landscape,
             link, linkname=mylink]{dummy.pdf}
-\bookmark[0]{Again Page 1}{mylink.1}
-\bookmark[0]{Again Page 2}{mylink.2}
-
 
 \subsection{Links to the original Document}
 

@@ -6,8 +6,8 @@ This package makes it easy to insert pages of external PDF
 documents. It is possible to arrange several logical
 pages on each sheet of paper. (Like `psnup'.)
 
-The package is based on pdfLaTeX and does not work with
-LaTeX.
+This package supports pdfLaTeX and VTeX but does not work
+with LaTeX.
 
 Run `latex pdfpages.ins' to produce pdfpages.sty.
 
