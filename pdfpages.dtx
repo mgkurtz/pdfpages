@@ -18,8 +18,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.2a",
-%    date           = "21. November 2001",
+%    version        = "0.2b-pdfnup-2",
+%    date           = "26. December 2001",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -39,7 +39,7 @@
 %</dtx>
 %    \fi
 %
-%    \CheckSum{1730}
+%    \CheckSum{1740}
 %%
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -59,9 +59,9 @@
 %%
 %    \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{pdfpages}[2001/11/21 v0.2a Insert pages of external PDF documents (AM)]
+%<package>\ProvidesPackage{pdfpages}[2001/12/26 v0.2b-pdfnup-2 Insert pages of external PDF documents (AM)]
 %    \fi
-%         \ProvidesFile{pdfpages.dtx}[2001/11/21 v0.2a Insert pages of external PDF documents (AM)]
+%         \ProvidesFile{pdfpages.dtx}[2001/12/26 v0.2b-pdfnup-2 Insert pages of external PDF documents (AM)]
 %    \iffalse
 %
 %<*driver>
@@ -700,8 +700,9 @@
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup
-  \filename@parse{#2}%
-  \def\AM@currentdocname{\filename@area\filename@base}%
+  \IfFileExists{#2}{\def\AM@currentdocname{#2}}
+    {\IfFileExists{#2.pdf}{\def\AM@currentdocname{#2.pdf}}
+       {\PackageError{pdfpages}{Cannot find file #2}{}}}%
   \setkeys{Gin}{#1}%
   \expandafter\AM@readlist\expandafter{\AM@pagestemp}%
   \AM@output{#1}%
@@ -791,7 +792,8 @@
 \def\AM@checklast#1-\END{%
   \edef\AM@tempii{\AM@trim@space{#1}}%
   \expandafter\ifx\expandafter\\\AM@tempii\\
-    \pdfximage{\AM@currentdocname.pdf}%
+%    \pdfximage{\AM@currentdocname.pdf}%
+    \pdfximage{\AM@currentdocname}%
     \@tempcntb=\the\pdflastximagepages\relax
     \advance\@tempcntb\@ne
     \whiledo{\@tempcnta<\@tempcntb}{%
@@ -819,8 +821,11 @@
     \AM@addtolist{1}%
   \fi
   \edef\AM@temp{\AM@trim@space{#1}}%
-  \filename@parse{\AM@temp}%
-  \def\AM@currentdocname{\filename@area\filename@base}%
+  \IfFileExists{\AM@temp}{\def\AM@currentdocname{\AM@temp}}
+    {\IfFileExists{\AM@temp.pdf}{\def\AM@currentdocname{\AM@temp.pdf}}
+       {\PackageError{pdfpages}{Cannot find file \AM@temp}{}}}%
+
+
   \AM@defaultonetrue
 }
 %    \end{macrocode}
@@ -1075,9 +1080,9 @@
 %    \begin{macrocode}
   \@ifundefined{AM@xnup}
     {\def\AM@xnup{\@ne}\def\AM@ynup{\@ne}%
-     \def\AM@xnupminusi{\z@}\def\AM@ynupminusi{\@ne}}{}%
+     \def\AM@xnupminusi{\z@}\def\AM@ynupminusi{\z@}}{}%
   \@ifundefined{AM@deltax}
-    {\def\AM@deltax{\z@}\def\AM@deltay{\z@}}{}%
+    {\def\AM@deltax{-\fboxrule}\def\AM@deltay{-\fboxrule}}{}%
   \@ifundefined{AM@xoffset}
     {\def\AM@xoffset{\z@}\def\AM@yoffset{\z@}}{}%
   \def\AM@xpos{\z@}\def\AM@ypos{\z@}%
@@ -1092,7 +1097,8 @@
   \AM@setphantom
   \AM@filluppagelist
   \ifthenelse{\boolean{AM@landscape}}
-    {\@ifundefined{AM@shortnupsyntax}{}
+    {\def\AM@lscape@rot{90}%
+     \@ifundefined{AM@shortnupsyntax}{}
        {\let\AM@temp\AM@xnup
         \let\AM@xnup\AM@ynup
         \let\AM@ynup\AM@temp}%
@@ -1161,7 +1167,7 @@
 %    \begin{macrocode}
       \def\AM@xscale{%
         (\paperwidth - \tw@\fboxrule*\AM@xnup 
-         - (\AM@deltax-\fboxrule) * \AM@xnupminusi) /
+         - \AM@deltax * \AM@xnupminusi) /
         (\AM@xnup * \real{\strip@pt\wd\@tempboxa})
       }%
       \setlength{\@tempdima}{\AM@xscale}%
@@ -1172,7 +1178,7 @@
       \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
       \def\AM@yscale{
         (\paperheight - \tw@\fboxrule*\AM@ynup 
-         - (\AM@deltay-\fboxrule) *\AM@ynupminusi) /
+         - \AM@deltay *\AM@ynupminusi) /
         (\AM@ynup * \real{\strip@pt\@tempdimb})
       }%
       \setlength{\@tempdima}{\AM@yscale}%
@@ -1203,11 +1209,11 @@
     \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
     \def\AM@xmargin{%
       (\paperwidth - (\wd\@tempboxa+\tw@\fboxrule)*\AM@xnup
-       - (\AM@deltax - \fboxrule) * \AM@xnupminusi) * \real{.5}
+       - \AM@deltax * \AM@xnupminusi) * \real{.5}
     }%
     \def\AM@ymargin{%
       (\paperheight - (\@tempdimb+\tw@\fboxrule)*\AM@ynup
-       - (\AM@deltay - \fboxrule) * \AM@ynupminusi) * \real{.5}
+       - \AM@deltay * \AM@ynupminusi) * \real{.5}
     }%
     \setlength{\@tempdima}{\AM@xmargin}%
     \edef\AM@xmargin{\the\@tempdima}%
@@ -1233,7 +1239,7 @@
       \advance\@tempcnta\m@ne
       \edef\AM@page@linktodoc{\the\@tempcnta}%
     \AM@getfirst{\AM@doclist}%
-      \edef\AM@docname{\the\toks@.pdf}%
+      \edef\AM@docname{\the\toks@}%
       \ifAM@linkfilename
       \else
         \let\AM@linkfilename\AM@docname
@@ -1291,20 +1297,20 @@
     \ifthenelse{\boolean{AM@landscape}}
       {\def\AM@xpos{%
          \AM@xmargin \AM@add\AM@xoffset + 
-         (\wd\@tempboxa + \AM@deltax + \fboxrule)*(\AM@ynupi - 1)
+         (\wd\@tempboxa + \AM@deltax + \tw@\fboxrule)*(\AM@ynupi - 1)
        }%
        \def\AM@ypos{%
          \AM@ymargin + \AM@yoffset +
-         (\@tempdimb + \AM@deltay + \fboxrule)*(\AM@xnupi - 1)
+         (\@tempdimb + \AM@deltay + \tw@\fboxrule)*(\AM@xnupi - 1)
        }%
       }
       {\def\AM@xpos{%
          \AM@xmargin \AM@add\AM@xoffset + 
-         (\wd\@tempboxa + \AM@deltax + \fboxrule)*(\AM@xnupi - 1)
+         (\wd\@tempboxa + \AM@deltax + \tw@\fboxrule)*(\AM@xnupi - 1)
        }%
        \def\AM@ypos{%
          \AM@ymargin + \AM@yoffset +
-         (\@tempdimb + \AM@deltay + \fboxrule)*(\AM@ynup - \AM@ynupi)
+         (\@tempdimb + \AM@deltay + \tw@\fboxrule)*(\AM@ynup-\AM@ynupi)
        }%
       }%
     \setlength{\@tempdima}{\AM@xpos}%
@@ -1562,8 +1568,7 @@
 \define@key{Gin}{frame}[true]{\setboolean{AM@frame}{#1}}
 \define@key{Gin}{openright}[true]{\setboolean{AM@openright}{#1}}
 \define@key{Gin}{pagecommand}{\def\AM@pagecommand{#1}}
-\define@key{Gin}{landscape}[true]{\setboolean{AM@landscape}{#1}%
-                                  \def\AM@lscape@rot{90}}
+\define@key{Gin}{landscape}[true]{\setboolean{AM@landscape}{#1}}
 \define@key{Gin}{turn}[true]{\setboolean{AM@turn}{#1}}
 \define@key{Gin}{column}[true]{\setboolean{AM@column}{#1}}
 \define@key{Gin}{columnstrict}[true]{\setboolean{AM@columnstrict}{#1}}
