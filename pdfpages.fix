@@ -1,0 +1,18 @@
+\ProvidesFile{pdfpages.fix}[2004/06/24 v0.3e Patch for pdfpages.sty (AM)]
+\def\AM@patch{0.3e}
+ 
+\ifx\AM@version\AM@patch\else
+  \PackageWarningNoLine{pdfpages}{^^J%
+  *** Patch file `pdfpages.fix' version \AM@patch^^J%
+  *** does not match to `pdfpages.sty' version \AM@version.^^J%
+  *** Patch file not loaded}%
+  \expandafter\endinput
+\fi
+ 
+
+
+\endinput
+
+;;; Local Variables: ***
+;;; mode:latex ***
+;;; End: ***

@@ -1,0 +1,44 @@
+\ProvidesFile{pdfpages.fix}[2003/12/20 v0.2e Patch for pdfpages.sty (AM)]
+\def\AM@patch{0.3e}
+
+\ifx\AM@version\AM@patch\else
+  \PackageWarningNoLine{pdfpages}{^^J%
+  *** Patch file `pdfpages.fix' version \AM@patch^^J%
+  *** does not match to `pdfpages.sty' version \AM@version.^^J%
+  *** Patch file not loaded}%
+  \expandafter\endinput
+\fi
+
+% Make \AddToSurvey work with TeXpowers \stepwise
+\AtBeginDocument{%
+  \@ifpackageloaded{texpower}{%
+    \releasecounter{AM@survey}
+    \let\AM@SetLabel\relax
+    \renewcommand{\do@insert@firstanchor@TP}{\AM@SetLabel\AM@SetTarget}
+    \renewcommand{\dont@insert@firstanchor@TP}{\AM@SetLabel\AM@SetTarget}
+    \let\AM@anchor@special\relax
+    \def\AM@SetTarget{%
+      \begingroup
+      \advance\count1\m@ne
+      \@ifundefined{VTeXversion}
+        {\pdfdest name {pdfpages.\the\count1} fit}
+        {\special{!aname pdfpages.\the\count1}}%
+      \endgroup
+    }
+    \let\OrigAddToSurvey\AddToSurvey
+    \def\AddToSurvey{%
+      \ifthenelse{\boolean{instepwise@TP}}
+        {\ifthenelse{\boolean{firstactivation}}{\AM@AddLabel}{}}
+        {\AM@AddLabel}%
+    }
+    \def\AM@AddLabel{\global\let\AM@SetLabel\OrigAddToSurvey
+      \AtShipout{\AM@KillLabel}}
+    \def\AM@KillLabel{\global\let\AM@SetLabel\relax}
+  }{}
+}
+
+\endinput
+
+;;; Local Variables: ***
+;;; mode:latex ***
+;;; End: ***

@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.3d",
-%    date           = "2003-10-09",
+%    version        = "0.3e",
+%    date           = "2004-01-31",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -49,7 +49,7 @@
 %    \fi
 %
 %    \ProvidesFile{pdfpages.dtx}
-   [2003/10/09 v0.3d-beta
+   [2004/01/31 v0.3e
 %
 %    \iffalse
 %</!example1&!example2&!example3>
@@ -63,13 +63,13 @@
 %<pppdftexdef>    Pdfpages driver for pdfTeX (AM)]
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
 %
-%<package>\def\AM@version{0.3d}
+%<package>\def\AM@version{0.3e}
 %
 %    \fi
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{3359}
+%    \CheckSum{3495}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -315,12 +315,12 @@
 %        \item[pagecommand] Declares \LaTeX\ commands, which are executed
 %                      on each sheet of paper.
 %                      \df{pagecommand=\{\bslash thispagestyle\{empty\}\}}
-%         \item[turn] By default pages in landscape format are displayed 
+%        \item[turn] By default pages in landscape format are displayed 
 %                     in landscape orientation (if the \PDF\ viewer supports
 %                     this). With \texttt{turn=false} this can be prohibited.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{turn=true}
-%         \item[noautoscale] By default pages are scaled automatically.
+%        \item[noautoscale] By default pages are scaled automatically.
 %                     This can be suppressed with the 
 %                     \texttt{noautoscale} option.
 %                     In combination with the \texttt{scale} option
@@ -328,10 +328,11 @@
 %                     the scaling process.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{noautoscale=false}
-%         \item[fitpaper] Adjusts the paper size to the one of the
-%                      inserted document.
+%        \item[fitpaper] Adjusts the paper size to the one of the
+%                     inserted document.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{fitpaper=false}
+%        \item[reflect] Reflects included pages.
 %        \item[signature] Creates booklets by rearranging
 %                     pages into signatures and setting
 %                     |nup=1x2| or |nup=2x1|, respectively. This option
@@ -891,11 +892,6 @@
 %    \end{macrocode}
 %    \subsection{Required Packages and Version Checking}
 %
-%    Required Packages.
-%    \begin{macrocode}
-\RequirePackage{ifthen, graphicx, calc, eso-pic}
-\ifAM@pkg@survey \RequirePackage{count1to,hyperref}\fi
-%    \end{macrocode}
 %    |\AM@ifdriverlater| checks that the driver loaded is more recent
 %    than the given date. See |\@ifpackagelater| from the standard
 %    \LaTeX\ kernel.
@@ -924,8 +920,17 @@
   }{\gdef\AM@driver{vtex}}%
 }{}
 \endgroup
+%    \end{macrocode}
+%    Required Packages.
+%    \begin{macrocode}
+\RequirePackage{ifthen, graphicx, calc, eso-pic}
 \input{pp\AM@driver.def}
 \ifx\AM@endinput\relax\endinput\fi
+\ifAM@pkg@survey
+  \let\AM@setanchor\AM@anchor@special
+  \RequirePackage{count1to}%
+  \AddToShipoutPicture{\AM@setanchor}%
+\fi
 %    \end{macrocode}
 %    Checking for new versions of \texttt{eso-pic.sty}.
 %    \begin{macrocode}
@@ -963,6 +968,8 @@
 \newif\ifAM@rescale\AM@rescalefalse
 \newif\ifAM@rotateoversize\AM@rotateoversizefalse
 \newif\ifAM@firstpage\AM@firstpagefalse
+\newif\ifAM@reflect\AM@reflectfalse
+\newif\ifAM@reflectall\AM@reflectallfalse
 %    \end{macrocode}
 %    \subsection{Commands}
 %    Declare macro names and define default values.
@@ -979,6 +986,10 @@
 \newcommand*{\AM@ARBug@hook}{}
 \newcommand*{\AM@xrprefix}{}
 \newcommand*{\AM@picturecommand}{}\newcommand*{\AM@picturecommandstar}{}
+
+
+\newsavebox{\AM@pagebox}
+
 %    \end{macrocode}
 %    \macro{\AM@setlscape}
 %    |\AM@setlscape| is defined in the driver files but may be
@@ -1231,6 +1242,10 @@
          {\let\AM@fbox\fbox}
          {\let\AM@fbox\relax
           \setlength{\fboxrule}{\z@}}%
+  \ifthenelse{\boolean{AM@reflect}}
+         {\let\AM@reflectbox\reflectbox}
+         {\let\AM@reflectbox\relax}%
+\setbox\AM@pagebox\null
 %    \end{macrocode}
 %    \begin{macrocode}
   \ifthenelse{\boolean{AM@column}}
@@ -1581,6 +1596,7 @@
 %    \begin{macrocode}
         \AM@hyper@begin@ii\noexpand\AM@fbox{%
           \noexpand\AM@ARBug@hook
+          \noexpand\AM@reflectbox{%
           \noexpand\includegraphics[\the\@temptokena,
                     page=\AM@page, scale=\AM@globalscale,
                     scale=\AM@localscale,
@@ -1588,7 +1604,7 @@
                     \ifAM@doublepagestwist\ifAM@doublepagestmp
                       angle=180,\fi\fi
                     angle=\AM@rotateoversize,
-                    angle=\AM@lscape@rot]{\AM@docname}}%
+                    angle=\AM@lscape@rot]{\AM@docname}}}%
         \AM@hyper@end}}%
       }%
     \fi
@@ -1601,10 +1617,23 @@
     \fi
     \AM@AddToShipoutPicture{\setlength{\unitlength}{\p@}%
       \global\let\AM@filelist@save\@filelist}%
-    \expandafter\AM@AddToShipoutPicture\expandafter{%
-      \AM@shippage
-      \global\let\@filelist\AM@filelist@save
-    }%
+%    \end{macrocode}
+%    |\AM@pagebox| is only use for option |reflect|, which was added
+%    lately. Probabley it would be better to use |\AM@pagebox| in
+%    all cases?
+%    \begin{macrocode}
+    \ifAM@reflectall
+      \begin{lrbox}{\AM@pagebox}
+        \global\let\AM@filelist@save\@filelist
+        \usebox{\AM@pagebox}\AM@shippage
+        \global\let\@filelist\AM@filelist@save
+      \end{lrbox}
+    \else
+      \expandafter\AM@AddToShipoutPicture\expandafter{%
+        \AM@shippage
+        \global\let\@filelist\AM@filelist@save
+      }%
+    \fi
     \AM@toclof{\AM@page}%
     \ifnum\AM@xnupi=\AM@xnup\relax
       \ifnum\AM@ynupi=\AM@ynup\relax
@@ -1620,7 +1649,16 @@
             \begingroup\AM@picturecommandstar\endgroup}%
           \AM@firstpagefalse
         \fi
+        \ifAM@reflectall
+          \AM@AddToShipoutPicture{%
+            \hskip\AM@pagewidth
+            \reflectbox{\usebox\AM@pagebox}%
+            \global\let\@filelist\AM@filelist@save
+          }%
+          \AM@ClearShipoutPicture
+        \fi
         \newpage
+        \ifAM@reflectall \setbox\AM@pagebox\null \fi
         \ifAM@pdflscape\PLS@Rotate{0}\fi
         \AM@ClearShipoutPicture
 %    \end{macrocode}
@@ -2146,7 +2184,9 @@
               \equal{rotateoversize}{\AM@temp}\or
               \equal{picturecommand}{\AM@temp}\or
               \equal{picturecommand*}{\AM@temp}\or
-              \equal{newwindow}{\AM@temp}}
+              \equal{newwindow}{\AM@temp}\or
+              \equal{reflect}{\AM@temp}\or
+              \equal{reflect*}{\AM@temp}}
              {\AM@pdfpages@optionstrue}{}%
   \ifthenelse{\equal{scale}{\AM@temp}}{\AM@scaletrue}{}%
 }
@@ -2604,6 +2644,38 @@
 \def\AM@@pageref#1{\expandafter\AM@secondarg#1\@nil}
 \def\AM@secondarg#1#2#3\@nil{#2}
 %    \end{macrocode}
+%    Make |\AddToSurvey| work within TeXpower's |\stepwise|.
+%    \begin{macrocode}
+\def\AM@TeXpower@hook{%
+  \ifAM@pkg@survey
+  \@ifpackageloaded{texpower}{%
+    \releasecounter{AM@survey}%
+    \let\AM@SetLabel\relax
+    \g@addto@macro\do@insert@firstanchor@TP{%
+      \AM@SetLabel\AM@SetTarget}%
+    \g@addto@macro\dont@insert@firstanchor@TP{%
+      \AM@SetLabel\AM@SetTarget}%
+    \let\AM@setanchor\relax
+    \def\AM@SetTarget{%
+      \begingroup
+      \advance\count1\m@ne
+      \AM@anchor@special
+      \endgroup
+    }%
+    \let\OrigAddToSurvey\AddToSurvey
+    \def\AddToSurvey{%
+      \ifthenelse{\boolean{instepwise@TP}}
+        {\ifthenelse{\boolean{firstactivation}}{\AM@AddLabel}{}}
+        {\AM@AddLabel}%
+    }%
+    \def\AM@AddLabel{\global\let\AM@SetLabel\OrigAddToSurvey
+      \AtShipout{\AM@KillLabel}}%
+    \def\AM@KillLabel{\global\let\AM@SetLabel\relax}%
+  }{}%
+  \fi
+}
+\AtBeginDocument{\AM@TeXpower@hook}
+%    \end{macrocode}
 %    \subsection{Options of \texttt{\protect\bslash includepdf}}
 %    \begin{macrocode}
 \define@key{pdfpages}{pages}{\def\AM@pagestemp{#1}}
@@ -2669,6 +2741,8 @@
 \define@key{pdfpages}{picturecommand}{\def\AM@picturecommand{#1}}
 \define@key{pdfpages}{picturecommand*}{\def\AM@picturecommandstar{#1}}
 \define@key{pdfpages}{newwindow}[true]{\setboolean{AM@newwindow}{#1}}
+\define@key{pdfpages}{reflect*}[true]{\setboolean{AM@reflect}{#1}}
+\define@key{pdfpages}{reflect}[true]{\setboolean{AM@reflectall}{#1}}
 %    \end{macrocode}
 %    \macro{\AM@parse@nup}
 %    Parsing \texttt{nup} item.
@@ -2860,7 +2934,7 @@
               depth \dp\@tempboxa
               {/Subtype /Link /Border [0 0 0]
                /A << /S /GoTo
-                     /D (page.\AM@linktodoc@page) >>}%
+                     /D (pdfpages.\AM@linktodoc@page@m@ne) >>}%
 }
 \let\AM@survey@special@end\relax
 %    \end{macrocode}
@@ -2878,6 +2952,7 @@
 %    Destination for links.
 %    \begin{macrocode}
 \def\AM@dest@special{\pdfdest name {\AM@linkname.\AM@page} \AM@linkfit}
+\def\AM@anchor@special{\pdfdest name {pdfpages.\the\count1} fit}
 %    \end{macrocode}
 %
 %    \iffalse
@@ -2960,7 +3035,7 @@
 %    Survey.
 %    \begin{macrocode}
 \def\AM@survey@special@begin{%
-  \special{!aref page.\AM@linktodoc@page; a=</Border [0 0 0]>}%
+  \special{!aref pdfpages.\AM@linktodoc@page@m@ne; a=</Border [0 0 0]>}%
 }
 \def\AM@survey@special@end{%
   \special{!endaref}%
@@ -2976,6 +3051,7 @@
 %    Destination for links.
 %    \begin{macrocode}
 \def\AM@dest@special{\special{!aname \AM@linkname.\AM@page}}
+\def\AM@anchor@special{\special{!aname pdfpages.\the\count1}}
 %    \end{macrocode}
 %
 %    \iffalse
@@ -3048,6 +3124,17 @@
 %        defined in |.def| driver files.
 %    \end{itemize}
 %
+%    \subsection*{2003/07/16 v0.3b}
+%    \begin{itemize}
+%      \item Option |\doublepagestwist| added.
+%    \end{itemize}
+%
+%    \subsection*{2003/12/08 v0.3e}
+%    \begin{itemize}
+%      \item Option |reflect| added.
+%      \item Made |\AddToSurvey| work within TeXpower's |\stepwise|.
+%    \end{itemize}
+
 %
 %    \Finale
 %

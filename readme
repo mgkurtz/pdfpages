@@ -9,7 +9,9 @@ pages on each sheet of paper. (Like `psnup'.)
 This package supports pdfLaTeX and VTeX but does not work
 with LaTeX.
 
-Run `latex pdfpages.ins' to produce pdfpages.sty.
+Run `latex pdfpages.ins' to produce pdfpages.sty and the
+driver files pppdftex.def and ppvtex.def. Move these files
+into a directory searched by LaTeX.
 
 Run `latex pdfpages.dtx' to produce the documentation.
 
