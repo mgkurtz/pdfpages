@@ -18,8 +18,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.1g",
-%    date           = "26 March 2001",
+%    version        = "0.1i",
+%    date           = "17 April 2001",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -39,7 +39,7 @@
 %</dtx>
 %    \fi
 %
-%    \CheckSum{751}
+%    \CheckSum{973}
 %%
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -59,13 +59,13 @@
 %%
 %    \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
-%<package>\ProvidesPackage{pdfpages}[2001/03/26 v0.1g Include pages of external PDF documents (AM)]
+%<package>\ProvidesPackage{pdfpages}[2001/04/17 v0.1i Include pages of external PDF documents (AM)]
 % \fi
-%        \ProvidesFile{pdfpages.dtx}[2001/03/26 v0.1g Include pages of external PDF documents (AM)]
+%        \ProvidesFile{pdfpages.dtx}[2001/04/17 v0.1i Include pages of external PDF documents (AM)]
 % \iffalse
 %
 %<*driver>
-\documentclass[10pt,draft]{ltxdoc}
+\documentclass[a4paper, 10pt,draft]{ltxdoc}
 \usepackage{array}
   \newcommand{\versionlist}{%
     \setlength{\topsep}{0pt}%
@@ -107,9 +107,9 @@
 %    \texttt{graphics} package. But a simple
 %    |\includegraphics{doc.pdf}| normally produces
 %    `|Overfull \hbox|' and `|Overfull \vbox|' warnings,
-%    because the size of the included page does not match to the
-%    print space. To circumvent this, one have to scale (reduce)
-%    the included page. However, this is sometimes not desirable.
+%    because the size of the included pages do not match to the
+%    print space. To circumvent this, the included pages have to
+%    be scaled (reduced). However, sometimes this is not desirable.
 %    
 %    The \texttt{pdfpages} package makes it easy to include one or
 %    more pages of external PDF documents without worrying about
@@ -138,14 +138,14 @@
 %    Pages of external PDF documents are included as follows:
 %    
 %    \medskip\noindent
-%    |\includepdf[|\meta{key=val}|]{|\meta{pdf-file}|}|
+%    |\includepdf[|\meta{key=val}|]{|\meta{filename}|}|
 %    
 %    \begin{quote}
 %    \begin{tabular}{@{}l@{\,--~}>{\raggedright}p{.8\linewidth}}
 %        \meta{key=val}   & A comma separated list of options
 %                   using the \meta{key}=\meta{value} syntax.
 %                   \tabularnewline
-%        \meta{pdf-file} & The filename of the PDF document.
+%        \meta{filename} & The filename of the PDF document.
 %    \end{tabular}
 %    \end{quote}
 %    
@@ -179,6 +179,7 @@
 %      \item[frame] Put a frame around each logical page. Either `true'
 %                   or `false' (or no value, which is equivalent to `true').
 %                   \df{frame=false}
+%
 %      \item[deltax] Put some space between the logical pages in
 %                    horizontal direction. The argument should be one
 %                    dimension. See figure\,\ref{layout}. \df{deltax=0}
@@ -191,10 +192,57 @@
 %      \item[pagecommand] \LaTeX{} commands, which are executed on each
 %                         physical sheet of paper.
 %                         \df{pagecommand=\{\bslash thispagestyle\{empty\}\}}
-%      \item[firstpage] \hskip0pt\marginpar{\raggedleft\itshape\small obsolete}
-%                       Page number of the first page to include.
-%      \item[lastpage] \hskip0pt\marginpar{\raggedleft\itshape\small obsolete}
-%                      Page number of the last page to include.
+%
+%      \item[link] With this option the included pages become a target for
+%                  a hyperlink. The name of the link is 
+%                  `\texttt{\meta{filename}.\meta{page number}}'.
+%                  \meta{filename} is equal to the \meta{filename} of
+%                  \verb|\includepdf|, i.\,e. potential file extensions
+%                  are not stript.
+%                  Either `true' or `false' (or no value, which
+%                  is equivalent to `true').
+%                  \df{link=false}
+%      \item[linkname] Change the default linkname created by the option 
+%                      \texttt{link}. Instead of the \meta{filename} the
+%                      value of this option is used. E.\,g. \texttt{
+%                      linkname=mylink} produces the linknames
+%                      `\texttt{mylink.\meta{page number}}'.\\
+%                      \df{linkname=\meta{filename}.\meta{page number}}
+%      \item[linkfit] Specify the way the viewer displays a linked page.
+%                     This option changes the default behavior of the
+%                     the option \texttt{link}.
+%                     Possible values are: \texttt{fitb}, \texttt{fith},
+%                     \texttt{fitv}, \texttt{fitr}, 
+%                     \texttt{xyz zoom \meta{integer}}, etc.
+%                     These are destinations (|\pdfdest|) like they are
+%                     described in \cite{pdftex}.
+%                     \df{linkfit=fitr}
+%
+%      \item[linktodoc] Let the included pages be a hyperlink to the document
+%                       from which they were extracted.
+%                       Either `true' or `false' (or no value, which
+%                       is equivalent to `true'). \df{linktodoc=false}
+%      \item[linkfilename] Set the name (with path) of the file to be
+%                          linked to by the option \texttt{linktodoc}.
+%                          You will hardly ever need this option.
+%                          \df{linkfilename=\meta{filename}}
+%      \item[linktodocfit] By default the option \texttt{linktodoc} opens
+%                          the page in `Fit in Window' view. With this
+%                          option another view can be specified.
+%                          Possible values are the legal PDF tokens:
+%                          \texttt{/FitH} \meta{top}, \texttt{/FitV} \meta{left}, etc.
+%                          (See \cite{PDFRef} for more details.)
+%                          \df{linktodocfit=/Fit}
+%
+%      \item[thread] Combine pages to an article thread.
+%                   Either `true' or `false' (or no value, which
+%                   is equivalent to `true'). \df{thread=false}
+%      \item[threadname] Several thread are distinguished by their names.
+%                        By default this name is equal to the filename. But it
+%                        can be changed with this option. This is useful if 
+%                        the same file is included twice or more times and
+%                        should not be combined to one single thread.
+%                        \df{threadname=\meta{filename}}
 %    \end{description}
 %    
 %
@@ -204,11 +252,6 @@
 %    \label{layout}
 %    \end{figure}
 %
-%
-%    Do not use the options |firstpage| and |lastpage| any more. They are
-%    \textit{obsolete} and exist only to keep compatibility with older
-%    version. They are likely to be removed in future version. Use the
-%    option |pages| instead.
 %
 %    The |\includepdf| command calls the |\includegraphics| command from the
 %    |graphicx| (actually |graphics|) package, which makes it possible to
@@ -237,6 +280,19 @@
 %    |\includepdfset|. Options of the graphicx package are not
 %    concerned.
 %
+%    \bigskip
+%    \DescribeMacro{\threadinfodict}
+%    A thread information dictionary contains information about the
+%    thread, such as its title, author, and creation date.
+%    Use the macro |\threadinfodict| to set these entries.
+%    This macro has one argument containing the thread information
+%    dictionary in low-level PDF commands. See \cite{PDFRef} for
+%    more information. This macro can be redefined. E.\,g.:
+%    
+%    |\renewcommand{\threadinfodict}|\\\hspace*{\parindent}
+%    |{/I << /Title (My first thread) /Author (That's me!) >>}|
+%    
+%    
 %
 %    \subsection{The Layout}
 %    
@@ -331,7 +387,8 @@
 %    \section{Acknowledgment}
 %    I would like to thank \textsc{Rolf Niepraschk} and
 %    \textsc{Heiko Oberdiek} for their useful
-%    hints and suggestions.
+%    hints and suggestions. As well as \textsc{Ross Moore},
+%    who encouraged me to implement the hypertext features.
 %
 %
 %    \StopEventually{}
@@ -419,16 +476,19 @@
 \DeclareOption{final}{\def\AM@draft{false}} 
 \ProcessOptions  
 %    \end{macrocode}
-%    \subsection{Counters and Booleans}
+%    \subsection{Booleans}
 %    \begin{macrocode}
-%\newcounter{AM@nup}\setcounter{AM@nup}{1}
 \newboolean{AM@openright}\setboolean{AM@openright}{false}
 \newboolean{AM@frame}\setboolean{AM@frame}{false}
 \newboolean{AM@landscape}\setboolean{AM@landscape}{false}
 \newboolean{AM@turn}\setboolean{AM@turn}{true}
+\newboolean{AM@thread}\setboolean{AM@thread}{false}
+\newboolean{AM@link}\setboolean{AM@link}{false}
+\newboolean{AM@linktodoc}\setboolean{AM@linktodoc}{false}
 \newboolean{AM@compatibility}\setboolean{AM@compatibility}{false}
 %    \end{macrocode}
 %    \subsection{Commands}
+%    Define default values.
 %    \begin{macrocode}
 \newcommand{\AM@xoffset}{0pt}\newcommand{\AM@yoffset}{0pt}
 \newcommand{\AM@deltax}{0pt}\newcommand{\AM@deltay}{0pt}
@@ -436,15 +496,47 @@
 \newcommand{\AM@rotate}{0}
 \newcommand{\AM@lscape@roti}{0}\newcommand{\AM@lscape@rotii}{0}
 \newcommand{\AM@pagecommand}{\thispagestyle{empty}}
-\newcommand{\AM@fbox}{}
-\newcommand{\AM@ph}{}
+\newcommand{\AM@fbox}{}\newcommand{\AM@ph}{}
 \newcommand{\AM@pagestemp}{1}
+\newcommand{\AM@page}{}
 \newcommand{\AM@pagei}{}\newcommand{\AM@pageii}{}
 \newcommand{\AM@pageiii}{}\newcommand{\AM@pageiv}{}
-\newcommand{\AM@smallpage}{}
-\newsavebox{\AM@pagebox}
+\newcommand{\AM@@smallpage}{}\newcommand{\AM@smallpage}{\AM@@smallpage}
 \newcommand{\AM@firstpage}{1}\newcommand{\AM@lastpage}{1}
 \newcommand{\AM@nup}{1}
+\newcommand{\AM@linkname}{}
+\newcommand{\AM@threadname}{}
+\newcommand{\AM@linkfit}{fitr}
+\newcommand{\AM@linktodocfit}{/Fit}
+\newcommand{\AM@setunit}{\setlength{\unitlength}{1pt}}
+\newcommand{\threadinfodict}{}
+%    \end{macrocode}
+%    \macro{\AM@setlscape}
+%    Check, if `pdflscape.sty' is loaded.
+%    This package is necessary, if landscape pages are produced
+%    \textit{and} `thumbpdf.sty' is used.
+%    \begin{macrocode}
+\newif\ifAM@thumbpdf
+\newif\ifAM@pdflscape
+\newcommand{\AM@setlscape}{}
+\AtBeginDocument{%
+  \@ifpackageloaded{thumbpdf}{\AM@thumbpdftrue}{\AM@thumbpdffalse}%
+  \@ifpackageloaded{pdflscape}{\AM@pdflscapetrue}{\AM@pdflscapefalse}%
+  \ifAM@thumbpdf
+    \ifAM@pdflscape
+      \def\AM@setlscape{\PLS@Rotate{90}}%
+    \else
+      \def\AM@setlscape{\pdfpageattr{/Rotate 90}\AM@thumbpdfwarning}\fi
+  \else
+    \def\AM@setlscape{\pdfpageattr{/Rotate 90}}\fi}
+\newif\ifAM@thumbpdfwarning
+\newcommand{\AM@thumbpdfwarning}{%
+  \ifAM@thumbpdfwarning\else\global\AM@thumbpdfwarningtrue
+  \PackageWarning{pdfpages}{%
+    You are using `thumbpdf.sty' but not\MessageBreak
+    `pdflscape.sty'. \MessageBreak
+    Please include `pdflscape.sty' in  your document\MessageBreak
+    to get a pleasant PDF document with thumbs.\MessageBreak}\fi}
 %    \end{macrocode}
 %    \macro{\includepdfset}
 %    This command sets global options for \verb|\includepdf|.
@@ -457,6 +549,12 @@
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup% setkey
+  \filename@parse{#2}
+  \@ifundefined{filename@ext}
+    {\def\AM@linkfilename{#2.pdf}}
+    {\def\AM@linkfilename{#2}}%
+  \def\AM@linkname{#2}%
+  \def\AM@threadname{#2}%
 %    \end{macrocode}
 %    Read in optional parameters.
 %    \begin{macrocode}
@@ -483,117 +581,197 @@
 %    \begin{macrocode}
   \whiledo{\not\boolean{endofpagelist}}{%
     \newpage
-    \AM@getpages{\AM@nup}%
-%    \end{macrocode}
-%    Arrange one PDF pages per sheet. (\texttt{nup=1})
-%    \begin{macrocode}
-      \ifthenelse{\equal{1}{\AM@nup}}
-        {\expandafter\ifx\expandafter\\\AM@pagei\\%
-             \def\AM@pagei{\AM@phantompage}%
-             \let\AM@ph\phantom
-           \else \let\AM@ph\relax\fi
-         \savebox{\AM@pagebox}{\AM@ph{\AM@fbox{%
-           \includegraphics[page=\AM@pagei, angle=\AM@lscape@rotii,
-                            angle=\AM@rotate, #1]{#2}}}}%
-        }{}%
-%    \end{macrocode}
-%    Arrange two PDF pages per sheet. (\texttt{nup=2})
-%    \begin{macrocode}
-      \ifthenelse{\equal{2}{\AM@nup}}{%
-        \def\AM@smallpage{%
-          \expandafter\ifx\expandafter\\\AM@page\\%
-             \let\AM@page\AM@phantompage
-             \let\AM@ph\phantom
-           \else \let\AM@ph\relax\fi
-        \AM@ph{\AM@fbox{\includegraphics[page=\AM@page, angle=90,
-                                angle=\AM@lscape@roti, angle=\AM@rotate,
-                                scale=.7071, #1]{#2}}}}%
-        \savebox{\AM@pagebox}{%
-          \vbox{%
-            \hbox{%
-              \ifthenelse{\boolean{AM@landscape}}
-                {\let\AM@page\AM@pagei\AM@smallpage}
-                {\let\AM@page\AM@pageii\AM@smallpage}%
-            }% hbox
-            \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
-            \hbox{%
-              \ifthenelse{\boolean{AM@landscape}}
-                {\let\AM@page\AM@pageii\AM@smallpage}
-                {\let\AM@page\AM@pagei\AM@smallpage}%
-            }% hbox
-        }}% vbox, savebox
-      }{}%
-%    \end{macrocode}
-%    Arrange four PDF pages per sheet. (\texttt{nup=4})
-%    \begin{macrocode}
-      \ifthenelse{\equal{4}{\AM@nup}}{%
-         \def\AM@smallpage{%
-           \expandafter\ifx\expandafter\\\AM@page\\%
-              \let\AM@page\AM@phantompage
-              \let\AM@ph\phantom
-            \else \let\AM@ph\relax\fi
-         \AM@ph{\AM@fbox{%
-            \includegraphics[page=\AM@page, angle=\AM@lscape@rotii,
-                             angle=\AM@rotate, scale=.5, #1]{#2}}}}%
-         \savebox{\AM@pagebox}{%
-           \vbox{%
-             \hbox{%
-               \ifthenelse{\boolean{AM@landscape}}
-                 {\let\AM@page\AM@pageii\AM@smallpage}
-                 {\let\AM@page\AM@pagei\AM@smallpage}%
-               \hskip-\fboxrule\hskip\AM@deltax%
-               \ifthenelse{\boolean{AM@landscape}}
-                 {\let\AM@page\AM@pageiv\AM@smallpage}
-                 {\let\AM@page\AM@pageii\AM@smallpage}%
-             }% hbox
-             \nointerlineskip\vskip-\fboxrule\vskip\AM@deltay
-             \hbox{%
-               \ifthenelse{\boolean{AM@landscape}}
-                 {\let\AM@page\AM@pagei\AM@smallpage}
-                 {\let\AM@page\AM@pageiii\AM@smallpage}%
-               \hskip-\fboxrule\hskip\AM@deltax%
-               \ifthenelse{\boolean{AM@landscape}}
-                 {\let\AM@page\AM@pageiii\AM@smallpage}
-                 {\let\AM@page\AM@pageiv\AM@smallpage}%
-             }% hbox
-         }}% vbox, savebox
-      }{}%
-%    \end{macrocode}
-%    Page output.
-%    \begin{macrocode}
-    \AddToShipoutPicture{%
-      \setlength{\unitlength}{1pt}%
-        \def\AM@add{+}%
-        \if@twoside\ifodd\value{page}\else\def\AM@add{-}\fi\fi
-        \def\AM@xpos{.5\paperwidth-.5\wd\AM@pagebox \AM@add\AM@xoffset}%
-        \def\AM@ypos{.5\paperheight-.5\ht\AM@pagebox+%
-                     .5\dp\AM@pagebox+\AM@yoffset}%
-        \setlength{\@tempdima}{\AM@xpos}%
-        \edef\AM@xpos{\strip@pt\@tempdima}%
-        \setlength{\@tempdima}{\AM@ypos}%
-        \edef\AM@ypos{\strip@pt\@tempdima}%
-        \put(\AM@xpos,\AM@ypos){\usebox{\AM@pagebox}}%
-    }% AddToShipoutPicture
 %    \end{macrocode}
 %    Some pages are displayed in landscape format,
 %    if the |turn|-Option is `true'.
 %    \begin{macrocode}
     \ifthenelse{\boolean{AM@turn}}
       {\ifthenelse{\boolean{AM@landscape}}
-         {\ifthenelse{\equal{1}{\AM@nup}}{\pdfpageattr{/Rotate 90}}{}%
-          \ifthenelse{\equal{4}{\AM@nup}}{\pdfpageattr{/Rotate 90}}{}}
-         {\ifthenelse{\equal{2}{\AM@nup}}{\pdfpageattr{/Rotate 90}}{}}%
+         {\ifthenelse{\equal{1}{\AM@nup}}{\AM@setlscape}{}%
+          \ifthenelse{\equal{4}{\AM@nup}}{\AM@setlscape}{}}
+         {\ifthenelse{\equal{2}{\AM@nup}}{\AM@setlscape}{}}%
       }{}%
+    \AM@getpages{\AM@nup}%
+%    \end{macrocode}
+%    Arrange one PDF pages per sheet. (\texttt{nup=1})
+%    \begin{macrocode}
+      \ifthenelse{\equal{1}{\AM@nup}}{%
+         \def\AM@@smallpage{%
+           \includegraphics[page=\AM@page, angle=\AM@lscape@rotii,
+                            angle=\AM@rotate, #1]{#2}}%
+         \AddToShipoutPicture{\AM@setunit%
+           \let\AM@page\AM@pagei\AM@isphantom
+           \AM@output{0}{\AM@smallpage}}%
+        }{}%
+%    \end{macrocode}
+%    Arrange two PDF pages per sheet. (\texttt{nup=2})
+%    \begin{macrocode}
+      \ifthenelse{\equal{2}{\AM@nup}}{%
+        \def\AM@@smallpage{%
+          \includegraphics[page=\AM@page, angle=90,
+                           angle=\AM@lscape@roti, angle=\AM@rotate,
+                           scale=.7071, #1]{#2}}%
+        \AddToShipoutPicture{\AM@setunit%
+          \ifthenelse{\boolean{AM@landscape}}
+            {\let\AM@page\AM@pagei\AM@isphantom
+             \AM@output{1}{\AM@smallpage}%
+             \let\AM@page\AM@pageii\AM@isphantom
+             \AM@output{2}{\AM@smallpage}}
+            {\let\AM@page\AM@pagei\AM@isphantom
+             \AM@output{2}{\AM@smallpage}%
+             \let\AM@page\AM@pageii\AM@isphantom
+             \AM@output{1}{\AM@smallpage}}}%
+      }{}%
+%    \end{macrocode}
+%    Arrange four PDF pages per sheet. (\texttt{nup=4})
+%    \begin{macrocode}
+      \ifthenelse{\equal{4}{\AM@nup}}{%
+        \def\AM@@smallpage{%
+          \includegraphics[page=\AM@page, angle=\AM@lscape@rotii,
+                           angle=\AM@rotate, scale=.5, #1]{#2}}%
+        \AddToShipoutPicture{\AM@setunit%
+          \ifthenelse{\boolean{AM@landscape}}
+            {\let\AM@page\AM@pagei\AM@isphantom
+             \AM@output{5}{\AM@smallpage}%
+             \let\AM@page\AM@pageii\AM@isphantom
+             \AM@output{3}{\AM@smallpage}%
+             \let\AM@page\AM@pageiii\AM@isphantom
+             \AM@output{6}{\AM@smallpage}%
+             \let\AM@page\AM@pageiv\AM@isphantom
+             \AM@output{4}{\AM@smallpage}}
+            {\let\AM@page\AM@pagei\AM@isphantom
+             \AM@output{3}{\AM@smallpage}%
+             \let\AM@page\AM@pageii\AM@isphantom
+             \AM@output{4}{\AM@smallpage}%
+             \let\AM@page\AM@pageiii\AM@isphantom
+             \AM@output{5}{\AM@smallpage}%
+             \let\AM@page\AM@pageiv\AM@isphantom
+             \AM@output{6}{\AM@smallpage}}}%
+     }{}%
 %    \end{macrocode}
 %    \begin{macrocode}
     \AM@pagecommand
     \hskip0pt
     \newpage
+    \ifAM@pdflscape\PLS@Rotate{0}\fi
     \ClearShipoutPicture
   }% whiledo
   \endgroup% setkey
   \ClearShipoutPicture
 }% includepdf
+%    \end{macrocode}
+%    \macro{\AM@isphantom}
+%    Check, if current page is an empty (phantom) page.
+%    \begin{macrocode}
+\newif\ifphantompage
+\newcommand{\AM@isphantom}{%
+  \expandafter\ifx\expandafter\\\AM@page\\%
+    \let\AM@page\AM@phantompage
+    \let\AM@ph\phantom
+    \phantompagefalse
+  \else
+    \let\AM@ph\relax
+    \phantompagetrue
+  \fi}
+%    \end{macrocode}
+%    \macro{\AM@hyper}
+%    Add links and threads to the included pages.
+%    \begin{macrocode}
+\newcommand{\AM@hyper}{%
+%    \end{macrocode}
+%    Page is a target for a link.
+%    \begin{macrocode}
+  \ifphantompage
+  \ifthenelse{\boolean{AM@link}}{%
+    \pdfdest name {\AM@linkname.\AM@page}%
+             \AM@linkfit}{}%
+  \fi
+%    \end{macrocode}
+%    Page is linked to the original document.
+%    \begin{macrocode}
+  \ifthenelse{\boolean{AM@linktodoc}}{%
+    \@tempcntb\AM@page\relax
+    \advance\@tempcntb by -1
+    \pdfannot width \wd\@tempboxa
+              height \ht\@tempboxa
+              depth \dp\@tempboxa
+              {/Subtype /Link /Border [0 0 0]
+               /A << /S /GoToR
+                     /F (\AM@linkfilename)
+                     /D [\the\@tempcntb \AM@linktodocfit] 
+                     /NewWindow true >>}}{}%
+%    \end{macrocode}
+%    Page is a bead in a thread.
+%    \begin{macrocode}
+  \ifphantompage
+  \ifthenelse{\boolean{AM@thread}}{%
+      \pdfthread width \wd\@tempboxa
+                 height \ht\@tempboxa
+                 depth \dp\@tempboxa
+                 attr {\threadinfodict}
+                 name {\AM@threadname}}{}%
+  \fi}%
+%    \end{macrocode}
+%    \macro{\AM@output}
+%    Place pages. The content of |#2| is placed at the
+%    position of |#1|.\\
+%    Meaning of |#1|:
+%    \begin{list}{}{\setlength{\itemsep}{2pt}\setlength{\parsep}{0pt}\setlength{\leftmargin}{\parindent}}
+%    \item  0: nup=1
+%    \item  1: nup=2, top page
+%    \item  2: nup=2, bottom page
+%    \item  3: nup=4, top left page
+%    \item  4: nup=4, top right page
+%    \item  5: nup=4, bottom left page
+%    \item  6: nup=4, bottom right page
+%    \end{list}
+%    \begin{macrocode}
+\newcommand{\AM@output}[2]{%
+  \setbox\@tempboxa=\hbox{\AM@fbox{#2}}%
+  \def\AM@add{+}%
+  \if@twoside\ifodd\value{page}\else\def\AM@add{-}\fi\fi
+  \ifcase#1 % nup=1
+    \def\AM@xpos{.5\paperwidth - .5\wd\@tempboxa \AM@add\AM@xoffset}%
+    \def\AM@ypos{.5\paperheight - .5\ht\@tempboxa - .5\dp\@tempboxa
+                 \AM@add\AM@yoffset}%
+  \or % nup=2
+    \def\AM@xpos{.5\paperwidth - .5\wd\@tempboxa \AM@add\AM@xoffset}%
+    \def\AM@ypos{.5\paperheight + \AM@deltay*\real{.5} + \AM@yoffset
+                 - .5\fboxrule}%
+  \or
+    \def\AM@xpos{.5\paperwidth - .5\wd\@tempboxa \AM@add\AM@xoffset}%
+    \def\AM@ypos{.5\paperheight - \ht\@tempboxa - \dp\@tempboxa
+                 - \AM@deltay*\real{.5} + \AM@yoffset + .5\fboxrule}%
+  \or % nup=4
+    \def\AM@xpos{.5\paperwidth - \wd\@tempboxa \AM@add\AM@xoffset
+                 + .5\fboxrule - \AM@deltax*\real{.5}}%
+    \def\AM@ypos{.5\paperheight + \AM@deltay*\real{.5} + \AM@yoffset
+                 - .5\fboxrule}%
+  \or
+    \def\AM@xpos{.5\paperwidth \AM@add\AM@xoffset 
+                 - .5\fboxrule + \AM@deltax*\real{.5}}%
+    \def\AM@ypos{.5\paperheight + \AM@deltay*\real{.5} + \AM@yoffset
+                 - .5\fboxrule}%
+  \or
+    \def\AM@xpos{.5\paperwidth - \wd\@tempboxa \AM@add\AM@xoffset
+                 + .5\fboxrule - \AM@deltax*\real{.5}}%
+    \def\AM@ypos{.5\paperheight - \ht\@tempboxa - \dp\@tempboxa
+                 - \AM@deltay*\real{.5} + \AM@yoffset + .5\fboxrule}%
+  \or
+    \def\AM@xpos{.5\paperwidth \AM@add\AM@xoffset 
+                 - .5\fboxrule + \AM@deltax*\real{.5}}%
+    \def\AM@ypos{.5\paperheight - \ht\@tempboxa - \dp\@tempboxa
+                 - \AM@deltay*\real{.5} + \AM@yoffset + .5\fboxrule}%
+  \fi
+  \setlength{\@tempdima}{\AM@xpos}%
+  \edef\AM@xpos{\strip@pt\@tempdima}%
+  \setlength{\@tempdima}{\AM@ypos}%
+  \edef\AM@ypos{\strip@pt\@tempdima}%
+  \put(\AM@xpos,\AM@ypos){%
+    \AM@ph{\raisebox{\dp\@tempboxa}{%
+      \AM@hyper
+      \box\@tempboxa}}}%
+} % AM@output
 %    \end{macrocode}
 %    \macro{\AM@pagelist}
 %    This macro contains a list of page numbers, terminated with |\END|.
@@ -614,10 +792,10 @@
 \newcommand{\AM@@pagenumbers}{}
 \def\AM@@pagenumbers#1,#2{%
   \AM@pagearea#1-\END
-  \ifx#2\END \def\next{\relax}%
-    \else \def\next{\AM@@pagenumbers #2}%
+  \ifx#2\END \def\AM@next{\relax}%
+    \else \def\AM@next{\AM@@pagenumbers #2}%
   \fi
-  \next
+  \AM@next
 }
 %    \end{macrocode}
 %    \macro{\AM@pagearea}
@@ -675,6 +853,7 @@
     \expandafter\AM@getiipages\AM@pagelist \or\or
     \expandafter\AM@getivpages\AM@pagelist \fi
 }
+
 \newcommand{\AM@getipages}{}
 \def\AM@getipages#1,#2\END{%
   \def\AM@pagei{#1}%
@@ -713,15 +892,15 @@
   \@tempcnta=0 \expandafter\AM@@countpagelist\AM@pagelist}
 \newcommand{\AM@@countpagelist}{}
 \def\AM@@countpagelist#1,#2{%
-  \ifx#2\END\def\next{\relax}%
-    \else\def\next{\AM@@countpagelist #2}%
+  \ifx#2\END\def\AM@next{\relax}%
+    \else\def\AM@next{\AM@@countpagelist #2}%
   \fi
   \advance\@tempcnta by 1
-  \next
+  \AM@next
 }
 %    \end{macrocode}
 %    \macro{\AM@filluppagelist}
-%    Check if the number of items in |\AM@pagelist| is a
+%    Check, if the number of items in |\AM@pagelist| is a
 %    multiple of |\AM@nup|. If not, fill up the list with
 %    empty items.
 %    \begin{macrocode}
@@ -765,12 +944,12 @@
 \def\AM@setphantom{\expandafter\AM@@setphantom\AM@pagelist}
 \newcommand{\AM@@setphantom}{}
 \def\AM@@setphantom#1,#2\END{%
-  \ifx\\#1\\ \def\next{\AM@@setphantom#2\END}% 
+  \ifx\\#1\\ \def\AM@next{\AM@@setphantom#2\END}% 
   \else 
     \edef\AM@phantompage{#1}%
-    \def\next{\relax}%
+    \def\AM@next{\relax}%
   \fi
-  \next
+  \AM@next
 }
 %    \end{macrocode}
 %    \subsection{Options of \texttt{\protect\bslash includepdf}}
@@ -789,9 +968,17 @@
                                   \def\AM@lscape@rotii{90}}
 \define@key{Gin}{turn}[true]{\setboolean{AM@turn}{#1}}
 \define@key{Gin}{firstpage}{\def\AM@firstpage{#1}%
-                     \setboolean{AM@compatibility}{true}}
+                            \setboolean{AM@compatibility}{true}}
 \define@key{Gin}{lastpage}{\def\AM@lastpage{#1}%
-                     \setboolean{AM@compatibility}{true}}
+                           \setboolean{AM@compatibility}{true}}
+\define@key{Gin}{thread}[true]{\setboolean{AM@thread}{#1}}
+\define@key{Gin}{threadname}{\def\AM@threadname{#1}}
+\define@key{Gin}{link}[true]{\setboolean{AM@link}{#1}}
+\define@key{Gin}{linkfit}{\def\AM@linkfit{#1}}
+\define@key{Gin}{linkname}{\def\AM@linkname{#1}}
+\define@key{Gin}{linktodoc}[true]{\setboolean{AM@linktodoc}{#1}}
+\define@key{Gin}{linktodocfit}{\def\AM@linktodocfit{#1}}
+\define@key{Gin}{linkfilename}{\pdfstringdef\AM@linkfilename{#1}}
 %    \end{macrocode}
 %    \macro{\AM@parse@deltax}
 %    \macro{\AM@parse@deltay}
@@ -823,6 +1010,19 @@
     \fi}
 %    \end{macrocode}
 %
+%
+%    \begin{thebibliography}{1}
+%    \bibitem{pdftex}
+%      H\`an Th\^e\llap{\raise 0.5ex\hbox{\'{}}} Th\`anh,
+%      Sebastian Rahtz, Hans Hagen,
+%      \textit{The pdfTeX user manual},
+%      http://www.tug.org/applications/pdftex/pdftex-s.pdf
+%    \bibitem{PDFRef} \textit{PDF Reference}, Second Edition,
+%      Adobe Systems Incorporated,\\
+%      http://partners.adobe.com/asn/developer/acrosdk/DOCS/PDFRef.pdf
+%    \end{thebibliography}
+%
+%
 %    \section{History}
 %
 %    \subsection*{2001/01/17 v0.1b}
@@ -845,10 +1045,13 @@
 %    \begin{itemize}
 %      \item Option |pages| added.
 %    \end{itemize}
-
-
-
-
+%
+%    \subsection*{2001/04/07 v0.1h}
+%    \begin{itemize}
+%      \item Hypertext operations added. The included pages can be
+%            targets for hyperlinks, they can be linked to the
+%            original document and they can be joined to threads.
+%    \end{itemize}
 %    \iffalse
 %</package>
 %    \fi
@@ -856,9 +1059,12 @@
 %    \Finale
 %
 %    \iffalse
-%<*example>
+%<*example1>
 \documentclass[a4paper,12pt, draft]{article}
 \usepackage[final]{pdfpages}
+%% Uncomment the following lines, if you want to produce thumbnails.
+%%\usepackage{pdflscape}
+%%\usepackage{thumbpdf}
 \usepackage{verbatim}
 
 \newcounter{example}
@@ -1035,6 +1241,138 @@ You like the crazy way? Then try this one \texttt{;-)}
 
 
 \end{document}
-%</example>
+%</example1>
+%
+%
+%
+%<*example2>
+\documentclass[a4paper,12pt]{article}
+\usepackage[final]{pdfpages}
+%% Uncomment the following lines, if you want to produce thumbnails.
+%%\usepackage{pdflscape}
+%%\usepackage{thumbpdf}
+\usepackage{verbatim}
+\usepackage[bookmarksopen]{hyperref}
+
+\newcounter{example}
+\setcounter{example}{1}
+
+\newenvironment{example}
+  {\par\vskip\topsep%
+   \noindent\textbf{Example \arabic{example}:}%
+   \stepcounter{example}%
+   \par\vskip\topsep%
+   \minipage{.9\linewidth}%
+   \verbatim}
+  {\endverbatim%
+   \endminipage\vskip\topsep}
+
+\newcommand{\meta}[1]{\ensuremath\langle\texttt{#1}\ensuremath\rangle}
+\newcommand{\link}[2]{\meta{#1}.\meta{#2}}
+
+\newcommand*{\bookmark}[3][0]{%
+  \pdfoutline user {<< /S /GoTo /D (#3) >>} count #1 {#2}}
+
+\begin{document}
+
+\title{Demonstration of the Hypertext Operations\\ of the \texttt{pdfpages} Package}
+\author{Andreas MATTHIAS}
+\maketitle
+
+This is a demonstration of the \texttt{pdfpages} package.
+It is \textit{not} the documentation of the package.
+To get the documentation run: `latex pdfpages.dtx'
+
+\tableofcontents
+
+\section{Hyperlinks}
+\subsection{Links to the included Pages}
+
+Hyperlinks are created by using the option \texttt{link}
+of the \verb|\includepdf| command. Each included page
+gets a linkname consisting of the filename and
+the page number: \link{filename}{page number}
+
+\begin{example}
+\includepdf[pages={1-2}, link]{dummy}
+\end{example}
+
+In this example the two pages have the linknames
+`\texttt{dummy.1}' and `\texttt{dummy.2}'.
+Setting links to these
+pages, can be done easily with the \verb|\hyperlink|
+macro from the \texttt{hyperref.sty} package:
+
+\bigskip
+\verb|\hyperlink{dummy.1}{Page 1}|\hskip10pt \hyperlink{dummy.1}{Page 1}\par
+\verb|\hyperlink{dummy.2}{Page 2}|\hskip10pt \hyperlink{dummy.2}{Page 2}
+\bigskip
+
+This way you can refer to the \hyperlink{dummy.1}{first}
+and the \hyperlink{dummy.2}{second page}.
+
+\includepdf[pages={1-2}, link]{dummy}
+\bookmark[4]{List of Hyperfigures}{}
+\bookmark[0]{Page 1}{dummy.1}
+\bookmark[0]{Page 2}{dummy.2}
+
+
+Including the same page twice would result in two 
+identical linknames. To prevent this use the option
+\texttt{linkname} to specify another name for the links.
+
+\begin{example}
+\includepdf[pages={1-2}, nup=2, link, linkname=mylink]{dummy}
+\end{example}
+
+\noindent
+Now the links are called `\texttt{mylink.1}' and
+`\texttt{mylink.2}'.
+
+\bigskip
+\verb|\hyperlink{mylink.1}{Page 1}|\hskip10pt \hyperlink{mylink.1}{Page 1}\par
+\verb|\hyperlink{mylink.2}{Page 2}|\hskip10pt \hyperlink{mylink.2}{Page 2}
+
+\includepdf[pages={1-2}, nup=2, link, linkname=mylink]{dummy}
+\bookmark[0]{Again Page 1}{mylink.1}
+\bookmark[0]{Again Page 2}{mylink.2}
+
+
+\subsection{Links to the original Document}
+
+Each page can be a hyperlink to the document from
+which it was extracted. This can be done with the
+option \texttt{linktodoc}.
+
+Click on the included pages and see what happens.
+
+\begin{example}
+\includepdf[pages={1-4}, nup=4, linktodoc]{dummy}
+\end{example}
+\includepdf[pages={1-4}, nup=4, linktodoc]{dummy}
+
+
+\section{Article Threads}
+
+In a PDF document one or more article threads may be defined.
+An article thread is a logical connected sequence of content
+items.
+
+With the option \texttt{thread} the included pages become
+an article thread.
+
+\begin{example}
+\includepdf[pages={1-4}, nup=4, landscape, thread]{dummy-l}
+\end{example}
+
+In Acrobat Reader the mouse pointer changes to a hand with
+a little arrow in it when moved over an article thread.
+By clicking on the page you can easily follow the logical
+structure of the article thread.
+
+\includepdf[pages={1-4}, nup=4, landscape, thread]{dummy-l}
+
+\end{document}
+%</example2>
 %\fi
 \endinput
