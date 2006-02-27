@@ -21,8 +21,8 @@
 % ===================================================================
 %  @LaTeX-package-file{
 %    author         = {Andreas MATTHIAS},
-%    version        = "0.3f-beta3",
-%    date           = "2004-03-27",
+%    version        = "0.3g",
+%    date           = "2006-02-27",
 %    filename       = "pdfpages.sty",
 %    address        = "",
 %    telephone      = "",
@@ -49,7 +49,7 @@
 %    \fi
 %
 %    \ProvidesFile{pdfpages.dtx}
-   [2004/03/27 v0.3f-beta3
+   [2006/02/27 v0.3g
 %
 %    \iffalse
 %</!example1&!example2&!example3>
@@ -1049,7 +1049,7 @@
                \ifx\AM@currentdocname\relax
                  \edef\AM@currentdocname{\AM@dir#1}%
                \fi
-             }%
+             }{}%
            }%
          }% \@tfor
        \fi
@@ -1577,8 +1577,7 @@
     \def\AM@region{region}%
     \ifx\AM@linkfit\AM@region
       \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}%
-      \edef\AM@linkfit{fitr width\the\wd\@tempboxa\space
-                            height0pt depth\the\@tempdima}%
+      \let\AM@linkfit\AM@linkfit@special
     \fi
 %    \end{macrocode}
 %    Ship out page.
@@ -2902,6 +2901,7 @@
   \let\AM@endinput\relax
   \expandafter\endinput
 \fi
+
 %    \end{macrocode}
 %    Check if the graphics package was loaded with an 
 %    incompatible driver option (e.g. dvips).
@@ -3017,6 +3017,8 @@
 %    \begin{macrocode}
 \def\AM@dest@special{\pdfdest name {\AM@linkname.\AM@page} \AM@linkfit}
 \def\AM@anchor@special{\pdfdest name {pdfpages.\the\count1} fit}
+\edef\AM@linkfit@special{fitr width\the\wd\@tempboxa\space
+                              height0pt depth\the\@tempdima}
 %    \end{macrocode}
 %
 %    \iffalse
@@ -3116,6 +3118,8 @@
 %    \begin{macrocode}
 \def\AM@dest@special{\special{!aname \AM@linkname.\AM@page}}
 \def\AM@anchor@special{\special{!aname pdfpages.\the\count1}}
+\edef\AM@linkfit@special{fit}%r width\the\wd\@tempboxa\space
+                             % height0pt depth\the\@tempdima}
 %    \end{macrocode}
 %
 %    \iffalse
