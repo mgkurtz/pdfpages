@@ -17,28 +17,19 @@
 %%   Andreas MATTHIAS <amat@kabsi.at>.
 %%
 %
-%<*!package>
-% ===================================================================
-%  @LaTeX-package-file{
-%    author         = {Andreas MATTHIAS},
-%    version        = "0.3g",
-%    date           = "2006-02-27",
-%    filename       = "pdfpages.sty",
-%    address        = "",
-%    telephone      = "",
-%    email          = "amat@kabsi.at",
-%    codetable      = "ISO/ASCII",
-%    keywords       = "pdfLaTeX, PDF, include, insert, page",
-%    dependences    = "ifthen, graphicx, eso-pic",
-%    supported      = "yes",
-%    docstring      = "Package for inserting pages of external
-%                      PDF documents. (Requiring pdfLaTeX.)"
-%  }
-% ===================================================================
-%</!package>
+%<*!example1&!example2&!example3>
+%<*dtx>
+\makeatletter
+%</dtx>
+\def\AM@fileversion{v0.3g}
+\def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
+\def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
+\AM@SVN@Date$Date$
+%</!example1&!example2&!example3>
+%
 %
 %<*dtx>
-           \ProvidesFile{pdfpages.dtx}
+\ProvidesFile{pdfpages.dtx}
 %</dtx>
 %<package>\NeedsTeXFormat{LaTeX2e}
 %<package>\ProvidesPackage{pdfpages}
@@ -48,22 +39,28 @@
 %<*!example1&!example2&!example3>
 %    \fi
 %
+%    \makeatletter
 %    \ProvidesFile{pdfpages.dtx}
-   [2006/02/27 v0.3g
+   [\AM@filedate\space\AM@fileversion\space
 %
 %    \iffalse
 %</!example1&!example2&!example3>
 %<*none>
 %    \fi
 ]
+%    \makeatother
 %    \iffalse
 %</none>
+%<*!example1&!example2&!example3>
+%<*dtx>
+\makeatother
+%</dtx>
+%</!example1&!example2&!example3>
 %
 %<package>    Insert pages of external PDF documents (AM)]
 %<pppdftexdef>    Pdfpages driver for pdfTeX (AM)]
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
 %
-%<package>\def\AM@version{0.3f}
 %
 %    \fi
 %
@@ -112,12 +109,12 @@
 %    \def\VTeX{V\kern-.05em\TeX}
 %    \def\PDF{{\small PDF}}
 %
+%    \makeatletter
 %    \title{The \textsf{pdfpages} Package\thanks{This file
-%           has version number \fileversion, last revised \filedate.}}
+%           has version number \AM@fileversion, last revised \AM@filedate.}}
 %    \author{Andreas MATTHIAS\\ \texttt{amat@kabsi.at}} 
-%
-%
-%    \date{\filedate}
+%    \date{\AM@filedate}
+%    \makeatother
 %
 %    \maketitle
 %
