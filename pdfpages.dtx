@@ -13,11 +13,14 @@
 %% version 1999/12/01 or later.
 %%
 %</package>
+%
+%<*!pic>
 %% Please send error reports and suggestions for improvements to
 %%   Andreas MATTHIAS <amat@kabsi.at>.
 %%
+%</!pic>
 %
-%<*!example1&!example2&!example3>
+%<*!example1&!example2&!example3&!pic>
 %<*dtx>
 \makeatletter
 %</dtx>
@@ -25,7 +28,7 @@
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
-%</!example1&!example2&!example3>
+%</!example1&!example2&!example3&!pic>
 %
 %
 %<*dtx>
@@ -36,7 +39,7 @@
 %<pppdftexdef>\ProvidesFile{pppdftex.def}
 %<ppvtexdef>\ProvidesFile{ppvtex.def}
 %<driver>\ProvidesFile{pdfpages.drv}
-%<*!example1&!example2&!example3>
+%<*!example1&!example2&!example3&!pic>
 %    \fi
 %
 %    \makeatletter
@@ -44,7 +47,7 @@
    [\AM@filedate\space\AM@fileversion\space
 %
 %    \iffalse
-%</!example1&!example2&!example3>
+%</!example1&!example2&!example3&!pic>
 %<*none>
 %    \fi
 ]
@@ -639,7 +642,81 @@
 % 
 %
 %    \begin{figure}
-%      \centering\input{pic.tex}
+%      \centering
+%      \setlength{\unitlength}{.7mm}
+%      \def\thick{.7pt}
+%      \def\thin{.2pt}
+%      ^^A\fbox{
+%        \begin{picture}(145,238)
+%          \small
+%          \put(0,33){
+%            \linethickness{\thick}
+%            \put(0,0){\framebox(145,205){}}
+%            \linethickness{\thin}
+%            \put(10,15){\dashbox(35,49){}}
+%            \put(55,15){\dashbox(35,49){}}
+%            \put(100,15){\dashbox(35,49){}}
+%            \put(10,78){\dashbox(35,49){}}
+%            \put(55,78){\dashbox(35,49){}}
+%            \put(100,78){\dashbox(35,49){}}
+%            \put(10,141){\dashbox(35,49){}}
+%            \put(55,141){\dashbox(35,49){}}
+%            \put(100,141){\dashbox(35,49){}}
+%            \put(5,7){
+%              \put(10,15){\framebox(35,49){}}
+%              \put(55,15){\framebox(35,49){}}
+%              \put(100,15){\framebox(35,49){}}
+%              \put(10,78){\framebox(35,49){}}
+%              \put(55,78){\framebox(35,49){}}
+%              \put(100,78){\framebox(35,49){}}
+%              \put(10,141){\framebox(35,49){}}
+%              \put(55,141){\framebox(35,49){}}
+%              \put(100,141){\framebox(35,49){}}
+%              \put(45,36){\vector(1,0){10}}
+%              \put(55,36){\vector(-1,0){10}}
+%              \put(44.5,38){\textit{delx}}
+%              \put(90,36){\vector(1,0){10}}
+%              \put(100,36){\vector(-1,0){10}}
+%              \put(89.5,38){\textit{delx}}
+%              \put(27,64){\vector(0,1){14}}
+%              \put(27,78){\vector(0,-1){14}}
+%              \put(15,70){\textit{dely}}
+%              \put(27,127){\vector(0,1){14}}
+%              \put(27,141){\vector(0,-1){14}}
+%              \put(15,133){\textit{dely}}
+%            }
+%            \put(10,15){\vector(1,0){5}}
+%            \put(15,15){\vector(0,1){7}}
+%            \put(8,8){\textit{offx}}
+%            \put(17,17){\textit{offy}}
+%          }
+%
+%          ^^A legend
+%
+%          \setlength{\fboxsep}{4pt}
+%          \put(72.5,10){
+%            \makebox(0,0){
+%              \fbox{
+%                \begin{tabular}{l@{\hskip20pt}l}
+%                  \linethickness{\thick}^^A
+%                  \raisebox{.8ex}{\line(1,0){5}} physical sheet of paper
+%                  &
+%                  |delta=|\meta{delx} \meta{dely}
+%                  \\
+%                  \linethickness{\thin}^^A
+%                  \raisebox{.8ex}{\line(1,0){5}} logical pages
+%                  &
+%                  |offset=|\meta{offx} \meta{offy}
+%                  \\
+%                  \raisebox{.8ex}{\line(1,0){1}\hskip.55mm\line(1,0){1}
+%                    \hskip.55mm\line(1,0){1}} centered position
+%                  &
+%                  \\
+%                \end{tabular}
+%              }}
+%          }
+%        \end{picture}
+%        ^^A}% fbox
 %      \caption{Layout}
 %      \label{fig:layout}
 %    \end{figure}
