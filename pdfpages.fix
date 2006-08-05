@@ -1,5 +1,5 @@
-\ProvidesFile{pdfpages.fix}[2004/06/24 v0.3e Patch for pdfpages.sty (AM)]
-\def\AM@patch{0.3e}
+\ProvidesFile{pdfpages.fix}[2009/06/24 v0.3g Patch for pdfpages.sty (AM)]
+\def\AM@patch{v0.3g}
  
 \ifx\AM@fileversion\AM@patch\else
   \PackageWarningNoLine{pdfpages}{^^J%

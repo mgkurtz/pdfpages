@@ -11,6 +11,15 @@ BETA-VERSION=${VERSION}-beta-${REVISION}
 DIST-DIR=dist
 BETA-DIR=beta
 
+installer=pdfpages.installer
+ins:
+	echo '\input{docstrip}\askforoverwritefalse\generate{\file{pdfpages.ins}{\from{pdfpages.dtx}{installer}}}\endbatchfile' > $(installer)
+	latex $(installer)
+	rm $(installer)
+
+sty:
+	latex pdfpages.ins
+
 
 release:
 	tar cjf pdfpages-${VERSION}.tar.bz2 ${DIST-FILES}

@@ -1,34 +1,37 @@
 %
 %    \iffalse
 %
-% pdfpages.dtx Copyright (C) 2001-2003 Andreas MATTHIAS
-%
-%<*package>
-%% This program may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.2
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%   http://www.latex-project.org/lppl.txt
-%% and version 1.2 or later is part of all distributions of LaTeX 
-%% version 1999/12/01 or later.
+%<*(package,pppdftexdef,ppvtexdef,ppnulldef)>
+%% Copyright (C) 2001-2006 Andreas MATTHIAS
 %%
-%</package>
-%
-%<*!pic>
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3c of this license or (at your option) any
+%% later version. The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is Andreas Matthias <amat@kabsi.at>.
+%</(package,pppdftexdef,ppvtexdef,ppnulldef)>
+%<*!installer>
+%%
 %% Please send error reports and suggestions for improvements to
 %%   Andreas MATTHIAS <amat@kabsi.at>.
+%</!installer>
 %%
-%</!pic>
 %
-%<*!example1&!example2&!example3&!pic>
+%<*!(example1,example2,example3,installer)>
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.3g}
+\def\AM@fileversion{v0.4a}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
-%</!example1&!example2&!example3&!pic>
+%</!(example1,example2,example3,installer)>
 %
 %
 %<*dtx>
@@ -38,8 +41,9 @@
 %<package>\ProvidesPackage{pdfpages}
 %<pppdftexdef>\ProvidesFile{pppdftex.def}
 %<ppvtexdef>\ProvidesFile{ppvtex.def}
+%<ppnulldef>\ProvidesFile{ppnull.def}
 %<driver>\ProvidesFile{pdfpages.drv}
-%<*!example1&!example2&!example3&!pic>
+%<*!(example1,example2,example3,installer)>
 %    \fi
 %
 %    \makeatletter
@@ -47,29 +51,30 @@
    [\AM@filedate\space\AM@fileversion\space
 %
 %    \iffalse
-%</!example1&!example2&!example3&!pic>
+%</!(example1,example2,example3,installer)>
 %<*none>
 %    \fi
 ]
 %    \makeatother
 %    \iffalse
 %</none>
-%<*!example1&!example2&!example3>
+%<*!(example1,example2,example3,installer)>
 %<*dtx>
 \makeatother
 %</dtx>
-%</!example1&!example2&!example3>
+%</!(example1,example2,example3,installer)>
 %
 %<package>    Insert pages of external PDF documents (AM)]
 %<pppdftexdef>    Pdfpages driver for pdfTeX (AM)]
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
+%<ppnulldef>    Pdfpages' dummy driver (AM)]
 %
 %
 %    \fi
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{3635}
+%    \CheckSum{3744}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -92,6 +97,7 @@
 %<*driver>
 \documentclass{ltxdoc}
 \usepackage{array}
+\usepackage{hyperref}
 \OnlyDescription
 \begin{document}
   \DocInput{pdfpages.dtx}
@@ -111,6 +117,10 @@
 %    \def\pdfLaTeX{pdf\kern.06em\LaTeX}
 %    \def\VTeX{V\kern-.05em\TeX}
 %    \def\PDF{{\small PDF}}
+%    \def\DVI{{\small DVI}}
+%
+%    \pdfstringdef{\pdfTeX}{pdfTeX}
+%    \pdfstringdef{\VTeX}{VTeX}
 %
 %    \makeatletter
 %    \title{The \textsf{pdfpages} Package\thanks{This file
@@ -128,6 +138,7 @@
 %       does \textit{not} work with \LaTeX.
 %    \end{abstract}
 %
+%    \pdfbookmark[1]{\contentsname}{toc}
 %    \tableofcontents
 %
 %
@@ -397,6 +408,15 @@
 %                     equivalent to `true'). \df{doublepagestwistodd*=false}
 %      \end{description}
 %
+%    \item Miscellaneous options:
+%      \makeatletter\@beginparpenalty=10000\makeatother
+%      \begin{description}
+%      \item[lastpage] In \DVI\ mode pdfpages cannot determine the last page
+%        number of the included document. With this option the last page
+%        number can be defined. This option is only regarded in \DVI\ mode
+%        and has no meaning in any other mode. The argument should be a page
+%        number. \df{lastpage=1}
+%      \end{description}
 %
 %    \item Hypertext options:
 %
@@ -982,26 +1002,20 @@
 %    \texttt{pdfoutput} (\verb|\let\pdfoutput\@undefined|),
 %    if the document contains the line \verb|\pdfoutput=0|.
 %    \begin{macrocode}
-\def\AM@driver{pdftex}
 \begingroup
 \@ifundefined{pdfoutput}{%
   \@ifundefined{OpMode}{%
-     \PackageError{pdfpages}
-            {You are using neither pdfTeX nor VTeX.\MessageBreak
-             Package pdfpages does not work with other\MessageBreak
-             TeX implementations}
-            {Please, change to pdfTeX or VTeX to use this
-             package!}%
-     \aftergroup\endinput
+    \def\AM@driver{null}
   }{\gdef\AM@driver{vtex}}%
-}{}
+}{\gdef\AM@driver{pdftex}}
 \endgroup
 %    \end{macrocode}
 %    Required Packages.
 %    \begin{macrocode}
 \RequirePackage{ifthen, graphicx, calc, eso-pic}
+\newif\ifAM@DVIoutput\AM@DVIoutputfalse
 \input{pp\AM@driver.def}
-\ifx\AM@endinput\relax\endinput\fi
+\ifx\AM@endinput\relax\expandafter\endinput\fi
 \ifAM@pkg@survey
   \let\AM@setanchor\AM@anchor@special
   \RequirePackage{count1to}%
@@ -1253,6 +1267,11 @@
   \c@totalnumber=0
   \if@twocolumn\let\AM@twocolumn\relax \onecolumn \fi
 %    \end{macrocode}
+%    Some drivers, like |ppnull|, need a hook to disable
+%    |\includegraphics|.
+%    \begin{macrocode}
+  \AM@disable@includegraphics
+%    \end{macrocode}
 %    Some macros may already be initialized by |\includepdfset|.
 %    So do not reset them here.
 %    \begin{macrocode}
@@ -1270,11 +1289,11 @@
   \ifAM@pkg@draft \setkeys{Gin}{draft=true}%
   \else \setkeys{Gin}{draft=false}%
   \fi
-%    \end{macrocode}
-%    Some preparations before starting the output.
-%    \begin{macrocode}
-  \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}
-    {}{\AM@getpagecount}
+    %    \end{macrocode}
+    %    Some preparations before starting the output.
+    %    \begin{macrocode}
+    %  \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}
+    %    {}{\AM@getpagecount}
 %    \end{macrocode}
 %    \begin{macrocode}
   \ifthenelse{\boolean{AM@landscape}}
@@ -1357,9 +1376,14 @@
   \else
     \AM@split@options{Gin@noscale}{#1}%
     \let\AM@filelist@save\@filelist
-    \setbox\@tempboxa=\hbox{%
-      \expandafter\includegraphics\expandafter[\the\@temptokena,
-         page=\AM@page, angle=\AM@lscape@rot]{\AM@docname}}%
+
+    \ifAM@DVIoutput
+      \setbox\@tempboxa=\hbox{\rule{597pt}{845pt}}
+    \else
+      \setbox\@tempboxa=\hbox{%
+        \expandafter\includegraphics\expandafter[\the\@temptokena,
+            page=\AM@page, angle=\AM@lscape@rot]{\AM@docname}}%
+    \fi
 %    \end{macrocode}
 %    Adjust the paper size.
 %    \begin{macrocode}
@@ -2296,7 +2320,8 @@
               \equal{picturecommand*}{\AM@temp}\or
               \equal{newwindow}{\AM@temp}\or
               \equal{reflect}{\AM@temp}\or
-              \equal{reflect*}{\AM@temp}}
+              \equal{reflect*}{\AM@temp}\or
+              \equal{lastpage}{\AM@temp}}
              {\AM@pdfpages@optionstrue}{}%
   \ifthenelse{\equal{scale}{\AM@temp}}{\AM@scaletrue}{}%
 }
@@ -2880,6 +2905,7 @@
 \define@key{pdfpages}{newwindow}[true]{\setboolean{AM@newwindow}{#1}}
 \define@key{pdfpages}{reflect*}[true]{\setboolean{AM@reflect}{#1}}
 \define@key{pdfpages}{reflect}[true]{\setboolean{AM@reflectall}{#1}}
+\define@key{pdfpages}{lastpage}{\def\AM@pagecount{#1}}
 %    \end{macrocode}
 %    \macro{\AM@parse@nup}
 %    Parsing \texttt{nup} item.
@@ -2968,14 +2994,9 @@
   \expandafter\endinput
 \fi
 \ifcase\pdfoutput
-  \PackageError{pdfpages}
-         {You produce DVI output but PDF output\MessageBreak
-          is needed for package pdfpages}
-         {Set output to PDF. (use: \pdfoutput = 1)}
-  \let\AM@endinput\relax
+  \input{ppnull.def}
   \expandafter\endinput
 \fi
-
 %    \end{macrocode}
 %    Check if the graphics package was loaded with an 
 %    incompatible driver option (e.g. dvips).
@@ -3094,6 +3115,10 @@
 \edef\AM@linkfit@special{fitr width\the\wd\@tempboxa\space
                               height0pt depth\the\@tempdima}
 %    \end{macrocode}
+%    Do not disable |\includegraphics|.
+%    \begin{macrocode}
+\let\AM@disable@includegraphics\relax
+%    \end{macrocode}
 %
 %    \iffalse
 %</pppdftexdef>
@@ -3195,9 +3220,100 @@
 \edef\AM@linkfit@special{fit}%r width\the\wd\@tempboxa\space
                              % height0pt depth\the\@tempdima}
 %    \end{macrocode}
+%    Do not disable |\includegraphics|.
+%    \begin{macrocode}
+\let\AM@disable@includegraphics\relax
+%    \end{macrocode}
 %
 %    \iffalse
 %</ppvtexdef>
+%
+%<*ppnulldef>
+%    \fi
+%
+%    \subsubsection{Null driver}
+%    This is a dummy driver used when producing {\small DVI} output.
+%
+%    \begin{macrocode}
+\AM@DVIoutputtrue
+\PackageWarningNoLine{pdfpages}{%
+  I will use a dummy \string\includepdf\space command\MessageBreak
+  which will NOT insert any pages of a PDF,\MessageBreak
+  because you are producing DVI output}
+%    \iffalse
+%    \end{macrocode}
+% Find file: the file must not exist for this dummy driver. Let's just
+% set \cmd{\AM@currentdocname}.
+%    \begin{macrocode}
+\def\AM@findfile#1{%
+  \def\AM@currentdocname{#1}%
+}
+%    \end{macrocode}
+%    Get last page number.
+%    \begin{macrocode}
+\def\AM@getpagecount{%
+  \ifx\AM@pagecount\AM@undefined
+    \PackageWarningNoLine{pdfpages}{%
+      I cannot determine the last page number of\MessageBreak
+      the included document, while in DVI mode. You\MessageBreak
+      can use the option `lastpage' to give me a hint}%
+    \edef\AM@pagecount{1}%
+  \fi
+}
+%    \end{macrocode}
+%    Page dimensions.
+%    \begin{macrocode}
+\let\AM@pagewidth\paperwidth
+\let\AM@pageheight\paperheight
+\def\AM@setpagedimen{%
+  \setlength{\paperwidth}{\the\wd\@tempboxa}%
+  \setlength{\paperheight}{\the\ht\@tempboxa}%
+}
+%    \end{macrocode}
+%    Change paper size.
+%    \begin{macrocode}
+\let\AM@fitpaper@special\relax
+%    \end{macrocode}
+%    Find file.
+%    \begin{macrocode}
+\def\AM@findfile#1{%
+  \def\AM@currentdocname{}%
+}
+%    \end{macrocode}
+%    Rotate page.
+%    \begin{macrocode}
+\let\AM@setlscape\relax
+%    \end{macrocode}
+%    Link to original document.
+%    \begin{macrocode}
+\let\AM@linktodoc@special@begin\relax
+\let\AM@linktodoc@special@end\relax
+%    \end{macrocode}
+%    Survey.
+%    \begin{macrocode}
+\let\AM@survey@special@begin\relax
+\let\AM@survey@special@end\relax
+%    \end{macrocode}
+%    Thread.
+%    \begin{macrocode}
+\let\AM@thread@special@begin\relax
+\let\AM@thread@special@end\relax
+%    \end{macrocode}
+%    Destination for links.
+%    \begin{macrocode}
+\let\AM@dest@special\relax
+\let\AM@anchor@special\relax
+\let\AM@linkfit@special\relax
+%    \end{macrocode}
+%    Disable |\includegraphics|.
+%    \begin{macrocode}
+\def\AM@disable@includegraphics{%
+  \renewcommand\includegraphics[2][]{}%
+}
+%    \end{macrocode}
+%
+%    \iffalse
+%</ppnulldef>
 %    \fi
 %
 %
@@ -3620,6 +3736,74 @@ See Section \ref{sec:second} (\nameref{sec:second}) on page
 
 \end{document}
 %</example3>
+%
+%<*installer>
+\input docstrip
+\askforoverwritefalse
+\keepsilent
+
+\preamble
+\endpreamble
+
+\declarepreamble\package
+
+This file is part of the pdfpages package.
+
+\endpreamble
+
+\declarepreamble\example
+
+This file demonstrates how to use the pdfpages package.
+\endpreamble
+
+\generate{\usepreamble\package
+          \file{pdfpages.sty}{\from{pdfpages.dtx}{package}}}
+\generate{\usepreamble\package
+          \file{pppdftex.def}{\from{pdfpages.dtx}{pppdftexdef}}}
+\generate{\usepreamble\package
+          \file{ppvtex.def}{\from{pdfpages.dtx}{ppvtexdef}}}
+\generate{\usepreamble\package
+          \file{ppnull.def}{\from{pdfpages.dtx}{ppnulldef}}}
+
+%% \generate{\usepreamble\package
+%%           \file{pdfpages.drv}{\from{pdfpages.dtx}{driver}}}
+
+\generate{\usepreamble\example
+          \file{pdf-ex.tex}{\from{pdfpages.dtx}{example1}}}
+\generate{\usepreamble\example
+          \file{pdf-hyp.tex}{\from{pdfpages.dtx}{example2}}}
+\generate{\usepreamble\example
+          \file{pdf-toc.tex}{\from{pdfpages.dtx}{example3}}}
+
+
+\Msg{^^46^^75^^65^^72 ^^64^^69^^63^^68^^2c ^^41^^67^^6e^^65^^73^^21^^J}
+\Msg{**************************************************************}
+\Msg{*}
+\Msg{* To finish the installation you have to move the following}
+\Msg{* files into a directory searched by LaTeX:}
+\Msg{*}
+\Msg{*  \space\space pdfpages.sty}
+\Msg{*  \space\space pppdftex.def}
+\Msg{*  \space\space ppvtex.def}
+\Msg{*  \space\space ppnull.def}
+\Msg{*}
+\Msg{* To produce the documentation, run the following}
+\Msg{* file through LaTeX:}
+\Msg{*}
+\Msg{*  \space\space pdfpages.dtx}
+\Msg{*}
+\Msg{* The following files are examples demonstrating how to use}
+\Msg{* the pdfpages package.}
+\Msg{*}
+\Msg{*  \space\space pdf-ex.tex}
+\Msg{*  \space\space pdf-hyp.tex}
+\Msg{*  \space\space pdf-toc.tex}
+\Msg{*}
+\Msg{* Happy TeXing!}
+\Msg{*}
+\Msg{**************************************************************}
+\endbatchfile
+%</installer>
 %
 %\fi
 \endinput
