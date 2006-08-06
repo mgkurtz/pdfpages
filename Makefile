@@ -35,7 +35,7 @@ beta:
 
 
 clean:
-	rm -f pdfpages.sty pppdftex.def ppvtex.def
+	rm -f pdfpages.sty pppdftex.def ppvtex.def ppnull.def
 	rm -f pdfpages.{aux,log,toc,dvi}
 	rm -f pdf-ex.{tex,log,aux}
 	rm -f pdf-hyp.{tex,log,aux}
