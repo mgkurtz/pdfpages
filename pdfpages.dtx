@@ -133,9 +133,8 @@
 %
 %    \begin{abstract}
 %       \noindent
-%       This package makes it easy to insert pages of external
-%       PDF documents. It supports \pdfLaTeX\ and \VTeX\, but
-%       does \textit{not} work with \LaTeX.
+%       This package makes it easy to insert pages of external \PDF\
+%       or \PS\ documents. It supports \pdfLaTeX\ and \VTeX.
 %    \end{abstract}
 %
 %    \pdfbookmark[1]{\contentsname}{toc}
@@ -143,23 +142,28 @@
 %
 %
 %    \section{Introduction}
-%    Creating \PDF\ documents, it is sometimes useful to insert
-%    pages of other, external \PDF\ documents. This can be done
-%    with the |\includegraphics| command from the
-%    \texttt{graphics} package. But a simple
-%    |\includegraphics{doc.pdf}| normally produces
-%    `|Overfull \hbox|' and `|Overfull \vbox|' warnings,
-%    because the size of the inserted pages does not match the
-%    print space.
+%    When creating \PDF\ documents, it is sometimes useful to insert pages
+%    of other, external \PDF\ documents. This can be done with the
+%    |\includegraphics| command from the \texttt{graphics} package. But a
+%    simple |\includegraphics{doc.pdf}| normally produces `|Overfull \hbox|'
+%    and `|Overfull \vbox|' warnings, because the size of the inserted pages
+%    does not match the print space.
 %    
-%    The |pdfpages| package makes it easy to insert 
-%    pages of external \PDF\ documents without worrying about
-%    the print space. Here are some features of the
-%    |pdfpages| package: Several logical pages can be arranged
-%    onto each sheet of paper and the layout can be changed
-%    individually. A lot of hypertext operations are supported,
-%    like links to the inserted pages, links to the original
-%    \PDF\ document, threads, etc.
+%    The |pdfpages| package makes it easy to insert pages of external \PDF\
+%    documents without worrying about the print space. Here are some
+%    features of the |pdfpages| package: Several logical pages can be
+%    arranged onto each sheet of paper and the layout can be changed
+%    individually. A lot of hypertext operations are supported, like links
+%    to the inserted pages, links to the original \PDF\ document, threads,
+%    etc. When working with \VTeX\ the same is possible with PostScript
+%    documents, too. Note that PostScript documents are only supported by
+%    \VTeX\ and \emph{not} by \pdfLaTeX.
+%
+%    When producing \DVI\ output |pdfpages| cannot insert any \PDF\
+%    documents. But instead of interrupting execution |pdfpages| will insert
+%    empty pages. This feature is important when using packages like
+%    |pst-pdf|, which need to produce \DVI\ output at the first run.
+%
 %  
 %    \section{Usage}
 %    \subsection{Package Options}
@@ -411,9 +415,9 @@
 %    \item Miscellaneous options:
 %      \makeatletter\@beginparpenalty=10000\makeatother
 %      \begin{description}
-%      \item[lastpage] In \DVI\ mode pdfpages cannot determine the last page
-%        number of the included document. With this option the last page
-%        number can be defined. This option is only regarded in \DVI\ mode
+%      \item[lastpage] In \DVI\ mode pdfpages cannot determine the number of
+%        pages of the included document. So this option is suitable to
+%        specify the number of pages. This option is only used in \DVI\ mode
 %        and has no meaning in any other mode. The argument should be a page
 %        number. \df{lastpage=1}
 %      \end{description}
@@ -1886,7 +1890,7 @@
 }
 %    \end{macrocode}
 %    \begin{macrocode}
-\newcommand*{\AM@checkpagenumber}[1]{%
+\providecommand*{\AM@checkpagenumber}[1]{%
   \ifnum#1>\AM@pagecount\relax
     \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}{%
     }{%
@@ -3238,8 +3242,8 @@
 \AM@DVIoutputtrue
 \PackageWarningNoLine{pdfpages}{%
   I will use a dummy \string\includepdf\space command\MessageBreak
-  which will NOT insert any pages of a PDF,\MessageBreak
-  because you are producing DVI output}
+  which will NOT insert any pages, because\MessageBreak
+  you are producing DVI output}
 %    \iffalse
 %    \end{macrocode}
 % Find file: the file must not exist for this dummy driver. Let's just
@@ -3254,9 +3258,9 @@
 \def\AM@getpagecount{%
   \ifx\AM@pagecount\AM@undefined
     \PackageWarningNoLine{pdfpages}{%
-      I cannot determine the last page number of\MessageBreak
-      the included document, while in DVI mode. You\MessageBreak
-      can use the option `lastpage' to give me a hint}%
+      I cannot determine the number of pages of the\MessageBreak
+      included document, while in DVI mode. You can\MessageBreak
+      use the option `lastpage' to give me a hint}%
     \edef\AM@pagecount{1}%
   \fi
 }
@@ -3311,6 +3315,10 @@
   \renewcommand\includegraphics[2][]{}%
 }
 %    \end{macrocode}
+%    Don't check page numbers.
+%    \begin{macrocode}
+\newcommand*{\AM@checkpagenumber}[1]{}
+%    \end{macrocode}
 %
 %    \iffalse
 %</ppnulldef>
@@ -3321,83 +3329,91 @@
 %
 %    \subsection*{2001/01/17 v0.1b}
 %    \begin{itemize}
-%      \item The first released version.
+%    \item The first released version.
 %    \end{itemize}
 %
 %    \subsection*{2001/02/03 v0.1c}
 %    \begin{itemize}
-%      \item Pages are being centered automatically.
+%    \item Pages are being centered automatically.
 %    \end{itemize}
 %
 %    \subsection*{2001/03/16 v0.1f}
 %    \begin{itemize}
-%      \item Option |pages| added.
+%    \item Option |pages| added.
 %    \end{itemize}
 %
 %    \subsection*{2001/04/07 v0.1h}
 %    \begin{itemize}
-%      \item Hypertext operations added. (Hyperlinks, threads)
+%    \item Hypertext operations added. (Hyperlinks, threads)
 %    \end{itemize}
 %
 %    \subsection*{2001/11/12 v0.2}
 %    \begin{itemize}
-%      \item Support of |m|$\times$|n| logical pages on each
-%        sheet of paper.
-%      \item Options |column| and |columnstrict| added.
-%      \item New command |\inlcudepdfmerge|.
+%    \item Support of |m|$\times$|n| logical pages on each sheet of paper.
+%    \item Options |column| and |columnstrict| added.
+%    \item New command |\inlcudepdfmerge|.
 %    \end{itemize}
 %
 %    \subsection*{2001/12/26 v0.2c}
 %    \begin{itemize}
-%      \item Option |fitpaper| added.
+%    \item Option |fitpaper| added.
 %    \end{itemize}
 %
 %    \subsection*{2001/03/31 v0.2g}
 %    \begin{itemize}
-%      \item Option |signature| added.
-%      \item Options |addtotoc| and |addtolist| added.
-%      \item Option |doublepages| added.
-%      \item Options now have their own namespace |pdfpages| and
-%        do not extent the |Gin| (graphicx) namespace any longer.
+%    \item Option |signature| added.
+%    \item Options |addtotoc| and |addtolist| added.
+%    \item Option |doublepages| added.
+%    \item Options now have their own namespace |pdfpages| and do not extent
+%      the |Gin| (graphicx) namespace any longer.
 %    \end{itemize}
 %
 %    \subsection*{2002/12/14 v0.2l}
 %    \begin{itemize}
-%      \item Survey functionality added.
+%    \item Survey functionality added.
 %    \end{itemize}
 %
 %    \subsection*{2003/06/02 v0.2m}
 %    \begin{itemize}
-%      \item Support of \PDF s with mixed portrait/landscape pages.
-%            Options |pagetemplate| and |rotateoversize| added.
-%      \item Support of |\graphicspath|.
-%      \item Options |picturecommand| and |picturecommand*| added.
-%      \item Reverse page order: |pages=7-3|, |pages=last-5|
+%    \item Support of \PDF s with mixed portrait/landscape pages.  Options
+%      |pagetemplate| and |rotateoversize| added.
+%    \item Support of |\graphicspath|.
+%    \item Options |picturecommand| and |picturecommand*| added.
+%    \item Reverse page order: |pages=7-3|, |pages=last-5|
 %    \end{itemize}
 %
 %    \subsection*{2003/06/21 v0.3a}
 %    \begin{itemize}
-%      \item Support of \VTeX.
-%      \item Driver layer added. All driver specific macros are
-%        defined in |.def| driver files.
+%    \item Support of \VTeX.
+%    \item Driver layer added. All driver specific macros are defined in
+%      |.def| driver files.
 %    \end{itemize}
 %
 %    \subsection*{2003/07/16 v0.3b}
 %    \begin{itemize}
-%      \item Option |\doublepagestwist| added.
+%    \item Option |\doublepagestwist| added.
 %    \end{itemize}
 %
 %    \subsection*{2003/12/08 v0.3e}
 %    \begin{itemize}
-%      \item Option |reflect| added.
-%      \item Made |\AddToSurvey| work within TeXpower's |\stepwise|.
+%    \item Option |reflect| added.
+%    \item Made |\AddToSurvey| work within TeXpower's |\stepwise|.
 %    \end{itemize}
 %
 %    \subsection*{2004/02/21 v0.3f}
 %    \begin{itemize}
-%      \item Option |signature*| (right-edge binding) added.
-%      \item Optimizations for a faster processing of signatures.
+%    \item Option |signature*| (right-edge binding) added.
+%    \item Optimizations for a faster processing of signatures.
 %    \end{itemize}
+%
+%
+%    \subsection*{2006/08/05 v0.4a}
+%    \begin{itemize}
+%    \item Support of \DVI\ mode: Insertion of empty pages instead of
+%      interrupting execution.
+%    \item Option |lastpage| added.
+%    \end{itemize}
+%
 %
 %    \Finale
 %
@@ -3807,3 +3823,7 @@ This file demonstrates how to use the pdfpages package.
 %
 %\fi
 \endinput
+%%%
+%%% Local Variables: ***
+%%% fill-column: 76 ***
+%%% End: ***
