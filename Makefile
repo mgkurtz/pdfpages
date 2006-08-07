@@ -1,4 +1,5 @@
-DIST-FILES=pdfpages.ins pdfpages.dtx readme
+DIST-FILES=pdfpages.ins pdfpages.dtx README dummy.pdf dummy-l.pdf
+CTAN-DOC-FILES=pdfpages.pdf
 
 REVISION=$(shell grep Revision svninfo |\
 	sed 's/$$Revision: \(.*\) $$$$/\1/')
@@ -21,8 +22,17 @@ sty:
 	latex pdfpages.ins
 
 
-release:
+release: ctan-release
+
+basic-release:
 	tar cjf pdfpages-${VERSION}.tar.bz2 ${DIST-FILES}
+
+ctan-release: ins
+	tex pdfpages.ins
+	-pdflatex -interaction=nonstopmode pdfpages.dtx
+	pdflatex pdfpages.dtx
+	touch ${DIST-FILES} ${CTAN-DOC-FILES}
+	tar cjfh pdfpages-${VERSION}.tar.bz2 ${DIST-FILES} ${CTAN-DOC-FILES}
 
 
 beta:
@@ -36,10 +46,11 @@ beta:
 
 clean:
 	rm -f pdfpages.sty pppdftex.def ppvtex.def ppnull.def
-	rm -f pdfpages.{aux,log,toc,dvi}
+	rm -f pdfpages.{aux,log,toc,out,dvi,pdf}
 	rm -f pdf-ex.{tex,log,aux}
 	rm -f pdf-hyp.{tex,log,aux}
 	rm -f pdf-toc.{tex,log,aux}
 	rm -rf ${BETA-DIR} ${DIST-DIR}
 
 distclean: clean
+	rm -f *.bz2
