@@ -1,0 +1,15 @@
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+Insert 5 pages (pdflatex, vlatex) and 1 page (latex)
+\includepdf[pages=-]{dummy.pdf}
+
+Insert 5 pages (pdflatex, vlatex, latex)
+\includepdf[pages={26-},lastpage=30]{dummy.pdf}
+
+
+lastpage kleiner als 26 ==> Fehler
+\includepdf[pages={26-},lastpage=20]{dummy.pdf}
+
+\end{document}
