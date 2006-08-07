@@ -18,7 +18,7 @@
 \Huge
 \includepdf[nup=4, pages=-4, frame]{dummy}
 
-\iffalse
+%\iffalse
 \begingroup
 Testing \verb|\graphicspath|
 \graphicspath{{grfpath-test/}}
@@ -88,7 +88,7 @@ Die n\"achsten 4 Seiten:
 Next Link does \emph{not} open a new window.
 \includepdf[pages=3, linktodoc, scale=.6, frame, newwindow=false]{dummy}
 \endgroup
-\fi
+%\fi
 
 %\iffalse
 \section{Linkfit}
@@ -106,7 +106,7 @@ Link points to the top of the page. \texttt{linkfit=fith}
 \endgroup
 %\fi
 
-\iffalse
+%\iffalse
 \section{Fitpaper}
 \begingroup
 Testing \texttt{fitpaper} ...
@@ -178,8 +178,6 @@ Testing \texttt{picturecommand}\\ and \texttt{picturecommand*}
 %\iffalse
 \section{Signatures}
 \begingroup
-doublepages
-\includepdf[pages=1-3, doublepages, nup=1x2, landscape]{dummy}
 signature=4, portrait
 \includepdf[pages=1-8, signature=4, landscape]{dummy}
 signature=4, portrait, right-edge binding
@@ -196,6 +194,8 @@ signature=8, landscape
 %\iffalse
 \section{Doublepages-Twist}
 \begingroup
+doublepages
+\includepdf[pages=1-3, doublepages, nup=1x2, landscape]{dummy}
 Twist pages: Cutting edge on inner side
 \includepdf[pages=1-2, nup=1x2, landscape, doublepagestwist]{dummy}
 Twist pages: Cutting edge on outer side
@@ -205,6 +205,6 @@ Twist pages: Cutting edge on inner side (doubleside printing)
 Twist pages: Cutting edge on outer side (doubleside printing)
 \includepdf[pages=1-4, nup=1x2, landscape, doublepagestwistodd*]{dummy}
 \endgroup
-\fi
+%\fi
 
 \end{document}
