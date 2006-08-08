@@ -21,18 +21,20 @@ ins:
 sty:
 	latex pdfpages.ins
 
-
-release: ctan-release
-
-basic-release:
-	tar cjf pdfpages-${VERSION}.tar.bz2 ${DIST-FILES}
-
-ctan-release: ins
+release: distclean ins
 	tex pdfpages.ins
+	echo '\PassOptionsToClass{a4paper}{ltxdoc}' > ltxdoc.cfg
 	-pdflatex -interaction=nonstopmode pdfpages.dtx
 	pdflatex pdfpages.dtx
-	touch ${DIST-FILES} ${CTAN-DOC-FILES}
-	tar cjfh pdfpages-${VERSION}.tar.bz2 ${DIST-FILES} ${CTAN-DOC-FILES}
+	pdflatex pdfpages.dtx
+	rm ltxdoc.cfg
+	-mkdir foo
+	cp ${DIST-FILES} ${CTAN-DOC-FILES} foo
+	cd foo; chmod 644 *
+	cd foo; touch ${DIST-FILES} ${CTAN-DOC-FILES}
+	cd foo; tar cjfh pdfpages-${VERSION}.tar.bz2 ${DIST-FILES} ${CTAN-DOC-FILES}
+	mv foo/pdfpages-${VERSION}.tar.bz2 .
+	rm -r foo
 
 
 beta:
@@ -53,4 +55,4 @@ clean:
 	rm -rf ${BETA-DIR} ${DIST-DIR}
 
 distclean: clean
-	rm -f *.bz2
+	rm -f *.bz2 pdfpages.ins

@@ -74,7 +74,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{3746}
+%    \CheckSum{3753}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -160,7 +160,7 @@
 %    documents, too. Note that PostScript documents are only supported by
 %    \VTeX\ and \emph{not} by \pdfLaTeX.
 %
-%    When producing \DVI\ output |pdfpages| cannot insert any \PDF\
+%    When producing \DVI\ output |pdfpages| cannot insert pages of a \PDF\
 %    documents. But instead of interrupting execution |pdfpages| will insert
 %    empty pages. This feature is important when using packages like
 %    |pst-pdf|, which need to produce \DVI\ output at the first run.
@@ -1381,7 +1381,6 @@
   \else
     \AM@split@options{Gin@noscale}{#1}%
     \let\AM@filelist@save\@filelist
-
     \ifAM@DVIoutput
       \setbox\@tempboxa=\hbox{\rule{597pt}{845pt}}
     \else
@@ -1863,6 +1862,11 @@
   \edef\AM@tempii{\AM@trim@space{#1}}%
   \expandafter\ifx\expandafter\\\AM@tempii\\
     \@tempcntb=\AM@pagecount\relax
+    \ifAM@DVIoutput
+      \ifnum\AM@pagecount=1
+        \@tempcntb\@tempcnta
+      \fi
+    \fi
     \advance\@tempcntb\@ne
     \whiledo{\@tempcnta<\@tempcntb}{%
       \AM@append{\the\@tempcnta}%
