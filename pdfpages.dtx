@@ -2338,8 +2338,7 @@
 %    \macro{\AM@trim@space}
 %    \macro{\AM@trim@spacei}
 %    \macro{\AM@trim@spaceii}
-%    Removes leading and trailing spaces and save the result
-%    in |\AM@trimmed|.
+%    Removes leading and trailing spaces.
 %    \begin{macrocode}
 \newcommand{\AM@trim@space}{}\newcommand{\AM@trim@spacei}{}
 \newcommand{\AM@trim@spaceii}{}
@@ -2698,7 +2697,7 @@
   \def\@captype{\AM@lof@list}%
   \long\def\@makecaption##1##2{}%
   \let\@fs@capt\relax% float.sty
-  \caption{\AM@lof@heading}%
+  \expandafter\caption\expandafter{\AM@lof@heading}%
   \AM@addtolist@hook
   \@ifundefined{hyper@@anchor}{}{%
     \@ifundefined{float@caption}{%
@@ -2721,7 +2720,7 @@
 \def\AM@parse@loflisti#1,#2,#3,#4,#5\END{%
   \def\AM@lof@page{\AM@trim@space{#1}}%
   \def\AM@lof@list{\AM@trim@space{#2}}%
-  \def\AM@lof@heading{#3}%
+  \def\AM@lof@heading{\AM@trim@space{#3}}%
   \def\AM@lof@label{\AM@trim@space{#4}}%
   \AM@checkinteger{\AM@lof@page}%
   \ifAM@integer\else 
