@@ -50,14 +50,14 @@ ref & pageref & nameref\\\hline
 
 \begin{figure}\caption{Normal Figure}\label{test}\end{figure}
 
-\includepdf[pages=-,
+\includepdf[pages=-,lastpage=10,
             addtolist={1, figure, Page 1, fig:pdf1,
                        3, figure, Page 3, fig:pdf2,
                        5, figure, Page 5, fig:pdf3},
             addtotoc={3, chapter, 0, Chap, chap}
            ]{dummy.pdf}
 
-\includepdf[pages=-,
+\includepdf[pages=-,lastpage=10,
             addtolist={1, table, Page 1, tab:pdf1,
                        3, table, Page 3, tab:pdf2,
                        5, table, Page 5, tab:pdf3},
@@ -67,7 +67,7 @@ ref & pageref & nameref\\\hline
 
 %%% memoir.cls %%%
 \ifmemcls
-\includepdf[pages=-,
+\includepdf[pages=-,lastpage=10,
             addtolist={1, pdfdoc, Page 1, pdc:pdf1,
                        3, pdfdoc, Page 3, pdc:pdf2,
                        5, pdfdoc, Page 5, pdc:pdf3},
