@@ -74,7 +74,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{3753}
+%    \CheckSum{3751}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -968,10 +968,10 @@
 %      H\`an Th\^e\llap{\raise 0.5ex\hbox{\'{}}} Th\`anh,
 %      Sebastian Rahtz, Hans Hagen,
 %      \textit{The \pdfTeX\ user manual},
-%      http://www.tug.org/applications/pdftex/pdftex-s.pdf
+%      \url{http://www.tug.org/applications/pdftex}
 %    \bibitem{PDFRef} \textit{PDF Reference}, Third Edition, Version 1.4,
 %      Adobe Systems Incorporated,\\
-%      http://partners.adobe.com/asn/tech/pdf/specifications.jsp
+%      \url{http://partners.adobe.com/asn/tech/pdf/specifications.jsp}
 %    \end{thebibliography}
 %    }
 %
@@ -1247,18 +1247,18 @@
 %    Some simple checks.
 %    \begin{macrocode}
 \newcommand{\AM@CheckAtEnd}{%
-  \ifx\@empty\AM@toclist\else
-    \PackageWarning{pdfpages}{%
-         There's something wrong with the entries\MessageBreak
-         of `addtotoc'. Not all entries were\MessageBreak
-         processed. Check `addtotoc'}%
-  \fi
-  \ifx\@empty\AM@loflist\else
-    \PackageWarning{pdfpages}{%
-         There's something wrong with the entries\MessageBreak
-         of `addtolist'. Not all entries were\MessageBreak
-         processed. Check `addtolist'}%
-  \fi
+    \ifx\@empty\AM@toclist\else
+      \PackageWarning{pdfpages}{%
+           There's something wrong with the entries\MessageBreak
+           of `addtotoc'. Not all entries were\MessageBreak
+           processed. Check `addtotoc'}%
+    \fi
+    \ifx\@empty\AM@loflist\else
+      \PackageWarning{pdfpages}{%
+           There's something wrong with the entries\MessageBreak
+           of `addtolist'. Not all entries were\MessageBreak
+           processed. Check `addtolist'}%
+    \fi
 }
 %    \end{macrocode}
 %    \macro{\AM@output}
@@ -1294,11 +1294,6 @@
   \ifAM@pkg@draft \setkeys{Gin}{draft=true}%
   \else \setkeys{Gin}{draft=false}%
   \fi
-    %    \end{macrocode}
-    %    Some preparations before starting the output.
-    %    \begin{macrocode}
-    %  \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}
-    %    {}{\AM@getpagecount}
 %    \end{macrocode}
 %    \begin{macrocode}
   \ifthenelse{\boolean{AM@landscape}}
@@ -1691,9 +1686,9 @@
       \edef\AM@shippage{%
         \noexpand\put(\AM@xpos,\AM@ypos){%
         \noexpand\raisebox{\dp\@tempboxa}{%
-%    /end{macrocode}
+%    \end{macrocode}
 %    Raise the target of a link to the top of the included page.
-%    /begin{macrocode}
+%    \begin{macrocode}
         \noexpand\raise \ht\@tempboxa \hbox{\AM@hyper@begin@i}%
 %    \end{macrocode}
 %    \begin{macrocode}
@@ -2720,7 +2715,7 @@
 \def\AM@parse@loflisti#1,#2,#3,#4,#5\END{%
   \def\AM@lof@page{\AM@trim@space{#1}}%
   \def\AM@lof@list{\AM@trim@space{#2}}%
-  \def\AM@lof@heading{\AM@trim@space{#3}}%
+  \edef\AM@lof@heading{\AM@trim@leadingspace{#3}}%
   \def\AM@lof@label{\AM@trim@space{#4}}%
   \AM@checkinteger{\AM@lof@page}%
   \ifAM@integer\else 
