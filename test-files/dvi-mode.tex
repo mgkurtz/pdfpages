@@ -3,13 +3,9 @@
 
 \begin{document}
 Insert 5 pages (pdflatex, vlatex) and 1 page (latex)
-\includepdf[pages=-]{dummy.pdf}
+\includepdf[pages=26-]{dummy.pdf}
 
-Insert 5 pages (pdflatex, vlatex, latex)
-\includepdf[pages={26-},lastpage=30]{dummy.pdf}
-
-
-lastpage kleiner als 26 ==> Fehler
-\includepdf[pages={26-},lastpage=20]{dummy.pdf}
+Insert 5 pages (with option lastpage)
+\includepdf[pages=26-,lastpage=30]{dummy.pdf}
 
 \end{document}
