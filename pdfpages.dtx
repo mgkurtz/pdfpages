@@ -74,7 +74,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{3751}
+%    \CheckSum{3752}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1796,8 +1796,8 @@
   \def\AM@doclist{}%
   \AM@readlisti#1,\END,
   \ifAM@defaultone\AM@append{1}\fi
-  \edef\AM@doclist{\expandafter\@gobble\AM@doclist}%
-  \edef\AM@pagelist{\expandafter\@gobble\AM@pagelist}%
+  \edef\AM@doclist{\expandafter\@gobble\AM@doclist\@empty}%
+  \edef\AM@pagelist{\expandafter\@gobble\AM@pagelist\@empty}%
 }
 %    \end{macrocode}
 %    \begin{macrocode}
