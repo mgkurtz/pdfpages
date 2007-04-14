@@ -74,7 +74,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4210}
+%    \CheckSum{4214}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3157,23 +3157,23 @@
   \def\tag{#1}%
   \def\x{FitH}%
   \ifx\x\tag
-    \gdef\AM@view{fith #2}%
+    \gdef\AM@view{fith}%
   \else
     \def\x{FitBH}%
     \ifx\x\tag
-      \gdef\AM@view{fitbh #2}%
+      \gdef\AM@view{fitbh}%
     \else
       \def\x{FitV}%
       \ifx\x\tag
-        \gdef\AM@view{fitv #2}%
+        \gdef\AM@view{fitv}%
       \else
         \def\x{FitBV}%
         \ifx\x\tag
-          \gdef\AM@view{fitbv #2}%
+          \gdef\AM@view{fitbv}%
         \else
           \def\x{FitR}%
           \ifx\x\tag
-            \gdef\AM@view{fitr #2}%
+            \gdef\AM@view{fitr}%
             \PackageWarningNoLine{pdfpages}{%
               `linkfit=FitR' is not supported,
               I will try `linkfit=Region'.}%
@@ -3185,7 +3185,7 @@
             \else
               \def\x{XZY}%
               \ifx\x\tag
-                \gdef\AM@view{xyz #2}%
+                \gdef\AM@view{xyz zoom #2}%
               \else
                 \def\x{Region}%
                 \ifx\x\tag
@@ -3324,6 +3324,10 @@
 %    \begin{macrocode}
 \def\AM@dest@special{\special{!aname \AM@linkname.\AM@page}}
 \def\AM@anchor@special{\special{!aname pdfpages.\the\count1}}
+%    \end{macrocode}
+%    Convert synatx of \PDF\ destinations.
+%    \begin{macrocode}
+\def\AM@convert@dest#1{}
 %    \end{macrocode}
 %    Do not disable |\includegraphics|.
 %    \begin{macrocode}
@@ -3527,23 +3531,23 @@
   \def\tag{#1}%
   \def\x{FitH}%
   \ifx\x\tag
-    \gdef\AM@view{/FitH #2}%
+    \gdef\AM@view{/FitH @ypos}%
   \else
     \def\x{FitBH}%
     \ifx\x\tag
-      \gdef\AM@view{/FitBH #2}%
+      \gdef\AM@view{/FitBH @ypos}%
     \else
       \def\x{FitV}%
       \ifx\x\tag
-        \gdef\AM@view{/FitV #2}%
+        \gdef\AM@view{/FitV @xpos}%
       \else
         \def\x{FitBV}%
         \ifx\x\tag
-          \gdef\AM@view{/FitBV #2}%
+          \gdef\AM@view{/FitBV @xpos}%
         \else
           \def\x{fitr}%
           \ifx\x\tag
-            \gdef\AM@view{/FitR #2}%
+            \gdef\AM@view{/XYZ @xpos @ypos null}%
             \PackageWarningNoLine{pdfpages}{%
               `linkfit=FitR' is not supported.}%
           \else
@@ -3553,11 +3557,11 @@
             \else
               \def\x{XYZ}%
               \ifx\x\tag
-                \gdef\AM@view{/XYZ #2}%
+                \gdef\AM@view{/XYZ @xpos @ypos null}%
               \else
                 \def\x{Region}%
                 \ifx\x\tag
-                  \gdef\AM@view{/Fit}%
+                  \gdef\AM@view{/XYZ @xpos @ypos null}%
                   \PackageWarningNoLine{pdfpages}{%
                     `linkfit=Region' is not supported by XeTeX.}%
                 \else
@@ -3656,6 +3660,10 @@
 %    \begin{macrocode}
 \let\AM@dest@special\relax
 \let\AM@anchor@special\relax
+%    \end{macrocode}
+%    Convert synatx of \PDF\ destinations.
+%    \begin{macrocode}
+\def\AM@convert@dest#1{}
 %    \end{macrocode}
 %    Disable |\includegraphics|.
 %    \begin{macrocode}
