@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4a}
+\def\AM@fileversion{v0.4b-beta1}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -41,6 +41,7 @@
 %<package>\ProvidesPackage{pdfpages}
 %<pppdftexdef>\ProvidesFile{pppdftex.def}
 %<ppvtexdef>\ProvidesFile{ppvtex.def}
+%<ppxetexdef>\ProvidesFile{ppxetex.def}
 %<ppnulldef>\ProvidesFile{ppnull.def}
 %<driver>\ProvidesFile{pdfpages.drv}
 %<*!(example1,example2,example3,installer)>
@@ -67,14 +68,15 @@
 %<package>    Insert pages of external PDF documents (AM)]
 %<pppdftexdef>    Pdfpages driver for pdfTeX (AM)]
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
-%<ppnulldef>    Pdfpages' dummy driver (AM)]
+%<ppxetexdef>    Pdfpages driver for XeTeX (AM)]
+%<ppnulldef>    Pdfpages dummy driver (AM)]
 %
 %
 %    \fi
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{3752}
+%    \CheckSum{4210}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -98,6 +100,7 @@
 \documentclass{ltxdoc}
 \usepackage{array}
 \usepackage{hyperref}
+\usepackage{graphicx}
 \OnlyDescription
 \begin{document}
   \DocInput{pdfpages.dtx}
@@ -113,20 +116,24 @@
 %   \newcommand{\marginstyle}
 %     {\raggedleft\itshape\small}
 %
-%    \def\pdfTeX{pdf\kern.04em\TeX}
-%    \def\pdfLaTeX{pdf\kern.06em\LaTeX}
-%    \def\VTeX{V\kern-.05em\TeX}
+%    \def\pdfTeX{pdfTeX}
+%    \def\pdfLaTeX{pdfLaTeX}
+%    \def\VTeX{VTeX}
+%    \def\XeTeX{XeTeX}
 %    \def\PDF{{\small PDF}}
 %    \def\PS{{\small PS}}
 %    \def\DVI{{\small DVI}}
 %
-%    \pdfstringdef{\pdfTeX}{pdfTeX}
-%    \pdfstringdef{\VTeX}{VTeX}
+%    \pdfstringdefDisableCommands{%
+%       \def\pdfTeX{pdfTeX}%
+%       \def\VTeX{VTeX}%
+%       \def\XeTeX{XeTeX}%
+%     }
 %
 %    \makeatletter
 %    \title{The \textsf{pdfpages} Package\thanks{This file
 %           has version number \AM@fileversion, last revised \AM@filedate.}}
-%    \author{Andreas MATTHIAS\\ \texttt{amat@kabsi.at}} 
+%    \author{Andreas \textsc{Matthias}\\ \texttt{amat@kabsi.at}} 
 %    \date{\AM@filedate}
 %    \makeatother
 %
@@ -466,17 +473,29 @@
 %
 %      \begin{description}
 %        \makeatletter\@beginparpenalty=10000\makeatother
-%        \item[linkfit] Specifies the way the viewer displays a linked page.
+%        \item[linkfit] Specifies, how the viewer displays a linked page.
 %                       This option changes the default behavior of the
 %                       option \texttt{link}.
-%                       Possible values are: \texttt{fitb}, \texttt{fith},
-%                       \texttt{fitv}, \texttt{fitr}, 
-%                       \texttt{xyz zoom \meta{integer}}, etc.
-%                       These are destinations (|\pdfdest|) like they are
-%                       described in \cite{pdftex}.
-%                       Pdfpages adds one additional destination named
-%                       |region|, which scales a page such that it fits
-%                       exactly into the window of the \PDF\ viewer.
+%                       Possible values are:
+%                       \texttt{Fit},
+%                       \texttt{FitH \meta{top}},
+%                       \texttt{FitV \meta{left}},
+%                       \texttt{FitB},
+%                       \texttt{FitBH \meta{top}},
+%                       \texttt{FitBV \meta{left}},
+%^^A                       \texttt{fitr \meta{left} \meta{bottom}
+%^^A                         \meta{right} \meta{top}},
+%^^A                       \texttt{xyz \meta{left} \meta{top} \meta{zoom}},
+%                       and \texttt{Region}.
+%                       
+%                       See \cite{PDFRef} for a details description of these
+%                       \PDF\ destinations. The |region| destination was
+%                       added by pdfpages and is not a real \PDF\
+%                       destinations. It scales a page such that the
+%                       included page fits exactly into the window of the
+%                       \PDF\ viewer.\par
+%                       Note that not all of these options are supported by
+%                       all \TeX-engines or drivers, respectively.
 %                       \df{linkfit=fit}
 %        \item[linktodocfit] By default the option \texttt{linktodoc} opens
 %                            the page in `Fit in Window' view.
@@ -969,9 +988,8 @@
 %      Sebastian Rahtz, Hans Hagen,
 %      \textit{The \pdfTeX\ user manual},
 %      \url{http://www.tug.org/applications/pdftex}
-%    \bibitem{PDFRef} \textit{PDF Reference}, Third Edition, Version 1.4,
-%      Adobe Systems Incorporated,\\
-%      \url{http://partners.adobe.com/asn/tech/pdf/specifications.jsp}
+%    \bibitem{PDFRef} \textit{PDF Reference}, Adobe Systems Incorporated,\\
+%      \url{http://www.adobe.com/devnet/pdf/pdf_reference.html}
 %    \end{thebibliography}
 %    }
 %
@@ -989,6 +1007,15 @@
 \DeclareOption{final}{\AM@pkg@draftfalse}
 \DeclareOption{enable-survey}{\AM@pkg@surveytrue}
 \DeclareOption{disable-survey}{\AM@pkg@surveyfalse}
+%    \end{macrocode}
+%    These options overrule the automatic detection of the \TeX-engine.
+%    \begin{macrocode}
+\DeclareOption{pdftex}{\def\AM@driver{pdftex}}
+\DeclareOption{vtex}{\def\AM@driver{vtex}}
+\DeclareOption{null}{\def\AM@driver{null}}
+\DeclareOption{xetex}{\def\AM@driver{xetex}}
+%    \end{macrocode}
+%    \begin{macrocode}
 \ProcessOptions  
 %    \end{macrocode}
 %    \subsection{Required Packages and Version Checking}
@@ -999,21 +1026,28 @@
 %    \begin{macrocode}
 \def\AM@ifdriverlater{\@ifl@ter{def}}
 %    \end{macrocode}
-%    Check for using \pdfTeX\ of \VTeX. 
-%    -- Note: 
+%    Automatic detection of \TeX-engine: \pdfTeX, \VTeX\ or \XeTeX.
+%    This detection is omitted if the driver is given as a package option,
+%    i.e. if |\AM@driver| is defined.
+%
+%    Note: 
 %    If \texttt{graphics.sty} is loaded before this package,
 %    \texttt{pdfoutput} may be undefined, even if \pdfLaTeX\
 %    is used, because some \texttt{graphic.cfg} undefine
 %    \texttt{pdfoutput} (\verb|\let\pdfoutput\@undefined|),
 %    if the document contains the line \verb|\pdfoutput=0|.
 %    \begin{macrocode}
-\begingroup
-\@ifundefined{pdfoutput}{%
-  \@ifundefined{OpMode}{%
-    \def\AM@driver{null}
-  }{\gdef\AM@driver{vtex}}%
-}{\gdef\AM@driver{pdftex}}
-\endgroup
+\@ifundefined{AM@driver}{
+  \begingroup
+  \@ifundefined{pdfoutput}{%
+    \@ifundefined{XeTeXversion}{%
+      \@ifundefined{OpMode}{%
+        \def\AM@driver{null}
+      }{\gdef\AM@driver{vtex}}%
+    }{\gdef\AM@driver{xetex}}%
+  }{\gdef\AM@driver{pdftex}}
+  \endgroup
+}{}
 %    \end{macrocode}
 %    Required Packages.
 %    \begin{macrocode}
@@ -1077,7 +1111,7 @@
 \newcommand*{\AM@lscape@rot}{0}
 \newcommand*{\AM@threadname}{}\newcommand*{\AM@linkname}{}
 \newcommand*{\AM@linkname@option}{}
-\newcommand*{\AM@linkfit}{fit}\newcommand*{\AM@linktodocfit}{/Fit}
+\newcommand*{\AM@linktodocfit}{/Fit}
 \newcommand*{\threadinfodict}{}
 \newcommand*{\AM@toclist}{}\newcommand*{\AM@loflist}{}
 \newcommand*{\AM@signature}{}
@@ -1671,11 +1705,7 @@
 %    \end{macrocode}
 %    Calculate |fitr| coordinates, if |linkfit=region|.
 %    \begin{macrocode}
-    \def\AM@region{region}%
-    \ifx\AM@linkfit\AM@region
-      \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}%
-      \let\AM@linkfit\AM@linkfit@special
-    \fi
+     \AM@region@calc
 %    \end{macrocode}
 %    Ship out page.
 %    \begin{macrocode}
@@ -2368,7 +2398,6 @@
 %    Add hypertext operations (targets, links and threads) to 
 %    the inserted pages.
 %    \begin{macrocode}
-
 \newcommand{\AM@hyper@begin@i}{%
 %    \end{macrocode}
 %    Page is a target for a link.
@@ -2857,7 +2886,8 @@
 \define@key{pdfpages}{thread}[true]{\setboolean{AM@thread}{#1}}
 \define@key{pdfpages}{threadname}{\def\AM@threadname{#1}}
 \define@key{pdfpages}{link}[true]{\setboolean{AM@link}{#1}}
-\define@key{pdfpages}{linkfit}{\def\AM@linkfit{#1}}
+%\define@key{pdfpages}{linkfit}{\def\AM@linkfit{#1}}
+\define@key{pdfpages}{linkfit}{\AM@convert@dest{#1}}
 \define@key{pdfpages}{linkname}{\def\AM@linkname@option{#1}}
 \define@key{pdfpages}{linktodoc}[true]{\setboolean{AM@linktodoc}{#1}}
 \define@key{pdfpages}{linktodocfit}{\def\AM@linktodocfit{#1}}
@@ -2978,12 +3008,14 @@
 %
 %    \iffalse
 %</package>
+%    \fi
 %
+%    \subsection{Driver files}
+%
+%    \iffalse
 %<*pppdftexdef>
 %    \fi
 %
-%
-%    \subsection{Driver files}
 %    \subsubsection{\pdfTeX\ driver}
 %
 %    Check \pdfTeX\ version and output.
@@ -3111,12 +3143,73 @@
 }
 \let\AM@thread@special@end\relax
 %    \end{macrocode}
-%    Destination for links.
+%    Destination of links.
 %    \begin{macrocode}
-\def\AM@dest@special{\pdfdest name {\AM@linkname.\AM@page} \AM@linkfit}
+\def\AM@view{fit}
+\def\AM@dest@special{\pdfdest name {\AM@linkname.\AM@page} \AM@view}
 \def\AM@anchor@special{\pdfdest name {pdfpages.\the\count1} fit}
-\edef\AM@linkfit@special{fitr width\the\wd\@tempboxa\space
-                              height0pt depth\the\@tempdima}
+%    \end{macrocode}
+%    Convert synatx of \PDF\ destinations.
+%    \pdfTeX\ does not support positional parameters to |fith| etc.
+%    \begin{macrocode}
+\def\AM@convert@dest#1{%
+  \expandafter\AM@convert@dest@i\ifdim\z@=0pt#1 \END\fi}
+\def\AM@convert@dest@i#1 #2\END{%
+  \begingroup
+  \def\tag{#1}%
+  \def\x{FitH}%
+  \ifx\x\tag
+    \gdef\AM@view{fith #2}%
+  \else
+    \def\x{FitBH}%
+    \ifx\x\tag
+      \gdef\AM@view{fitbh #2}%
+    \else
+      \def\x{FitV}%
+      \ifx\x\tag
+        \gdef\AM@view{fitv #2}%
+      \else
+        \def\x{FitBV}%
+        \ifx\x\tag
+          \gdef\AM@view{fitbv #2}%
+        \else
+          \def\x{FitR}%
+          \ifx\x\tag
+            \gdef\AM@view{fitr #2}%
+            \PackageWarningNoLine{pdfpages}{%
+              `linkfit=FitR' is not supported,
+              I will try `linkfit=Region'.}%
+            \def\tag{region}%
+          \else
+            \def\x{FitB}%
+            \ifx\x\tag
+              \gdef\AM@view{fitb}%
+            \else
+              \def\x{XZY}%
+              \ifx\x\tag
+                \gdef\AM@view{xyz #2}%
+              \else
+                \def\x{Region}%
+                \ifx\x\tag
+                  \gdef\AM@view{fitr
+                                width\the\wd\@tempboxa\space
+                                height0pt depth\AM@region@depth}%
+                \else
+                  \gdef\AM@view{fit}%
+                \fi
+              \fi
+            \fi
+          \fi
+        \fi
+      \fi
+    \fi
+  \fi
+  \endgroup
+}
+\def\AM@region@calc{%
+  \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}
+  \edef\AM@region@depth{\the\@tempdima}
+}
 %    \end{macrocode}
 %    Do not disable |\includegraphics|.
 %    \begin{macrocode}
@@ -3131,6 +3224,19 @@
 %
 %    \subsubsection{\VTeX\ driver}
 %
+%    Check if the graphics package was loaded with an 
+%    incompatible driver option (e.g. dvips).
+%    \begin{macrocode}
+\begingroup
+\@ifundefined{ver@vtex.def}{%
+  \PackageError{pdfpages}
+         {The graphics package was loaded with driver\MessageBreak
+          `\Gin@driver', which cannot be used with VTeX}
+         {Check the driver option of the graphics package.}
+  \global\let\AM@endinput\relax
+  \aftergroup\endinput}{}
+\endgroup
+%    \end{macrocode}
 %    Check \VTeX\ version.
 %    \begin{macrocode}
 \ifnum\VTeXversion<822
@@ -3216,12 +3322,10 @@
 }
 \def\AM@thread@special@end{\special{!endthread}}
 %    \end{macrocode}
-%    Destination for links.
+%    Destination of links.
 %    \begin{macrocode}
 \def\AM@dest@special{\special{!aname \AM@linkname.\AM@page}}
 \def\AM@anchor@special{\special{!aname pdfpages.\the\count1}}
-\edef\AM@linkfit@special{fit}%r width\the\wd\@tempboxa\space
-                             % height0pt depth\the\@tempdima}
 %    \end{macrocode}
 %    Do not disable |\includegraphics|.
 %    \begin{macrocode}
@@ -3230,6 +3334,255 @@
 %
 %    \iffalse
 %</ppvtexdef>
+%
+%<*ppxetexdef>
+%    \fi
+%
+%    \subsubsection{\XeTeX\ driver}
+%
+%    \begin{macrocode}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%
+ %%% This should not be there!
+ %%%
+ \pdfpagewidth=\paperwidth
+ \pdfpageheight=\paperheight
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    \end{macrocode}
+%    Check if the graphics package was loaded with an 
+%    incompatible driver option (e.g. dvips).
+%    \begin{macrocode}
+\begingroup
+\@ifundefined{ver@xetex.def}{%
+  \PackageError{pdfpages}
+         {The graphics package was loaded with driver\MessageBreak
+          `\Gin@driver', which cannot be used with XeTeX}
+         {Check the driver option of the graphics package.}
+  \global\let\AM@endinput\relax
+  \aftergroup\endinput}{}
+\endgroup
+%    \end{macrocode}
+%    Get last page number.
+%    
+%    There is no primitive or special available, yet. Hopefully
+%    this will change in the near futer. For the time being let's
+%    use some really clever code from Heiko Oberdiek, which he send
+%    me in a personal mail on April 26, 2001.
+%    \begin{macrocode}
+%
+%\def\AM@getpagecount{%
+%  \def\AM@pagecount{\maxdimen}%
+%}
+%
+\def\AM@getpagecount{%
+\newread\@pdffile
+\openin\@pdffile=\AM@currentdocname
+\begingroup
+  \def\initread{%
+    % set catcodes
+    \count@=0
+    \@whilenum\count@<256 \do{%
+      \catcode\count@=9
+      \advance\count@ by 1
+    }%
+    \catcode`\%=14
+    \catcode`\/=12
+    \catcode`\C=11
+    \catcode`\o=11
+    \catcode`\u=11
+    \catcode`\n=11
+    \catcode`\t=11
+    \catcode`\0=12
+    \catcode`\1=12
+    \catcode`\2=12
+    \catcode`\3=12
+    \catcode`\4=12
+    \catcode`\5=12
+    \catcode`\6=12
+    \catcode`\7=12
+    \catcode`\8=12
+    \catcode`\9=12
+    % ignore endline char
+    \endlinechar=-1
+  }
+  \def\@pagesstring{/Count}
+  \def\@noteof{\ifeof\@pdffile 0\else 1\fi}
+  \expandafter\def\expandafter\scanline
+      \expandafter##\expandafter1\@pagesstring##2\@nil{%
+    \ifx\\##1##2\\%
+    \else
+      \ifx\\##1\\%
+        \setbox0=\hbox{%
+          \count@=0##2%
+          \ifnum\pages<\count@
+            \xdef\pages{\the\count@}%
+          \fi
+        }%
+      \fi
+    \fi
+  }
+  \def\scanpdffile{%
+    \initread
+    \gdef\pages{0}%
+    \count@=0
+    \@whilenum\@noteof=1\do{%
+      \read\@pdffile to \@line
+      \advance\count@ by 1
+      \expandafter\expandafter\expandafter\scanline
+        \expandafter\@line\@pagesstring\@nil
+    }%
+    \endgroup
+  }
+%  \typeout{* Scanning for number of pages ...}%
+\scanpdffile
+%\typeout{* Pages: \pages}%
+\closein\@pdffile
+\ifcase\pages
+  \typeout{!!! Error: Failed to get number of pages!}%
+  \expandafter\@@end
+\fi
+  \edef\AM@pagecount{\pages}%
+}
+%    \end{macrocode}
+%    Page dimensions.
+%    \begin{macrocode}
+\let\AM@pagewidth\pdfpagewidth
+\let\AM@pageheight\pdfpageheight
+\def\AM@setpagedimen{%
+  \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
+  \setlength{\pdfpageheight}{\the\ht\@tempboxa}%
+}
+%    \end{macrocode}
+%    Change paper size.
+%    \begin{macrocode}
+\let\AM@fitpaper@special\relax
+%    \end{macrocode}
+%    Find file.
+%    \begin{macrocode}
+\def\AM@findfile#1{%
+  \AM@findfile@i{#1}{pdf}%
+  \AM@findfile@ii{#1}%
+}
+%    \end{macrocode}
+%    Rotate page.
+%    \begin{macrocode}
+\def\AM@setlscape{\special{pdf: put @thispage << /Rotate 90 >>}}
+%    \end{macrocode}
+%    Link to original document.
+%    \begin{macrocode}
+\def\AM@linktodoc@special@begin{%
+  \special{pdf: annot
+                width \the\wd\@tempboxa\space
+                height \the\ht\@tempboxa\space
+                depth \the\dp\@tempboxa\space
+                << /Type /Annot
+                   /Subtype /Link /Border [0 0 0]
+                   /A << /S /GoToR
+                         /F (\AM@linkfilename)
+                         /D [\AM@linktodoc@page@m@ne \AM@linktodocfit]
+                         \ifAM@newwindow/NewWindow true\fi >>
+                >>}%
+}
+\let\AM@linktodoc@special@end\relax
+%    \end{macrocode}
+%    Survey.
+%    \begin{macrocode}
+\def\AM@survey@special@begin{%
+  \special{pdf: annot
+                width \the\wd\@tempboxa\space
+                height \the\ht\@tempboxa\space
+                depth \the\dp\@tempboxa\space
+                << /Type /Annot
+                   /Subtype /Link /Border [0 0 0]
+                   /A << /S /GoTo
+                         /D (pdfpages.\AM@linktodoc@page@m@ne) >>
+                >>}%
+}
+\let\AM@survey@special@end\relax
+%    \end{macrocode}
+%    Thread.
+%    \begin{macrocode}
+\def\AM@thread@special@begin{%
+  \special{pdf: thread @\AM@threadname\space
+                width \the\wd\@tempboxa\space
+                height \the\ht\@tempboxa\space
+                depth \the\dp\@tempboxa\space
+                <<\threadinfodict>>
+              }%
+}
+\let\AM@thread@special@end\relax
+%    \end{macrocode}
+%    Destination of links.
+%    \begin{macrocode}
+\def\AM@view{/Fit}
+\def\AM@dest@special{%
+  \special{pdf: dest (\AM@linkname.\AM@page) [ @thispage \AM@view ]}}
+\def\AM@anchor@special{%
+  \special{pdf: dest (pdfpages.\the\count1) [ @thispage /Fit ]}}
+%    \end{macrocode}
+%    Convert synatx of \PDF\ destinations.
+%    \begin{macrocode}
+\def\AM@convert@dest#1{%
+  \expandafter\AM@convert@dest@i\ifdim\z@=0pt#1 \END\fi}
+\def\AM@convert@dest@i#1 #2\END{%
+  \begingroup
+  \def\tag{#1}%
+  \def\x{FitH}%
+  \ifx\x\tag
+    \gdef\AM@view{/FitH #2}%
+  \else
+    \def\x{FitBH}%
+    \ifx\x\tag
+      \gdef\AM@view{/FitBH #2}%
+    \else
+      \def\x{FitV}%
+      \ifx\x\tag
+        \gdef\AM@view{/FitV #2}%
+      \else
+        \def\x{FitBV}%
+        \ifx\x\tag
+          \gdef\AM@view{/FitBV #2}%
+        \else
+          \def\x{fitr}%
+          \ifx\x\tag
+            \gdef\AM@view{/FitR #2}%
+            \PackageWarningNoLine{pdfpages}{%
+              `linkfit=FitR' is not supported.}%
+          \else
+            \def\x{FitB}%
+            \ifx\x\tag
+              \gdef\AM@view{/FitB}%
+            \else
+              \def\x{XYZ}%
+              \ifx\x\tag
+                \gdef\AM@view{/XYZ #2}%
+              \else
+                \def\x{Region}%
+                \ifx\x\tag
+                  \gdef\AM@view{/Fit}%
+                  \PackageWarningNoLine{pdfpages}{%
+                    `linkfit=Region' is not supported by XeTeX.}%
+                \else
+                  \gdef\AM@view{/Fit}%
+                \fi
+              \fi
+            \fi
+          \fi
+        \fi
+      \fi
+    \fi
+  \fi
+  \endgroup
+}
+\def\AM@region@calc{}
+%    \end{macrocode}
+%    Do not disable |\includegraphics|.
+%    \begin{macrocode}
+\let\AM@disable@includegraphics\relax
+%    \end{macrocode}
+%
+%    \iffalse
+%</ppxetexdef>
 %
 %<*ppnulldef>
 %    \fi
@@ -3301,11 +3654,10 @@
 \let\AM@thread@special@begin\relax
 \let\AM@thread@special@end\relax
 %    \end{macrocode}
-%    Destination for links.
+%    Destination of links.
 %    \begin{macrocode}
 \let\AM@dest@special\relax
 \let\AM@anchor@special\relax
-\let\AM@linkfit@special\relax
 %    \end{macrocode}
 %    Disable |\includegraphics|.
 %    \begin{macrocode}
@@ -3777,6 +4129,8 @@ This file demonstrates how to use the pdfpages package.
 \generate{\usepreamble\package
           \file{ppvtex.def}{\from{pdfpages.dtx}{ppvtexdef}}}
 \generate{\usepreamble\package
+          \file{ppxetex.def}{\from{pdfpages.dtx}{ppxetexdef}}}
+\generate{\usepreamble\package
           \file{ppnull.def}{\from{pdfpages.dtx}{ppnulldef}}}
 
 %% \generate{\usepreamble\package
@@ -3799,6 +4153,7 @@ This file demonstrates how to use the pdfpages package.
 \Msg{*  \space\space pdfpages.sty}
 \Msg{*  \space\space pppdftex.def}
 \Msg{*  \space\space ppvtex.def}
+\Msg{*  \space\space ppxetex.def}
 \Msg{*  \space\space ppnull.def}
 \Msg{*}
 \Msg{* To produce the documentation, run the following}
