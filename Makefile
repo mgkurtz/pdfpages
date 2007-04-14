@@ -1,16 +1,19 @@
-DIST-FILES=pdfpages.ins pdfpages.dtx README dummy.pdf dummy-l.pdf
-CTAN-DOC-FILES=pdfpages.pdf
-
-REVISION=$(shell grep Revision svninfo |\
-	sed 's/$$Revision: \(.*\) $$$$/\1/')
-
 VERSION=$(shell grep '\\def\\AM@fileversion{' pdfpages.dtx |\
 	sed 's/\\def\\AM@fileversion{\(.*\)}/\1/')
 
-BETA-VERSION=${VERSION}-beta-${REVISION}
+DIST-FILES=pdfpages.ins pdfpages.dtx README dummy.pdf dummy-l.pdf
+CTAN-DOC-FILES=pdfpages.pdf
 
-DIST-DIR=dist
-BETA-DIR=beta
+TDS-STY-FILES=pdfpages.sty pppdftex.def ppvtex.def ppxetex.def ppnull.def
+TDS-DOC-FILES=pdfpages.pdf pdf-ex.tex pdf-hyp.tex pdf-toc.tex
+TDS-SRC-FILES=pdfpages.dtx pdfpages.ins README dummy.pdf dummy-l.pdf
+
+TDS-STY-DIR=tex/latex/pdfpages
+TDS-DOC-DIR=doc/latex/pdfpages
+TDS-SRC-DIR=source/latex/pdfpages
+
+DIST-DIR=pdfpages-$(VERSION)
+
 
 installer=pdfpages.installer
 ins:
@@ -21,38 +24,47 @@ ins:
 sty:
 	latex pdfpages.ins
 
-release: distclean ins
+release: distclean svn-update ins
 	tex pdfpages.ins
 	echo '\PassOptionsToClass{a4paper}{ltxdoc}' > ltxdoc.cfg
 	-pdflatex -interaction=nonstopmode pdfpages.dtx
 	pdflatex pdfpages.dtx
 	pdflatex pdfpages.dtx
+	pdflatex pdfpages.dtx
 	rm ltxdoc.cfg
-	-mkdir foo
-	cp ${DIST-FILES} ${CTAN-DOC-FILES} foo
-	cd foo; chmod 644 *
-	cd foo; touch ${DIST-FILES} ${CTAN-DOC-FILES}
-	cd foo; tar cjfh pdfpages-${VERSION}.tar.bz2 ${DIST-FILES} ${CTAN-DOC-FILES}
-	mv foo/pdfpages-${VERSION}.tar.bz2 .
-	rm -r foo
 
+	mkdir $(DIST-DIR)
+	cp $(DIST-FILES) $(CTAN-DOC-FILES) $(DIST-DIR)
+	mkdir -p $(DIST-DIR)/$(TDS-STY-DIR)
+	cp $(TDS-STY-FILES) $(DIST-DIR)/$(TDS-STY-DIR)
+	mkdir -p $(DIST-DIR)/$(TDS-DOC-DIR)
+	cp $(TDS-DOC-FILES) $(DIST-DIR)/$(TDS-DOC-DIR)
+	mkdir -p $(DIST-DIR)/$(TDS-SRC-DIR)
+	cp $(TDS-SRC-FILES) $(DIST-DIR)/$(TDS-SRC-DIR)
 
-beta:
-	-mkdir ${BETA-DIR}
-	cp ${DIST-FILES} ${BETA-DIR}
-	cat pdfpages.dtx |\
-	sed 's/\\def\\AM@fileversion{.*}/\\def\\AM@fileversion{${BETA-VERSION}}/' \
-	> ${BETA-DIR}/pdfpages.dtx
-	cd ${BETA-DIR} && tar cjf pdfpages-${BETA-VERSION}.tar.bz2 ${DIST-FILES}
+	chmod 755 $(DIST-DIR)
+	find $(DIST-DIR) -type d -exec chmod 755 {} \;
+	find $(DIST-DIR) -type f -exec chmod 644 {} \;
+
+	cd $(DIST-DIR); zip -r pdfpages-tds.zip tex doc source
+	cd $(DIST-DIR); chmod 644 pdfpages-tds.zip
+	cd $(DIST-DIR); rm -r tex doc source
+
+	tar cjfh $(DIST-DIR).tar.bz2 $(DIST-DIR)
+	chmod 644 $(DIST-DIR).tar.bz2
+	rm -r $(DIST-DIR)
+
+svn-update:
+	svn up
 
 
 clean:
-	rm -f pdfpages.sty pppdftex.def ppvtex.def ppnull.def
-	rm -f pdfpages.{aux,log,toc,out,dvi,pdf}
+	rm -f pdfpages.{sty,aux,log,toc,out,dvi,pdf}
+	rm -f pppdftex.def ppvtex.def ppxetex.def ppnull.def 
 	rm -f pdf-ex.{tex,log,aux}
 	rm -f pdf-hyp.{tex,log,aux}
 	rm -f pdf-toc.{tex,log,aux}
-	rm -rf ${BETA-DIR} ${DIST-DIR}
+	rm -rf $(DIST-DIR)
 
 distclean: clean
 	rm -f *.bz2 pdfpages.ins
