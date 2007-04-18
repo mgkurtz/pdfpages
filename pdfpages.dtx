@@ -25,7 +25,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4b-beta1}
+\def\AM@fileversion{v0.4b-beta2}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -74,7 +74,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4214}
+%    \CheckSum{4222}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1005,6 +1005,18 @@
 \DeclareOption{final}{\AM@pkg@draftfalse}
 \DeclareOption{enable-survey}{\AM@pkg@surveytrue}
 \DeclareOption{disable-survey}{\AM@pkg@surveyfalse}
+%    \begin{macrocode}
+%    |\AM@ifdriverlater| checks that the driver loaded is more recent
+%    than the given date. See |\@ifpackagelater| from the standard
+%    \LaTeX\ kernel.
+%    \begin{macrocode}
+\def\AM@ifdriverlater{\@ifl@ter{def}}
+%    \end{macrocode}
+%    The configuration file |pdfpages.cfg| can be used to make
+%    new driver files known to the package.
+%    \begin{macrocode}
+\InputIfFileExists{pdfpages.cfg}{%
+  \PackageInfo{pdfpages}{Loading configuration file `pdfpages.cfg'}}{}
 %    \end{macrocode}
 %    These options overrule the automatic detection of the \TeX-engine.
 %    \begin{macrocode}
@@ -1016,17 +1028,12 @@
 %    \begin{macrocode}
 \ProcessOptions  
 %    \end{macrocode}
-%    \subsection{Required Packages and Version Checking}
+%    \subsection{Detection of TeX-Engine}
 %
-%    |\AM@ifdriverlater| checks that the driver loaded is more recent
-%    than the given date. See |\@ifpackagelater| from the standard
-%    \LaTeX\ kernel.
-%    \begin{macrocode}
-\def\AM@ifdriverlater{\@ifl@ter{def}}
-%    \end{macrocode}
 %    Automatic detection of \TeX-engine: \pdfTeX, \VTeX\ or \XeTeX.
-%    This detection is omitted if the driver is given as a package option,
-%    i.e. if |\AM@driver| is defined.
+%    This detection is omitted if |\AM@driver| is already defined. This
+%    happens if the driver was given as a package option or if
+%    the driver was identified in the configuration files |pdfpages.cfg|
 %
 %    Note: 
 %    If \texttt{graphics.sty} is loaded before this package,
@@ -1047,7 +1054,8 @@
   \endgroup
 }{}
 %    \end{macrocode}
-%    Required Packages.
+%    \subsection{Required Packages and Version Checking}
+%
 %    \begin{macrocode}
 \RequirePackage{ifthen, graphicx, calc, eso-pic}
 \newif\ifAM@DVIoutput\AM@DVIoutputfalse
@@ -3406,23 +3414,20 @@
     \catcode`\9=12
     % ignore endline char
     \endlinechar=-1
-  }
+  }%
   \def\@pagesstring{/Count}
   \def\@noteof{\ifeof\@pdffile 0\else 1\fi}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%% AM: Maybe that's better?
+  \def\gobble@nil##1\@nil{}
   \expandafter\def\expandafter\scanline
-      \expandafter##\expandafter1\@pagesstring##2\@nil{%
-    \ifx\\##1##2\\%
-    \else
-      \ifx\\##1\\%
-        \setbox0=\hbox{%
-          \count@=0##2%
-          \ifnum\pages<\count@
-            \xdef\pages{\the\count@}%
-          \fi
-        }%
-      \fi
-    \fi
-  }
+    \expandafter##\expandafter1\@pagesstring##2\@nil{%
+      \afterassignment\gobble@nil\count@=0##2x\@nil
+        \ifnum\pages<\count@
+          \xdef\pages{\the\count@}%
+        \fi
+    }%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \def\scanpdffile{%
     \initread
     \gdef\pages{0}%
@@ -3434,10 +3439,12 @@
         \expandafter\@line\@pagesstring\@nil
     }%
     \endgroup
-  }
+  }%
 %  \typeout{* Scanning for number of pages ...}%
 \scanpdffile
-%\typeout{* Pages: \pages}%
+\typeout{***************************************}
+\typeout{* PDF has \pages\space pages.}%
+\typeout{***************************************}
 \closein\@pdffile
 \ifcase\pages
   \typeout{!!! Error: Failed to get number of pages!}%
