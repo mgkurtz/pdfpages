@@ -74,7 +74,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4222}
+%    \CheckSum{4216}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -354,6 +354,8 @@
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{fitpaper=false}
 %        \item[reflect] Reflects included pages.
+%                     Either `true' or `false' (or no value, which
+%                     is equivalent to `true'). \df{reflect=false}
 %        \item[signature] Creates booklets by rearranging
 %                     pages into signatures and setting
 %                     |nup=1x2| or |nup=2x1|, respectively. This option
@@ -366,6 +368,11 @@
 %                     |\includepdf[pages=-, signature=8]{landscape-doc.pdf}|
 %       \item[signature*] Similar to |signature|, but now for right-edge
 %                     binding.
+%       \item[booklet] This option is just a shortcut of the `signature'
+%                     option, if you choose a signature value
+%                     so large that all pages fit into one signature.
+%                     Either `true' or `false' (or no value, which
+%                     is equivalent to `true'). \df{booklet=false}
 %       \item[picturecommand] Declares picture commands which are executed
 %                      on every page within a picture environment with the
 %                      base point at the lower left corner of the page.
