@@ -74,7 +74,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4216}
+%    \CheckSum{4115}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3357,6 +3357,17 @@
 %
 %    \subsubsection{\XeTeX\ driver}
 %
+%    It would be desirable if sensible defaults for |\pdfpage{width,heigt}|
+%    were set within the format files of \XeTeX. So far the default of
+%    `0pt' causes troubles with the `fitpaper' option.
+%
+%    So let's set |\pdfpage{width,height}| ourself and hope that there
+%    are no package out there that use these weird defaults of \XeTeX\ as
+%    a feature.
+%
+%    (See \href{http://article.gmane.org/gmane.comp.tex.xetex/4951/}
+%    {http://article.gmane.org/gmane.comp.tex.xetex/4951/})
+%    
 %    \begin{macrocode}
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  %%%
