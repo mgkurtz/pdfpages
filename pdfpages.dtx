@@ -25,7 +25,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4b-beta2}
+\def\AM@fileversion{v0.4b-beta3}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -3380,85 +3380,33 @@
 \endgroup
 %    \end{macrocode}
 %    Get last page number.
-%    
-%    There is no primitive or special available, yet. Hopefully
-%    this will change in the near futer. For the time being let's
-%    use some really clever code from Heiko Oberdiek, which he send
-%    me in a personal mail on April 26, 2001.
 %    \begin{macrocode}
-%
-%\def\AM@getpagecount{%
-%  \def\AM@pagecount{\maxdimen}%
-%}
-%
-\newread\@pdffile
 \def\AM@getpagecount{%
-\openin\@pdffile=\AM@currentdocname
-\begingroup
-  \def\initread{%
-    % set catcodes
-    \count@=0
-    \@whilenum\count@<256 \do{%
-      \catcode\count@=9
-      \advance\count@ by 1
-    }%
-    \catcode`\%=14
-    \catcode`\/=12
-    \catcode`\C=11
-    \catcode`\o=11
-    \catcode`\u=11
-    \catcode`\n=11
-    \catcode`\t=11
-    \catcode`\0=12
-    \catcode`\1=12
-    \catcode`\2=12
-    \catcode`\3=12
-    \catcode`\4=12
-    \catcode`\5=12
-    \catcode`\6=12
-    \catcode`\7=12
-    \catcode`\8=12
-    \catcode`\9=12
-    % ignore endline char
-    \endlinechar=-1
-  }%
-  \def\@pagesstring{/Count}
-  \def\@noteof{\ifeof\@pdffile 0\else 1\fi}
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %%% AM: Maybe that's better?
-  \def\gobble@nil##1\@nil{}
-  \expandafter\def\expandafter\scanline
-    \expandafter##\expandafter1\@pagesstring##2\@nil{%
-      \afterassignment\gobble@nil\count@=0##2x\@nil
-        \ifnum\pages<\count@
-          \xdef\pages{\the\count@}%
-        \fi
-    }%
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \def\scanpdffile{%
-    \initread
-    \gdef\pages{0}%
-    \count@=0
-    \@whilenum\@noteof=1\do{%
-      \read\@pdffile to \@line
-      \advance\count@ by 1
-      \expandafter\expandafter\expandafter\scanline
-        \expandafter\@line\@pagesstring\@nil
-    }%
-    \endgroup
-  }%
-%  \typeout{* Scanning for number of pages ...}%
-\scanpdffile
-\typeout{***************************************}
-\typeout{* PDF has \pages\space pages.}%
-\typeout{***************************************}
-\closein\@pdffile
-\ifcase\pages
-  \typeout{!!! Error: Failed to get number of pages!}%
-  \expandafter\@@end
-\fi
-  \edef\AM@pagecount{\pages}%
+  \edef\AM@pagecount{\the\XeTeXpdfpagecount "\AM@currentdocname"\relax}%
 }
+%    \end{macrocode}
+%    \begin{macrocode}
+\begingroup
+\ifnum\XeTeXversion=0
+  \edef\temp{\expandafter\@gobble\XeTeXrevision}
+  \ifnum\temp<997
+     \PackageWarningNoLine{pdfpages}{^^J%
+       ************************************************************^^J%
+       *** To determine the number of pages of a PDF document you^^J%
+       *** must be running XeTeX-0.997 at least.^^J%
+       *** This is only XeTeX-\the\XeTeXversion\XeTeXrevision, which
+       does not have such a^^J%
+       *** feature. Please update your XeTeX!^^J%
+       ***^^J%
+       *** For the time being do not expect me to determine the^^J%
+       *** number of pages myself.^^J%
+       ************************************************************^^J}
+     \gdef\AM@getpagecount{%
+       \edef\AM@pagecount{999}%
+     }
+  \fi
+\fi
+\endgroup
 %    \end{macrocode}
 %    Page dimensions.
 %    \begin{macrocode}
