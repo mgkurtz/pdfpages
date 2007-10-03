@@ -25,7 +25,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4b-beta3}
+\def\AM@fileversion{v0.4b-beta4}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -74,7 +74,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4115}
+%    \CheckSum{4163}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -385,13 +385,22 @@
 %                      \df{picturecommand*=\{\}}
 %        \item[pagetemplate] By default the first inserted page will be
 %                     used as a template. This means that all further
-%                     pages are scaled to match within the contour of this
+%                     pages are scaled such that they match within the
+%                     contour of this
 %                     first page. This option allows to declare another
 %                     page to be used as a template; which is only useful
 %                     if a \PDF\ document contains different page sizes
 %                     or page orientations. The argument should
 %                     be a page number.
 %                     \df{pagetemplate=\meta{first inserted page}}
+%        \item[templatesize] This option is similar to the |pagetemplate|
+%                     option, but its arguments specify the size of
+%                     the template directly. Its syntax is:
+%                     |templatesize={|\meta{width}|}{|\meta{height}|}|, e.g.
+%                     |templatesize={615pt}{846pt}|.
+%                     Note: The two lengths should be a bit larger than
+%                     desired, to keep away from rounding errors.\par
+%                     \df{templatesize=\meta{size of the first inserted page}}
 %        \item[rotateoversize] This option allows to rotate oversized
 %                     pages. E.g.\ pages in landscape orientation are
 %                     oversized relatively to their portrait counterpart,
@@ -1424,11 +1433,16 @@
     \AM@split@options{Gin@noscale}{#1}%
     \let\AM@filelist@save\@filelist
     \ifAM@DVIoutput
-      \setbox\@tempboxa=\hbox{\rule{597pt}{845pt}}
+      \setbox\@tempboxa=\hbox{\rule{597pt}{845pt}}%
     \else
-      \setbox\@tempboxa=\hbox{%
-        \expandafter\includegraphics\expandafter[\the\@temptokena,
+      \ifAM@templatesize
+        \setbox\@tempboxa=\hbox{%
+          \rotatebox{\AM@lscape@rot}{\copy\AM@templatesizebox}}%
+      \else
+        \setbox\@tempboxa=\hbox{%
+          \expandafter\includegraphics\expandafter[\the\@temptokena,
             page=\AM@page, angle=\AM@lscape@rot]{\AM@docname}}%
+      \fi
     \fi
 %    \end{macrocode}
 %    Adjust the paper size.
@@ -1508,13 +1522,20 @@
 %    \begin{macrocode}
   \let\AM@filelist@save\@filelist
   \AM@split@options{Gin}{#1}%
-  \setbox\@tempboxa=\hbox{%
-    \expandafter\includegraphics\expandafter[\the\@temptokena,
-                     page=\AM@page, scale=\AM@globalscale,
-                     angle=\AM@lscape@rot]{\AM@docname}}%
+  \ifAM@templatesize
+    \setbox\@tempboxa=\hbox{%
+      \scalebox{\AM@globalscale}{\copy\AM@templatesizebox}}%
+    \setbox\@tempboxa=\hbox{%
+      \rotatebox{\AM@lscape@rot}{\copy\@tempboxa}}%
+  \else
+    \setbox\@tempboxa=\hbox{%
+      \expandafter\includegraphics\expandafter[\the\@temptokena,
+                       page=\AM@page, scale=\AM@globalscale,
+                       angle=\AM@lscape@rot]{\AM@docname}}%
+  \fi
   \let\@filelist\AM@filelist@save
   \edef\AM@templatewidth{\the\wd\@tempboxa}%
-  \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}%
+  \setlength{\@tempdima}{\ht\@tempboxa + \dp\@tempboxa}%
   \edef\AM@templateheight{\the\@tempdima}%
   \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
   \def\AM@xmargin{%
@@ -2362,6 +2383,7 @@
               \equal{signature*}{\AM@temp}\or
               \equal{booklet}{\AM@temp}\or
               \equal{pagetemplate}{\AM@temp}\or
+              \equal{templatesize}{\AM@temp}\or
               \equal{rotateoversize}{\AM@temp}\or
               \equal{picturecommand}{\AM@temp}\or
               \equal{picturecommand*}{\AM@temp}\or
@@ -2944,6 +2966,7 @@
                                      \def\AM@signature{x}}
 \define@key{pdfpages}{pagetemplate}{\AM@CheckValue{pagetemplate}{#1}%
                                     \def\AM@pagetemplate{#1}}
+\define@key{pdfpages}{templatesize}{\AM@parse@templatesize#1\END}
 \define@key{pdfpages}{rotateoversize}[true]%
                      {\setboolean{AM@rotateoversize}{#1}}
 \define@key{pdfpages}{picturecommand}{\def\AM@picturecommand{#1}}
@@ -2976,6 +2999,17 @@
   \fi
 }
 \def\AM@parse@nupi#1x{\def\AM@ynup{#1}}
+%    \end{macrocode}
+%    \macro{\AM@parse@templatesize}
+%    Parsing \texttt{templatesize} item.
+%    \begin{macrocode}
+\newcommand{\AM@parse@templatesize}{}
+\def\AM@parse@templatesize#1#2\END{%
+  \setbox\AM@templatesizebox=\hbox{\rule{#1}{#2}}
+  \AM@templatesizetrue
+}
+\newbox\AM@templatesizebox
+\newif\ifAM@templatesize\AM@templatesizefalse
 %    \end{macrocode}
 %    \macro{\AM@parse@deltax}
 %    \macro{\AM@parse@deltay}
@@ -3585,8 +3619,8 @@
   \ifx\AM@pagecount\AM@undefined
     \PackageWarningNoLine{pdfpages}{%
       I cannot determine the number of pages of the\MessageBreak
-      included document, while in DVI mode. You can\MessageBreak
-      use the option `lastpage' to give me a hint}%
+      included document, while being in DVI mode. You\MessageBreak
+      can use the option `lastpage' to give me a hint}%
     \edef\AM@pagecount{1}%
   \fi
 }
@@ -3647,6 +3681,9 @@
 %    Don't check page numbers.
 %    \begin{macrocode}
 \newcommand*{\AM@checkpagenumber}[1]{}
+%    \end{macrocode}
+%    \begin{macrocode}
+\def\AM@region@calc{}
 %    \end{macrocode}
 %
 %    \iffalse
