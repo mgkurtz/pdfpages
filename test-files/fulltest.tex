@@ -111,7 +111,19 @@ Link points to the top of the page. \texttt{linkfit=fith}
 \begingroup
 Testing \texttt{fitpaper} ...
 \includepdf[fitpaper]{dum/a5-l.pdf}
-Testing \texttt{includepdfmerg} ...
+%
+\texttt{templatesize}
+\par A4 und A3: Rand oben, unten, rechts, links
+\par Letter: Rand oben, unten
+\includepdf[pages=-,rotateoversize,templatesize={615pt}{846pt}]{dum/messy.pdf}
+\endgroup
+%\fi
+
+
+%\iffalse
+\section{Merge PDFs}
+\begingroup
+Testing \texttt{includepdfmerge} ...
 \\dummy.pdf, 1-2, \\dum/a4, 3, 4, \\dummy, 10
 \includepdfmerge{dummy.pdf, 1-2, dum/a4, 3, 4, dummy, 10}
 \endgroup
