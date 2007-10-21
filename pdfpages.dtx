@@ -25,7 +25,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4b-beta4}
+\def\AM@fileversion{v0.4b-beta5}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -2618,6 +2618,7 @@
   \edef\AM@doclist{\expandafter\@gobble\AM@newdoclist}%
 %    \end{macrocode}
 %    \begin{macrocode}
+  \AM@pagesize@boogie
   \ifdim\AM@pagewidth<\AM@pageheight
     \def\AM@xnup{\@ne}\def\AM@ynup{\tw@}%
   \else
@@ -3137,6 +3138,7 @@
   \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
   \setlength{\pdfpageheight}{\the\ht\@tempboxa}%
 }
+\let\AM@pagesize@boogie\relax
 %    \end{macrocode}
 %    Change paper size.
 %    \begin{macrocode}
@@ -3319,6 +3321,7 @@
   \setlength{\mediawidth}{\the\wd\@tempboxa}%
   \setlength{\mediaheight}{\the\ht\@tempboxa}%
 }
+\let\AM@pagesize@boogie\relax
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
@@ -3391,26 +3394,6 @@
 %
 %    \subsubsection{\XeTeX\ driver}
 %
-%    It would be desirable if sensible defaults for |\pdfpage{width,heigt}|
-%    were set within the format files of \XeTeX. So far the default of
-%    `0pt' causes troubles with the `fitpaper' option.
-%
-%    So let's set |\pdfpage{width,height}| ourself and hope that there
-%    are no package out there that use these weird defaults of \XeTeX\ as
-%    a feature.
-%
-%    (See \href{http://article.gmane.org/gmane.comp.tex.xetex/4951/}
-%    {http://article.gmane.org/gmane.comp.tex.xetex/4951/})
-%    
-%    \begin{macrocode}
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- %%%
- %%% This should not be there!
- %%%
- \pdfpagewidth=\paperwidth
- \pdfpageheight=\paperheight
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%    \end{macrocode}
 %    Check if the graphics package was loaded with an 
 %    incompatible driver option (e.g. dvips).
 %    \begin{macrocode}
@@ -3460,6 +3443,14 @@
 \def\AM@setpagedimen{%
   \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
   \setlength{\pdfpageheight}{\the\ht\@tempboxa}%
+}
+\def\AM@pagesize@boogie{%
+  \ifdim\AM@pagewidth=\z@
+    \ifdim\AM@pageheight=\z@
+      \let\AM@pagewidth\paperwidth
+      \let\AM@pageheight\paperheight
+    \fi
+  \fi
 }
 %    \end{macrocode}
 %    Change paper size.
@@ -3633,6 +3624,7 @@
   \setlength{\paperwidth}{\the\wd\@tempboxa}%
   \setlength{\paperheight}{\the\ht\@tempboxa}%
 }
+\let\AM@pagesize@boogie\relax
 %    \end{macrocode}
 %    Change paper size.
 %    \begin{macrocode}
