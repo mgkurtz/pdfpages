@@ -97,8 +97,10 @@
 %<*driver>
 \documentclass{ltxdoc}
 \usepackage{array}
-\usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{hypdoc}
+\hypersetup{colorlinks, linkcolor=blue, pdfstartview={Fit},
+  bookmarksopenlevel=1, bookmarksnumbered=false}
 \OnlyDescription
 \begin{document}
   \DocInput{pdfpages.dtx}
@@ -143,7 +145,6 @@
 %       or \PS\ documents. It supports \pdfTeX, \VTeX, and \XeTeX.
 %    \end{abstract}
 %
-%    \pdfbookmark[1]{\contentsname}{toc}
 %    \tableofcontents
 %
 %
@@ -1139,7 +1140,8 @@
 \newcommand*{\AM@signature}{}
 \newcommand*{\AM@ARBug@hook}{}
 \newcommand*{\AM@xrprefix}{}
-\newcommand*{\AM@picturecommand}{}\newcommand*{\AM@picturecommandstar}{}
+\newcommand*{\AM@picturecommand}{}
+\newcommand*{\AM@picturecommandstar}{}
 \newsavebox{\AM@pagebox}
 %    \end{macrocode}
 %    \macro{\AM@setlscape}
