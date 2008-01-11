@@ -74,7 +74,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4163}
+%    \CheckSum{4178}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3418,20 +3418,9 @@
 \ifnum\XeTeXversion=0
   \edef\temp{\expandafter\@gobble\XeTeXrevision}
   \ifnum\temp<997
-     \PackageWarningNoLine{pdfpages}{^^J%
-       ************************************************************^^J%
-       *** To determine the number of pages of a PDF document you^^J%
-       *** must be running XeTeX-0.997 at least.^^J%
-       *** This is only XeTeX-\the\XeTeXversion\XeTeXrevision, which
-       does not have such a^^J%
-       *** feature. Please update your XeTeX!^^J%
-       ***^^J%
-       *** For the time being do not expect me to determine the^^J%
-       *** number of pages myself.^^J%
-       ************************************************************^^J}
-     \gdef\AM@getpagecount{%
-       \edef\AM@pagecount{999}%
-     }
+    \PackageError{pdfpages}
+    {Package pdfpages requires at least XeTeX-0.997}
+    {Update your TeX distribution!}
   \fi
 \fi
 \endgroup
