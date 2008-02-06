@@ -25,7 +25,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4b-beta6}
+\def\AM@fileversion{v0.4b-beta7}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -74,7 +74,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4178}
+%    \CheckSum{4219}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1186,17 +1186,17 @@
 %    \begin{macrocode}
 \newcommand*{\AM@findfile@i}[2]{%
   \let\AM@currentdocname\relax
-  \IfFileExists{#1.#2}{\edef\AM@currentdocname{#1.#2}}{%
-     \IfFileExists{#1}{\edef\AM@currentdocname{#1}}{%
+  \AM@IfFileExists{#1.#2}{\edef\AM@currentdocname{#1.#2}}{%
+     \AM@IfFileExists{#1}{\edef\AM@currentdocname{#1}}{%
        \ifx\Ginput@path\@undefined\else
          \expandafter\@tfor\expandafter\AM@dir\expandafter
                    :\expandafter=\Ginput@path\do{%
-           \IfFileExists{\AM@dir#1.#2}{%
+           \AM@IfFileExists{\AM@dir#1.#2}{%
              \ifx\AM@currentdocname\relax
                \edef\AM@currentdocname{\AM@dir#1.#2}%
              \fi
            }{%
-             \IfFileExists{\AM@dir#1}{%
+             \AM@IfFileExists{\AM@dir#1}{%
                \ifx\AM@currentdocname\relax
                  \edef\AM@currentdocname{\AM@dir#1}%
                \fi
@@ -3152,6 +3152,11 @@
   \AM@findfile@i{#1}{pdf}%
   \AM@findfile@ii{#1}%
 }
+\AtBeginDocument{%
+\@ifpackageloaded{grffile}{%
+  \let\AM@IfFileExists\grffile@IfFileExists}{%
+  \let\AM@IfFileExists\IfFileExists}%
+}
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
@@ -3346,6 +3351,7 @@
   \fi
   \AM@findfile@ii{#1}%
 }
+\let\AM@IfFileExists\IfFileExists
 %    \end{macrocode}
 %    Link to original document.
 %    \begin{macrocode}
@@ -3454,6 +3460,20 @@
   \AM@findfile@i{#1}{pdf}%
   \AM@findfile@ii{#1}%
 }
+\long\def\AM@IfFileExists#1#2#3{%
+  \openin\@inputcheck="#1"\relax
+  \ifeof\@inputcheck
+    \ifx\input@path\@undefined
+      \def\reserved@a{#3}%
+    \else
+      \def\reserved@a{\@iffileonpath{#1}{#2}{#3}}%
+    \fi
+  \else
+    \closein\@inputcheck
+    \edef\@filef@und{#1 }%
+    \def\reserved@a{#2}%
+  \fi
+  \reserved@a}
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
@@ -3594,6 +3614,7 @@
 \def\AM@findfile#1{%
   \def\AM@currentdocname{#1}%
 }
+\let\AM@IfFileExists\IfFileExists
 %    \end{macrocode}
 %    Get last page number.
 %    \begin{macrocode}
