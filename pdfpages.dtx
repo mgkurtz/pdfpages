@@ -25,7 +25,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4b-beta7}
+\def\AM@fileversion{v0.4b-beta8}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -74,7 +74,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4219}
+%    \CheckSum{4225}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3429,6 +3429,8 @@
     \PackageError{pdfpages}
     {Package pdfpages requires at least XeTeX-0.997}
     {Update your TeX distribution!}
+    \global\let\AM@endinput\relax
+    \aftergroup\endinput
   \fi
 \fi
 \endgroup
