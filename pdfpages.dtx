@@ -26,7 +26,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4b-beta8}
+\def\AM@fileversion{v0.4b-beta9}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -2349,7 +2349,8 @@
 \newcommand{\AM@split@optionsii}{}
 \def\AM@split@optionsii#1=#2\END{%
   \edef\AM@temp{\AM@trim@space{#1}}%
-  \ifthenelse{\equal{pages}{\AM@temp}\or
+  \ifthenelse{\equal{page}{\AM@temp}\or
+              \equal{pages}{\AM@temp}\or
               \equal{nup}{\AM@temp}\or
               \equal{deltax}{\AM@temp}\or
               \equal{deltay}{\AM@temp}\or
@@ -2906,6 +2907,12 @@
 %    \end{macrocode}
 %    \subsection{Options of \texttt{\protect\bslash includepdf}}
 %    \begin{macrocode}
+\define@key{pdfpages}{page}{\PackageWarningNoLine{pdfpages}{%
+    Option `page' is unknow to \string\includepdf.\MessageBreak
+    Did you mean `pages'? (Note the `s'!)\MessageBreak
+    OK, I'll proceed as if it were `pages'}%
+  \AM@CheckValue{pages}{#1}%
+  \def\AM@pagestemp{#1}}
 \define@key{pdfpages}{pages}{\AM@CheckValue{pages}{#1}%
                              \def\AM@pagestemp{#1}}
 \define@key{pdfpages}{nup}{\AM@parse@nup#1x\END}
