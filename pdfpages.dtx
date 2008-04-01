@@ -1054,16 +1054,10 @@
 %    happens if the driver was given as a package option or if
 %    the driver was identified in the configuration files |pdfpages.cfg|
 %
-%    Note: 
-%    If \texttt{graphics.sty} is loaded before this package,
-%    \texttt{pdfoutput} may be undefined, even if \pdfLaTeX\
-%    is used, because some \texttt{graphic.cfg} undefine
-%    \texttt{pdfoutput} (\verb|\let\pdfoutput\@undefined|),
-%    if the document contains the line \verb|\pdfoutput=0|.
 %    \begin{macrocode}
 \@ifundefined{AM@driver}{
   \begingroup
-  \@ifundefined{pdfoutput}{%
+  \@ifundefined{pdftexversion}{%
     \@ifundefined{XeTeXversion}{%
       \@ifundefined{OpMode}{%
         \def\AM@driver{null}
@@ -3424,10 +3418,18 @@
   \aftergroup\endinput}{}
 \endgroup
 %    \end{macrocode}
+%    Packages like ngerman.sty make " with catcode 11 active. So let's
+%    use " with catcode 12 to delimit arguments.
+%    \begin{macrocode}
+{\catcode`\"=12
+ \gdef\AM@XeTeXquote{"}%
+}
+%    \end{macrocode}
 %    Get last page number.
 %    \begin{macrocode}
 \def\AM@getpagecount{%
-  \edef\AM@pagecount{\the\XeTeXpdfpagecount "\AM@currentdocname"\relax}%
+  \edef\AM@pagecount{\the\XeTeXpdfpagecount\AM@XeTeXquote
+    \AM@currentdocname\AM@XeTeXquote\relax}%
 }
 %    \end{macrocode}
 %    \begin{macrocode}
@@ -3472,7 +3474,7 @@
   \AM@findfile@ii{#1}%
 }
 \long\def\AM@IfFileExists#1#2#3{%
-  \openin\@inputcheck="#1"\relax
+  \openin\@inputcheck=\AM@XeTeXquote#1\AM@XeTeXquote\relax
   \ifeof\@inputcheck
     \ifx\input@path\@undefined
       \def\reserved@a{#3}%
