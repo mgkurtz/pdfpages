@@ -7,7 +7,7 @@ This are tests of pdfpages.sty
 
 *) dvi-mode		latex test (dvi mode)
 
-*) pst-pdf-example	pst-pdf test
+*) ps-tricks            pst-pdf test
 
 *) slides.tex		test `survey' option:
    			1) compile with `draft' option
