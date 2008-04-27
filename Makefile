@@ -46,8 +46,8 @@ release: distclean svn-update ins
 	find $(DIST-DIR) -type d -exec chmod 755 {} \;
 	find $(DIST-DIR) -type f -exec chmod 644 {} \;
 
-	cd $(DIST-DIR); zip -r pdfpages-tds.zip tex doc source
-	cd $(DIST-DIR); chmod 644 pdfpages-tds.zip
+	cd $(DIST-DIR); zip -r pdfpages.tds.zip tex doc source
+	cd $(DIST-DIR); chmod 644 pdfpages.tds.zip
 	cd $(DIST-DIR); rm -r tex doc source
 
 	tar cjfh $(DIST-DIR).tar.bz2 $(DIST-DIR)

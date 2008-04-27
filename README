@@ -20,7 +20,7 @@ zip file form
 
 and to unzip this file into your TeX-tree, e.g.:
 
-   unzip -d /usr/local/TL2008/texmf-local/  pdfpages-tds.zip
+   unzip -d /usr/local/TL2008/texmf-local/  pdfpages.tds.zip
 
 That's all you have to do.
 
