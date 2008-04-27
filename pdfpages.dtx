@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4c}
+\def\AM@fileversion{v0.4d}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -76,7 +76,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4225}
+%    \CheckSum{4250}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3433,11 +3433,15 @@
     \AM@currentdocname\AM@XeTeXquote\relax}%
 }
 %    \end{macrocode}
+%    |\XeTeXversion| has changed from time to time: 0.997, 0.997-dev,
+%    0.998.1
 %    \begin{macrocode}
 \begingroup
+\def\gobble@nil#1\@nil{}
 \ifnum\XeTeXversion=0
-  \edef\temp{\expandafter\@gobble\XeTeXrevision}
-  \ifnum\temp<997
+  \afterassignment\gobble@nil
+  \count@\expandafter\@gobble\XeTeXrevision.\@nil
+  \ifnum\count@<997
     \PackageError{pdfpages}
     {Package pdfpages requires at least XeTeX-0.997}
     {Update your TeX distribution!}
@@ -3802,6 +3806,10 @@
 %    \item Support of \XeTeX.
 %    \end{itemize}
 %
+%    \subsection*{2008/04/27 v0.4d}
+%    \begin{itemize}
+%    \item A more robust check of |\XeTeXversion|.
+%    \end{itemize}
 %
 %    \Finale
 %
