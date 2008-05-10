@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4d}
+\def\AM@fileversion{v0.4e}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -76,7 +76,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4250}
+%    \CheckSum{4268}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -2408,9 +2408,26 @@
 \def\AM@trim@spaceii#1 #2\END{#1}
 %    \end{macrocode}
 %    \macro{\AM@trim@leadingspace}
-%    Just removes leading space.
+%    Removes leading space.
 %    \begin{macrocode}
-\def\AM@trim@leadingspace#1{\ifdim\z@=0pt#1\fi}
+\DeclareRobustCommand{\AM@trim@leadingspace}[1]{%
+  \AM@@trim@leadingspace#1 \END{#1}%
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\def\AM@@trim@leadingspace#1 #2\END#3{%
+  \begingroup
+    \def\x{#1}%
+  \expandafter\endgroup
+  \ifx\x\@empty
+    \AM@remove@leadingspace#3\END
+  \else
+    #3%
+  \fi
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\@firstofone{\def\AM@remove@leadingspace} #1\END{#1}
 %    \end{macrocode}
 %    \macro{\AM@isphantom}
 %    Checks, if current page is an empty (phantom) page.
@@ -2753,7 +2770,7 @@
 %    \begin{macrocode}
 \newcommand{\AM@addtolist@hook}{\relax}
 \newcommand{\AM@addtolist}{}
-\def\AM@addtolist{
+\def\AM@addtolist{%
   \def\@captype{\AM@lof@list}%
   \long\def\@makecaption##1##2{}%
   \let\@fs@capt\relax% float.sty
@@ -2780,7 +2797,7 @@
 \def\AM@parse@loflisti#1,#2,#3,#4,#5\END{%
   \def\AM@lof@page{\AM@trim@space{#1}}%
   \def\AM@lof@list{\AM@trim@space{#2}}%
-  \edef\AM@lof@heading{\AM@trim@leadingspace{#3}}%
+  \def\AM@lof@heading{\AM@trim@leadingspace{#3}}%
   \def\AM@lof@label{\AM@trim@space{#4}}%
   \AM@checkinteger{\AM@lof@page}%
   \ifAM@integer\else 
@@ -3809,6 +3826,12 @@
 %    \subsection*{2008/04/27 v0.4d}
 %    \begin{itemize}
 %    \item A more robust check of |\XeTeXversion|.
+%    \end{itemize}
+%
+%    \subsection*{2008/05/11 v0.4e}
+%    \begin{itemize}
+%    \item Make |\AM@trim@leadinspace| robust to allow macros
+%      in the caption-argument of |addtolist|.
 %    \end{itemize}
 %
 %    \Finale
