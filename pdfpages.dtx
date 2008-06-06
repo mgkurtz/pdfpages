@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4e}
+\def\AM@fileversion{v0.4f-beta1}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -1448,9 +1448,9 @@
 %    \begin{macrocode}
     \ifthenelse{\boolean{AM@fitpaper}}
       {\setlength{\AM@pagewidth}{\the\wd\@tempboxa}%
-       \setlength{\AM@pageheight}{\the\ht\@tempboxa}%
+       \setlength{\AM@pageheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
        \setlength{\paperwidth}{\the\wd\@tempboxa}%
-       \setlength{\paperheight}{\the\ht\@tempboxa}%
+       \setlength{\paperheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
        \AM@fitpaper@special
        \AM@setpagedimen
        \@ifundefined{stockwidth}{}{%
@@ -3159,7 +3159,7 @@
 \let\AM@pageheight\pdfpageheight
 \def\AM@setpagedimen{%
   \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
-  \setlength{\pdfpageheight}{\the\ht\@tempboxa}%
+  \setlength{\pdfpageheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
 }
 \let\AM@pagesize@boogie\relax
 %    \end{macrocode}
@@ -3347,7 +3347,7 @@
 \let\AM@pageheight\mediaheight
 \def\AM@setpagedimen{%
   \setlength{\mediawidth}{\the\wd\@tempboxa}%
-  \setlength{\mediaheight}{\the\ht\@tempboxa}%
+  \setlength{\mediaheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
 }
 \let\AM@pagesize@boogie\relax
 %    \end{macrocode}
@@ -3474,7 +3474,7 @@
 \let\AM@pageheight\pdfpageheight
 \def\AM@setpagedimen{%
   \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
-  \setlength{\pdfpageheight}{\the\ht\@tempboxa}%
+  \setlength{\pdfpageheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
 }
 \def\AM@pagesize@boogie{%
   \ifdim\AM@pagewidth=\z@
@@ -3669,7 +3669,7 @@
 \let\AM@pageheight\paperheight
 \def\AM@setpagedimen{%
   \setlength{\paperwidth}{\the\wd\@tempboxa}%
-  \setlength{\paperheight}{\the\ht\@tempboxa}%
+  \setlength{\paperheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
 }
 \let\AM@pagesize@boogie\relax
 %    \end{macrocode}
@@ -3832,6 +3832,13 @@
 %    \begin{itemize}
 %    \item Make |\AM@trim@leadinspace| robust to allow macros
 %      in the caption-argument of |addtolist|.
+%    \end{itemize}
+%
+%    \subsection*{2008/06/05 v0.4f}
+%    \begin{itemize}
+%    \item If |fitpaper| is used together with |angle| the resulting
+%      |\@tempboxa| might have a depth unequal to zero. Taking this
+%      into consideration when calculation page dimensions.
 %    \end{itemize}
 %
 %    \Finale
