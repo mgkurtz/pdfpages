@@ -555,8 +555,8 @@
 %                       \item[\meta{section}:] \LaTeX\ sectioning name
 %                          -- e.g., section, subsection, \ldots
 %                       \item[\meta{level}:] Number, denoting depth of
-%                          section -- e.g., section=1, subsection=2,
-%                          \ldots
+%                          section -- e.g., 1 for section level, 2 for 
+%                          subsection level, \ldots
 %                       \item[\meta{heading}:] Title inserted in the 
 %                          table of contents.
 %                       \item[\meta{label}:] Name of the label. This label
@@ -3409,6 +3409,7 @@
 %    Convert synatx of \PDF\ destinations.
 %    \begin{macrocode}
 \def\AM@convert@dest#1{}
+\def\AM@region@calc{}
 %    \end{macrocode}
 %    Do not disable |\includegraphics|.
 %    \begin{macrocode}
