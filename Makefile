@@ -5,8 +5,9 @@ DIST-FILES=pdfpages.ins pdfpages.dtx README dummy.pdf dummy-l.pdf
 CTAN-DOC-FILES=pdfpages.pdf
 
 TDS-STY-FILES=pdfpages.sty pppdftex.def ppvtex.def ppxetex.def ppnull.def
-TDS-DOC-FILES=pdfpages.pdf pdf-ex.tex pdf-hyp.tex pdf-toc.tex
-TDS-SRC-FILES=pdfpages.dtx pdfpages.ins README dummy.pdf dummy-l.pdf
+TDS-DOC-FILES=pdfpages.pdf pdf-ex.tex pdf-hyp.tex pdf-toc.tex \
+	 dummy.pdf dummy-l.pdf
+TDS-SRC-FILES=pdfpages.dtx pdfpages.ins README
 
 TDS-STY-DIR=tex/latex/pdfpages
 TDS-DOC-DIR=doc/latex/pdfpages
