@@ -2732,7 +2732,7 @@
   \def\AM@toc@page{\AM@trim@space{#1}}%
   \def\AM@toc@section{\AM@trim@space{#2}}%
   \def\AM@toc@level{\AM@trim@space{#3}}%
-  \AM@toc@title\expandafter{\ifdim\z@=0pt#4}\fi
+  \AM@toc@title\expandafter{\AM@trim@leadingspace{#4}}
   \def\AM@toc@label{\AM@trim@space{#5}}%
   \AM@checkinteger{\AM@toc@page}%
   \ifAM@integer\else
