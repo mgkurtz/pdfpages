@@ -2,6 +2,7 @@ This are tests of pdfpages.sty
 
 *) fulltest.tex		some basic test
    fullpost.tex         VTeX: include PostScript (vlatex and vlatexp)
+   fulleps.tex          including EPS files
 
 *) mixed.tex		inclusion of mixed portait/landscape PDFs
 

@@ -1,7 +1,7 @@
 %
 %    \iffalse
 %
-%<*(package,pppdftexdef,ppvtexdef,ppnulldef)>
+%<*(package,pppdftexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppnulldef)>
 %% Copyright (C) 2001-2006 Andreas MATTHIAS
 %%
 %% This work may be distributed and/or modified under the conditions
@@ -15,7 +15,7 @@
 %% The Current Maintainer of this work is
 %%   Andreas Matthias <andreas.matthias@gmail.com>.
 %
-%</(package,pppdftexdef,ppvtexdef,ppnulldef)>
+%</(package,pppdftexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppnulldef)>
 %<*!installer>
 %%
 %% Please send error reports and suggestions for improvements to
@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4g}
+\def\AM@fileversion{v0.4h}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -42,6 +42,7 @@
 %<pppdftexdef>\ProvidesFile{pppdftex.def}
 %<ppvtexdef>\ProvidesFile{ppvtex.def}
 %<ppxetexdef>\ProvidesFile{ppxetex.def}
+%<ppdvipsdef>\ProvidesFile{ppdvips.def}
 %<ppnulldef>\ProvidesFile{ppnull.def}
 %<driver>\ProvidesFile{pdfpages.drv}
 %<*!(example1,example2,example3,installer)>
@@ -69,6 +70,7 @@
 %<pppdftexdef>    Pdfpages driver for pdfTeX (AM)]
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
 %<ppxetexdef>    Pdfpages driver for XeTeX (AM)]
+%<ppdvipsdef>    Pdfpages driver for dvips (AM)]
 %<ppnulldef>    Pdfpages dummy driver (AM)]
 %
 %
@@ -76,7 +78,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4268}
+%    \CheckSum{4423}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -122,6 +124,7 @@
 %    \def\pdfLaTeX{pdfLaTeX}
 %    \def\VTeX{VTeX}
 %    \def\XeTeX{XeTeX}
+%    \def\dvips{dvips}
 %    \def\PDF{{\small PDF}}
 %    \def\PS{{\small PS}}
 %    \def\DVI{{\small DVI}}
@@ -1044,6 +1047,7 @@
 \DeclareOption{vtex}{\def\AM@driver{vtex}}
 \DeclareOption{null}{\def\AM@driver{null}}
 \DeclareOption{xetex}{\def\AM@driver{xetex}}
+\DeclareOption{dvips}{\def\AM@driver{dvips}}
 %    \end{macrocode}
 %    \begin{macrocode}
 \ProcessOptions  
@@ -3446,9 +3450,25 @@
 %    \end{macrocode}
 %    Get last page number.
 %    \begin{macrocode}
+%    \def\AM@getpagecount{%
+%      \edef\AM@pagecount{\the\XeTeXpdfpagecount\AM@XeTeXquote
+%        \AM@currentdocname\AM@XeTeXquote\relax}%
+%    }
+
+%    \end{macrocode}
+%    Get last page number. |\XeTeXpdfpagecount| is only defined
+%    for |pdf| files. For all other file types |\AM@pagecount|
+%    must be set to |1| explicitely.
+%    \begin{macrocode}
 \def\AM@getpagecount{%
-  \edef\AM@pagecount{\the\XeTeXpdfpagecount\AM@XeTeXquote
-    \AM@currentdocname\AM@XeTeXquote\relax}%
+  \expandafter\filename@parse\expandafter{\AM@currentdocname}%
+  \lowercase{\edef\type@ext{.\filename@ext}}%
+  \ifx\type@ext\G@pdf@ext
+    \edef\AM@pagecount{\the\XeTeXpdfpagecount\AM@XeTeXquote
+      \AM@currentdocname\AM@XeTeXquote\relax}%
+  \else
+    \def\AM@pagecount{1}%
+  \fi
 }
 %    \end{macrocode}
 %    |\XeTeXversion| has changed from time to time: 0.997, 0.997-dev,
@@ -3631,6 +3651,121 @@
 %    \iffalse
 %</ppxetexdef>
 %
+%<*ppdvipsdef>
+%    \fi
+%
+%    \subsubsection{Dvips driver}
+%
+%    Get last page number.
+%    \begin{macrocode}
+\def\AM@getpagecount{%
+  \ifx\AM@pagecount\AM@undefined
+    \PackageInfo{pdfpages}{%
+      Page selection is not supported with driver dvips%
+    }%
+    \def\AM@pagecount{1}%  
+    \gdef\AM@getpagecount{%
+      \def\AM@pagecount{1}%
+    }%
+  \fi
+}
+%    \end{macrocode}
+%    Page dimensions.
+%    \begin{macrocode}
+\let\AM@pagewidth\paperwidth  
+\let\AM@pageheight\paperheight
+\def\AM@setpagedimen{%
+  \setlength{\paperwidth}{\the\wd\@tempboxa}% 
+  \setlength{\paperheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
+}
+\let\AM@pagesize@boogie\relax 
+%    \end{macrocode}
+%    Rotate page.
+%    \begin{macrocode}
+%    \def\AM@setlscape{\special{pS:
+%        [{ThisPage}\string<\string</Rotate 90\string>\string>%]
+%        /PUT pdfmark}%
+%    }
+\let\AM@setlscape\relax
+%    \end{macrocode}
+%    Change paper size.
+%    \begin{macrocode}
+\let\AM@fitpaper@special\relax
+%    \end{macrocode}
+%    Find file.
+%    \begin{macrocode}
+\def\AM@findfile#1{%
+  \AM@findfile@i{#1}{eps}%
+  \ifx\AM@currentdocname\relax
+    \AM@findfile@i{#1}{ps}%
+  \fi
+  \AM@findfile@ii{#1}%
+}
+\let\AM@IfFileExists\IfFileExists
+%    \end{macrocode}
+%    Link to original document.
+%    \begin{macrocode}
+%    \def\AM@linktodoc@special@begin{%
+%      \special{!aref <\ifAM@newwindow n\fi
+%               f=\AM@linkfilename>!\AM@linktodoc@page;
+%               a=</Border [0 0 0]>}%
+%    }
+%    \def\AM@linktodoc@special@end{%
+%      \special{!endaref}%
+%    }
+\let\AM@linktodoc@special@begin\relax
+\let\AM@linktodoc@special@end\relax  
+%    \end{macrocode}
+%    Survey.
+%    \begin{macrocode}
+%    \def\AM@survey@special@begin{%
+%      \special{!aref pdfpages.\AM@linktodoc@page@m@ne; a=</Border [0 0 0]>}%
+%    }
+%    \def\AM@survey@special@end{%
+%      \special{!endaref}%
+%    }
+\let\AM@survey@special@begin\relax   
+\let\AM@survey@special@end\relax  
+%    \end{macrocode}
+%    Thread.
+%    \begin{macrocode}
+%    \def\AM@thread@special@begin{%
+%      \special{!thread <\threadinfodict> \AM@threadname}%
+%    }
+%    \def\AM@thread@special@end{\special{!endthread}}
+\let\AM@thread@special@begin\relax
+\let\AM@thread@special@end\relax
+%    \end{macrocode}
+%    Destination of links.
+%    \begin{macrocode}
+%    \def\AM@dest@special{\special{!aname \AM@linkname.\AM@page}}
+%    \def\AM@anchor@special{\special{!aname pdfpages.\the\count1}}
+\let\AM@dest@special\relax  
+\let\AM@anchor@special\relax
+%    \end{macrocode}
+%    Convert synatx of \PDF\ destinations.
+%    \begin{macrocode}
+\def\AM@convert@dest#1{}
+\def\AM@region@calc{}
+%    \end{macrocode}
+%    Do not disable |\includegraphics|.
+%    \begin{macrocode}
+\let\AM@disable@includegraphics\relax
+%    \end{macrocode}
+%    Add option page for |\includegraphics|:
+%    \begin{macrocode}
+\define@key{Gin}{page}{%
+  \ifnum#1=1 %
+  \else
+    \PackageError{pdfpages}{%
+      Multipage images are not supported by driver dvips%
+    }\@ehc
+  \fi
+}
+%    \end{macrocode}
+%    \iffalse
+%</ppdvipsdef>
+%
 %<*ppnulldef>
 %    \fi
 %
@@ -3730,6 +3865,7 @@
 %</ppnulldef>
 %    \fi
 %
+%    \Finale
 %
 %    \section{History}
 %
@@ -3844,9 +3980,13 @@
 %
 %    \subsection*{2008/10/17 v0.4g}
 %    \begin{itemize}
-%    \item Macro \AM@region@calc was missing in the VTeX driver.
+%    \item Macro |\AM@region@calc| was missing in the VTeX driver.
 %    \end{itemize}
-%    \Finale
+%
+%    \subsection*{2009/06/07 v0.4h}
+%    \begin{itemize}
+%    \item Added dvips driver provided by Heiko Oberdiek.
+%    \end{itemize}
 %
 %    \iffalse
 %<*example1>
@@ -4212,6 +4352,8 @@ This file demonstrates how to use the pdfpages package.
 \generate{\usepreamble\package
           \file{ppxetex.def}{\from{pdfpages.dtx}{ppxetexdef}}}
 \generate{\usepreamble\package
+          \file{ppdvips.def}{\from{pdfpages.dtx}{ppdvipsdef}}}
+\generate{\usepreamble\package
           \file{ppnull.def}{\from{pdfpages.dtx}{ppnulldef}}}
 
 %% \generate{\usepreamble\package
@@ -4225,7 +4367,7 @@ This file demonstrates how to use the pdfpages package.
           \file{pdf-toc.tex}{\from{pdfpages.dtx}{example3}}}
 
 
-\Msg{^^46^^75^^65^^72 ^^64^^69^^63^^68^^2c ^^41^^67^^6e^^65^^73^^21^^J}
+%\Msg{^^46^^75^^65^^72 ^^64^^69^^63^^68^^2c ^^41^^67^^6e^^65^^73^^21^^J}
 \Msg{**************************************************************}
 \Msg{*}
 \Msg{* To finish the installation you have to move the following}
@@ -4235,6 +4377,7 @@ This file demonstrates how to use the pdfpages package.
 \Msg{*  \space\space pppdftex.def}
 \Msg{*  \space\space ppvtex.def}
 \Msg{*  \space\space ppxetex.def}
+\Msg{*  \space\space ppdvips.def}
 \Msg{*  \space\space ppnull.def}
 \Msg{*}
 \Msg{* To produce the documentation, run the following}
