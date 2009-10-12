@@ -1,0 +1,11 @@
+\documentclass[a4paper]{article}
+\usepackage[dvips]{pdfpages}
+
+\begin{document}
+
+\includepdf{dum/hog.eps}
+\includepdf{dum/foo.eps}
+
+\includepdfmerge[nup=1x2]{dum/hog.eps,dum/foo.eps}
+
+\end{document}
