@@ -1,7 +1,7 @@
 %
 %    \iffalse
 %
-%<*(package,pppdftexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppnulldef)>
+%<*(package,pppdftexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfm,ppnulldef)>
 %% Copyright (C) 2001-2006 Andreas MATTHIAS
 %%
 %% This work may be distributed and/or modified under the conditions
@@ -15,7 +15,7 @@
 %% The Current Maintainer of this work is
 %%   Andreas Matthias <andreas.matthias@gmail.com>.
 %
-%</(package,pppdftexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppnulldef)>
+%</(package,pppdftexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfm,ppnulldef)>
 %<*!installer>
 %%
 %% Please send error reports and suggestions for improvements to
@@ -43,6 +43,7 @@
 %<ppvtexdef>\ProvidesFile{ppvtex.def}
 %<ppxetexdef>\ProvidesFile{ppxetex.def}
 %<ppdvipsdef>\ProvidesFile{ppdvips.def}
+%<ppdvipdfmdef>\ProvidesFile{ppdvipdfm.def}
 %<ppnulldef>\ProvidesFile{ppnull.def}
 %<driver>\ProvidesFile{pdfpages.drv}
 %<*!(example1,example2,example3,installer)>
@@ -71,6 +72,7 @@
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
 %<ppxetexdef>    Pdfpages driver for XeTeX (AM)]
 %<ppdvipsdef>    Pdfpages driver for dvips (AM)]
+%<ppdvipdfmdef>    Pdfpages driver for dvipdfm (AM)]
 %<ppnulldef>    Pdfpages dummy driver (AM)]
 %
 %
@@ -125,6 +127,7 @@
 %    \def\VTeX{VTeX}
 %    \def\XeTeX{XeTeX}
 %    \def\dvips{dvips}
+%    \def\dvipdfm{dvipdfm}
 %    \def\PDF{{\small PDF}}
 %    \def\PS{{\small PS}}
 %    \def\DVI{{\small DVI}}
@@ -1043,11 +1046,13 @@
 %    \end{macrocode}
 %    These options overrule the automatic detection of the \TeX-engine.
 %    \begin{macrocode}
-\DeclareOption{pdftex}{\def\AM@driver{pdftex}}
-\DeclareOption{vtex}{\def\AM@driver{vtex}}
+\def\AM@graphics@driver{}
+\DeclareOption{pdftex}{\def\AM@driver{pdftex}\let\AM@graphics@driver\AM@driver}
+\DeclareOption{vtex}{\def\AM@driver{vtex}\let\AM@graphics@driver\AM@driver}
 \DeclareOption{null}{\def\AM@driver{null}}
-\DeclareOption{xetex}{\def\AM@driver{xetex}}
-\DeclareOption{dvips}{\def\AM@driver{dvips}}
+\DeclareOption{xetex}{\def\AM@driver{xetex}\let\AM@graphics@driver\AM@driver}
+\DeclareOption{dvips}{\def\AM@driver{dvips}\let\AM@graphics@driver\AM@driver}
+\DeclareOption{dvipdfm}{\def\AM@driver{dvipdfm}\let\AM@graphics@driver\AM@driver}
 %    \end{macrocode}
 %    \begin{macrocode}
 \ProcessOptions  
@@ -1075,7 +1080,8 @@
 %    \subsection{Required Packages and Version Checking}
 %
 %    \begin{macrocode}
-\RequirePackage{ifthen, graphicx, calc, eso-pic}
+\RequirePackage{ifthen, calc, eso-pic}
+\RequirePackage[\AM@graphics@driver]{graphicx}
 \newif\ifAM@DVIoutput\AM@DVIoutputfalse
 \input{pp\AM@driver.def}
 \ifx\AM@endinput\relax\expandafter\endinput\fi
@@ -1962,7 +1968,7 @@
     \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}{%
     }{%
       \PackageError{pdfpages}
-        {page number #1 of `\AM@currentdocname' does not exist}
+        {page #1 of `\AM@currentdocname' does not exist}
         {You have set a wrong page number in the `pages' option.
          Document \MessageBreak `\AM@currentdocname' does not
          have #1 pages.}%
@@ -3656,13 +3662,16 @@
 %
 %    \subsubsection{Dvips driver}
 %
+%    \begin{macrocode}
+\def\AM@notsupported#1{%
+  \PackageWarning{pdfpages}{#1 not supported by driver dvips}}
+%    \end{macrocode}
+%
 %    Get last page number.
 %    \begin{macrocode}
 \def\AM@getpagecount{%
   \ifx\AM@pagecount\AM@undefined
-    \PackageInfo{pdfpages}{%
-      Page selection is not supported with driver dvips%
-    }%
+    \AM@notsupported{Page selections}
     \def\AM@pagecount{1}%  
     \gdef\AM@getpagecount{%
       \def\AM@pagecount{1}%
@@ -3682,15 +3691,11 @@
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
-%    \def\AM@setlscape{\special{pS:
-%        [{ThisPage}\string<\string</Rotate 90\string>\string>%]
-%        /PUT pdfmark}%
-%    }
-\let\AM@setlscape\relax
+\def\AM@setlscape{\AM@notsupported{Page rotations}}
 %    \end{macrocode}
 %    Change paper size.
 %    \begin{macrocode}
-\let\AM@fitpaper@special\relax
+\def\AM@fitpaper@special{\AM@notsupported{Option fitpaper}}
 %    \end{macrocode}
 %    Find file.
 %    \begin{macrocode}
@@ -3705,43 +3710,23 @@
 %    \end{macrocode}
 %    Link to original document.
 %    \begin{macrocode}
-%    \def\AM@linktodoc@special@begin{%
-%      \special{!aref <\ifAM@newwindow n\fi
-%               f=\AM@linkfilename>!\AM@linktodoc@page;
-%               a=</Border [0 0 0]>}%
-%    }
-%    \def\AM@linktodoc@special@end{%
-%      \special{!endaref}%
-%    }
-\let\AM@linktodoc@special@begin\relax
+\def\AM@linktodoc@special@begin{Links}
 \let\AM@linktodoc@special@end\relax  
 %    \end{macrocode}
 %    Survey.
 %    \begin{macrocode}
-%    \def\AM@survey@special@begin{%
-%      \special{!aref pdfpages.\AM@linktodoc@page@m@ne; a=</Border [0 0 0]>}%
-%    }
-%    \def\AM@survey@special@end{%
-%      \special{!endaref}%
-%    }
-\let\AM@survey@special@begin\relax   
+\def\AM@survey@special@begin{\AM@notsupported{Option survey}}
 \let\AM@survey@special@end\relax  
 %    \end{macrocode}
 %    Thread.
 %    \begin{macrocode}
-%    \def\AM@thread@special@begin{%
-%      \special{!thread <\threadinfodict> \AM@threadname}%
-%    }
-%    \def\AM@thread@special@end{\special{!endthread}}
-\let\AM@thread@special@begin\relax
+\def\AM@thread@special@begin{\AM@notsupported{Option thread}}
 \let\AM@thread@special@end\relax
 %    \end{macrocode}
 %    Destination of links.
 %    \begin{macrocode}
-%    \def\AM@dest@special{\special{!aname \AM@linkname.\AM@page}}
-%    \def\AM@anchor@special{\special{!aname pdfpages.\the\count1}}
-\let\AM@dest@special\relax  
-\let\AM@anchor@special\relax
+\def\AM@dest@special{\AM@notsupported{Links}}
+\def\AM@anchor@special{\AM@notsupported{Links}}
 %    \end{macrocode}
 %    Convert synatx of \PDF\ destinations.
 %    \begin{macrocode}
@@ -3752,19 +3737,185 @@
 %    \begin{macrocode}
 \let\AM@disable@includegraphics\relax
 %    \end{macrocode}
-%    Add option page for |\includegraphics|:
+%    Add option page to \includegraphics.
 %    \begin{macrocode}
-\define@key{Gin}{page}{%
-  \ifnum#1=1 %
-  \else
-    \PackageError{pdfpages}{%
-      Multipage images are not supported by driver dvips%
-    }\@ehc
+\@ifundefined{KV@Gin@page}{%
+  \define@key{Gin}{page}{%
+    \ifnum#1=1 %
+    \else
+      \PackageError{pdfpages}{%
+        Multipage images are not supported by driver dvips%
+      }\@ehc
+    \fi
+  }}{}
+%
+%    \iffalse
+%</ppdvipsdef>
+%
+%<*ppdvipdfmdef>
+%    \fi
+%
+%    \subsubsection{Dvipdfm driver}
+%
+%    \begin{macrocode}
+\def\AM@notsupported#1{%
+  \PackageWarning{pdfpages}{#1 not supported by driver dvipdfm}}
+%    \end{macrocode}
+%
+%    Get last page number.
+%    \begin{macrocode}
+\def\AM@getpagecount{%
+  \ifx\AM@pagecount\AM@undefined
+    \AM@notsupported{Page selection}
+    \def\AM@pagecount{1}%  
+    \gdef\AM@getpagecount{%
+      \def\AM@pagecount{1}%
+    }%
   \fi
 }
 %    \end{macrocode}
+%    Page dimensions.
+%    \begin{macrocode}
+\let\AM@pagewidth\paperwidth  
+\let\AM@pageheight\paperheight
+\def\AM@setpagedimen{%
+  \setlength{\paperwidth}{\the\wd\@tempboxa}% 
+  \setlength{\paperheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
+}
+\let\AM@pagesize@boogie\relax 
+%    \end{macrocode}
+%    Rotate page.
+%    \begin{macrocode}
+\def\AM@setlscape{\AM@notsupported{Page rotation}}
+%    \end{macrocode}
+%    Change paper size.
+%    \begin{macrocode}
+\def\AM@fitpaper@special{\AM@notsupported{Option fitpaper}}
+%    \end{macrocode}
+%    Find file.
+%    \begin{macrocode}
+\def\AM@findfile#1{%
+  \AM@findfile@i{#1}{pdf}%
+  \AM@findfile@ii{#1}%
+}
+\let\AM@IfFileExists\IfFileExists
+%    \end{macrocode}
+%    Link to original document.
+%    \begin{macrocode}
+\def\AM@linktodoc@special@begin{%
+  \special{pdf: ann
+                width \the\wd\@tempboxa\space
+                height \the\ht\@tempboxa\space
+                depth \the\dp\@tempboxa\space
+                << /Type /Annot
+                   /Subtype /Link /Border [0 0 0]
+                   /A << /S /GoToR
+                         /F (\AM@linkfilename)
+                         /D [\AM@linktodoc@page@m@ne \AM@linktodocfit]
+                         \ifAM@newwindow/NewWindow true\fi >>
+                >>}%
+}
+\let\AM@linktodoc@special@end\relax
+%    \end{macrocode}
+%    Survey.
+%    \begin{macrocode}
+\let\AM@survey@special@begin\relax   
+\let\AM@survey@special@end\relax  
+%    \end{macrocode}
+%    Thread.
+%    \begin{macrocode}
+\def\AM@thread@special@begin{%
+  \special{pdf: thread @\AM@threadname\space
+                width \the\wd\@tempboxa\space
+                height \the\ht\@tempboxa\space
+                depth \the\dp\@tempboxa\space
+                <<\threadinfodict>>}%
+}
+\let\AM@thread@special@end\relax
+%    \end{macrocode}
+%    Destination of links.
+%    \begin{macrocode}
+\def\AM@view{/Fit}
+\def\AM@dest@special{%
+  \special{pdf: dest (\AM@linkname.\AM@page) [ @thispage \AM@view ]}}
+\def\AM@anchor@special{%
+  \special{pdf: dest (pdfpages.\the\count1) [ @thispage /Fit ]}}
+%    \end{macrocode}
+%    Convert synatx of \PDF\ destinations.
+%    \begin{macrocode}
+\def\AM@convert@dest#1{%
+  \expandafter\AM@convert@dest@i\ifdim\z@=0pt#1 \END\fi}
+\def\AM@convert@dest@i#1 #2\END{%
+  \begingroup
+  \def\tag{#1}%
+  \def\x{FitH}%
+  \ifx\x\tag
+    \gdef\AM@view{/FitH @ypos}%
+  \else
+    \def\x{FitBH}%
+    \ifx\x\tag
+      \gdef\AM@view{/FitBH @ypos}%
+    \else
+      \def\x{FitV}%
+      \ifx\x\tag
+        \gdef\AM@view{/FitV @xpos}%
+      \else
+        \def\x{FitBV}%
+        \ifx\x\tag
+          \gdef\AM@view{/FitBV @xpos}%
+        \else
+          \def\x{fitr}%
+          \ifx\x\tag
+            \gdef\AM@view{/XYZ @xpos @ypos null}%
+            \PackageWarningNoLine{pdfpages}{%
+              `linkfit=FitR' is not supported.}%
+          \else
+            \def\x{FitB}%
+            \ifx\x\tag
+              \gdef\AM@view{/FitB}%
+            \else
+              \def\x{XYZ}%
+              \ifx\x\tag
+                \gdef\AM@view{/XYZ @xpos @ypos null}%
+              \else
+                \def\x{Region}%
+                \ifx\x\tag
+                  \gdef\AM@view{/XYZ @xpos @ypos null}%
+                  \PackageWarningNoLine{pdfpages}{%
+                    `linkfit=Region' is not supported by dvipdfm.}%
+                \else
+                  \gdef\AM@view{/Fit}%
+                \fi
+              \fi
+            \fi
+          \fi
+        \fi
+      \fi
+    \fi
+  \fi
+  \endgroup
+}
+\def\AM@region@calc{}
+%    \end{macrocode}
+%    Do not disable |\includegraphics|.
+%    \begin{macrocode}
+\let\AM@disable@includegraphics\relax
+%    \end{macrocode}
+%    Add option page for \includegraphics.
+%    \begin{macrocode}
+\@ifundefined{KV@Gin@page}{%
+  \define@key{Gin}{page}{%
+    \ifnum#1=1 %
+    \else
+      \PackageError{pdfpages}{%
+        Multipage images are not supported by driver dvipdfm%
+      }\@ehc
+    \fi
+  }}{}
+%    \end{macrocode}
+%
 %    \iffalse
-%</ppdvipsdef>
+%</ppdvipdfmdef>
 %
 %<*ppnulldef>
 %    \fi
@@ -4353,6 +4504,8 @@ This file demonstrates how to use the pdfpages package.
           \file{ppxetex.def}{\from{pdfpages.dtx}{ppxetexdef}}}
 \generate{\usepreamble\package
           \file{ppdvips.def}{\from{pdfpages.dtx}{ppdvipsdef}}}
+\generate{\usepreamble\package
+          \file{ppdvipdfm.def}{\from{pdfpages.dtx}{ppdvipdfmdef}}}
 \generate{\usepreamble\package
           \file{ppnull.def}{\from{pdfpages.dtx}{ppnulldef}}}
 
