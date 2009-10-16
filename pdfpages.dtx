@@ -3456,11 +3456,12 @@
 %    \end{macrocode}
 %    Get last page number.
 %    \begin{macrocode}
+%    \def\AM@remove@relax#1\relax{#1}
 %    \def\AM@getpagecount{%
-%      \edef\AM@pagecount{\the\XeTeXpdfpagecount\AM@XeTeXquote
+%      \edef\AM@pagecount{\expandafter\AM@remove@relax
+%        \the\XeTeXpdfpagecount\AM@XeTeXquote
 %        \AM@currentdocname\AM@XeTeXquote\relax}%
 %    }
-
 %    \end{macrocode}
 %    Get last page number. |\XeTeXpdfpagecount| is only defined
 %    for |pdf| files. For all other file types |\AM@pagecount|
