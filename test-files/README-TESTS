@@ -1,10 +1,12 @@
 This are tests of pdfpages.sty
 
-*) fulltest.tex		some basic test
-   fullpost.tex         VTeX: include PostScript (vlatex and vlatexp)
-   fulleps.tex          including EPS files
+*) fulltest.tex		Some basic test
+   full-post.tex        VTeX: include PostScript (vlatex and vlatexp)
+   full-dvips           Driver dvips
+   full-dvipdfm         Driver dvipdfm
 
-*) mixed.tex		inclusion of mixed portait/landscape PDFs
+
+*) mixed.tex		Inclusion of mixed portait/landscape PDFs
 
 *) dvi-mode		latex test (dvi mode)
 
