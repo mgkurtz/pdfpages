@@ -80,7 +80,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4659}
+%    \CheckSum{4655}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3679,7 +3679,6 @@
 \def\AM@notsupported#1{%
   \PackageWarning{pdfpages}{#1 not supported by driver dvips}}
 %    \end{macrocode}
-%
 %    Get last page number.
 %    \begin{macrocode}
 \def\AM@getpagecount{%
@@ -3761,7 +3760,8 @@
       }\@ehc
     \fi
   }}{}
-%
+%    \end{macrocode}
+%    
 %    \iffalse
 %</ppdvipsdef>
 %
@@ -3774,7 +3774,6 @@
 \def\AM@notsupported#1{%
   \PackageWarning{pdfpages}{#1 not supported by driver dvipdfm}}
 %    \end{macrocode}
-%
 %    Get last page number.
 %    \begin{macrocode}
 \def\AM@getpagecount{%
