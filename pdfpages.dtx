@@ -80,7 +80,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4655}
+%    \CheckSum{4623}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -187,10 +187,9 @@
 %    not only links but all kinds of \emph{PDF annotations} will
 %    get lossed.} will get lossed during inclusion.
 %
-%    However, some links can be reinserted during inclusion by a
-%    package called \emph{pax} which can be downloaded from
-%    CTAN:
-%    \url{http://www.ctan.org/tex-archive/macros/latex/contrib/pax/}
+%    However, there's a gleam of hope. Some links may be extracted and later
+%    reinserted by a package called \emph{pax} which can be downloaded from
+%    CTAN \cite{pax}. Have a look at it!
 %    
 %  
 %    \section{Usage}
@@ -418,8 +417,7 @@
 %        \item[templatesize] This option is similar to the |pagetemplate|
 %                     option, but its arguments specify the size of
 %                     the template directly. Its syntax is:
-%                     |templatesize={|\meta{width}|}{|\meta{height}|}|, e.g.
-%                     |templatesize={615pt}{846pt}|.
+%                     |templatesize={|\meta{width}|}{|\meta{height}|}|
 %                     Note: The two lengths should be a bit larger than
 %                     desired, to keep away from rounding errors.\par
 %                     \df{templatesize=\meta{size of the first inserted page}}
@@ -1018,14 +1016,23 @@
 %
 %
 %    \StopEventually{
-%    \begin{thebibliography}{1}
+%    \begin{thebibliography}{9}
+%    
 %    \bibitem{pdftex}
 %      H\`an Th\^e\llap{\raise 0.5ex\hbox{\'{}}} Th\`anh,
 %      Sebastian Rahtz, Hans Hagen,
 %      \textit{The \pdfTeX\ user manual},
 %      \url{http://www.tug.org/applications/pdftex}
-%    \bibitem{PDFRef} \textit{PDF Reference}, Adobe Systems Incorporated,\\
+%      
+%    \bibitem{PDFRef}
+%      \textit{PDF Reference}, Adobe Systems Incorporated,\\
 %      \url{http://www.adobe.com/devnet/pdf/pdf_reference.html}
+%
+%    \bibitem{pax}
+%      Heiko Oberdiek,
+%      \textit{pax: Extract and reinsert PDF annotations with pdfTeX}
+%      \url{http://www.ctan.org/tex-archive/macros/latex/contrib/pax/}
+%      
 %    \end{thebibliography}
 %    }
 %
@@ -1059,12 +1066,17 @@
 %    These options overrule the automatic detection of the \TeX-engine.
 %    \begin{macrocode}
 \def\AM@graphics@driver{}
-\DeclareOption{pdftex}{\def\AM@driver{pdftex}\let\AM@graphics@driver\AM@driver}
-\DeclareOption{vtex}{\def\AM@driver{vtex}\let\AM@graphics@driver\AM@driver}
+\DeclareOption{pdftex}{%
+  \def\AM@driver{pdftex}\let\AM@graphics@driver\AM@driver}
+\DeclareOption{vtex}{%
+  \def\AM@driver{vtex}\let\AM@graphics@driver\AM@driver}
+\DeclareOption{xetex}{%
+  \def\AM@driver{xetex}\let\AM@graphics@driver\AM@driver}
+\DeclareOption{dvips}{%
+  \def\AM@driver{dvips}\let\AM@graphics@driver\AM@driver}
+\DeclareOption{dvipdfm}{%
+  \def\AM@driver{dvipdfm}\let\AM@graphics@driver\AM@driver}
 \DeclareOption{null}{\def\AM@driver{null}}
-\DeclareOption{xetex}{\def\AM@driver{xetex}\let\AM@graphics@driver\AM@driver}
-\DeclareOption{dvips}{\def\AM@driver{dvips}\let\AM@graphics@driver\AM@driver}
-\DeclareOption{dvipdfm}{\def\AM@driver{dvipdfm}\let\AM@graphics@driver\AM@driver}
 %    \end{macrocode}
 %    \begin{macrocode}
 \ProcessOptions  
@@ -1469,10 +1481,10 @@
 %    Adjust the paper size.
 %    \begin{macrocode}
     \ifthenelse{\boolean{AM@fitpaper}}
-      {\setlength{\AM@pagewidth}{\the\wd\@tempboxa}%
-       \setlength{\AM@pageheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
-       \setlength{\paperwidth}{\the\wd\@tempboxa}%
-       \setlength{\paperheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
+      {\setlength{\AM@pagewidth}{\wd\@tempboxa}%
+       \setlength{\AM@pageheight}{\ht\@tempboxa + \dp\@tempboxa}%
+       \setlength{\paperwidth}{\wd\@tempboxa}%
+       \setlength{\paperheight}{\ht\@tempboxa + \dp\@tempboxa}%
        \AM@fitpaper@special
        \AM@setpagedimen
        \@ifundefined{stockwidth}{}{%
@@ -1650,7 +1662,7 @@
                        page=\AM@page, scale=\AM@globalscale,
                        angle=\AM@lscape@rot]{\AM@docname}}%
     \edef\AM@localwd{\the\wd\@tempboxa}%
-    \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}%
+    \setlength{\@tempdima}{\ht\@tempboxa + \dp\@tempboxa}%
     \edef\AM@localht{\the\@tempdima}%
     \AM@rescalefalse
     \ifdim\AM@localwd=\AM@templatewidth \else \AM@rescaletrue \fi
@@ -1686,7 +1698,7 @@
                  angle=\AM@lscape@rot, angle=90]{\AM@docname}}%
           \let\@filelist\AM@filelist@save
           \edef\AM@localwd{\the\wd\@tempboxa}%
-          \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}%
+          \setlength{\@tempdima}{\ht\@tempboxa + \dp\@tempboxa}%
           \edef\AM@localht{\the\@tempdima}%
         \fi
         \setlength{\@tempdima}
@@ -1826,7 +1838,8 @@
           {\ifthenelse{\boolean{AM@landscape}}
              {\AM@setlscape}{}}
           {}%
-        \AM@AddToShipoutPicture{\begingroup\AM@picturecommand\endgroup}%
+        \AM@AddToShipoutPicture{%
+          \begingroup\AM@picturecommand\endgroup}%
         \ifAM@firstpage
           \AM@AddToShipoutPicture{%
             \begingroup\AM@picturecommandstar\endgroup}%
@@ -2754,7 +2767,7 @@
   \def\AM@toc@page{\AM@trim@space{#1}}%
   \def\AM@toc@section{\AM@trim@space{#2}}%
   \def\AM@toc@level{\AM@trim@space{#3}}%
-  \AM@toc@title\expandafter{\AM@trim@leadingspace{#4}}
+  \AM@toc@title{\ignorespaces #4}%
   \def\AM@toc@label{\AM@trim@space{#5}}%
   \AM@checkinteger{\AM@toc@page}%
   \ifAM@integer\else
@@ -2819,7 +2832,7 @@
 \def\AM@parse@loflisti#1,#2,#3,#4,#5\END{%
   \def\AM@lof@page{\AM@trim@space{#1}}%
   \def\AM@lof@list{\AM@trim@space{#2}}%
-  \def\AM@lof@heading{\AM@trim@leadingspace{#3}}%
+  \def\AM@lof@heading{#3}%
   \def\AM@lof@label{\AM@trim@space{#4}}%
   \AM@checkinteger{\AM@lof@page}%
   \ifAM@integer\else 
@@ -3180,8 +3193,8 @@
 \let\AM@pagewidth\pdfpagewidth
 \let\AM@pageheight\pdfpageheight
 \def\AM@setpagedimen{%
-  \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
-  \setlength{\pdfpageheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
+  \setlength{\pdfpagewidth}{\wd\@tempboxa}%
+  \setlength{\pdfpageheight}{\ht\@tempboxa + \dp\@tempboxa}%
 }
 \let\AM@pagesize@boogie\relax
 %    \end{macrocode}
@@ -3306,7 +3319,7 @@
   \endgroup
 }
 \def\AM@region@calc{%
-  \setlength{\@tempdima}{\the\ht\@tempboxa + \the\dp\@tempboxa}
+  \setlength{\@tempdima}{\ht\@tempboxa + \dp\@tempboxa}
   \edef\AM@region@depth{\the\@tempdima}
 }
 %    \end{macrocode}
@@ -3368,8 +3381,8 @@
 \let\AM@pagewidth\mediawidth
 \let\AM@pageheight\mediaheight
 \def\AM@setpagedimen{%
-  \setlength{\mediawidth}{\the\wd\@tempboxa}%
-  \setlength{\mediaheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
+  \setlength{\mediawidth}{\wd\@tempboxa}%
+  \setlength{\mediaheight}{\ht\@tempboxa+\dp\@tempboxa}%
 }
 \let\AM@pagesize@boogie\relax
 %    \end{macrocode}
@@ -3410,7 +3423,8 @@
 %    Survey.
 %    \begin{macrocode}
 \def\AM@survey@special@begin{%
-  \special{!aref pdfpages.\AM@linktodoc@page@m@ne; a=</Border [0 0 0]>}%
+  \special{!aref pdfpages.\AM@linktodoc@page@m@ne;
+    a=</Border [0 0 0]>}%
 }
 \def\AM@survey@special@end{%
   \special{!endaref}%
@@ -3513,8 +3527,8 @@
 \let\AM@pagewidth\pdfpagewidth
 \let\AM@pageheight\pdfpageheight
 \def\AM@setpagedimen{%
-  \setlength{\pdfpagewidth}{\the\wd\@tempboxa}%
-  \setlength{\pdfpageheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
+  \setlength{\pdfpagewidth}{\wd\@tempboxa}%
+  \setlength{\pdfpageheight}{\ht\@tempboxa+\dp\@tempboxa}%
 }
 \def\AM@pagesize@boogie{%
   \ifdim\AM@pagewidth=\z@
@@ -3696,8 +3710,8 @@
 \let\AM@pagewidth\paperwidth  
 \let\AM@pageheight\paperheight
 \def\AM@setpagedimen{%
-  \setlength{\paperwidth}{\the\wd\@tempboxa}% 
-  \setlength{\paperheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
+  \setlength{\paperwidth}{\wd\@tempboxa}% 
+  \setlength{\paperheight}{\ht\@tempboxa + \dp\@tempboxa}%
 }
 \let\AM@pagesize@boogie\relax 
 %    \end{macrocode}
@@ -3791,8 +3805,8 @@
 \let\AM@pagewidth\paperwidth  
 \let\AM@pageheight\paperheight
 \def\AM@setpagedimen{%
-  \setlength{\paperwidth}{\the\wd\@tempboxa}% 
-  \setlength{\paperheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
+  \setlength{\paperwidth}{\wd\@tempboxa}% 
+  \setlength{\paperheight}{\ht\@tempboxa + \dp\@tempboxa}%
 }
 \let\AM@pagesize@boogie\relax 
 %    \end{macrocode}
@@ -3967,8 +3981,8 @@
 \let\AM@pagewidth\paperwidth
 \let\AM@pageheight\paperheight
 \def\AM@setpagedimen{%
-  \setlength{\paperwidth}{\the\wd\@tempboxa}%
-  \setlength{\paperheight}{\the\ht\@tempboxa+\the\dp\@tempboxa}%
+  \setlength{\paperwidth}{\wd\@tempboxa}%
+  \setlength{\paperheight}{\ht\@tempboxa + \dp\@tempboxa}%
 }
 \let\AM@pagesize@boogie\relax
 %    \end{macrocode}
@@ -4027,8 +4041,6 @@
 %    \iffalse
 %</ppnulldef>
 %    \fi
-%
-%    \Finale
 %
 %    \section{History}
 %
@@ -4130,8 +4142,8 @@
 %
 %    \subsection*{2008/05/11 v0.4e}
 %    \begin{itemize}
-%    \item Make |\AM@trim@leadinspace| robust to allow macros
-%      in the caption-argument of |addtolist|.
+%    \item Make |\AM@trim@leadingspace| robust to allow macros
+%      in the caption argument of |addtolist|.
 %    \end{itemize}
 %
 %    \subsection*{2008/06/05 v0.4f}
@@ -4154,7 +4166,11 @@
 %    \subsection*{2009/10/11 v0.4i}
 %    \begin{itemize}
 %    \item Added dvipdfm driver.
+%    \item |\AM@toc@title| uses |\ignorespaces|, |\AM@lof@heading|
+%    doesn't need that
 %    \end{itemize}
+%
+%    \Finale
 %    
 %    \iffalse
 %<*example1>
