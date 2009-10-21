@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{pdfpages}
+
+\makeatletter
+  \DeclareRobustCommand{\chemical}[1]{%
+    {\(\m@th
+      \edef\resetfontdimens{\noexpand\)%
+        \fontdimen16\textfont2=\the\fontdimen16\textfont2
+        \fontdimen17\textfont2=\the\fontdimen17\textfont2\relax}%
+      \fontdimen16\textfont2=2.7pt \fontdimen17\textfont2=2.7pt
+      \mathrm{#1}%
+      \resetfontdimens}}
+\makeatother
+
+
+\begin{document}
+\tableofcontents
+\listoffigures
+
+%
+% sections
+%
+\section{\chemical{H_2O} }
+\includepdf[addtotoc={1,section,1, no space,ref:xox}]{dummy.pdf}
+\includepdf[addtotoc={1,section,1, \chemical{H_2O},ref:xox}]{dummy.pdf}
+\includepdf[addtotoc={1,section,1,\chemical{H_2O},ref:xox}]{dummy.pdf}
+
+%
+% figures
+%
+
+\begin{figure}\caption{normal}\label{fig:foo}\end{figure}
+\begin{figure}\caption{ no space}\label{fig:foo}\end{figure}
+\includepdf[addtolist={1,figure, \chemical{H_2O},fig:foo}]{dummy.pdf}
+
+
+
+
+\end{document}
