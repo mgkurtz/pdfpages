@@ -181,11 +181,13 @@
 %    |pst-pdf|, which need to produce \DVI\ output at the first run.
 %
 %    \paragraph{Links and other interactive features of PDF documents}
-%    Until now there aren't any TeX-engines (\pdfTeX, \XeTeX, \ldots)
-%    available that can handle links and other interactive features
-%    of PDF documents. Thus, all kinds of links\footnote{Actually
-%    not only links but all kinds of \emph{PDF annotations} will
-%    get lossed.} will get lossed during inclusion.
+%    Note that it is only possible to copy the contents stream of a PDF
+%    document. Up to now there are no TeX-engines (\pdfTeX, \XeTeX,
+%    \ldots) available that can copy links or other interactive features of
+%    a PDF document, too. Thus, all kinds of links\footnote{Actually not
+%      only links but all kinds of \emph{PDF annotations} will get lossed.}
+%    will get lossed during inclusion. (Using |\includepdf|,
+%    |\includegraphics|, or other low-level commands.)
 %
 %    However, there's a gleam of hope. Some links may be extracted and later
 %    reinserted by a package called \emph{pax} which can be downloaded from
