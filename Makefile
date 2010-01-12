@@ -58,6 +58,9 @@ release: distclean svn-update ins
 svn-update:
 	svn up
 
+svn-tag:
+	svn copy file:///home/andreas/svn/pdfpages/trunk file:///home/andreas/svn/pdfpages/$(VERSION) -m "Version $(VERSION)"
+
 
 clean:
 	rm -f pdfpages.{sty,aux,log,toc,out,dvi,pdf}
