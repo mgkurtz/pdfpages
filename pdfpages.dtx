@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4i}
+\def\AM@fileversion{v0.4j}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -80,7 +80,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4623}
+%    \CheckSum{4637}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1425,12 +1425,12 @@
 %    \end{macrocode}
 %    \begin{macrocode}
   \ifthenelse{\boolean{AM@frame}}
-         {\let\AM@fbox\fbox}
-         {\let\AM@fbox\relax
+         {\global\let\AM@fbox\fbox}
+         {\global\let\AM@fbox\relax
           \setlength{\fboxrule}{\z@}}%
   \ifthenelse{\boolean{AM@reflect}}
-         {\let\AM@reflectbox\reflectbox}
-         {\let\AM@reflectbox\relax}%
+         {\global\let\AM@reflectbox\reflectbox}
+         {\global\let\AM@reflectbox\relax}%
   \setbox\AM@pagebox\null
 %    \end{macrocode}
 %    \begin{macrocode}
@@ -1726,6 +1726,15 @@
     \fi
     \setlength{\@tempdima}{\AM@localscale}%
     \edef\AM@localscale{\strip@pt\@tempdima}%
+%    \end{macrocode}
+%    The above calculation are wrong if |noautoscale| is used.
+%    Thus reset values here.
+%    \begin{macrocode}
+    \ifAM@noautoscale
+      \def\AM@localxoff{\z@}%
+      \def\AM@localyoff{\z@}%
+      \def\AM@localscale{1}%
+    \fi
 %    \end{macrocode}
 %    \begin{macrocode}
     \let\AM@filelist@save\@filelist
@@ -4170,6 +4179,14 @@
 %    \item Added dvipdfm driver.
 %    \item |\AM@toc@title| uses |\ignorespaces|, |\AM@lof@heading|
 %    doesn't need that
+%    \end{itemize}
+%
+%    \subsection*{2010/01/12 v0.4j}
+%    \begin{itemize}
+%    \item Make |\AM@reflectbox| and |\AM@fbox| global definitions which is
+%      necessary for package textpos.sty.
+%    \item Refrain from setting |\AM@localxoff|, |\AM@localyoff|,
+%    and |\AM@localscale| if option |noautoscale| is used.
 %    \end{itemize}
 %
 %    \Finale
