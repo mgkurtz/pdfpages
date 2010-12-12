@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4k}
+\def\AM@fileversion{v0.4l}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -80,7 +80,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4637}
+%    \CheckSum{4651}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -159,7 +159,7 @@
 %
 %    \section{Introduction}
 %    When creating \PDF\ documents, it is sometimes useful to insert pages
-%    of other, external \PDF\ documents. This can be done with the
+%    of external \PDF\ documents. This can be done with the
 %    |\includegraphics| command from the \texttt{graphics} package. But a
 %    simple |\includegraphics{doc.pdf}| normally produces `|Overfull \hbox|'
 %    and `|Overfull \vbox|' warnings, because the size of the inserted pages
@@ -181,13 +181,14 @@
 %    |pst-pdf|, which need to produce \DVI\ output at the first run.
 %
 %    \paragraph{Links and other interactive features of PDF documents}
-%    Note that it is only possible to copy the contents stream of a PDF
-%    document. Up to now there are no TeX-engines (\pdfTeX, \XeTeX,
-%    \ldots) available that can copy links or other interactive features of
-%    a PDF document, too. Thus, all kinds of links\footnote{Actually not
-%      only links but all kinds of \emph{PDF annotations} will get lossed.}
-%    will get lossed during inclusion. (Using |\includepdf|,
-%    |\includegraphics|, or other low-level commands.)
+%    When including pages of a PDF only the so called content stream of
+%    these pages is copied but no links. Up to now there are no TeX-engines
+%    (\pdfTeX, \XeTeX, \ldots) available that can copy links or other
+%    interactive features of a PDF document, too. Thus, all kinds of
+%    links\footnote{Actually not only links but all kinds of \emph{PDF
+%        annotations} will get lost.}  will get lost during
+%    inclusion. (Using |\includepdf|, |\includegraphics|, or other low-level
+%    commands.)
 %
 %    However, there's a gleam of hope. Some links may be extracted and later
 %    reinserted by a package called \emph{pax} which can be downloaded from
@@ -1870,11 +1871,15 @@
         \AM@ClearShipoutPicture
 %    \end{macrocode}
 %    When creating signatures, every second page must be rotated
-%    by $180^{\circ}$.
+%    by $180^{\circ}$ and therefore the xoffset must be multiplied
+%    by $-1$.
 %    \begin{macrocode}
         \ifAM@signature
           \ifAM@sigrotate\AM@sigrotatefalse\else\AM@sigrotatetrue\fi
         \fi
+        \@tempdima=\AM@xoffset\relax
+        \multiply\@tempdima\m@ne
+        \edef\AM@xoffset{\the\@tempdima}
       \fi
     \fi
 %    \end{macrocode}
@@ -4188,6 +4193,17 @@
 %      necessary for package textpos.sty.
 %    \item Refrain from setting |\AM@localxoff|, |\AM@localyoff|,
 %    and |\AM@localscale| if option |noautoscale| is used.
+%    \end{itemize}
+%
+%    \subsection*{2010/08/08 v0.4k}
+%    \begin{itemize}
+%    \item Bugfix for memoir chapter classes.
+%    \end{itemize}
+%
+%    \subsection*{2010/11/26 v0.4l}
+%    \begin{itemize}
+%    \item Bugfix: In `signatures' the sign of |xoffset| must
+%      change on every second page.
 %    \end{itemize}
 %
 %    \Finale
