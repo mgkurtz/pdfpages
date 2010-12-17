@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4l}
+\def\AM@fileversion{v0.4m}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -1876,10 +1876,10 @@
 %    \begin{macrocode}
         \ifAM@signature
           \ifAM@sigrotate\AM@sigrotatefalse\else\AM@sigrotatetrue\fi
+          \@tempdima=\AM@xoffset\relax
+          \multiply\@tempdima\m@ne
+          \edef\AM@xoffset{\the\@tempdima}
         \fi
-        \@tempdima=\AM@xoffset\relax
-        \multiply\@tempdima\m@ne
-        \edef\AM@xoffset{\the\@tempdima}
       \fi
     \fi
 %    \end{macrocode}
