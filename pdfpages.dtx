@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4m}
+\def\AM@fileversion{v0.4n}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -815,7 +815,7 @@
 %    are quite useful, if only parts of a page should be inserted.
 %    (Maybe to cut off the header and footer of the inserted pages.)
 %    Just use the `trim' and `clip' options as if they were options
-%    of |\inlcudepdf|. They will be passed to |\includegraphics|
+%    of |\includepdf|. They will be passed to |\includegraphics|
 %    internally.
 %    
 %
@@ -1325,10 +1325,10 @@
 \newcommand*{\includepdfmerge}[2][]{%
   \begingroup
   \let\AM@currentdocname\relax
-  \AM@readlist{#2}%
   \AM@split@options{pdfpages}{#1}%
   \edef\AM@temp{{pdfpages}{\the\@temptokena}}%
   \expandafter\setkeys\AM@temp
+  \AM@readlist{#2}%
   \AM@output{#1}%
   \AM@CheckAtEnd
   \endgroup
@@ -4204,6 +4204,17 @@
 %    \begin{itemize}
 %    \item Bugfix: In `signatures' the sign of |xoffset| must
 %      change on every second page.
+%    \end{itemize}
+%
+%    \subsection*{2010/12/18 v0.4m}
+%    \begin{itemize}
+%    \item Bugfix: Wrong offset of signature.
+%    \end{itemize}
+%
+%    \subsection*{2011/03/10 v0.4n}
+%    \begin{itemize}
+%    \item Bugfix: In |\includepdfmerge|, |\AM@readlist| has to be
+%          after |\setkeys|.
 %    \end{itemize}
 %
 %    \Finale
