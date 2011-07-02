@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4n}
+\def\AM@fileversion{v0.4o}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -1560,7 +1560,9 @@
   \AM@split@options{Gin}{#1}%
   \ifAM@templatesize
     \setbox\@tempboxa=\hbox{%
-      \scalebox{\AM@globalscale}{\copy\AM@templatesizebox}}%
+      \scalebox{\AM@scale@factor}{\copy\AM@templatesizebox}}%
+    \setbox\@tempboxa=\hbox{%
+      \scalebox{\AM@globalscale}{\copy\@tempboxa}}%
     \setbox\@tempboxa=\hbox{%
       \rotatebox{\AM@lscape@rot}{\copy\@tempboxa}}%
   \else
@@ -2363,6 +2365,7 @@
 \newcommand{\AM@split@options}{}
 \def\AM@split@options#1#2{%
   \def\AM@param{#1}%
+  \def\AM@scale@factor{1}%
   \@temptokena{}%
   \AM@split@optionsi#2,\END,
 }
@@ -2443,7 +2446,12 @@
               \equal{reflect*}{\AM@temp}\or
               \equal{lastpage}{\AM@temp}}
              {\AM@pdfpages@optionstrue}{}%
-  \ifthenelse{\equal{scale}{\AM@temp}}{\AM@scaletrue}{}%
+  \ifthenelse{\equal{scale}{\AM@temp}}{%
+    \AM@scaletrue
+    \def\AM@ooo##1={##1}
+    \setlength{\@tempdima}{\p@ * \AM@scale@factor * \real{\AM@ooo#2}}%
+    \edef\AM@scale@factor{\strip@pt\@tempdima}%
+  }{}%
 }
 %    \end{macrocode}
 %    \macro{\AM@trim@space}
@@ -4215,6 +4223,12 @@
 %    \begin{itemize}
 %    \item Bugfix: In |\includepdfmerge|, |\AM@readlist| has to be
 %          after |\setkeys|.
+%    \end{itemize}
+%
+%
+%    \subsection*{2011/07/02 v0.4o}
+%    \begin{itemize}
+%    \item Bugfix: |templatesize| undesirably ignored |scale| option.
 %    \end{itemize}
 %
 %    \Finale
