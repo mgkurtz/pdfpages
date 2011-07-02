@@ -1449,11 +1449,7 @@
 %    \end{macrocode}
 %    Determine scaling factor:
 %    The logical pages are scaled such, that they match on
-%    one sheet of paper. To determine the scaling
-%    factor all |scale| options given by the user must be 
-%    discarded first (|\AM@remove@scale|).
-%    But they are \textit{not} discarded when finally being 
-%    shipped out.
+%    one sheet of paper.
 %    \begin{macrocode}
   \@ifundefined{AM@pagetemplate}
       {\AM@readfirst{\AM@pagelist}%
@@ -2305,50 +2301,6 @@
   }%
   \edef\AM@resortedpagelist{\expandafter\@gobble\AM@resortedpagelist}%
   \edef\AM@resorteddoclist{\expandafter\@gobble\AM@resorteddoclist}%
-}
-%    \end{macrocode}
-%    \macro{\AM@remove@scale}
-%    \macro{\AM@remove@scalei}
-%    \macro{\AM@remove@scaleii}
-%    Remove the \texttt{scale} item from the options list (|#1|)
-%    and then save it in |\AM@options|.
-%    \begin{macrocode}
-\newif\ifAM@scale
-\newcommand{\AM@remove@scale}{}
-\def\AM@remove@scale#1{%
-  \def\AM@options{}%
-  \AM@remove@scalei#1,\END,
-}
-%    \end{macrocode}
-%    \begin{macrocode}
-\newcommand{\AM@remove@scalei}{}
-\def\AM@remove@scalei#1,{%
-  \ifx\END#1
-  \else
-    \AM@scalefalse
-    \AM@remove@scaleii#1=\END
-    \ifAM@scale
-    \else
-      \ifx\empty\AM@options
-        \edef\AM@options{#1}%
-      \else
-        \toks@\expandafter{\AM@options,#1}%
-        \edef\AM@options{\the\toks@}%
-      \fi
-    \fi
-    \expandafter\AM@remove@scalei
-  \fi
-}
-%    \end{macrocode}
-%    \begin{macrocode}
-\newcommand{\AM@remove@scaleii}{}
-\def\AM@remove@scaleii#1=#2\END{%
-  \ifx\\#2\\%
-  \else
-    \def\AM@temp{#1}%
-    \edef\AM@temp{\AM@trim@space{\AM@temp}}%
-    \ifthenelse{\equal{scale}{\AM@temp}}{\AM@scaletrue}{}%
-  \fi
 }
 %    \end{macrocode}
 %    \macro{\AM@split@options}
