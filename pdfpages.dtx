@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4o}
+\def\AM@fileversion{v0.4p}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -80,7 +80,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4651}
+%    \CheckSum{4592}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1053,7 +1053,7 @@
 \DeclareOption{final}{\AM@pkg@draftfalse}
 \DeclareOption{enable-survey}{\AM@pkg@surveytrue}
 \DeclareOption{disable-survey}{\AM@pkg@surveyfalse}
-%    \begin{macrocode}
+%    \end{macrocode}
 %    |\AM@ifdriverlater| checks that the driver loaded is more recent
 %    than the given date. See |\@ifpackagelater| from the standard
 %    \LaTeX\ kernel.
@@ -1159,6 +1159,7 @@
 \newif\ifAM@firstpage\AM@firstpagefalse
 \newif\ifAM@reflect\AM@reflectfalse
 \newif\ifAM@reflectall\AM@reflectallfalse
+\newif\ifAM@scale\AM@scaletrue
 %    \end{macrocode}
 %    \subsection{Commands}
 %    Declare macro names and define default values.
@@ -3457,15 +3458,6 @@
  \gdef\AM@XeTeXquote{"}%
 }
 %    \end{macrocode}
-%    Get last page number.
-%    \begin{macrocode}
-%    \def\AM@remove@relax#1\relax{#1}
-%    \def\AM@getpagecount{%
-%      \edef\AM@pagecount{\expandafter\AM@remove@relax
-%        \the\XeTeXpdfpagecount\AM@XeTeXquote
-%        \AM@currentdocname\AM@XeTeXquote\relax}%
-%    }
-%    \end{macrocode}
 %    Get last page number. |\XeTeXpdfpagecount| is only defined
 %    for |pdf| files. For all other file types |\AM@pagecount|
 %    must be set to |1| explicitely.
@@ -4178,9 +4170,9 @@
 %    \end{itemize}
 %
 %
-%    \subsection*{2011/07/02 v0.4o}
+%    \subsection*{2011/07/02 v0.4p}
 %    \begin{itemize}
-%    \item Bugfix: |templatesize| undesirably ignored |scale| option.
+%    \item Bugfix: |templatesize| ignored |scale| option.
 %    \end{itemize}
 %
 %    \Finale
