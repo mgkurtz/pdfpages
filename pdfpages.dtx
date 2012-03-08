@@ -1205,6 +1205,7 @@
 %    \end{macrocode}
 %    \macro{\AM@checkinteger}
 %    Check, if |#1| is a positive integer.
+\newif\ifAM@integer
 \def\AM@checkinteger#1{\afterassignment\AM@checkinteger@i\count255=0#1 \END}
 \def\AM@checkinteger@i#1\END{%
   \ifx\END#1\END
