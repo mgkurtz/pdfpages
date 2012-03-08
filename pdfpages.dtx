@@ -1205,12 +1205,10 @@
 %    \end{macrocode}
 %    \macro{\AM@checkinteger}
 %    Check, if |#1| is a positive integer.
-%    \begin{macrocode}
-\newif\ifAM@integer
-\newcommand{\AM@checkinteger}{}
-\def\AM@checkinteger#1{%
-  \ifcat _\ifnum9<1#1_\else A\fi
-    \AM@integertrue
+\def\AM@checkinteger#1{\afterassignment\AM@checkinteger@i\count255=0#1 \END}
+\def\AM@checkinteger@i#1\END{%
+  \ifx\END#1\END
+   \AM@integertrue
   \else
     \AM@integerfalse
   \fi
