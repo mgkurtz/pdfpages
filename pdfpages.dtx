@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4p}
+\def\AM@fileversion{v0.4q}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -80,7 +80,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4592}
+%    \CheckSum{4578}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1068,17 +1068,11 @@
 %    \end{macrocode}
 %    These options overrule the automatic detection of the \TeX-engine.
 %    \begin{macrocode}
-\def\AM@graphics@driver{}
-\DeclareOption{pdftex}{%
-  \def\AM@driver{pdftex}\let\AM@graphics@driver\AM@driver}
-\DeclareOption{vtex}{%
-  \def\AM@driver{vtex}\let\AM@graphics@driver\AM@driver}
-\DeclareOption{xetex}{%
-  \def\AM@driver{xetex}\let\AM@graphics@driver\AM@driver}
-\DeclareOption{dvips}{%
-  \def\AM@driver{dvips}\let\AM@graphics@driver\AM@driver}
-\DeclareOption{dvipdfm}{%
-  \def\AM@driver{dvipdfm}\let\AM@graphics@driver\AM@driver}
+\DeclareOption{pdftex}{\def\AM@driver{pdftex}}
+\DeclareOption{vtex}{\def\AM@driver{vtex}}
+\DeclareOption{xetex}{\def\AM@driver{xetex}}
+\DeclareOption{dvips}{\def\AM@driver{dvips}}
+\DeclareOption{dvipdfm}{\def\AM@driver{dvipdfm}}
 \DeclareOption{null}{\def\AM@driver{null}}
 %    \end{macrocode}
 %    \begin{macrocode}
@@ -1108,7 +1102,7 @@
 %
 %    \begin{macrocode}
 \RequirePackage{ifthen, calc, eso-pic}
-\RequirePackage[\AM@graphics@driver]{graphicx}
+\RequirePackage{graphicx}
 \newif\ifAM@DVIoutput\AM@DVIoutputfalse
 \input{pp\AM@driver.def}
 \ifx\AM@endinput\relax\expandafter\endinput\fi
@@ -1205,6 +1199,7 @@
 %    \end{macrocode}
 %    \macro{\AM@checkinteger}
 %    Check, if |#1| is a positive integer.
+%    \begin{macrocode}
 \newif\ifAM@integer
 \def\AM@checkinteger#1{\afterassignment\AM@checkinteger@i\count255=0#1 \END}
 \def\AM@checkinteger@i#1\END{%
@@ -4174,6 +4169,12 @@
 %    \item Bugfix: |templatesize| ignored |scale| option.
 %    \end{itemize}
 %
+%
+%    \subsection*{2012/03/08 v0.4q}
+%    \begin{itemize}
+%    \item Macro |\AM@checkinteger| rewritten.
+%    \item Loading |graphicx.sty| without explicit driver information.
+%    \end{itemize}
 %    \Finale
 %    
 %    \iffalse
