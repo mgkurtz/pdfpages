@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4q}
+\def\AM@fileversion{v0.4s}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -80,7 +80,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4578}
+%    \CheckSum{4599}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1201,14 +1201,16 @@
 %    Check, if |#1| is a positive integer.
 %    \begin{macrocode}
 \newif\ifAM@integer
-\def\AM@checkinteger#1{\afterassignment\AM@checkinteger@i\count255=0#1 \END}
-\def\AM@checkinteger@i#1\END{%
-  \ifx\END#1\END
-   \AM@integertrue
+\begingroup
+\@makeother_
+\gdef\AM@checkinteger#1{%
+  \ifcat _\ifnum9<1#1_\else A\fi
+    \AM@integertrue
   \else
     \AM@integerfalse
   \fi
 }
+\endgroup
 %    \end{macrocode}
 %    \macro{\AM@findfile}
 %    Find file and set |\AM@currentdocname|.
@@ -3747,6 +3749,25 @@
 %
 %    \subsubsection{Dvipdfm driver}
 %
+%    Package |graphicx| should be loaded with the |dvipdfm| driver.
+%    However, |\RequirePackage[dvipdfm]{graphicx}| is not recommended
+%    because it will cause an `option clash' if a user loaded |graphicx|
+%    with additional options before. Thus, we expect the user to load
+%    |graphicx| with |dvipdfm| driver before loading pdfpages.
+%    \begin{macrocode}
+\def\AM@tmp{dvipdfm.def}
+\ifx\Gin@driver\AM@tmp\else
+  \PackageWarningNoLine{pdfpages}{%
+    Graphicx not loaded with driver `dvipdfm'.\MessageBreak
+    Please, load graphicx explicitely before pdfpages,\MessageBreak
+    e.g.:\MessageBreak
+    \@spaces \string\usepackage[dvipdfm]{graphicx}\MessageBreak
+    \@spaces \string\usepackage[dvipdfm]{pdfpages}\MessageBreak
+    This time I will try to load `dvipdfm.def' which \MessageBreak
+    will overwrite `Gin@driver'. Let's hope for the best}
+  \input{dvipdfm.def}
+\fi
+%    \end{macrocode}
 %    \begin{macrocode}
 \def\AM@notsupported#1{%
   \PackageWarning{pdfpages}{#1 not supported by driver dvipdfm}}
@@ -4175,6 +4196,13 @@
 %    \item Macro |\AM@checkinteger| rewritten.
 %    \item Loading |graphicx.sty| without explicit driver information.
 %    \end{itemize}
+%
+%    \subsection*{2012/04/03 v0.4s}
+%    \begin{itemize}
+%    \item Revert to the older |\AM@checkinteger| but now with changed
+%      catcode for |_| (underscore).
+%    \end{itemize}
+%
 %    \Finale
 %    
 %    \iffalse
