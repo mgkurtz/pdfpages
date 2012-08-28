@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4s}
+\def\AM@fileversion{v0.4t-beta}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -80,7 +80,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4599}
+%    \CheckSum{4623}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -455,6 +455,9 @@
 %                     double side printing
 %                     Either `true' or `false' (or no value, which is
 %                     equivalent to `true'). \df{doublepagestwistodd*=false}
+%         \item[duplicatepages] Duplicates each page $n$ times,
+%                     with $n$ being the argument to this option.
+%                     \df{duplicatepages=2}
 %      \end{description}
 %
 %    \item Miscellaneous options:
@@ -1142,6 +1145,7 @@
 \newif\ifAM@doublepagestwistx\AM@doublepagestwistxfalse
 \newif\ifAM@doublepagestmp\AM@doublepagestmpfalse
 \newif\ifAM@doublepagestmpi\AM@doublepagestmpifalse
+\newif\ifAM@duplicatepages\AM@duplicatepagesfalse
 \newif\ifAM@linkfilename\AM@linkfilenamefalse
 \newif\ifAM@signature\AM@signaturefalse
 \newif\ifAM@signaturestar\AM@signaturestarfalse
@@ -2030,6 +2034,15 @@
     \edef\AM@doclist{\AM@doclist,\AM@currentdocname}%
     \edef\AM@pagelist{\AM@pagelist,#1}%
   \fi
+  \ifAM@duplicatepages
+    \count@=0
+    \loop
+    \advance\count@ 1
+    \ifnum\count@<\AM@nduplicatepages
+    \edef\AM@doclist{\AM@doclist,\AM@currentdocname}%
+    \edef\AM@pagelist{\AM@pagelist,#1}%
+    \repeat
+  \fi
   \AM@defaultonefalse
 }
 %    \end{macrocode}
@@ -2382,6 +2395,7 @@
               \equal{doublepagestwistodd}{\AM@temp}\or
               \equal{doublepagestwist*}{\AM@temp}\or
               \equal{doublepagestwistodd*}{\AM@temp}\or
+              \equal{duplicatepages}{\AM@temp}\or
               \equal{signature}{\AM@temp}\or
               \equal{signature*}{\AM@temp}\or
               \equal{booklet}{\AM@temp}\or
@@ -2992,6 +3006,9 @@
                       \setboolean{AM@doublepagestwist}{#1}%
                       \AM@doublepagestmpfalse\AM@doublepagestmpitrue
                       \AM@doublepagestwistxtrue}
+\define@key{pdfpages}{duplicatepages}[2]%
+                     {\def\AM@nduplicatepages{#1}%
+                      \AM@duplicatepagestrue}
 \define@key{pdfpages}{signature}{\def\AM@signature{#1}}
 \define@key{pdfpages}{signature*}{\def\AM@signature{#1}%
                                   \AM@signaturestartrue}
@@ -4203,6 +4220,10 @@
 %      catcode for |_| (underscore).
 %    \end{itemize}
 %
+%    \subsection*{2012/08/28 v0.4t}
+%    \begin{itemize}
+%    \item Add option |duplicatepages|. Requested by Allan Pickett.
+%    \end{itemize}
 %    \Finale
 %    
 %    \iffalse
