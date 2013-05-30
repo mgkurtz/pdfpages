@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4t}
+\def\AM@fileversion{v0.4u}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -80,7 +80,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4623}
+%    \CheckSum{4642}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3173,9 +3173,13 @@
          Please, update your `pdftex.def'}}
 %    \end{macrocode}
 %    Get last page number.
+%
+%    \noindent
+%    Note: Do not use |\pdfximage| directly. This clashes with packages which
+%    manipulate the input path of graphicx.sty.
 %    \begin{macrocode}
 \def\AM@getpagecount{%
-  \pdfximage{\AM@currentdocname}%
+  \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
   \edef\AM@pagecount{\the\pdflastximagepages}%
 }
 %    \end{macrocode}
@@ -3474,13 +3478,25 @@
 %    Get last page number. |\XeTeXpdfpagecount| is only defined
 %    for |pdf| files. For all other file types |\AM@pagecount|
 %    must be set to |1| explicitely.
+%
+%    \noindent
+%    Note: |import.sty| imports tex-files from sub-directories, allowing
+%    these tex-files to use e.g. |\includegraphics|. However, this does not
+%    work out of the box for pdfpages with XeTeX-driver (as it does with
+%    pdftex-driver). We have to use |\import@path| of |import.sty|.
 %    \begin{macrocode}
 \def\AM@getpagecount{%
   \expandafter\filename@parse\expandafter{\AM@currentdocname}%
   \lowercase{\edef\type@ext{.\filename@ext}}%
   \ifx\type@ext\G@pdf@ext
+    \ifdefined\import@path
+      \let\AM@import@path\import@path
+    \else
+      \let\AM@import@path\@empty
+    \fi
+    \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
     \edef\AM@pagecount{\the\XeTeXpdfpagecount\AM@XeTeXquote
-      \AM@currentdocname\AM@XeTeXquote\relax}%
+      \AM@import@path\AM@currentdocname\AM@XeTeXquote\relax}%
   \else
     \def\AM@pagecount{1}%
   \fi
@@ -4223,6 +4239,11 @@
 %    \subsection*{2012/08/28 v0.4t}
 %    \begin{itemize}
 %    \item Add option |duplicatepages|. Requested by Allan Pickett.
+%    \end{itemize}
+%
+%    \subsection*{2013/05/30 v0.4u}
+%    \begin{itemize}
+%    \item Compatibility with |import.sty|.
 %    \end{itemize}
 %    \Finale
 %    

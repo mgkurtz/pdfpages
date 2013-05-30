@@ -1,0 +1,16 @@
+\documentclass[a4paper]{article}
+\usepackage{import}
+\usepackage{pdfpages}
+
+\begin{document}
+
+\section{Import.sty}
+Use of \texttt{import.sty} to import sub-documents which include
+pdfs with \texttt{includepdf}.
+
+
+\begingroup
+\import{grfpath-test/}{imp.tex}
+\endgroup
+
+\end{document}
