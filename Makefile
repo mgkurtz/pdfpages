@@ -18,7 +18,7 @@ DIST-DIR=pdfpages-$(VERSION)
 
 installer=pdfpages.installer
 ins:
-	echo '\input{docstrip}\askforoverwritefalse\generate{\file{pdfpages.ins}{\from{pdfpages.dtx}{installer}}}\endbatchfile' > $(installer)
+	echo '\\input{docstrip}\\askforoverwritefalse\\generate{\\file{pdfpages.ins}{\\from{pdfpages.dtx}{installer}}}\\endbatchfile' > $(installer)
 	latex $(installer)
 	rm $(installer)
 
