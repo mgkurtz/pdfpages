@@ -8,11 +8,13 @@ This are tests of pdfpages.sty
 
 *) mixed.tex		Inclusion of mixed portait/landscape PDFs
 
-*) dvi-mode		latex test (dvi mode)
+*) test-import.tex      Compatibilty with import.sty
 
-*) ps-tricks            run: ps4pdf ps-tricks
+*) dvi-mode.tex		latex test (dvi mode)
 
-*) tricky		some tricky things, mostly former bug reports
+*) ps-tricks.tex        run: ps4pdf ps-tricks
+
+*) tricky.tex		some tricky things, mostly former bug reports
 
 *) slides.tex		test `survey' option:
    			1) compile with `draft' option
