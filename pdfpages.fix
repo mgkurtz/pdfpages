@@ -1,5 +1,5 @@
-\ProvidesFile{pdfpages.fix}[2008/10/16 v0.4f Patch for pdfpages.sty (AM)]
-\def\AM@patch{v0.4g}
+\ProvidesFile{pdfpages.fix}[2013/08/25 v0.4u Patch for pdfpages.sty (AM)]
+\def\AM@patch{v0.4u}
  
 \ifx\AM@fileversion\AM@patch\else
   \PackageWarningNoLine{pdfpages}{^^J%
@@ -9,6 +9,34 @@
   \expandafter\endinput
 \fi
 
+% The pdftex.def driver of graphicx does not update \pdflastximagepages
+% if \includegraphics is called for the second time.
+%
+%    \includegraphics{dummy.pdf}
+%    \showthe\pdflastximagepages  % <-- 20
+%    \includegraphics{foo.jpg}
+%    \showthe\pdflastximagepages  % <-- 1
+%    \includegraphics{dummy.pdf}
+%    \showthe\pdflastximagepages  % <-- 1  <-- wrong page number
+%
+% Using \pdfximage instead of \includegraphics is not the best because
+% we do not want to compromise packages which modify the search path
+% of graphicx; e.g. like import.sty.
+% 
+% Heiko is aware of this and will fix it in pdftex.def. Till then we
+% use \pdfximage with the original graphicx's filename \Gread@@pdftex.
+
+\let\AM@Gread@@pdftex\Gread@@pdftex
+\renewcommand*{\Gread@@pdftex}[1]{%
+  \xdef\AM@currentdocname@fix{#1}%
+  \AM@Gread@@pdftex{#1}%
+}
+
+\def\AM@getpagecount{%
+  \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
+  \pdfximage{\AM@currentdocname@fix}%
+  \edef\AM@pagecount{\the\pdflastximagepages}%
+}
 
 \endinput
 
