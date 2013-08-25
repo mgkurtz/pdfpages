@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4u}
+\def\AM@fileversion{v0.4v}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -80,7 +80,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4642}
+%    \CheckSum{4663}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3175,11 +3175,28 @@
 %    Get last page number.
 %
 %    \noindent
-%    Note: Do not use |\pdfximage| directly. This clashes with packages which
+%    Note: Do not use |\pdfximage| directly. This compromises packages which
 %    manipulate the input path of graphicx.sty.
+%
+%    Unfortunately, |\pdflastximagepages| is not updated if |\includegraphics|
+%    is used repeatedly on the same file. Heiko is aware of this and will provide
+%    a solution in pdftex.def. Until then we will use the original graphicx's filename
+%    from |\Gread@@pdftex|.
 %    \begin{macrocode}
+%%    \def\AM@getpagecount{%
+%%      \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
+%%      \edef\AM@pagecount{\the\pdflastximagepages}%
+%%    }
+%    \end{macrocode}
+%    \begin{macrocode}
+\let\AM@Gread@@pdftex\Gread@@pdftex
+\renewcommand*{\Gread@@pdftex}[1]{%
+  \xdef\AM@currentdocname@fix{#1}%
+  \AM@Gread@@pdftex{#1}%
+}
 \def\AM@getpagecount{%
   \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
+  \pdfximage{\AM@currentdocname@fix}%
   \edef\AM@pagecount{\the\pdflastximagepages}%
 }
 %    \end{macrocode}
@@ -4245,6 +4262,13 @@
 %    \begin{itemize}
 %    \item Compatibility with |import.sty|.
 %    \end{itemize}
+%
+%    \subsection*{2013/08/25 v0.4v}
+%    \begin{itemize}
+%    \item |\pdflastximagepages| is not updated if using |\includegraphics|
+%    on the same file repeatedly. The provided fix is temporarily until
+%    there's a better solution implemented in |pdftex.def|.
+%    \end{itemize}
 %    \Finale
 %    
 %    \iffalse
@@ -4627,8 +4651,6 @@ This file demonstrates how to use the pdfpages package.
 \generate{\usepreamble\example
           \file{pdf-toc.tex}{\from{pdfpages.dtx}{example3}}}
 
-
-%\Msg{^^46^^75^^65^^72 ^^64^^69^^63^^68^^2c ^^41^^67^^6e^^65^^73^^21^^J}
 \Msg{**************************************************************}
 \Msg{*}
 \Msg{* To finish the installation you have to move the following}
