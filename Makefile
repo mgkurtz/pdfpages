@@ -4,7 +4,7 @@ VERSION=$(shell grep '\\def\\AM@fileversion{' pdfpages.dtx |\
 DIST-FILES=pdfpages.ins pdfpages.dtx README dummy.pdf dummy-l.pdf
 CTAN-DOC-FILES=pdfpages.pdf
 
-TDS-STY-FILES=pdfpages.sty pppdftex.def ppvtex.def ppxetex.def ppdvipdfm.def ppdvips.def ppnull.def
+TDS-STY-FILES=pdfpages.sty pppdftex.def ppluatex.def ppvtex.def ppxetex.def ppdvipdfm.def ppdvips.def ppnull.def
 TDS-DOC-FILES=pdfpages.pdf pdf-ex.tex pdf-hyp.tex pdf-toc.tex \
 	 dummy.pdf dummy-l.pdf
 TDS-SRC-FILES=pdfpages.dtx pdfpages.ins README
@@ -64,7 +64,7 @@ svn-tag:
 
 clean:
 	rm -f pdfpages.{sty,aux,log,toc,out,dvi,pdf}
-	rm -f pppdftex.def ppvtex.def ppxetex.def ppnull.def 
+	rm -f $(TDS-STY-FILES)
 	rm -f pdf-ex.{tex,log,aux}
 	rm -f pdf-hyp.{tex,log,aux}
 	rm -f pdf-toc.{tex,log,aux}

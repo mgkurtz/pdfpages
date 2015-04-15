@@ -1,8 +1,8 @@
 %
 %    \iffalse
 %
-%<*(package,pppdftexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfmdef,ppnulldef)>
-%% Copyright (C) 2001-2012 Andreas MATTHIAS
+%<*(package,pppdftexdef,ppluatexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfmdef,ppnulldef)>
+%% Copyright (C) 2001-2015 Andreas MATTHIAS
 %%
 %% This work may be distributed and/or modified under the conditions
 %% of the LaTeX Project Public License, either version 1.3c
@@ -15,7 +15,7 @@
 %% The Current Maintainer of this work is
 %%   Andreas Matthias <andreas.matthias@gmail.com>.
 %
-%</(package,pppdftexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfmdef,ppnulldef)>
+%</(package,pppdftexdef,ppluatexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfmdef,ppnulldef)>
 %<*!installer>
 %%
 %% Please send error reports and suggestions for improvements to
@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4v}
+\def\AM@fileversion{v0.4w}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -40,6 +40,7 @@
 %<package>\NeedsTeXFormat{LaTeX2e}
 %<package>\ProvidesPackage{pdfpages}
 %<pppdftexdef>\ProvidesFile{pppdftex.def}
+%<ppluatexdef>\ProvidesFile{ppluatex.def}
 %<ppvtexdef>\ProvidesFile{ppvtex.def}
 %<ppxetexdef>\ProvidesFile{ppxetex.def}
 %<ppdvipsdef>\ProvidesFile{ppdvips.def}
@@ -69,6 +70,7 @@
 %
 %<package>    Insert pages of external PDF documents (AM)]
 %<pppdftexdef>    Pdfpages driver for pdfTeX (AM)]
+%<ppluatexdef>    Pdfpages driver for luaTeX (AM)]
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
 %<ppxetexdef>    Pdfpages driver for XeTeX (AM)]
 %<ppdvipsdef>    Pdfpages driver for dvips (AM)]
@@ -80,7 +82,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4663}
+%    \CheckSum{4669}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -124,6 +126,7 @@
 %
 %    \def\pdfTeX{pdfTeX}
 %    \def\pdfLaTeX{pdfLaTeX}
+%    \def\luaTeX{luaTeX}
 %    \def\VTeX{VTeX}
 %    \def\XeTeX{XeTeX}
 %    \def\dvips{dvips}
@@ -134,6 +137,7 @@
 %
 %    \pdfstringdefDisableCommands{%
 %       \def\pdfTeX{pdfTeX}%
+%       \def\luaTeX{luaTeX}%
 %       \def\VTeX{VTeX}%
 %       \def\XeTeX{XeTeX}%
 %     }
@@ -1072,6 +1076,7 @@
 %    These options overrule the automatic detection of the \TeX-engine.
 %    \begin{macrocode}
 \DeclareOption{pdftex}{\def\AM@driver{pdftex}}
+\DeclareOption{luatex}{\def\AM@driver{luatex}}
 \DeclareOption{vtex}{\def\AM@driver{vtex}}
 \DeclareOption{xetex}{\def\AM@driver{xetex}}
 \DeclareOption{dvips}{\def\AM@driver{dvips}}
@@ -1091,13 +1096,15 @@
 %    \begin{macrocode}
 \@ifundefined{AM@driver}{
   \begingroup
-  \@ifundefined{pdftexversion}{%
-    \@ifundefined{XeTeXversion}{%
-      \@ifundefined{OpMode}{%
-        \def\AM@driver{null}
-      }{\gdef\AM@driver{vtex}}%
-    }{\gdef\AM@driver{xetex}}%
-  }{\gdef\AM@driver{pdftex}}
+  \@ifundefined{luatexversion}{%
+    \@ifundefined{pdftexversion}{%
+      \@ifundefined{XeTeXversion}{%
+        \@ifundefined{OpMode}{%
+          \def\AM@driver{null}
+        }{\gdef\AM@driver{vtex}}%
+      }{\gdef\AM@driver{xetex}}%
+    }{\gdef\AM@driver{pdftex}}%
+  }{\gdef\AM@driver{luatex}}%
   \endgroup
 }{}
 %    \end{macrocode}
@@ -3109,14 +3116,15 @@
 %
 %    \subsection{Driver files}
 %
-%    \iffalse
-%<*pppdftexdef>
-%    \fi
+%    \subsubsection{\pdfTeX\ and \luaTeX\ drivers}
 %
-%    \subsubsection{\pdfTeX\ driver}
+%    The driver file for \pdfTeX\ and \luaTeX\ are mostly the same.
+%    So far they only differ in checking of the version numbers of
+%    the \TeX-engines and graphicx driver files.
 %
-%    Check \pdfTeX\ version and output.
+%    Check \pdfTeX\ version.
 %    \begin{macrocode}
+%<*pppdftexdef>
 \ifnum\pdftexversion<100
   \PackageError{pdfpages}
          {Package pdfpages requires at least\MessageBreak
@@ -3125,10 +3133,17 @@
   \let\AM@endinput\relax
   \expandafter\endinput
 \fi
+%</pppdftexdef>
+%    \end{macrocode}
+%    Insert dummy driver |ppnull.def| if we are not running in PDF mode.
+%    \begin{macrocode}
+%<*(pppdftexdef,ppluatexdef)>
 \ifcase\pdfoutput
   \input{ppnull.def}
   \expandafter\endinput
 \fi
+%</(pppdftexdef,ppluatexdef)>
+%<*pppdftexdef>
 %    \end{macrocode}
 %    Check if the graphics package was loaded with an 
 %    incompatible driver option (e.g. dvips).
@@ -3171,7 +3186,9 @@
          There might be problems with\MessageBreak
          the `trim' and `clip' options.\MessageBreak
          Please, update your `pdftex.def'}}
+%</pppdftexdef>
 %    \end{macrocode}
+%
 %    Get last page number.
 %
 %    \noindent
@@ -3189,6 +3206,7 @@
 %%    }
 %    \end{macrocode}
 %    \begin{macrocode}
+%<*(pppdftexdef,ppluatexdef)>
 \let\AM@Gread@@pdftex\Gread@@pdftex
 \renewcommand*{\Gread@@pdftex}[1]{%
   \xdef\AM@currentdocname@fix{#1}%
@@ -3341,7 +3359,7 @@
 %    \end{macrocode}
 %
 %    \iffalse
-%</pppdftexdef>
+%</(pppdftexdef,ppluatexdef)>
 %
 %<*ppvtexdef>
 %    \fi
@@ -4269,6 +4287,16 @@
 %    on the same file repeatedly. The provided fix is temporarily until
 %    there's a better solution implemented in |pdftex.def|.
 %    \end{itemize}
+%
+%    \subsection*{2015/04/14 v0.4w}
+%    \begin{itemize}
+%    \item Driver file for \luaTeX:
+%    So far \luaTeX\ used the driver file of \pdfTeX, which does not work
+%    any more. As of luaTeX-0.80 the deprecated primitive |\pdftexversion| is
+%    removed. Thus \luaTeX\ chokes on the code for checking the version number
+%    of \pdfTeX. Therefore \luaTeX\ gets its on driver file |ppluatex.def|.
+%    \end{itemize}
+%
 %    \Finale
 %    
 %    \iffalse
@@ -4630,6 +4658,8 @@ This file demonstrates how to use the pdfpages package.
           \file{pdfpages.sty}{\from{pdfpages.dtx}{package}}}
 \generate{\usepreamble\package
           \file{pppdftex.def}{\from{pdfpages.dtx}{pppdftexdef}}}
+\generate{\usepreamble\package
+          \file{ppluatex.def}{\from{pdfpages.dtx}{ppluatexdef}}}
 \generate{\usepreamble\package
           \file{ppvtex.def}{\from{pdfpages.dtx}{ppvtexdef}}}
 \generate{\usepreamble\package
