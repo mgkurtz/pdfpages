@@ -1,7 +1,7 @@
 VERSION=$(shell grep '\\def\\AM@fileversion{' pdfpages.dtx |\
 	sed 's/\\def\\AM@fileversion{\(.*\)}/\1/')
 
-DIST-FILES=pdfpages.ins pdfpages.dtx README dummy.pdf dummy-l.pdf
+DIST-FILES=pdfpages.ins pdfpages.dtx README
 CTAN-DOC-FILES=pdfpages.pdf
 
 TDS-STY-FILES=pdfpages.sty pppdftex.def ppluatex.def ppvtex.def ppxetex.def ppdvipdfm.def ppdvips.def ppnull.def
@@ -14,6 +14,7 @@ TDS-DOC-DIR=doc/latex/pdfpages
 TDS-SRC-DIR=source/latex/pdfpages
 
 DIST-DIR=pdfpages-$(VERSION)
+DIST-SUBDIR=$(DIST-DIR)/pdfpages
 
 
 installer=pdfpages.installer
@@ -35,7 +36,8 @@ release: distclean svn-update ins
 	rm ltxdoc.cfg
 
 	mkdir $(DIST-DIR)
-	cp $(DIST-FILES) $(CTAN-DOC-FILES) $(DIST-DIR)
+	mkdir $(DIST-SUBDIR)
+	cp $(DIST-FILES) $(CTAN-DOC-FILES) $(DIST-SUBDIR)
 	mkdir -p $(DIST-DIR)/$(TDS-STY-DIR)
 	cp $(TDS-STY-FILES) $(DIST-DIR)/$(TDS-STY-DIR)
 	mkdir -p $(DIST-DIR)/$(TDS-DOC-DIR)
