@@ -1,7 +1,8 @@
 VERSION=$(shell grep '\\def\\AM@fileversion{' pdfpages.dtx |\
 	sed 's/\\def\\AM@fileversion{\(.*\)}/\1/')
+DIST=pdfpages-$(VERSION)
 
-DIST-FILES=pdfpages.ins pdfpages.dtx README
+DIST-FILES=pdfpages.ins pdfpages.dtx README dummy.pdf dummy-l.pdf
 CTAN-DOC-FILES=pdfpages.pdf
 
 TDS-STY-FILES=pdfpages.sty pppdftex.def ppluatex.def ppvtex.def ppxetex.def ppdvipdfm.def ppdvips.def ppnull.def
@@ -13,9 +14,7 @@ TDS-STY-DIR=tex/latex/pdfpages
 TDS-DOC-DIR=doc/latex/pdfpages
 TDS-SRC-DIR=source/latex/pdfpages
 
-DIST-DIR=pdfpages-$(VERSION)
-DIST-SUBDIR=$(DIST-DIR)/pdfpages
-
+TMP-DIR=pdfpages-tmp
 
 installer=pdfpages.installer
 ins:
@@ -35,27 +34,28 @@ release: distclean svn-update ins
 	pdflatex pdfpages.dtx
 	rm ltxdoc.cfg
 
-	mkdir $(DIST-DIR)
-	mkdir $(DIST-SUBDIR)
-	cp $(DIST-FILES) $(CTAN-DOC-FILES) $(DIST-SUBDIR)
-	mkdir -p $(DIST-DIR)/$(TDS-STY-DIR)
-	cp $(TDS-STY-FILES) $(DIST-DIR)/$(TDS-STY-DIR)
-	mkdir -p $(DIST-DIR)/$(TDS-DOC-DIR)
-	cp $(TDS-DOC-FILES) $(DIST-DIR)/$(TDS-DOC-DIR)
-	mkdir -p $(DIST-DIR)/$(TDS-SRC-DIR)
-	cp $(TDS-SRC-FILES) $(DIST-DIR)/$(TDS-SRC-DIR)
+	mkdir $(TMP-DIR)
+	cp $(DIST-FILES) $(CTAN-DOC-FILES) $(TMP-DIR)
+	mkdir -p $(TMP-DIR)/$(TDS-STY-DIR)
+	cp $(TDS-STY-FILES) $(TMP-DIR)/$(TDS-STY-DIR)
+	mkdir -p $(TMP-DIR)/$(TDS-DOC-DIR)
+	cp $(TDS-DOC-FILES) $(TMP-DIR)/$(TDS-DOC-DIR)
+	mkdir -p $(TMP-DIR)/$(TDS-SRC-DIR)
+	cp $(TDS-SRC-FILES) $(TMP-DIR)/$(TDS-SRC-DIR)
 
-	chmod 755 $(DIST-DIR)
-	find $(DIST-DIR) -type d -exec chmod 755 {} \;
-	find $(DIST-DIR) -type f -exec chmod 644 {} \;
+	chmod 755 $(TMP-DIR)
+	find $(TMP-DIR) -type d -exec chmod 755 {} \;
+	find $(TMP-DIR) -type f -exec chmod 644 {} \;
 
-	cd $(DIST-DIR); zip -r pdfpages.tds.zip tex doc source
-	cd $(DIST-DIR); chmod 644 pdfpages.tds.zip
-	cd $(DIST-DIR); rm -r tex doc source
+	cd $(TMP-DIR); zip -r pdfpages.tds.zip tex doc source
+	cd $(TMP-DIR); chmod 644 pdfpages.tds.zip
+	cd $(TMP-DIR); rm -r tex doc source
 
-	tar cjfh $(DIST-DIR).tar.bz2 $(DIST-DIR)
-	chmod 644 $(DIST-DIR).tar.bz2
-	rm -r $(DIST-DIR)
+	cd $(TMP-DIR); tar cjfh $(DIST).tar.bz2 *
+	cd $(TMP-DIR); chmod 644 $(DIST).tar.bz2
+	cd $(TMP-DIR); rm $(DIST-FILES) $(CTAN-DOC-FILES) pdfpages.tds.zip
+	rm -r $(DIST)
+	mv $(TMP-DIR) $(DIST)
 
 svn-update:
 	svn up
@@ -70,7 +70,7 @@ clean:
 	rm -f pdf-ex.{tex,log,aux}
 	rm -f pdf-hyp.{tex,log,aux}
 	rm -f pdf-toc.{tex,log,aux}
-	rm -rf $(DIST-DIR)
+	rm -rf $(TMP-DIR)
 
 distclean: clean
 	rm -f *.bz2 pdfpages.ins
