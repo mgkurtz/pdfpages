@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4w}
+\def\AM@fileversion{v0.4x}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -82,7 +82,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4669}
+%    \CheckSum{4675}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3522,7 +3522,10 @@
 %    \begin{macrocode}
 \def\AM@getpagecount{%
   \expandafter\filename@parse\expandafter{\AM@currentdocname}%
-  \lowercase{\edef\type@ext{.\filename@ext}}%
+  \edef\type@ext{%
+    \noexpand\lowercase{%
+      \noexpand\def\noexpand\type@ext{.\filename@ext}}}%
+  \type@ext
   \ifx\type@ext\G@pdf@ext
     \ifdefined\import@path
       \let\AM@import@path\import@path
@@ -4297,6 +4300,10 @@
 %    of \pdfTeX. Therefore \luaTeX\ gets its on driver file |ppluatex.def|.
 %    \end{itemize}
 %
+%    \subsection*{2015/05/04 v0.4x}
+%    \begin{itemize}
+%    \item Issue with uppercase filename extentions in ppxetex.def fixed.
+%    \end{itemize}
 %    \Finale
 %    
 %    \iffalse
