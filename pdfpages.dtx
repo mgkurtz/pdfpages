@@ -82,7 +82,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4675}
+%    \CheckSum{4696}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -155,7 +155,7 @@
 %    \begin{abstract}
 %       \noindent
 %       This package simplifies the insertion of external multi-page \PDF\
-%       or \PS\ documents. It supports \pdfTeX, \VTeX, and \XeTeX.
+%       or \PS\ documents. It supports \pdfTeX, \VTeX, \XeTeX, and \luaTeX
 %    \end{abstract}
 %
 %    \tableofcontents
@@ -1114,6 +1114,8 @@
 \RequirePackage{ifthen, calc, eso-pic}
 \RequirePackage{graphicx}
 \newif\ifAM@DVIoutput\AM@DVIoutputfalse
+\newdimen\AM@pagewidth
+\newdimen\AM@pageheight
 \input{pp\AM@driver.def}
 \ifx\AM@endinput\relax\expandafter\endinput\fi
 \ifAM@pkg@survey
@@ -1367,10 +1369,42 @@
 %    \begin{macrocode}
 \newcommand{\AM@output}[1]{%
 %    \end{macrocode}
-%    Tune some \LaTeX\ parameters.
+%    For the following calculations we need to know the page size.
+%    But since we are still before |\newpage| we must not set |\paper{width,height}|
+%    and must not call |\AM@setpagedimen| now. This shall be done after |\newpage|.
+%    However, to get the calculation right we set and use |\AM@page{width,height}|,
+%    which will eventually (after the next |\newpage|) become the real page size.
 %    \begin{macrocode}
-  \c@totalnumber=0
-  \if@twocolumn\let\AM@twocolumn\relax \onecolumn \fi
+    \AM@getpagedimen
+    \ifdim\AM@pagewidth=\z@
+      \AM@pagewidth=210mm
+      \PackageWarningNoLine{pdfpages}{%
+        Erroneous page width of 0.0pt is corrected}%
+    \fi
+    \ifdim\AM@pageheight=\z@
+      \AM@pageheight=297mm
+      \PackageWarningNoLine{pdfpages}{%
+        Erroneous page height of 0.0pt is corrected}%
+    \fi
+%    \end{macrocode}
+%    Floats are unwanted here. Thus defer all floats until after |\includepdf|.
+%    \par
+%    1) Floats which are already in \LaTeX's output routine shall be removed from
+%    there and pushed onto |\@deferlist| or |\@dbldeferlist|.
+%    \begin{macrocode}
+  \xdef\@deferlist{\@toplist\@botlist\@deferlist}%
+  \gdef\@toplist{}%
+  \gdef\@botlist{}%
+  \xdef\@dbldeferlist{\@dbltoplist\@dbldeferlist}%
+  \gdef\@dbltoplist{}%
+%    \end{macrocode}
+%    2) Clear |\@deferlist| and |\@dbldeferlist|. But save them first
+%    so they can be restored later.
+%    \begin{macrocode}
+  \global\let\AM@deferlist\@deferlist
+  \gdef\@deferlist{}%
+  \global\let\AM@dbldeferlist\@dbldeferlist
+  \gdef\@dbldeferlist{}%
 %    \end{macrocode}
 %    Some drivers, like |ppnull|, need a hook to disable
 %    |\includegraphics|.
@@ -1465,7 +1499,6 @@
       {\edef\AM@page{\AM@pagetemplate}}%
   \AM@readfirst{\AM@doclist}%
   \edef\AM@docname{\the\toks@}%
-  \newpage
   \AM@isphantom
   \ifAM@noautoscale
     \def\AM@globalscale{1}%
@@ -1485,48 +1518,17 @@
       \fi
     \fi
 %    \end{macrocode}
-%    Adjust the paper size.
+%    Fit papersize.
 %    \begin{macrocode}
-    \ifthenelse{\boolean{AM@fitpaper}}
-      {\setlength{\AM@pagewidth}{\wd\@tempboxa}%
-       \setlength{\AM@pageheight}{\ht\@tempboxa + \dp\@tempboxa}%
-       \setlength{\paperwidth}{\wd\@tempboxa}%
-       \setlength{\paperheight}{\ht\@tempboxa + \dp\@tempboxa}%
-       \AM@fitpaper@special
-       \AM@setpagedimen
-       \@ifundefined{stockwidth}{}{%
-         \setlength{\stockwidth}{\AM@pagewidth}%
-         \setlength{\stockheight}{\AM@pageheight}%
-         \setlength{\trimtop}{0pt}%
-         \setlength{\trimedge}{0pt}}%
-      }{}%
-%    \end{macrocode}
-%    \begin{macrocode}
-    \ifdim\AM@pagewidth=\z@
-      \AM@pagewidth=210mm
-      \PackageWarningNoLine{pdfpages}{%
-        Erroneous page width of 0.0pt is corrected}%
-    \fi
-    \ifdim\AM@pageheight=\z@
-      \AM@pageheight=297mm
-      \PackageWarningNoLine{pdfpages}{%
-        Erroneous page height of 0.0pt is corrected}%
-    \fi
-%    \end{macrocode}
-%    |eso-pic| needs |\paperwidth| and |\paperheight|, which may
-%    not be defined, e.g. with |minimal.cls|.
-%    \begin{macrocode}
-    \ifdim\paperwidth=\z@
-      \let\paperwidth\AM@pagewidth
-    \fi
-    \ifdim\paperheight=\z@
-      \let\paperheight\AM@pageheight
-    \fi
+    \ifthenelse{\boolean{AM@fitpaper}}{
+      \setlength{\AM@pagewidth}{\wd\@tempboxa}%
+      \setlength{\AM@pageheight}{\ht\@tempboxa + \dp\@tempboxa}%
+    }{}%
 %    \end{macrocode}
 %    Calculate required scaling in horizontal direction.
 %    \begin{macrocode}
     \def\AM@xscale{%
-      (\paperwidth - \tw@\fboxrule*\AM@xnup 
+      (\AM@pagewidth - \tw@\fboxrule*\AM@xnup 
        - \AM@deltax * \AM@xnupminusi) /
       (\AM@xnup * \real{\strip@pt\wd\@tempboxa})
     }%
@@ -1537,7 +1539,7 @@
 %    \begin{macrocode}
     \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
     \def\AM@yscale{
-      (\paperheight - \tw@\fboxrule*\AM@ynup 
+      (\AM@pageheight - \tw@\fboxrule*\AM@ynup 
        - \AM@deltay *\AM@ynupminusi) /
       (\AM@ynup * \real{\strip@pt\@tempdimb})
     }%
@@ -1581,11 +1583,11 @@
   \edef\AM@templateheight{\the\@tempdima}%
   \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
   \def\AM@xmargin{%
-    (\paperwidth - (\wd\@tempboxa+\tw@\fboxrule)*\AM@xnup
+    (\AM@pagewidth - (\wd\@tempboxa+\tw@\fboxrule)*\AM@xnup
      - \AM@deltax * \AM@xnupminusi) * \real{.5}%
   }%
   \def\AM@ymargin{%
-    (\paperheight - (\@tempdimb+\tw@\fboxrule)*\AM@ynup
+    (\AM@pageheight - (\@tempdimb+\tw@\fboxrule)*\AM@ynup
      - \AM@deltay * \AM@ynupminusi) * \real{.5}%
   }%
   \setlength{\@tempdima}{\AM@xmargin}%
@@ -1794,6 +1796,12 @@
 %    \end{macrocode}
 %    Ship out page.
 %    \begin{macrocode}
+    \newpage
+    \ifnum\AM@xnupi=1
+      \ifnum\AM@ynupi=1
+        \ifAM@reflectall \setbox\AM@pagebox\null \fi
+      \fi
+    \fi
     \ifAM@phantompage
       \def\AM@shippage{}%
     \else
@@ -1830,6 +1838,38 @@
     \fi
     \AM@AddToShipoutPicture{\setlength{\unitlength}{\p@}%
       \global\let\AM@filelist@save\@filelist}%
+%    \end{macrocode}
+%    Adjust paper size:
+%    After |\newpage| we may finally set |\paper{width,height}| and call
+%    |\AM@setpagedimen|.
+%    \begin{macrocode}
+    \ifthenelse{\boolean{AM@fitpaper}}{
+      \setlength{\paperwidth}{\AM@pagewidth}%
+      \setlength{\paperheight}{\AM@pageheight}%
+      \AM@fitpaper@special
+      \AM@setpagedimen
+      \@ifundefined{stockwidth}{}{%
+        \setlength{\stockwidth}{\AM@pagewidth}%
+        \setlength{\stockheight}{\AM@pageheight}%
+        \setlength{\trimtop}{0pt}%
+        \setlength{\trimedge}{0pt}}%
+    }{}
+%    \end{macrocode}
+%    |eso-pic| needs |\paperwidth| and |\paperheight|, which may
+%    not be defined, e.g. with |minimal.cls|.
+%    \begin{macrocode}
+    \ifdim\paperwidth=\z@
+      \let\paperwidth\AM@pagewidth
+    \fi
+    \ifdim\paperheight=\z@
+      \let\paperheight\AM@pageheight
+    \fi
+%    \end{macrocode}
+%    \begin{macrocode}
+    \if@twocolumn
+      \@twocolumnfalse
+      \let\AM@twocolumn\relax
+    \fi
 %    \end{macrocode}
 %    |\AM@pagebox| is only used for option |reflect|, which was added
 %    lately. Probabley it would be better to use |\AM@pagebox| in
@@ -1871,10 +1911,10 @@
           }%
           \AM@ClearShipoutPicture
         \fi
-        \newpage
-        \ifAM@reflectall \setbox\AM@pagebox\null \fi
-        \ifAM@pdflscape\PLS@Rotate{0}\fi
-        \AM@ClearShipoutPicture
+%        \ifAM@reflectall \setbox\AM@pagebox\null \fi
+%        \ifAM@pdflscape\PLS@Rotate{0}\fi
+%        \AM@ClearShipoutPicture
+
 %    \end{macrocode}
 %    When creating signatures, every second page must be rotated
 %    by $180^{\circ}$ and therefore the xoffset must be multiplied
@@ -1891,7 +1931,13 @@
 %    \end{macrocode}
 %    \begin{macrocode}
   }% whiledo
-  \ifx\AM@twocolumn\relax\twocolumn\fi
+  \global\let\@deferlist\AM@deferlist
+  \global\let\@dbldeferlist\AM@dbldeferlist
+  \ifx\AM@twocolumn\relax
+    \@twocolumntrue
+    \@firstcolumnfalse
+  \fi
+  \newpage
 }% AM@output
 %    \end{macrocode}
 %    \macro{\AM@readlist}
@@ -2584,15 +2630,15 @@
 %    \end{macrocode}
 %    Calculate value of |\AM@signature| for option |booklet|.
 %    \begin{macrocode}
-\ifAM@booklet
-  \AM@countpagelist
-  \@tempcntb=\@tempcnta
-  \divide\@tempcnta by 4
-  \multiply\@tempcnta by 4
-  \advance\@tempcntb-\@tempcnta
-  \ifnum\@tempcntb=0\else \advance\@tempcnta by 4\fi
-  \edef\AM@signature{\the\@tempcnta}%
-\fi
+  \ifAM@booklet
+    \AM@countpagelist
+    \@tempcntb=\@tempcnta
+    \divide\@tempcnta by 4
+    \multiply\@tempcnta by 4
+    \advance\@tempcntb-\@tempcnta
+    \ifnum\@tempcntb=0\else \advance\@tempcnta by 4\fi
+    \edef\AM@signature{\the\@tempcnta}%
+  \fi
 %    \end{macrocode}
 %    Make |\AM@signature| a multiply of 4.
 %    \begin{macrocode}
@@ -2670,6 +2716,8 @@
   \else
     \def\AM@xnup{\tw@}\def\AM@ynup{\@ne}%
   \fi
+  \typeout{*** \AM@xnup *** \AM@ynup}
+  \typeout{*** \the\AM@pagewidth *** \the\AM@pageheight}
 }
 %    \end{macrocode}
 %    \macro{\AM@setphantom}
@@ -3220,11 +3268,13 @@
 %    \end{macrocode}
 %    Page dimensions.
 %    \begin{macrocode}
-\let\AM@pagewidth\pdfpagewidth
-\let\AM@pageheight\pdfpageheight
+\def\AM@getpagedimen{%
+  \AM@pagewidth=\pdfpagewidth
+  \AM@pageheight=\pdfpageheight
+}
 \def\AM@setpagedimen{%
-  \setlength{\pdfpagewidth}{\wd\@tempboxa}%
-  \setlength{\pdfpageheight}{\ht\@tempboxa + \dp\@tempboxa}%
+  \pdfpagewidth\AM@pagewidth
+  \pdfpageheight\AM@pageheight
 }
 \let\AM@pagesize@boogie\relax
 %    \end{macrocode}
@@ -3408,11 +3458,13 @@
 %    \end{macrocode}
 %    Page dimensions.
 %    \begin{macrocode}
-\let\AM@pagewidth\mediawidth
-\let\AM@pageheight\mediaheight
+\def\AM@getpagedimen{%
+  \AM@pagewidth=\mediawidth
+  \AM@pageheight=\mediaheight
+}
 \def\AM@setpagedimen{%
-  \setlength{\mediawidth}{\wd\@tempboxa}%
-  \setlength{\mediaheight}{\ht\@tempboxa+\dp\@tempboxa}%
+  \mediawidth\AM@pagewidth
+  \mediaheight\AM@pageheight
 }
 \let\AM@pagesize@boogie\relax
 %    \end{macrocode}
@@ -3560,11 +3612,13 @@
 %    \end{macrocode}
 %    Page dimensions.
 %    \begin{macrocode}
-\let\AM@pagewidth\pdfpagewidth
-\let\AM@pageheight\pdfpageheight
+\def\AM@getpagedimen{%
+  \AM@pagewidth=\pdfpagewidth
+  \AM@pageheight=\pdfpageheight
+}
 \def\AM@setpagedimen{%
-  \setlength{\pdfpagewidth}{\wd\@tempboxa}%
-  \setlength{\pdfpageheight}{\ht\@tempboxa+\dp\@tempboxa}%
+  \pdfpagewidth\AM@pagewidth
+  \pdfpageheight\AM@pageheight
 }
 \def\AM@pagesize@boogie{%
   \ifdim\AM@pagewidth=\z@
@@ -3743,13 +3797,15 @@
 %    \end{macrocode}
 %    Page dimensions.
 %    \begin{macrocode}
-\let\AM@pagewidth\paperwidth  
-\let\AM@pageheight\paperheight
-\def\AM@setpagedimen{%
-  \setlength{\paperwidth}{\wd\@tempboxa}% 
-  \setlength{\paperheight}{\ht\@tempboxa + \dp\@tempboxa}%
+\def\AM@getpagedimen{%
+  \AM@pagewidth=\paperwidth
+  \AM@pageheight=\paperheight
 }
-\let\AM@pagesize@boogie\relax 
+\def\AM@setpagedimen{%
+  \paperwidth\AM@pagewidth
+  \paperheight\AM@pageheight
+}
+\let\AM@pagesize@boogie\relax
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
@@ -3821,7 +3877,7 @@
 %    \subsubsection{Dvipdfm driver}
 %
 %    Package |graphicx| should be loaded with the |dvipdfm| driver.
-%    However, |\RequirePackage[dvipdfm]{graphicx}| is not recommended
+%    However, \break |\RequirePackage[dvipdfm]{graphicx}| is not recommended
 %    because it will cause an `option clash' if a user loaded |graphicx|
 %    with additional options before. Thus, we expect the user to load
 %    |graphicx| with |dvipdfm| driver before loading pdfpages.
@@ -3857,13 +3913,15 @@
 %    \end{macrocode}
 %    Page dimensions.
 %    \begin{macrocode}
-\let\AM@pagewidth\paperwidth  
-\let\AM@pageheight\paperheight
-\def\AM@setpagedimen{%
-  \setlength{\paperwidth}{\wd\@tempboxa}% 
-  \setlength{\paperheight}{\ht\@tempboxa + \dp\@tempboxa}%
+\def\AM@getpagedimen{%
+  \AM@pagewidth=\paperwidth
+  \AM@pageheight=\paperheight
 }
-\let\AM@pagesize@boogie\relax 
+\def\AM@setpagedimen{%
+  \paperwidth\AM@pagewidth
+  \paperheight\AM@pageheight
+}
+\let\AM@pagesize@boogie\relax
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
@@ -4033,11 +4091,13 @@
 %    \end{macrocode}
 %    Page dimensions.
 %    \begin{macrocode}
-\let\AM@pagewidth\paperwidth
-\let\AM@pageheight\paperheight
+\def\AM@getpagedimen{%
+  \AM@pagewidth=\paperwidth
+  \AM@pageheight=\paperheight
+}
 \def\AM@setpagedimen{%
-  \setlength{\paperwidth}{\wd\@tempboxa}%
-  \setlength{\paperheight}{\ht\@tempboxa + \dp\@tempboxa}%
+  \paperwidth\AM@pagewidth
+  \paperheight\AM@pageheight
 }
 \let\AM@pagesize@boogie\relax
 %    \end{macrocode}
@@ -4303,6 +4363,7 @@
 %    \subsection*{2015/05/04 v0.4x}
 %    \begin{itemize}
 %    \item Issue with uppercase filename extentions in ppxetex.def fixed.
+%    \item Issue with suspending of floats, and bang floats, during output fixed.
 %    \end{itemize}
 %    \Finale
 %    
