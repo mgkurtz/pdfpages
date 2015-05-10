@@ -56,7 +56,7 @@ W=670; H=970
 function start_mupdf(){
     # $1 ... file
     # $2 ... x-position of window
-    ./mupdf-x11 -r70 $1 &
+    mupdf-x11 -r70 $1 &
     PID=$!
     sleep 0.1
     WID=$(xdotool getwindowfocus)
