@@ -52,6 +52,8 @@ TESTS="
 SPECIAL_TESTS="
   ps-tricks
   dvi-mode
+  full-dvipdfm
+  full-dvips
 "
 TESTS="$TESTS $SPECIAL_TESTS"
 
@@ -152,6 +154,16 @@ function message()
     echo "************************************************************************"
 }
 
+function if_not_batch ()
+{
+    if ! $BATCH; then
+        $@ &
+        echo "<press return> ..."
+        read
+    fi
+}
+
+
 function regular_test()
 {
     for LATEX in $LATEX_ENGINES
@@ -163,15 +175,9 @@ function regular_test()
         ALL_TESTS="$ALL_TESTS $RES"
         mv $1.pdf $RES
 
-        if ! $BATCH; then
-            acroread $RES &
-        fi
+        message ${LATEX^^} $1
+        if_not_batch acroread $RES
     done
-    message ${LATEX^^} $1
-    if ! $BATCH; then
-        echo "<press return>"
-        read
-    fi
 }
 
 function special_test()
@@ -181,11 +187,27 @@ function special_test()
             ps4pdf $1
             X=ps-tricks.pdf
             message PS4PDF $i
+            if_not_batch acroread $i.pdf
             ;;
         dvi-mode)
             latex $1
             X=dvi-mode.dvi
             message LATEX $i
+            if_not_batch xdvi $i
+            ;;
+        full-dvipdfm)
+            latex $i
+            latex $i
+            dvipdfm $i
+            X=full-dvipdfm.pdf
+            message DVIPDFM $i
+            if_not_batch acroread $i.pdf
+            ;;
+        full-dvips)
+            latex $i
+            dvips $i
+            ps2pdf $i.ps
+            if_not_batch acroread $i.pdf
             ;;
         *)
             echo "!!! Sorry, I don't know how to run special test \`$1'."
@@ -213,7 +235,7 @@ done
 #
 DEST=results_$(date -I)
 test -d $DEST || mkdir $DEST
-mv $ALL_TESTS $DEST
+test "$ALL_TEST" != "" && mv $ALL_TESTS $DEST
 
 #
 # cleanup
