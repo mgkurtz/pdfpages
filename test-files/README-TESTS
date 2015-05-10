@@ -3,7 +3,7 @@ This are tests of pdfpages.sty
 *) fulltest.tex		Some basic test
    full-post.tex        VTeX: include PostScript (vlatex and vlatexp)
    full-dvips           Driver dvips
-   full-dvipdfm         Driver dvipdfm
+   full-dvipdfm         Driver dvipdfm  (texlive doesn't have dvipdfm any more)
 
 *) floats-1.tex         Testing floats. Check PDF for "Ok, if this is page x".
    floats-2.tex
