@@ -46,11 +46,11 @@ do
 
     if test ! -f $fileA
     then
-        file_error $fileA
+        skip_test $fileA
         continue
     elif test ! -f $fileB
     then
-        file_error $fileB
+        skip_test $fileB
         continue
     fi
 

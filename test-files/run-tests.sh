@@ -47,6 +47,7 @@ TESTS="
   addto-tocloft
   addtotoc-jura
 "
+TESTS="fulltest"
 
 # tests to be run with other engines, e.g. ps4pdf
 SPECIAL_TESTS="
@@ -95,9 +96,9 @@ while true; do
             shift
             ;;
         "-c" | "--clean")
-            for i in $TESTS; do
-                rm -f $i.{aux,log,out,toc,lof,lot,lol,pdc}
-            done
+            rm -f *.{aux,log,out,toc,lof,lot,lol,pdc,pdf,ps}
+            ln -sf dum/dummy.pdf .
+            ln -sf dum/dummy-l.pdf
             exit 0
             ;;
         "--old")
@@ -185,13 +186,13 @@ function special_test()
     case $1 in
         ps-tricks)
             ps4pdf $1
-            X=ps-tricks.pdf
+            RES=ps-tricks.pdf
             message PS4PDF $i
             if_not_batch acroread $i.pdf
             ;;
         dvi-mode)
             latex $1
-            X=dvi-mode.dvi
+            RES=dvi-mode.dvi
             message LATEX $i
             if_not_batch xdvi $i
             ;;
@@ -199,7 +200,7 @@ function special_test()
             latex $i
             latex $i
             dvipdfm $i
-            X=full-dvipdfm.pdf
+            RES=full-dvipdfm.pdf
             message DVIPDFM $i
             if_not_batch acroread $i.pdf
             ;;
@@ -207,6 +208,8 @@ function special_test()
             latex $i
             dvips $i
             ps2pdf $i.ps
+            RES=full-dvips.ps
+            message DVIPS $i
             if_not_batch acroread $i.pdf
             ;;
         *)
@@ -214,7 +217,7 @@ function special_test()
             exit
             ;;
     esac
-    ALL_TESTS="$ALL_TESTS $X"
+    ALL_TESTS="$ALL_TESTS $RES"
 }
 
 
@@ -235,9 +238,9 @@ done
 #
 DEST=results_$(date -I)
 test -d $DEST || mkdir $DEST
-test "$ALL_TEST" != "" && mv $ALL_TESTS $DEST
+test "$ALL_TESTS" != "" && mv $ALL_TESTS $DEST
 
 #
 # cleanup
 #
-$0 -c
+./$0 -c
