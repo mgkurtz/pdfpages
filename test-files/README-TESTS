@@ -5,6 +5,10 @@ This are tests of pdfpages.sty
    full-dvips           Driver dvips
    full-dvipdfm         Driver dvipdfm
 
+*) floats-1.tex         Testing floats. Check PDF for "Ok, if this is page x".
+   floats-2.tex
+   floats-3.tex
+   floats-4.tex
 
 *) mixed.tex		Inclusion of mixed portait/landscape PDFs
 

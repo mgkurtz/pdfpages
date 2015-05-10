@@ -1,0 +1,138 @@
+\makeatletter
+% \tracingonline=1
+% \showboxdepth\maxdimen
+% \showboxbreadth\maxdimen
+
+
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+%\usepackage{fltrace}\tracefloats
+
+\newcommand{\atext}{Lorem ipsum dolor sit amet, consetetur sadipscing
+  elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+  magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+  justo duo dolores et ea rebum. }
+\newcommand{\moretext}{\atext\atext\par\atext\atext\par\atext\atext}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% normal float, 1-column
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\moretext\moretext
+\atext\par\atext\par\atext\par
+\rule{10pt}{50pt}
+
+\begin{figure}[t]
+  \setlength{\fboxsep}{7mm}
+  \centering\fbox{%
+    \parbox{42mm}{\LARGE\bfseries Ok, if this\\is page 4.}}
+\end{figure}
+
+\includepdf[pages=1-8,nup=2x2]{dummy.pdf}
+
+\moretext\moretext\moretext\moretext
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% bang float, 1-column
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\moretext\moretext
+\atext\par\atext\par\atext\par
+\rule{10pt}{50pt}
+
+\begin{figure}[t]
+  \setlength{\fboxsep}{7mm}
+  \centering\fbox{%
+    \parbox{42mm}{\LARGE\bfseries Ok, if this\\is page 9.}}
+\end{figure}
+
+\includepdf[pages=1-8,nup=2x2]{dummy.pdf}
+
+\moretext\moretext\moretext\moretext
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% normal float, 2-column
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\twocolumn
+\sloppy
+
+\moretext\moretext
+\atext\par\atext\par\atext\par
+\rule{10pt}{46pt}
+
+\begin{figure}[t]
+  \setlength{\fboxsep}{7mm}
+  \centering\fbox{%
+    \parbox{42mm}{\LARGE\bfseries Ok, if this\\is page 14.}}
+\end{figure}
+
+\includepdf[pages=1-8,nup=2x2]{dummy.pdf}
+
+\moretext\moretext\moretext\moretext
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\moretext\moretext
+\atext\par\atext\par\atext\par
+\rule{10pt}{46pt}
+
+\begin{figure*}[t]
+  \setlength{\fboxsep}{7mm}
+  \centering\fbox{%
+    \parbox{42mm}{\LARGE\bfseries Ok, if this\\is page 19.}}
+\end{figure*}
+
+\includepdf[pages=1-8,nup=2x2]{dummy.pdf}
+
+\moretext\moretext\moretext\moretext
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% bang float, 2-column
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\twocolumn
+\sloppy
+
+\moretext\moretext
+\atext\par\atext\par\atext\par
+\rule{10pt}{46pt}
+
+\begin{figure}[t]
+  \setlength{\fboxsep}{7mm}
+  \centering\fbox{%
+    \parbox{42mm}{\LARGE\bfseries Ok, if this\\is page 24.}}
+\end{figure}
+
+\includepdf[pages=1-8,nup=2x2]{dummy.pdf}
+
+\moretext\moretext\moretext\moretext
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\moretext\moretext
+\atext\par\atext\par\atext\par
+\rule{10pt}{46pt}
+
+\begin{figure*}[t]
+  \setlength{\fboxsep}{7mm}
+  \centering\fbox{%
+    \parbox{42mm}{\LARGE\bfseries Ok, if this\\is page 29.}}
+\end{figure*}
+
+\includepdf[pages=1-8,nup=2x2]{dummy.pdf}
+
+\moretext\moretext\moretext\moretext
+
+\end{document}
