@@ -47,7 +47,6 @@ TESTS="
   addto-tocloft
   addtotoc-jura
 "
-TESTS="fulltest"
 
 # tests to be run with other engines, e.g. ps4pdf
 SPECIAL_TESTS="
