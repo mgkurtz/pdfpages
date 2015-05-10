@@ -16,13 +16,15 @@ TDS-SRC-DIR=source/latex/pdfpages
 
 TMP-DIR=pdfpages-tmp
 
+all: sty
+
 installer=pdfpages.installer
 ins:
 	echo '\\input{docstrip}\\askforoverwritefalse\\generate{\\file{pdfpages.ins}{\\from{pdfpages.dtx}{installer}}}\\endbatchfile' > $(installer)
 	latex $(installer)
 	rm $(installer)
 
-sty:
+sty: ins
 	latex pdfpages.ins
 
 release: distclean svn-update ins
@@ -54,7 +56,7 @@ release: distclean svn-update ins
 	cd $(TMP-DIR); tar cjfh $(DIST).tar.bz2 *
 	cd $(TMP-DIR); chmod 644 $(DIST).tar.bz2
 	cd $(TMP-DIR); rm $(DIST-FILES) $(CTAN-DOC-FILES) pdfpages.tds.zip
-	rm -r $(DIST)
+	rm -rf $(DIST)
 	mv $(TMP-DIR) $(DIST)
 
 svn-update:
