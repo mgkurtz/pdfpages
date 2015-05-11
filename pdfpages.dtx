@@ -82,7 +82,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4696}
+%    \CheckSum{4677}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1924,7 +1924,7 @@
           \ifAM@sigrotate\AM@sigrotatefalse\else\AM@sigrotatetrue\fi
           \@tempdima=\AM@xoffset\relax
           \multiply\@tempdima\m@ne
-          \edef\AM@xoffset{\the\@tempdima}
+          \edef\AM@xoffset{\the\@tempdima}%
         \fi
       \fi
     \fi
@@ -2716,8 +2716,6 @@
   \else
     \def\AM@xnup{\tw@}\def\AM@ynup{\@ne}%
   \fi
-  \typeout{*** \AM@xnup *** \AM@ynup}
-  \typeout{*** \the\AM@pagewidth *** \the\AM@pageheight}
 }
 %    \end{macrocode}
 %    \macro{\AM@setphantom}
@@ -3110,7 +3108,7 @@
 %    \begin{macrocode}
 \newcommand{\AM@parse@templatesize}{}
 \def\AM@parse@templatesize#1#2\END{%
-  \setbox\AM@templatesizebox=\hbox{\rule{#1}{#2}}
+  \setbox\AM@templatesizebox=\hbox{\rule{#1}{#2}}%
   \AM@templatesizetrue
 }
 \newbox\AM@templatesizebox
@@ -3247,12 +3245,12 @@
 %    is used repeatedly on the same file. Heiko is aware of this and will provide
 %    a solution in pdftex.def. Until then we will use the original graphicx's filename
 %    from |\Gread@@pdftex|.
-%    \begin{macrocode}
-%%    \def\AM@getpagecount{%
-%%      \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
-%%      \edef\AM@pagecount{\the\pdflastximagepages}%
-%%    }
-%    \end{macrocode}
+%    
+%    \def\AM@getpagecount{%
+%      \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
+%      \edef\AM@pagecount{\the\pdflastximagepages}%
+%    }
+%    
 %    \begin{macrocode}
 %<*(pppdftexdef,ppluatexdef)>
 \let\AM@Gread@@pdftex\Gread@@pdftex
@@ -3269,8 +3267,8 @@
 %    Page dimensions.
 %    \begin{macrocode}
 \def\AM@getpagedimen{%
-  \AM@pagewidth=\pdfpagewidth
-  \AM@pageheight=\pdfpageheight
+  \AM@pagewidth=\paperwidth
+  \AM@pageheight=\paperheight
 }
 \def\AM@setpagedimen{%
   \pdfpagewidth\AM@pagewidth
@@ -3399,8 +3397,8 @@
   \endgroup
 }
 \def\AM@region@calc{%
-  \setlength{\@tempdima}{\ht\@tempboxa + \dp\@tempboxa}
-  \edef\AM@region@depth{\the\@tempdima}
+  \setlength{\@tempdima}{\ht\@tempboxa + \dp\@tempboxa}%
+  \edef\AM@region@depth{\the\@tempdima}%
 }
 %    \end{macrocode}
 %    Do not disable |\includegraphics|.
@@ -3424,7 +3422,7 @@
   \PackageError{pdfpages}
          {The graphics package was loaded with driver\MessageBreak
           `\Gin@driver', which cannot be used with VTeX}
-         {Check the driver option of the graphics package.}
+         {Check the driver option of the graphics package.}%
   \global\let\AM@endinput\relax
   \aftergroup\endinput}{}
 \endgroup
@@ -3613,8 +3611,8 @@
 %    Page dimensions.
 %    \begin{macrocode}
 \def\AM@getpagedimen{%
-  \AM@pagewidth=\pdfpagewidth
-  \AM@pageheight=\pdfpageheight
+  \AM@pagewidth=\paperwidth
+  \AM@pageheight=\paperheight
 }
 \def\AM@setpagedimen{%
   \pdfpagewidth\AM@pagewidth
@@ -3891,8 +3889,8 @@
     \@spaces \string\usepackage[dvipdfm]{graphicx}\MessageBreak
     \@spaces \string\usepackage[dvipdfm]{pdfpages}\MessageBreak
     This time I will try to load `dvipdfm.def' which \MessageBreak
-    will overwrite `Gin@driver'. Let's hope for the best}
-  \input{dvipdfm.def}
+    will overwrite `Gin@driver'. Let's hope for the best}%
+  \input{dvipdfm.def}%
 \fi
 %    \end{macrocode}
 %    \begin{macrocode}
