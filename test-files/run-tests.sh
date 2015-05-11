@@ -26,7 +26,9 @@ function usage ()
 # defaults
 #
 TESTS="
-  fulltest
+  fulltest-a
+  fulltest-b
+
   floats-1
   floats-2
   floats-3
@@ -37,14 +39,24 @@ TESTS="
   crop-test
   test-import
 
-  addtotoc-1
-  addtotoc-2
-  addtotoc-3
+  addtotoc-1a
+  addtotoc-1b
+  addtotoc-2a
+  addtotoc-2b
+  addtotoc-3a
+  addtotoc-3b
+  addtotoc-3c
+  addtotoc-3d
 
-  addtolist-1
-  addtolist-2
+  addtolist-1a
+  addtolist-1b
+  addtolist-1c
+  addtolist-2a
+  addtolist-2b
+  addtolist-2c
 
-  addto-tocloft
+  addto-tocloft-a
+  addto-tocloft-b
   addtotoc-jura
 "
 

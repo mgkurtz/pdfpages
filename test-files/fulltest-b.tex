@@ -1,0 +1,14 @@
+\documentclass[a4paper]{memoir}
+
+\makeevenhead{plain}{Kopfzeile}{}{}
+\makeoddhead{plain}{Kopfzeile}{}{}
+
+\makeevenfoot{plain}{}{Fu\ss zeile}{}
+\makeoddfoot{plain}{}{Fu\ss zeile}{}
+
+\makeheadrule{plain}{\textwidth}{0.4pt}
+\makefootrule{plain}{\textwidth}{0.4pt}{\footruleskip}
+
+\pagestyle{plain}
+
+\input fulltest.tex
