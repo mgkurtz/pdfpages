@@ -1,6 +1,8 @@
 VERSION=$(shell grep '\\def\\AM@fileversion{' pdfpages.dtx |\
 	sed 's/\\def\\AM@fileversion{\(.*\)}/\1/')
 DIST=pdfpages-$(VERSION)
+DIST-DIR=$(DIST)
+
 
 DIST-FILES=pdfpages.ins pdfpages.dtx README dummy.pdf dummy-l.pdf
 CTAN-DOC-FILES=pdfpages.pdf
@@ -14,7 +16,6 @@ TDS-STY-DIR=tex/latex/pdfpages
 TDS-DOC-DIR=doc/latex/pdfpages
 TDS-SRC-DIR=source/latex/pdfpages
 
-TMP-DIR=pdfpages-tmp
 
 all: sty
 
@@ -36,28 +37,28 @@ release: distclean svn-update ins
 	pdflatex pdfpages.dtx
 	rm ltxdoc.cfg
 
-	mkdir $(TMP-DIR)
-	cp $(DIST-FILES) $(CTAN-DOC-FILES) $(TMP-DIR)
-	mkdir -p $(TMP-DIR)/$(TDS-STY-DIR)
-	cp $(TDS-STY-FILES) $(TMP-DIR)/$(TDS-STY-DIR)
-	mkdir -p $(TMP-DIR)/$(TDS-DOC-DIR)
-	cp $(TDS-DOC-FILES) $(TMP-DIR)/$(TDS-DOC-DIR)
-	mkdir -p $(TMP-DIR)/$(TDS-SRC-DIR)
-	cp $(TDS-SRC-FILES) $(TMP-DIR)/$(TDS-SRC-DIR)
+	rm -rf $(DIST-DIR)
+	mkdir $(DIST-DIR)
+	mkdir $(DIST-DIR)/pdfpages
+	cp $(DIST-FILES) $(CTAN-DOC-FILES) $(DIST-DIR)/pdfpages
+	mkdir -p $(DIST-DIR)/$(TDS-STY-DIR)
+	cp $(TDS-STY-FILES) $(DIST-DIR)/$(TDS-STY-DIR)
+	mkdir -p $(DIST-DIR)/$(TDS-DOC-DIR)
+	cp $(TDS-DOC-FILES) $(DIST-DIR)/$(TDS-DOC-DIR)
+	mkdir -p $(DIST-DIR)/$(TDS-SRC-DIR)
+	cp $(TDS-SRC-FILES) $(DIST-DIR)/$(TDS-SRC-DIR)
 
-	chmod 755 $(TMP-DIR)
-	find $(TMP-DIR) -type d -exec chmod 755 {} \;
-	find $(TMP-DIR) -type f -exec chmod 644 {} \;
+	chmod 755 $(DIST-DIR)
+	find $(DIST-DIR) -type d -exec chmod 755 {} \;
+	find $(DIST-DIR) -type f -exec chmod 644 {} \;
 
-	cd $(TMP-DIR); zip -r pdfpages.tds.zip tex doc source
-	cd $(TMP-DIR); chmod 644 pdfpages.tds.zip
-	cd $(TMP-DIR); rm -r tex doc source
+	cd $(DIST-DIR); zip -r pdfpages.tds.zip tex doc source
+	cd $(DIST-DIR); chmod 644 pdfpages.tds.zip
+	cd $(DIST-DIR); rm -r tex doc source
 
-	cd $(TMP-DIR); tar cjfh $(DIST).tar.bz2 *
-	cd $(TMP-DIR); chmod 644 $(DIST).tar.bz2
-	cd $(TMP-DIR); rm $(DIST-FILES) $(CTAN-DOC-FILES) pdfpages.tds.zip
-	rm -rf $(DIST)
-	mv $(TMP-DIR) $(DIST)
+	cd $(DIST-DIR); tar cjfh $(DIST).tar.bz2 *
+	cd $(DIST-DIR); chmod 644 $(DIST).tar.bz2
+	cd $(DIST-DIR); rm -rf pdfpages pdfpages.tds.zip
 
 svn-update:
 	svn up
