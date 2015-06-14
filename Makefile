@@ -28,7 +28,9 @@ ins:
 sty: ins
 	latex pdfpages.ins
 
-release: distclean svn-update ins
+
+release: git-check release-force
+release-force: distclean ins
 	tex pdfpages.ins
 	echo '\PassOptionsToClass{a4paper}{ltxdoc}' > ltxdoc.cfg
 	-pdflatex -interaction=nonstopmode pdfpages.dtx
@@ -60,11 +62,29 @@ release: distclean svn-update ins
 	cd $(DIST-DIR); chmod 644 $(DIST).tar.bz2
 	cd $(DIST-DIR); rm -rf pdfpages pdfpages.tds.zip
 
-svn-update:
-	svn up
 
-svn-tag:
-	svn copy file:///home/andreas/svn/pdfpages/trunk file:///home/andreas/svn/pdfpages/$(VERSION) -m "Version $(VERSION)"
+git-check:
+ifneq "$(shell git status --porcelain pdfpages.dtx)" ""
+	@echo "!!!"
+	@echo "!!! Cannot make release:"
+	@echo "!!! There are uncommitted changes in \`pdfpages.dtx'."
+	@echo "!!! To force a release, run: make release-force"
+	@echo "!!!"
+	@exit 1
+endif
+
+FORCE:
+
+foo:
+	# @if [ -n $(git status --porcelain pdfpages.dtx) ];\
+	# then \
+	# 	echo "!!!"; \
+	# 	echo "!!! Cannot make release:"; \
+	# 	echo "!!! There are uncommitted changes in \`pdfpages.dtx'."; \
+	# 	echo "!!! To force a release, run: make release-force"; \
+	# 	echo "!!!"; \
+	# 	exit 1; \
+	# fi
 
 
 clean:
