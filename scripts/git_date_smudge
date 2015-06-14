@@ -1,4 +1,4 @@
 #!/bin/bash
 
 date=$(git log --pretty=format:"%ai" -1)
-sed -e "s,\\\$Date:[^$]*\\\$,\\\$Date: $date\\\$,g"
+sed -e "s,\\\$Date:[^$]*\\\$,\\\$Date: $date \\\$,g"

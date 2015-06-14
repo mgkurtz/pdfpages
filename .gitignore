@@ -8,8 +8,15 @@ pppdftex.def
 ppvtex.def
 ppxetex.def
 
-pdfpages.log
-
 pdf-ex.tex
 pdf-hyp.tex
 pdf-toc.tex
+
+pdfpages.log
+pdfpages.aux
+pdfpages.out
+pdfpages.hd
+pdfpages.toc
+pdfpages.pdf
+
+auto/*
