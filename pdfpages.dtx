@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4x}
+\def\AM@fileversion{v0.4y-beta1}
 \def\AM@SVN@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
 \def\AM@SVN@Date$Date: #1 #2${\AM@SVN@Date@i#1\END}
 \AM@SVN@Date$Date$
@@ -82,7 +82,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4677}
+%    \CheckSum{4663}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -996,6 +996,8 @@
 %            \texttt{CTAN:macros/latex/contrib/eso-pic/}
 %      \item[everyshi]
 %            \texttt{CTAN:macros/latex/contrib/ms/}
+%      \item[pdflscape]
+%            \texttt{CTAN:/macros/latex/contrib/oberdiek/}
 %      \item[graphicx, ifthen, calc]
 %            These packages belong to the standard \LaTeX\
 %            distribution.
@@ -1123,6 +1125,7 @@
   \RequirePackage{count1to}%
   \AddToShipoutPicture{\AM@setanchor}%
 \fi
+\RequirePackage{pdflscape}
 %    \end{macrocode}
 %    Checking for new versions of \texttt{eso-pic.sty}.
 %    \begin{macrocode}
@@ -1185,30 +1188,6 @@
 \newcommand*{\AM@picturecommand}{}
 \newcommand*{\AM@picturecommandstar}{}
 \newsavebox{\AM@pagebox}
-%    \end{macrocode}
-%    \macro{\AM@setlscape}
-%    |\AM@setlscape| is defined in the driver files but may be
-%    redefined here, if `pdflscape.sty' is loaded.
-%    This package is necessary, if landscape pages are produced
-%    \textit{and} `thumbpdf.sty' is used.
-%    \begin{macrocode}
-\newif\ifAM@thumbpdf
-\newif\ifAM@pdflscape
-\AtBeginDocument{%
-  \@ifpackageloaded{thumbpdf}{\AM@thumbpdftrue}{\AM@thumbpdffalse}%
-  \@ifpackageloaded{pdflscape}{\AM@pdflscapetrue}{\AM@pdflscapefalse}%
-  \ifAM@thumbpdf
-    \ifAM@pdflscape
-      \def\AM@setlscape{\PLS@Rotate{90}}%
-    \else 
-      \PackageWarningNoLine{pdfpages}{%
-        You are using `thumbpdf.sty' but not\MessageBreak
-        `pdflscape.sty'.\MessageBreak
-        Please, insert `pdflscape.sty' in  your document\MessageBreak
-        to get a pleasant PDF document with thumbs}%
-    \fi
-  \fi
-}
 %    \end{macrocode}
 %    \macro{\AM@checkinteger}
 %    Check, if |#1| is a positive integer.
@@ -1892,10 +1871,9 @@
       \ifnum\AM@ynupi=\AM@ynup\relax
         \begingroup\AM@pagecommand\endgroup
         \hskip\z@
-        \ifthenelse{\boolean{AM@turn}}
-          {\ifthenelse{\boolean{AM@landscape}}
-             {\AM@setlscape}{}}
-          {}%
+        \ifthenelse{\boolean{AM@turn}\AND\boolean{AM@landscape}}{%
+          \AM@setRotate
+        }{}
         \AM@AddToShipoutPicture{%
           \begingroup\AM@picturecommand\endgroup}%
         \ifAM@firstpage
@@ -1911,10 +1889,6 @@
           }%
           \AM@ClearShipoutPicture
         \fi
-%        \ifAM@reflectall \setbox\AM@pagebox\null \fi
-%        \ifAM@pdflscape\PLS@Rotate{0}\fi
-%        \AM@ClearShipoutPicture
-
 %    \end{macrocode}
 %    When creating signatures, every second page must be rotated
 %    by $180^{\circ}$ and therefore the xoffset must be multiplied
@@ -1938,6 +1912,9 @@
     \@firstcolumnfalse
   \fi
   \newpage
+  \ifthenelse{\boolean{AM@turn}\AND\boolean{AM@landscape}}{%
+    \AM@resetRotate
+  }{}
 }% AM@output
 %    \end{macrocode}
 %    \macro{\AM@readlist}
@@ -3294,7 +3271,8 @@
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
-\def\AM@setlscape{\pdfpageattr{/Rotate 90}}
+\def\AM@setRotate{\PLS@Rotate{90}}
+\def\AM@resetRotate{\PLS@Rotate{0}}
 %    \end{macrocode}
 %    Link to original document.
 %    \begin{macrocode}
@@ -3468,10 +3446,11 @@
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
-\def\AM@setlscape{\special{pS:
+\def\AM@setRotate{\special{pS:
     [{ThisPage}\string<\string</Rotate 90\string>\string>%]
     /PUT pdfmark}%
 }
+\def\AM@resetRotate{}
 %    \end{macrocode}
 %    Change paper size.
 %    \begin{macrocode}
@@ -3654,7 +3633,8 @@
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
-\def\AM@setlscape{\special{pdf: put @thispage << /Rotate 90 >>}}
+\def\AM@setRotate{\PLS@Rotate{90}}
+\def\AM@resetRotate{\PLS@Rotate{0}}
 %    \end{macrocode}
 %    Link to original document.
 %    \begin{macrocode}
@@ -3807,7 +3787,8 @@
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
-\def\AM@setlscape{\AM@notsupported{Page rotations}}
+\def\AM@setRotate{\AM@notsupported{Page rotations}}
+\def\AM@resetRotate{}
 %    \end{macrocode}
 %    Change paper size.
 %    \begin{macrocode}
@@ -3923,7 +3904,8 @@
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
-\def\AM@setlscape{\AM@notsupported{Page rotation}}
+\def\AM@setRotate{\AM@notsupported{Page rotation}}
+\def\AM@resetRotate{}
 %    \end{macrocode}
 %    Change paper size.
 %    \begin{macrocode}
