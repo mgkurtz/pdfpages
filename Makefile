@@ -72,20 +72,10 @@ ifneq "$(shell git status --porcelain pdfpages.dtx)" ""
 	@echo "!!!"
 	@exit 1
 endif
+	rm pdfpages.dtx
+	git checkout pdfpages.dtx
 
 FORCE:
-
-foo:
-	# @if [ -n $(git status --porcelain pdfpages.dtx) ];\
-	# then \
-	# 	echo "!!!"; \
-	# 	echo "!!! Cannot make release:"; \
-	# 	echo "!!! There are uncommitted changes in \`pdfpages.dtx'."; \
-	# 	echo "!!! To force a release, run: make release-force"; \
-	# 	echo "!!!"; \
-	# 	exit 1; \
-	# fi
-
 
 clean:
 	rm -f pdfpages.{sty,aux,log,toc,out,dvi,pdf}
