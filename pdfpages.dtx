@@ -28,11 +28,11 @@
 \makeatletter
 %</dtx>
 \def\AM@fileversion{v0.4y}
-\def\AM@Git@Date@i#1-#2-#3\END{\def\AM@filedate{#1/#2/#3}}
-\def\AM@Git@Date$#1: #2 #3${\AM@Git@Date@i#2\END}
-\def\AM@Git@SHA$#1: #2${\def\AM@commitsha{#2}}
-\AM@Git@Date$Date:$
-\AM@Git@SHA$SHA-1: 916a741dd9ae2346fac773b25c73dff5863f6f4f $
+\def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
+\def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
+\def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
+\AM@Git@Date@process$Date:$
+\AM@Git@SHA@process$SHA-1:$
 %</!(example1,example2,example3,installer)>
 %
 %
@@ -54,7 +54,7 @@
 %
 %    \makeatletter
 %    \ProvidesFile{pdfpages.dtx}
-   [\AM@filedate\space\AM@fileversion\space
+   [\AM@Git@Date\space\AM@fileversion\space
 %
 %    \iffalse
 %</!(example1,example2,example3,installer)>
