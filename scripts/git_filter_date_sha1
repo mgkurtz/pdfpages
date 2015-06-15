@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./scripts/git_filter_date $1 |\
+./scripts/git_filter_sha1 $1

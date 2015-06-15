@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $1 == "--smudge" ]
+then
+	sha=$(git log -1 | cat | head -n 1 | cut -d' ' -f2)
+	sed -e "s,\\\$SHA-1:[^$]*\\\$,\\\$SHA-1: $sha \\\$,g"
+fi
+
+if [ $1 == "--clean" ]
+then
+	sed -e "s,\\\$SHA-1:[^\\\$]*\\\$,\\\$SHA-1:\\\$,g"
+fi
+
