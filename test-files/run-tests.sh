@@ -58,6 +58,11 @@ TESTS="
   addto-tocloft-a
   addto-tocloft-b
   addtotoc-jura
+
+  demo-1
+  demo-2
+  demo-3
+  demo-4
 "
 
 # tests to be run with other engines, e.g. ps4pdf
