@@ -7,7 +7,7 @@ DIST-DIR=$(DIST)
 DIST-FILES=pdfpages.ins pdfpages.dtx README dummy.pdf dummy-l.pdf
 CTAN-DOC-FILES=pdfpages.pdf
 
-TDS-STY-FILES=pdfpages.sty pppdftex.def ppluatex.def ppvtex.def ppxetex.def ppdvipdfm.def ppdvips.def ppnull.def
+TDS-STY-FILES=pdfpages.sty pppdftex.def ppluatex.def ppvtex.def ppxetex.def ppdvipdfmx.def ppdvips.def ppnull.def
 TDS-DOC-FILES=pdfpages.pdf pdf-ex.tex pdf-hyp.tex pdf-toc.tex \
 	 dummy.pdf dummy-l.pdf
 TDS-SRC-FILES=pdfpages.dtx pdfpages.ins README
