@@ -180,6 +180,18 @@ function if_not_batch ()
     fi
 }
 
+function post_run ()
+{
+
+    if type -t post_run_$1 | grep -i function > /dev/null; then
+        post_run_$1 $2
+    fi
+}
+
+function post_run_platex ()
+{
+    dvipdfmx $1
+}
 
 function regular_test()
 {
@@ -188,6 +200,7 @@ function regular_test()
         $LATEX $1
         $LATEX $1
         $LATEX $1
+        post_run $LATEX $1
         RES="$1-$LATEX.pdf"
         ALL_TESTS="$ALL_TESTS $RES"
         mv $1.pdf $RES

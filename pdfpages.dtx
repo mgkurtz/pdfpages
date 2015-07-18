@@ -1,7 +1,7 @@
 %
 %    \iffalse
 %
-%<*(package,pppdftexdef,ppluatexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfmdef,ppnulldef)>
+%<*(package,pppdftexdef,ppluatexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfmxdef,ppnulldef)>
 %% Copyright (C) 2001-2015 Andreas MATTHIAS
 %%
 %% This work may be distributed and/or modified under the conditions
@@ -15,7 +15,7 @@
 %% The Current Maintainer of this work is
 %%   Andreas Matthias <andreas.matthias@gmail.com>.
 %
-%</(package,pppdftexdef,ppluatexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfmdef,ppnulldef)>
+%</(package,pppdftexdef,ppluatexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfmxdef,ppnulldef)>
 %<*!installer>
 %%
 %% Please send error reports and suggestions for improvements to
@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.4z}
+\def\AM@fileversion{v0.5a}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -46,7 +46,7 @@
 %<ppvtexdef>\ProvidesFile{ppvtex.def}
 %<ppxetexdef>\ProvidesFile{ppxetex.def}
 %<ppdvipsdef>\ProvidesFile{ppdvips.def}
-%<ppdvipdfmdef>\ProvidesFile{ppdvipdfm.def}
+%<ppdvipdfmxdef>\ProvidesFile{ppdvipdfmx.def}
 %<ppnulldef>\ProvidesFile{ppnull.def}
 %<driver>\ProvidesFile{pdfpages.drv}
 %<*!(example1,example2,example3,installer)>
@@ -76,7 +76,7 @@
 %<ppvtexdef>    Pdfpages driver for VTeX (AM)]
 %<ppxetexdef>    Pdfpages driver for XeTeX (AM)]
 %<ppdvipsdef>    Pdfpages driver for dvips (AM)]
-%<ppdvipdfmdef>    Pdfpages driver for dvipdfm (AM)]
+%<ppdvipdfmxdef>    Pdfpages driver for dvipdfmx (AM)]
 %<ppnulldef>    Pdfpages dummy driver (AM)]
 %
 %
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4690}
+%    \CheckSum{4701}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -132,7 +132,7 @@
 %    \def\VTeX{VTeX}
 %    \def\XeTeX{XeTeX}
 %    \def\dvips{dvips}
-%    \def\dvipdfm{dvipdfm}
+%    \def\dvipdfmx{dvipdfmx}
 %    \def\PDF{{\small PDF}}
 %    \def\PS{{\small PS}}
 %    \def\DVI{{\small DVI}}
@@ -1089,7 +1089,7 @@
 \DeclareOption{vtex}{\def\AM@driver{vtex}}
 \DeclareOption{xetex}{\def\AM@driver{xetex}}
 \DeclareOption{dvips}{\def\AM@driver{dvips}}
-\DeclareOption{dvipdfm}{\def\AM@driver{dvipdfm}}
+\DeclareOption{dvipdfmx}{\def\AM@driver{dvipdfmx}}
 \DeclareOption{null}{\def\AM@driver{null}}
 %    \end{macrocode}
 %    \begin{macrocode}
@@ -1111,9 +1111,11 @@
   \@ifundefined{luatexversion}{%
     \@ifundefined{pdftexversion}{%
       \@ifundefined{XeTeXversion}{%
-        \@ifundefined{OpMode}{%
-          \def\AM@driver{null}
-        }{\gdef\AM@driver{vtex}}%
+        \@ifundefined{kansuji}{%
+          \@ifundefined{OpMode}{%
+            \def\AM@driver{null}
+          }{\gedf\AM@driver{vtex}}%
+        }{\gdef\AM@driver{dvipdfmx}}%
       }{\gdef\AM@driver{xetex}}%
     }{\gdef\AM@driver{pdftex}}%
   }{\gdef\AM@driver{luatex}}%
@@ -3870,45 +3872,47 @@
 %    \iffalse
 %</ppdvipsdef>
 %
-%<*ppdvipdfmdef>
+%<*ppdvipdfmxdef>
 %    \fi
 %
-%    \subsubsection{Dvipdfm driver}
+%    \subsubsection{Dvipdfmx driver}
 %
-%    Package |graphicx| should be loaded with the |dvipdfm| driver.
-%    However, \break |\RequirePackage[dvipdfm]{graphicx}| is not recommended
+%    Package |graphicx| should be loaded with the |dvipdfmx| driver.
+%    However, \break |\RequirePackage[dvipdfmx]{graphicx}| is not recommended
 %    because it will cause an `option clash' if a user loaded |graphicx|
 %    with additional options before. Thus, we expect the user to load
-%    |graphicx| with |dvipdfm| driver before loading pdfpages.
+%    |graphicx| with |dvipdfmx| driver before loading pdfpages.
 %    \begin{macrocode}
-\def\AM@tmp{dvipdfm.def}
+\def\AM@tmp{dvipdfmx.def}
 \ifx\Gin@driver\AM@tmp\else
   \PackageWarningNoLine{pdfpages}{%
-    Graphicx not loaded with driver `dvipdfm'.\MessageBreak
+    Graphicx.sty not loaded with driver `dvipdfmx'.\MessageBreak
     Please, load graphicx explicitely before pdfpages,\MessageBreak
     e.g.:\MessageBreak
-    \@spaces \string\usepackage[dvipdfm]{graphicx}\MessageBreak
-    \@spaces \string\usepackage[dvipdfm]{pdfpages}\MessageBreak
-    This time I will try to load `dvipdfm.def' which \MessageBreak
-    will overwrite `Gin@driver'. Let's hope for the best}%
-  \input{dvipdfm.def}%
+    \@spaces \string\usepackage[dvipdfmx]{graphicx}\MessageBreak
+    \@spaces \string\usepackage[dvipdfmx]{pdfpages}\MessageBreak
+    This time I will try to load `dvipdfmx.def' which \MessageBreak
+    will overwrite `\string\Gin@driver'. Let's hope for the best}%
+  \input{dvipdfmx.def}%
 \fi
 %    \end{macrocode}
-%    \begin{macrocode}
-\def\AM@notsupported#1{%
-  \PackageWarning{pdfpages}{#1 not supported by driver dvipdfm}}
-%    \end{macrocode}
 %    Get last page number.
+%    Unfortunately this driver cannot detect the total number of pages of a PDF.
+%    If `lastpage' is not given we will assume the PDF has got just one page.
 %    \begin{macrocode}
+\PackageInfo{pdfpages}{%
+  Driver `dvipdfmx' cannot detect the total number\MessageBreak
+  of pages of a PDF. Use option `lastpage' to give\MessageBreak
+  me a hint}
 \def\AM@getpagecount{%
   \ifx\AM@pagecount\AM@undefined
-    \AM@notsupported{Page selection}
-    \def\AM@pagecount{1}%  
-    \gdef\AM@getpagecount{%
-      \def\AM@pagecount{1}%
-    }%
+    \def\AM@pagecount{1}%
   \fi
 }
+%    \end{macrocode}
+%    Don't check page numbers.
+%    \begin{macrocode}
+\newcommand*{\AM@checkpagenumber}[1]{}
 %    \end{macrocode}
 %    Page dimensions.
 %    \begin{macrocode}
@@ -3917,19 +3921,25 @@
   \AM@pageheight=\paperheight
 }
 \def\AM@setpagedimen{%
-  \paperwidth\AM@pagewidth
-  \paperheight\AM@pageheight
+  \special{pdf:pagesize width \the\AM@pagewidth\space  height \the\AM@pageheight\space}
 }
-\let\AM@pagesize@boogie\relax
+\def\AM@pagesize@boogie{%
+  \ifdim\AM@pagewidth=\z@
+    \ifdim\AM@pageheight=\z@
+      \let\AM@pagewidth\paperwidth
+      \let\AM@pageheight\paperheight
+    \fi
+  \fi
+}
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
-\def\AM@setRotate{\AM@notsupported{Page rotation}}
+\def\AM@setRotate{\special{pdf: put @thispage <</Rotate 90>>}}%
 \def\AM@resetRotate{}
 %    \end{macrocode}
 %    Change paper size.
 %    \begin{macrocode}
-\def\AM@fitpaper@special{\AM@notsupported{Option fitpaper}}
+\let\AM@fitpaper@special\relax
 %    \end{macrocode}
 %    Find file.
 %    \begin{macrocode}
@@ -4021,7 +4031,7 @@
                 \ifx\x\tag
                   \gdef\AM@view{/XYZ @xpos @ypos null}%
                   \PackageWarningNoLine{pdfpages}{%
-                    `linkfit=Region' is not supported by dvipdfm.}%
+                    `linkfit=Region' is not supported by dvipdfmx.}%
                 \else
                   \gdef\AM@view{/Fit}%
                 \fi
@@ -4040,21 +4050,9 @@
 %    \begin{macrocode}
 \let\AM@disable@includegraphics\relax
 %    \end{macrocode}
-%    Add option page for |\includegraphics|.
-%    \begin{macrocode}
-\@ifundefined{KV@Gin@page}{%
-  \define@key{Gin}{page}{%
-    \ifnum#1=1 %
-    \else
-      \PackageError{pdfpages}{%
-        Multipage images are not supported by driver dvipdfm%
-      }\@ehc
-    \fi
-  }}{}
-%    \end{macrocode}
 %
 %    \iffalse
-%</ppdvipdfmdef>
+%</ppdvipdfmxdef>
 %
 %<*ppnulldef>
 %    \fi
@@ -4376,6 +4374,12 @@
 %    \subsection*{2015/07/06 v0.4z}
 %    \begin{itemize}
 %    \item Package option `demo' added.
+%    \end{itemize}
+%
+%    \subsection*{2015/07/18 v0.5a}
+%    \begin{itemize}
+%    \item Driver dvipdfm removed.
+%    \item Driver dvipdfmx added.
 %    \end{itemize}
 %    \Finale
 %    
@@ -4747,7 +4751,7 @@ This file demonstrates how to use the pdfpages package.
 \generate{\usepreamble\package
           \file{ppdvips.def}{\from{pdfpages.dtx}{ppdvipsdef}}}
 \generate{\usepreamble\package
-          \file{ppdvipdfm.def}{\from{pdfpages.dtx}{ppdvipdfmdef}}}
+          \file{ppdvipdfmx.def}{\from{pdfpages.dtx}{ppdvipdfmxdef}}}
 \generate{\usepreamble\package
           \file{ppnull.def}{\from{pdfpages.dtx}{ppnulldef}}}
 
