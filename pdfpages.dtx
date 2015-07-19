@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4701}
+%    \CheckSum{4707}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1111,11 +1111,9 @@
   \@ifundefined{luatexversion}{%
     \@ifundefined{pdftexversion}{%
       \@ifundefined{XeTeXversion}{%
-        \@ifundefined{kansuji}{%
-          \@ifundefined{OpMode}{%
-            \def\AM@driver{null}
-          }{\gedf\AM@driver{vtex}}%
-        }{\gdef\AM@driver{dvipdfmx}}%
+        \@ifundefined{OpMode}{%
+          \gdef\AM@driver{null}
+        }{\gedf\AM@driver{vtex}}%
       }{\gdef\AM@driver{xetex}}%
     }{\gdef\AM@driver{pdftex}}%
   }{\gdef\AM@driver{luatex}}%
@@ -1126,7 +1124,11 @@
 %
 %    \begin{macrocode}
 \RequirePackage{ifthen, calc, eso-pic}
-\RequirePackage{graphicx}
+%\@ifundefined{kansuji}{%
+  \RequirePackage{graphicx}%
+%}{%
+%  \RequirePackage[dvipdfmx]{graphicx}%
+%}
 \newif\ifAM@DVIoutput\AM@DVIoutputfalse
 \newdimen\AM@pagewidth
 \newdimen\AM@pageheight
@@ -3887,12 +3889,15 @@
 \ifx\Gin@driver\AM@tmp\else
   \PackageWarningNoLine{pdfpages}{%
     Graphicx.sty not loaded with driver `dvipdfmx'.\MessageBreak
-    Please, load graphicx explicitely before pdfpages,\MessageBreak
+    Please, specify the driver as a class option\MessageBreak
+    \@spaces \string\documentclass[dvipdfmx]{...}\MessageBreak
+    or load graphicx explicitely before pdfpages,\MessageBreak
     e.g.:\MessageBreak
     \@spaces \string\usepackage[dvipdfmx]{graphicx}\MessageBreak
     \@spaces \string\usepackage[dvipdfmx]{pdfpages}\MessageBreak
     This time I will try to load `dvipdfmx.def' which \MessageBreak
-    will overwrite `\string\Gin@driver'. Let's hope for the best}%
+    will overwrite `\string\Gin@driver'.\MessageBreak
+    Let's hope for the best}%
   \input{dvipdfmx.def}%
 \fi
 %    \end{macrocode}
@@ -4066,8 +4071,8 @@
   I will use a dummy \string\includepdf\space command which\MessageBreak
   will insert empty pages instead of the actual PDF,\MessageBreak
   because we are running in
-  \ifAM@pkg@demo `demo' mode
-  \else DVI mode
+  \ifAM@pkg@demo `demo' mode%
+  \else DVI mode or with\MessageBreak dvips driver%
   \fi}
 %    \end{macrocode}
 % Find file: the file must not exist for this dummy driver. Let's just
