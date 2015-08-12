@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4707}
+%    \CheckSum{4786}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -210,12 +210,12 @@
 %    every minute and the pdfpages project itself does not need any
 %    donations.
 %
-%    However, I would be very grateful if you made a donation to Kira
-%    Gr\"unberg at \url{http://www.donationkira.com/}. Kira is an Austrian
-%    pole vaulter who had a terrible training accident in July 2015. Since
-%    then she is paralysed from the neck down, diagnosed to be a permanent
-%    damage. Please help her. I'd be glad to hear from you makeing a
-%    donation to Kira. Thank you!
+%    However, I'd be very grateful if you made a donation to Kira Gr\"unberg
+%    at \url{http://www.donationkira.com/}. Kira is an Austrian pole vaulter
+%    who had a terrible training accident in July 2015. Since then she is
+%    paralysed from the neck down. Diagnosed to be a permanent damage of the
+%    spinal cord. I'd be very pleased to hear from you making a donation to
+%    Kira. Thank you!
 %
 %  
 %    \section{Usage}
@@ -241,8 +241,8 @@
 %         \end{minipage}
 %    \end{quote}
 %    \end{minipage}
-%    
-%    
+%
+%
 %    \subsection{Commands}
 %    
 %    \DescribeMacro{\includepdf}
@@ -988,6 +988,26 @@
 %    Regardless of any other options.
 %
 %
+%    \subsection{Hints for Users of platex}
+%    \begin{itemize}
+%      \item
+%      The recommended way to tell |pdfpages| that you are using |platex| is to
+%      add |dvipdfmx| as a class option, e.g.:
+%
+%      \begin{quote}
+%        |\documentclass[dvipdfmx]{article}|\\
+%        |\usepackage{pdfpages}|
+%      \end{quote}
+%
+%      \item Pdfpages calls program |extractbb| to get the total number of
+%      pages of a PDF.  If an |xbb| file (output of |extractbb|) exists,
+%      pdfpages will use this file instead of calling |extractbb| to speed
+%      things up. However, be very cautious with |xbb| files: \emph{Do not use
+%      |xbb| files for PDFs with varying page sizes.} Since an |xbb| file
+%      contains only the page size of the very first page of a PDF.
+%    \end{itemize}
+%
+%
 %    \subsection{Pitfalls}
 %
 %    \begin{description}
@@ -1005,7 +1025,6 @@
 %           |\pagecolor| before |\usepackage{pdfpages}|) is
 %           important. -- This is not needed when using \VTeX.
 %    \end{description}
-%
 %
 %
 %    \section{Required Packages}
@@ -2079,7 +2098,7 @@
     \ifthenelse{\boolean{AM@pkg@draft} \and \boolean{AM@survey}}{%
     }{%
       \PackageError{pdfpages}
-        {page #1 of `\AM@currentdocname' does not exist}
+        {Page #1 of `\AM@currentdocname' does not exist}
         {You have set a wrong page number in the `pages' option.
          Document \MessageBreak `\AM@currentdocname' does not
          have #1 pages.}%
@@ -3896,10 +3915,40 @@
 %
 %    \subsubsection{Dvipdfmx driver}
 %
+%    Driver |dvipdfmx| must be invoked explicitely by the user. There are
+%    several ways to do this. Though only the first of the following ways is
+%    recommended.
+%
+%    \begin{itemize}
+%      \item
+%      This is the recommended way. PDF output as expected.
+%      \begin{quote}
+%        |\documentclass[a4paper,dvipdfmx]{article}|\\
+%        |\usepackage{pdfpages}|
+%      \end{quote}
+%
+%      \item
+%      Warning. Forcing dvipdfmx.def. PDF output as expected.
+%      \begin{quote}
+%        |\documentclass[a4paper]{article}|\\
+%        |\usepackage[dvipdfmx]{pdfpages}|
+%      \end{quote}
+%
+%      \item
+%      Assuming user wants to use dvips. Therefor pdfpages will just insert
+%      empty pages.
+%      \begin{quote}
+%        |\documentclass[a4paper]{article}|\\
+%        |\usepackage{pdfpages}|
+%      \end{quote}
+%    \end{itemize}
+%
+%
+%    \noindent
 %    Package |graphicx| should be loaded with the |dvipdfmx| driver.
 %    However, \break |\RequirePackage[dvipdfmx]{graphicx}| is not recommended
 %    because it will cause an `option clash' if a user loaded |graphicx|
-%    with additional options before. Thus, we expect the user to load
+%    with additional options previously. Thus, we expect the user to load
 %    |graphicx| with |dvipdfmx| driver before loading pdfpages.
 %    \begin{macrocode}
 \def\AM@tmp{dvipdfmx.def}
@@ -3918,23 +3967,76 @@
   \input{dvipdfmx.def}%
 \fi
 %    \end{macrocode}
-%    Get last page number.
-%    Unfortunately this driver cannot detect the total number of pages of a PDF.
-%    If `lastpage' is not given we will assume the PDF has got just one page.
+%    Packages like ngerman.sty make " with catcode 11 active. So let's
+%    use " with catcode 12 to delimit arguments.
 %    \begin{macrocode}
-\PackageInfo{pdfpages}{%
-  Driver `dvipdfmx' cannot detect the total number\MessageBreak
-  of pages of a PDF. Use option `lastpage' to give\MessageBreak
-  me a hint}
+{\catcode`\"=12
+ \gdef\AM@quote{"}%
+}
+%    \end{macrocode}
+%    Get last page number.
+%    This driver uses the external program |extractbb| to retrieve the total number
+%    of pages. Many thanks to Noriyuki Abe who provided this code.
+%    \begin{macrocode}
 \def\AM@getpagecount{%
+%    \end{macrocode}
+%    Try reading |.xbb| file if available.
+%    \begin{macrocode}
+  \expandafter\expandafter\expandafter\AM@get@xbb@filename
+  \csname Gin@rule@.pdf\endcsname\AM@currentdocname
+  \immediate\openin\@inputcheck=\AM@xbb@filename
+  \AM@read@xbb\@inputcheck
+  \immediate\closein\@inputcheck
+%    \end{macrocode}
+%    Try reading output of program |extractbb|.
+%    \begin{macrocode}
   \ifx\AM@pagecount\AM@undefined
-    \def\AM@pagecount{1}%
+    \immediate\openin\@inputcheck=\AM@quote|extractbb -O \AM@currentdocname\AM@quote
+    \AM@read@xbb\@inputcheck
+    \immediate\closein\@inputcheck
+  \fi
+%    \end{macrocode}
+%    If all fails set number of pages to 1. Maybe it is a graphics file
+%    like |jpg|, |png|, etc.
+%    \begin{macrocode}
+  \ifx\AM@pagecount\AM@undefined
+    \def\AM@pagecount{1}
   \fi
 }
 %    \end{macrocode}
-%    Don't check page numbers.
+%    Construct filename of |xbb| file.
+%    |#1:{pdf}, #2:{.xbb}, #3:{file.pdf}|
 %    \begin{macrocode}
-\newcommand*{\AM@checkpagenumber}[1]{}
+\def\AM@get@xbb@filename#1#2#3{%
+  \filename@parse{#3}%
+  \edef\AM@xbb@filename{\filename@area\filename@base#2}%
+}
+%    \end{macrocode}
+%    Read ouput of program |extractbb|.
+%    \begin{macrocode}
+\def\AM@read@xbb#1{%
+  \@tempswatrue
+  \loop
+    \ifeof#1
+      \@tempswafalse
+    \else
+      \begingroup
+        \catcode`\%=12\relax
+        \immediate\global\read#1 to \@tempa
+      \endgroup
+      \expandafter\AM@find@pages\@tempa:\relax
+    \fi
+  \if@tempswa\repeat
+}
+%    \end{macrocode}
+%    Find string |%%Pages:|
+%    \begin{macrocode}
+\long\def\AM@find@pages#1:#2\relax{%
+  \def\@tempb{#1}%
+  \edef\@tempc{\@percentchar\@percentchar Pages}%
+  \ifx\@tempb\@tempc\AM@set@pagecount#2\fi
+}
+\def\AM@set@pagecount#1:{\def\AM@pagecount{#1}}
 %    \end{macrocode}
 %    Page dimensions.
 %    \begin{macrocode}

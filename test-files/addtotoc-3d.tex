@@ -1,3 +1,5 @@
-\documentclass[a4paper, article]{memoir}
+\let\printglossary\relax % necessary if running platex
+\providecommand\myClassOptions{}
+\documentclass[a4paper,article,\myClassOptions]{memoir}
 
 \input addtotoc-3.tex

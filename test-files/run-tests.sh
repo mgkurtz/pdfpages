@@ -12,7 +12,7 @@ function usage ()
     echo "    --engines     Program names of latex to be used,"
     echo "                    e.g.: --engine=\"lualatex-80 xelatex\""
     echo "    --tests       File names of tests (without extension \`.tex')"
-    echo "                    to be run, e.g.: --tests=\"fulltest floats-1\""
+    echo "                    to be run, e.g.: --tests=\"fulltest-a floats-1\""
     echo "    --show-tests  Display available tests."
     echo "-b, --batch       Batch mode."
     echo "-c, --clean       Clean directory."
@@ -69,12 +69,11 @@ TESTS="
 SPECIAL_TESTS="
   ps-tricks
   dvi-mode
-  full-dvipdfm
   full-dvips
 "
 TESTS="$TESTS $SPECIAL_TESTS"
 
-LATEX_ENGINES="pdflatex lualatex xelatex"
+LATEX_ENGINES="pdflatex lualatex xelatex platex"
 
 BATCH=false
 
@@ -182,7 +181,6 @@ function if_not_batch ()
 
 function post_run ()
 {
-
     if type -t post_run_$1 | grep -i function > /dev/null; then
         post_run_$1 $2
     fi
@@ -193,13 +191,27 @@ function post_run_platex ()
     dvipdfmx $1
 }
 
+function run ()
+{
+    if type -t run_$1 | grep -i function > /dev/null; then
+        run_$1 $2
+    else
+        $1 $2
+    fi
+}
+
+function run_platex ()
+{
+    platex "\\def\\myClassOptions{dvipdfmx}\\input{$1}"
+}
+
 function regular_test()
 {
     for LATEX in $LATEX_ENGINES
     do
-        $LATEX $1
-        $LATEX $1
-        $LATEX $1
+        run $LATEX $1
+        run $LATEX $1
+        run $LATEX $1
         post_run $LATEX $1
         RES="$1-$LATEX.pdf"
         ALL_TESTS="$ALL_TESTS $RES"
@@ -224,14 +236,6 @@ function special_test()
             RES=dvi-mode.dvi
             message LATEX $i
             if_not_batch xdvi $i
-            ;;
-        full-dvipdfm)
-            latex $i
-            latex $i
-            dvipdfm $i
-            RES=full-dvipdfm.pdf
-            message DVIPDFM $i
-            if_not_batch acroread $i.pdf
             ;;
         full-dvips)
             latex $i

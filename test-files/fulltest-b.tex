@@ -1,4 +1,6 @@
-\documentclass[a4paper]{memoir}
+\let\printglossary\relax % necessary if running platex
+\providecommand\myClassOptions{}
+\documentclass[a4paper,\myClassOptions]{memoir}
 
 \makeevenhead{plain}{Kopfzeile}{}{}
 \makeoddhead{plain}{Kopfzeile}{}{}
