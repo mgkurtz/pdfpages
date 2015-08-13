@@ -1000,11 +1000,11 @@
 %      \end{quote}
 %
 %      \item Pdfpages calls program |extractbb| to get the total number of
-%      pages of a PDF.  If an |xbb| file (output of |extractbb|) exists,
-%      pdfpages will use this file instead of calling |extractbb| to speed
-%      things up. However, be very cautious with |xbb| files: \emph{Do not use
-%      |xbb| files for PDFs with varying page sizes.} Since an |xbb| file
-%      contains only the page size of the very first page of a PDF.
+%      pages of a PDF.  But if an |xbb| file (output of |extractbb|) exists,
+%      pdfpages will not call |extractbb| but use this file. However, be
+%      very cautious with |xbb| files: \emph{Do not use |xbb| files for PDFs
+%      with varying page sizes.} Because an |xbb| file contains only the page
+%      size of a single page.
 %    \end{itemize}
 %
 %
