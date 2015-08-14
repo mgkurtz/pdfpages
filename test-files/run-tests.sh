@@ -29,6 +29,8 @@ TESTS="
   fulltest-a
   fulltest-b
 
+  misc-1
+
   floats-1
   floats-2
   floats-3

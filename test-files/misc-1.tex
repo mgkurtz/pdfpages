@@ -1,0 +1,12 @@
+\providecommand\myClassOptions{}
+\documentclass[a4paper,twoside,\myClassOptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+
+\LARGE
+Testing \texttt{twoside} and \texttt{offset}.
+
+\includepdf[pages=-, nup=2x2, offset=20mm 20mm,frame]{dummy.pdf}
+
+\end{document}

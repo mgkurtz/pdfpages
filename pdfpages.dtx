@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5b}
+\def\AM@fileversion{v0.5c-beta1}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -1649,6 +1649,7 @@
 %    \begin{macrocode}
   \setboolean{AM@endoflist}{false}%
   \whiledo{\not\boolean{AM@endoflist}}{%
+    \newpage
     \AM@getfirst{\AM@pagelist}%
       \edef\AM@page{\the\toks@}%
       \AM@isphantom
@@ -1835,7 +1836,6 @@
 %    \end{macrocode}
 %    Ship out page.
 %    \begin{macrocode}
-    \newpage
     \ifnum\AM@xnupi=1
       \ifnum\AM@ynupi=1
         \ifAM@reflectall \setbox\AM@pagebox\null \fi
@@ -3991,7 +3991,8 @@
 %    Try reading output of program |extractbb|.
 %    \begin{macrocode}
   \ifx\AM@pagecount\AM@undefined
-    \immediate\openin\@inputcheck=\AM@quote|extractbb -O \AM@currentdocname\AM@quote
+    \immediate\openin\@inputcheck=
+      \AM@quote|extractbb -O \AM@currentdocname\AM@quote
     \AM@read@xbb\@inputcheck
     \immediate\closein\@inputcheck
   \fi
@@ -4045,7 +4046,8 @@
   \AM@pageheight=\paperheight
 }
 \def\AM@setpagedimen{%
-  \special{pdf:pagesize width \the\AM@pagewidth\space  height \the\AM@pageheight\space}
+  \special{pdf:pagesize width \the\AM@pagewidth\space
+                        height \the\AM@pageheight\space}
 }
 \def\AM@pagesize@boogie{%
   \ifdim\AM@pagewidth=\z@
@@ -4505,6 +4507,14 @@
 %    \item Driver dvipdfm removed.
 %    \item Driver dvipdfmx added.
 %    \end{itemize}
+%
+%    \subsection*{2015/08/13 v0.5b}
+%    \begin{itemize}
+%      \item Driver dvipdfmx uses |extractbb| to get the total number of
+%      pages of a PDF.
+%    \end{itemize}
+%
+%
 %    \Finale
 %    
 %    \iffalse
