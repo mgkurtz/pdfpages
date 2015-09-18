@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5c}
+\def\AM@fileversion{v0.5d}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4786}
+%    \CheckSum{4799}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1175,7 +1175,24 @@
   \RequirePackage{count1to}%
   \AddToShipoutPicture{\AM@setanchor}%
 \fi
-\RequirePackage{pdflscape}
+%    \end{macrocode}
+%    To rotate pages we use |\PLS@Rotate| from |pdflscape|. But simply
+%    loading |pdflscape| modifies the |landscape| environment such that
+%    \emph{all} landscape pages are rotated by default. To prevent this
+%    we postpone the loading of the package.
+%
+%    If the user loads |pdflscape| explicitely she gets the rotated
+%    landscape environment and the packages will not be reloaded by the next
+%    commands.  However, if |pdflscape| is not loaded by the user, then we
+%    load it and reset the |landscape| environment afterwards.
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \let\AM@orig@landscape\landscape
+  \let\AM@orig@endlandscape\endlandscape
+  \RequirePackage{pdflscape}%
+  \let\landscape\AM@orig@landscape
+  \let\endlandscape\AM@orig@endlandscape
+}
 %    \end{macrocode}
 %    Let's save the original meaning of |\includegraphics|, because
 %    graphicx.sty in demo mode (`demo' option) will overwrite |\includegraphics|
@@ -4514,6 +4531,12 @@
 %      pages of a PDF.
 %    \end{itemize}
 %
+%    \subsection*{2015/09/18 v0.5d}
+%    \begin{itemize}
+%      \item \emph{Iff} pdflscape is \emph{not} loaded by the user explicitly,
+%      reset modification of the landscape environment after loading
+%      pdflscape.
+%    \end{itemize}
 %
 %    \Finale
 %    
