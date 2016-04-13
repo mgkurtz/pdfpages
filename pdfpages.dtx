@@ -2,7 +2,7 @@
 %    \iffalse
 %
 %<*(package,pppdftexdef,ppluatexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfmxdef,ppnulldef)>
-%% Copyright (C) 2001-2015 Andreas MATTHIAS
+%% Copyright (C) 2001-2016 Andreas MATTHIAS
 %%
 %% This work may be distributed and/or modified under the conditions
 %% of the LaTeX Project Public License, either version 1.3c
@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5d}
+\def\AM@fileversion{v0.5e}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4799}
+%    \CheckSum{4869}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -205,7 +205,7 @@
 %    \paragraph{Help}
 %    I really enjoy working on the pdfpages package in my spare time and I
 %    appreciate your great feedback. You, the users, encouraged me to start
-%    with pdfpages and to continue working on it for more than 14 years
+%    with pdfpages and to continue working on it for more than 15 years
 %    now. It's great to be part of this magnificent TeX community. I enjoyed
 %    every minute and the pdfpages project itself does not need any
 %    donations.
@@ -213,9 +213,12 @@
 %    However, I'd be very grateful if you made a donation to Kira Gr\"unberg
 %    at \url{http://www.donationkira.com/}. Kira is an Austrian pole vaulter
 %    who had a terrible training accident in July 2015. Since then she is
-%    paralysed from the neck down. Diagnosed to be a permanent damage of the
-%    spinal cord. I'd be very pleased to hear from you making a donation to
-%    Kira. Thank you!
+%    paralysed.  But with an irresistible smile and an amazing attitude
+%    towards life she's accepted what happened and is now following new
+%    goals and dreams. Nevertheless life after a cervical spinal cord injury
+%    is not at all easy and continuous physiotherapy to improve arm and hand
+%    functioning is essential. I'd be very pleased to hear from you making a
+%    donation to Kira. Thank you!
 %
 %  
 %    \section{Usage}
@@ -1176,10 +1179,10 @@
   \AddToShipoutPicture{\AM@setanchor}%
 \fi
 %    \end{macrocode}
-%    To rotate pages we use |\PLS@Rotate| from |pdflscape|. But simply
+%    We use |\PLS@Rotate| from |pdflscape| to ratate pages. But simply
 %    loading |pdflscape| modifies the |landscape| environment such that
-%    \emph{all} landscape pages are rotated by default. To prevent this
-%    we postpone the loading of the package.
+%    \emph{all} landscape pages are rotated by default which is undesired.
+%    To prevent this we postpone the loading of the package.
 %
 %    If the user loads |pdflscape| explicitely she gets the rotated
 %    landscape environment and the packages will not be reloaded by the next
@@ -1812,6 +1815,19 @@
     \let\@filelist\AM@filelist@save
     \setlength{\@tempdimc}{\ht\@tempboxa + \dp\@tempboxa}%
 %    \end{macrocode}
+%    Eso-pic set the origin of the coordinate system by default to the
+%    lower left corner which is what pdfpages assumes. However, with the
+%    option |texcoord| eso-pic sets the origin to the upper left corner.
+%    Let's take care of this.
+%    \begin{macrocode}
+\edef\AM@texcoord{%
+  \ifESO@texcoord
+    -\AM@pageheight
+  \else
+     \z@
+  \fi
+}
+%    \end{macrocode}
 %    Determine the position (coordinates) of the logical pages.
 %    These are |\AM@xpos| and |\AM@ypos|.
 %    \begin{macrocode}
@@ -1825,6 +1841,7 @@
          (\AM@ynupi - 1)
        }%
        \def\AM@ypos{%
+         \AM@texcoord +
          \AM@ymargin + \AM@yoffset + \AM@localyoff +
          (\AM@templateheight + \AM@deltay + \tw@\fboxrule) *
          (\AM@xnupi - 1)
@@ -1836,6 +1853,7 @@
          (\AM@xnupi - 1)
        }%
        \def\AM@ypos{%
+         \AM@texcoord +
          \AM@ymargin + \AM@yoffset + \AM@localyoff +
          (\AM@templateheight + \AM@deltay + \tw@\fboxrule) *
          (\AM@ynup-\AM@ynupi)
@@ -3235,19 +3253,56 @@
 \fi
 %</pppdftexdef>
 %    \end{macrocode}
-%    Insert dummy driver |ppnull.def| if we are not running in PDF mode.
+%    Starting with LuaTeX 0.85 quite a few primitives have been renamed
+%    and/or removed. To cope with these changes we have to provide both
+%    primitive names depending on which version we are running.
 %    \begin{macrocode}
 %<*(pppdftexdef,ppluatexdef)>
+%<*ppluatexdef>
+\ifnum\luatexversion<85
+%</ppluatexdef>
+  \let\AM@outputmode\pdfoutput
+  \let\AM@saveimageresource\pdfximage
+  \let\AM@lastsavedimageresourcepages\pdflastximagepages
+  \let\AM@luatexpagewidth\pdfpagewidth
+  \let\AM@luatexpageheight\pdfpageheight
+  \let\AM@annotation\pdfannot
+  \let\AM@thread\pdfthread
+  \let\AM@destination\pdfdest
+%<*ppluatexdef>
+\else
+  \let\AM@outputmode\outputmode
+  \let\AM@saveimageresource\saveimageresource
+  \let\AM@lastsavedimageresourcepages\lastsavedimageresourcepages
+  \let\AM@luatexpagewidth\pagewidth
+  \let\AM@luatexpageheight\pageheight
+  \protected\def\AM@annotation {\pdfextension annot }
+  \protected\def\AM@thread {\pdfextension thread }
+  \protected\def\AM@destination {\pdfextension dest }
+\fi
+%</ppluatexdef>
+%</(pppdftexdef,ppluatexdef)>
+%    \end{macrocode}
+%    Insert dummy driver |ppnull.def| if we are not running in PDF mode.
+%    \begin{macrocode}
+%<*pppdftexdef>
 \ifcase\pdfoutput
   \input{ppnull.def}
   \expandafter\endinput
 \fi
-%</(pppdftexdef,ppluatexdef)>
-%<*pppdftexdef>
+%</pppdftexdef>
+%<*ppluatexdef>
+\ifcase\AM@outputmode
+  \input{ppnull.def}
+  \expandafter\endinput
+\fi
+
+%</ppluatexdef>
 %    \end{macrocode}
 %    Check if the graphics package was loaded with an 
 %    incompatible driver option (e.g. dvips).
 %    \begin{macrocode}
+%<*pppdftexdef>
 \begingroup
 \@ifundefined{ver@pdftex.def}{%
   \PackageError{pdfpages}
@@ -3302,7 +3357,7 @@
 %    
 %    \def\AM@getpagecount{%
 %      \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
-%      \edef\AM@pagecount{\the\pdflastximagepages}%
+%      \edef\AM@pagecount{\the\AM@lastsavedimageresourcepages}%
 %    }
 %    
 %    \begin{macrocode}
@@ -3314,8 +3369,8 @@
 }
 \def\AM@getpagecount{%
   \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
-  \pdfximage{\AM@currentdocname@fix}%
-  \edef\AM@pagecount{\the\pdflastximagepages}%
+  \AM@saveimageresource{\AM@currentdocname@fix}%
+  \edef\AM@pagecount{\the\AM@lastsavedimageresourcepages}%
 }
 %    \end{macrocode}
 %    Page dimensions.
@@ -3325,8 +3380,8 @@
   \AM@pageheight=\paperheight
 }
 \def\AM@setpagedimen{%
-  \pdfpagewidth\AM@pagewidth
-  \pdfpageheight\AM@pageheight
+  \AM@luatexpagewidth\AM@pagewidth
+  \AM@luatexpageheight\AM@pageheight
 }
 \let\AM@pagesize@boogie\relax
 %    \end{macrocode}
@@ -3354,33 +3409,33 @@
 %    Link to original document.
 %    \begin{macrocode}
 \def\AM@linktodoc@special@begin{%
-    \pdfannot width \wd\@tempboxa
-              height \ht\@tempboxa
-              depth \dp\@tempboxa
-              {/Subtype /Link /Border [0 0 0]
-               /A << /S /GoToR
-                     /F (\AM@linkfilename)
-                     /D [\AM@linktodoc@page@m@ne \AM@linktodocfit]
-                     \ifAM@newwindow/NewWindow true\fi >>}%
+    \AM@annotation width \wd\@tempboxa
+                   height \ht\@tempboxa
+                   depth \dp\@tempboxa
+                   {/Subtype /Link /Border [0 0 0]
+                    /A << /S /GoToR
+                          /F (\AM@linkfilename)
+                          /D [\AM@linktodoc@page@m@ne \AM@linktodocfit]
+                          \ifAM@newwindow/NewWindow true\fi >>}%
 }
 \let\AM@linktodoc@special@end\relax
 %    \end{macrocode}
 %    Survey.
 %    \begin{macrocode}
 \def\AM@survey@special@begin{%
-    \pdfannot width \wd\@tempboxa
-              height \ht\@tempboxa
-              depth \dp\@tempboxa
-              {/Subtype /Link /Border [0 0 0]
-               /A << /S /GoTo
-                     /D (pdfpages.\AM@linktodoc@page@m@ne) >>}%
+    \AM@annotation width \wd\@tempboxa
+                   height \ht\@tempboxa
+                   depth \dp\@tempboxa
+                   {/Subtype /Link /Border [0 0 0]
+                    /A << /S /GoTo
+                          /D (pdfpages.\AM@linktodoc@page@m@ne) >>}%
 }
 \let\AM@survey@special@end\relax
 %    \end{macrocode}
 %    Thread.
 %    \begin{macrocode}
 \def\AM@thread@special@begin{%
-      \pdfthread width \wd\@tempboxa
+      \AM@thread width \wd\@tempboxa
                  height \ht\@tempboxa
                  depth \dp\@tempboxa
                  attr {/I <<\threadinfodict>>}%
@@ -3391,8 +3446,8 @@
 %    Destination of links.
 %    \begin{macrocode}
 \def\AM@view{fit}
-\def\AM@dest@special{\pdfdest name {\AM@linkname.\AM@page} \AM@view}
-\def\AM@anchor@special{\pdfdest name {pdfpages.\the\count1} fit}
+\def\AM@dest@special{\AM@destination name {\AM@linkname.\AM@page} \AM@view}
+\def\AM@anchor@special{\AM@destination name {pdfpages.\the\count1} fit}
 %    \end{macrocode}
 %    Convert synatx of \PDF\ destinations.
 %    \pdfTeX\ does not support positional parameters to |fith| etc.
@@ -4536,6 +4591,12 @@
 %      \item \emph{Iff} pdflscape is \emph{not} loaded by the user explicitly,
 %      reset modification of the landscape environment after loading
 %      pdflscape.
+%    \end{itemize}
+%
+%    \subsection*{2016/04/10 v0.5e}
+%    \begin{itemize}
+%      \item Cope with new primitive names introduced in LuaTeX 0.85.
+%      \item Respect eso-pic's option |texcoord|.
 %    \end{itemize}
 %
 %    \Finale
