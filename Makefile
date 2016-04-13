@@ -58,8 +58,8 @@ release-force: distclean ins
 	cd $(DIST-DIR); chmod 644 pdfpages.tds.zip
 	cd $(DIST-DIR); rm -r tex doc source
 
-	cd $(DIST-DIR); tar cjfh $(DIST).tar.bz2 *
-	cd $(DIST-DIR); chmod 644 $(DIST).tar.bz2
+#	cd $(DIST-DIR); tar cjfh $(DIST).tar.bz2 *
+	cd $(DIST-DIR); zip -r $(DIST).zip *
 	cd $(DIST-DIR); rm -rf pdfpages pdfpages.tds.zip
 
 
