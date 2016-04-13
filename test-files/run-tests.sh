@@ -13,7 +13,7 @@ function usage ()
     echo "                    e.g.: --engine=\"lualatex-80 xelatex\""
     echo "    --tests       File names of tests (without extension \`.tex')"
     echo "                    to be run, e.g.: --tests=\"fulltest-a floats-1\""
-    echo "    --show-tests  Display available tests."
+    echo "    --list-tests  List available tests."
     echo "-b, --batch       Batch mode."
     echo "-c, --clean       Clean directory."
     echo "    --old         Delete links to recent development, i.d. use"
@@ -28,6 +28,7 @@ function usage ()
 TESTS="
   fulltest-a
   fulltest-b
+  fulltest-c
 
   misc-1
 
@@ -86,7 +87,7 @@ OLD=false
 #
 # parsing arguments
 #
-OPTS="$(getopt -n $basename -options="hbc" --longoptions="help engines: tests: show-tests batch clean old" -- "$@")"
+OPTS="$(getopt -n $basename -options="hbc" --longoptions="help engines: tests: list-tests batch clean old" -- "$@")"
 eval set -- $OPTS
 
 while true; do
@@ -102,7 +103,7 @@ while true; do
             TESTS="$2"
             shift; shift
             ;;
-        "--show-tests")
+        "--list-tests")
             echo "Available tests:"
             echo "----------------"
             for i in $TESTS; do echo "    $i"; done
