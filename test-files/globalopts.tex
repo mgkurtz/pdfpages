@@ -1,0 +1,33 @@
+\providecommand\myClassOptions{}
+\documentclass[a4paper,\myClassOptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\Large
+
+Global settings of \verb|width| and \verb|height| shall have an
+impact on normal \verb|\includegraphics| but must not have an impact
+on \verb|\includepdf|.
+
+\verb|\setkeys{Gin}{width=3cm,height=3cm,keepaspectratio}|
+
+The following picture will have a size of at most 3cm x 3cm.
+But the \verb|\includepdf| following afterwards shall be full size.
+
+\setkeys{Gin}{width=3cm,height=3cm,keepaspectratio}
+
+\vspace*{\bigskipamount}
+\includegraphics{example-image}
+
+\includepdf[
+  picturecommand={\put(50,750){\Large full size}}
+]{example-image}
+
+\includepdf[
+  scale=0.8,
+  picturecommand={\put(50,750){\Large scale=0.8}}
+]{example-image}
+
+
+
+\end{document}

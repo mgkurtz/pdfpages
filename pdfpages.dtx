@@ -1263,6 +1263,7 @@
 \newcommand*{\AM@xrprefix}{}
 \newcommand*{\AM@picturecommand}{}
 \newcommand*{\AM@picturecommandstar}{}
+\newcommand*{\AM@disable@width@height}{width=!,height=!}
 \newsavebox{\AM@pagebox}
 %    \end{macrocode}
 %    \macro{\AM@checkinteger}
@@ -1571,9 +1572,10 @@
         \setbox\@tempboxa=\hbox{%
           \rotatebox{\AM@lscape@rot}{\copy\AM@templatesizebox}}%
       \else
+        \edef\AM@opts{[\AM@disable@width@height,\the\@temptokena,
+                       page=\AM@page, angle=\AM@lscape@rot]}%
         \setbox\@tempboxa=\hbox{%
-          \expandafter\includegraphics\expandafter[\the\@temptokena,
-            page=\AM@page, angle=\AM@lscape@rot]{\AM@docname}}%
+          \expandafter\includegraphics\AM@opts{\AM@docname}}%
       \fi
     \fi
 %    \end{macrocode}
@@ -1631,10 +1633,11 @@
     \setbox\@tempboxa=\hbox{%
       \rotatebox{\AM@lscape@rot}{\copy\@tempboxa}}%
   \else
+    \edef\AM@opts{[\AM@disable@width@height,\the\@temptokena,
+                   page=\AM@page, scale=\AM@globalscale,
+                   angle=\AM@lscape@rot]}%
     \setbox\@tempboxa=\hbox{%
-      \expandafter\includegraphics\expandafter[\the\@temptokena,
-                       page=\AM@page, scale=\AM@globalscale,
-                       angle=\AM@lscape@rot]{\AM@docname}}%
+      \expandafter\includegraphics\AM@opts{\AM@docname}}%
   \fi
   \let\@filelist\AM@filelist@save
   \edef\AM@templatewidth{\the\wd\@tempboxa}%
@@ -1728,10 +1731,11 @@
 %    page template. If not, adjust the scale |\AM@localscale| and
 %    the local offset |\AM@localxoff| and |\AM@localyoff|.
 %    \begin{macrocode}
+    \edef\AM@opts{[\AM@disable@width@height,\the\@temptokena,
+                   page=\AM@page, scale=\AM@globalscale,
+                   angle=\AM@lscape@rot]}%
     \setbox\@tempboxa=\hbox{%
-      \expandafter\includegraphics\expandafter[\the\@temptokena,
-                       page=\AM@page, scale=\AM@globalscale,
-                       angle=\AM@lscape@rot]{\AM@docname}}%
+      \expandafter\includegraphics\AM@opts{\AM@docname}}%
     \edef\AM@localwd{\the\wd\@tempboxa}%
     \setlength{\@tempdima}{\ht\@tempboxa + \dp\@tempboxa}%
     \edef\AM@localht{\the\@tempdima}%
@@ -1762,11 +1766,11 @@
         \ifAM@rotateoversize
           \def\AM@rotateoversize{90}%
           \let\AM@filelist@save\@filelist
+          \edef\AM@opts{[\AM@disable@width@height,\the\@temptokena,
+                        page=\AM@page, scale=\AM@globalscale,
+                        angle=\AM@lscape@rot, angle=90]}%
           \setbox\@tempboxa=\hbox{%
-            \expandafter\includegraphics\expandafter
-                [\the\@temptokena, page=\AM@page,
-                 scale=\AM@globalscale,
-                 angle=\AM@lscape@rot, angle=90]{\AM@docname}}%
+            \expandafter\includegraphics\AM@opts{\AM@docname}}%
           \let\@filelist\AM@filelist@save
           \edef\AM@localwd{\the\wd\@tempboxa}%
           \setlength{\@tempdima}{\ht\@tempboxa + \dp\@tempboxa}%
@@ -1808,10 +1812,11 @@
 %    \begin{macrocode}
     \let\AM@filelist@save\@filelist
     \AM@split@options{Gin}{#1}%
+    \edef\AM@opts{[\AM@disable@width@height,\the\@temptokena,
+                   page=\AM@page, scale=\AM@globalscale,
+                   angle=\AM@lscape@rot]}%
     \setbox\@tempboxa=\hbox{%
-      \expandafter\includegraphics\expandafter[\the\@temptokena,
-                       page=\AM@page, scale=\AM@globalscale,
-                       angle=\AM@lscape@rot]{\AM@docname}}%
+      \expandafter\includegraphics\AM@opts{\AM@docname}}%
     \let\@filelist\AM@filelist@save
     \setlength{\@tempdimc}{\ht\@tempboxa + \dp\@tempboxa}%
 %    \end{macrocode}
@@ -1880,6 +1885,13 @@
       \def\AM@shippage{}%
     \else
       \AM@split@options{Gin}{#1}%
+        \edef\AM@opts{[\AM@disable@width@height,\the\@temptokena,
+                       page=\AM@page, scale=\AM@globalscale,
+                       scale=\AM@localscale,
+                       \ifAM@sigrotate angle=180,\fi
+                       \ifAM@doublepagestwist\ifAM@doublepagestmp
+                       angle=180,\fi\fi
+                       angle=\AM@rotateoversize, angle=\AM@lscape@rot]}%
       \edef\AM@shippage{%
         \noexpand\put(\AM@xpos,\AM@ypos){%
         \noexpand\raisebox{\dp\@tempboxa}{%
@@ -1892,14 +1904,8 @@
         \AM@hyper@begin@ii\noexpand\AM@fbox{%
           \noexpand\AM@ARBug@hook
           \noexpand\AM@reflectbox{%
-          \noexpand\includegraphics[\the\@temptokena,
-                    page=\AM@page, scale=\AM@globalscale,
-                    scale=\AM@localscale,
-                    \ifAM@sigrotate angle=180,\fi
-                    \ifAM@doublepagestwist\ifAM@doublepagestmp
-                      angle=180,\fi\fi
-                    angle=\AM@rotateoversize,
-                    angle=\AM@lscape@rot]{\AM@docname}}}%
+            \expandafter\noexpand\expandafter
+            \includegraphics\AM@opts{\AM@docname}}}%
         \AM@hyper@end}}%
       }%
     \fi

@@ -66,6 +66,8 @@ TESTS="
   demo-2
   demo-3
   demo-4
+
+  globalopts
 "
 
 # tests to be run with other engines, e.g. ps4pdf
