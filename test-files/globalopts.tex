@@ -13,21 +13,35 @@ on \verb|\includepdf|.
 
 The following picture will have a size of at most 3cm x 3cm.
 But the \verb|\includepdf| following afterwards shall be full size.
+\vspace*{\bigskipamount}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setkeys{Gin}{width=3cm,height=3cm,keepaspectratio}
 
-\vspace*{\bigskipamount}
 \includegraphics{example-image}
 
 \includepdf[
-  picturecommand={\put(50,750){\Large full size}}
-]{example-image}
+  picturecommand={\put(80,650){\Large page shall be full size}}
+]{dummy}
 
-\includepdf[
-  scale=0.8,
-  picturecommand={\put(50,750){\Large scale=0.8}}
-]{example-image}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Next pages with \verb|scale=0.8,frame| and some fance \verb|picturecommand|
 
+\includepdfset{scale=0.8, frame,
+     picturecommand={\put(80,600){%
+         \Large Foobar \emph{test} {\bfseries XXX}
+         \begin{tabular}[t]{ll}
+           1&2\\3&4\\
+         \end{tabular}
+       }}}
+\includepdf{dummy}
+\includepdfmerge{dummy}
+
+And normal again \ldots
+\includepdfset{}
+\includepdf{dummy}
+\includepdfmerge{dummy}
 
 \end{document}

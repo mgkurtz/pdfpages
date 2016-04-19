@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5e}
+\def\AM@fileversion{v0.5f}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4869}
+%    \CheckSum{4916}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1263,7 +1263,6 @@
 \newcommand*{\AM@xrprefix}{}
 \newcommand*{\AM@picturecommand}{}
 \newcommand*{\AM@picturecommandstar}{}
-\newcommand*{\AM@disable@width@height}{width=!,height=!}
 \newsavebox{\AM@pagebox}
 %    \end{macrocode}
 %    \macro{\AM@checkinteger}
@@ -1317,14 +1316,32 @@
   \fi
 }
 %    \end{macrocode}
+%    The options |width| and |height| (of graphics.sty) have no reasonable
+%    meaning for |\includepdf|. Quit the contrary they spoil the calculation
+%    of the scaling factors and therefore should not be used with pdfpages.
+%
+%    Nevertheless these options are very usefull for |\includegraphics| and
+%    some users even set these options globally:
+%
+%    \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+%
+%    In this way these options have an undesirable impact on pdfpages as
+%    well since pdfpages forwards these options to graphics. Therefore we
+%    kind of disable these settings by inserting |width=!,height=!| into
+%    |\AM@global@opts| which itself gets finally inserted into the option
+%    list of each |\includegraphics| call.
+%
+%    \begin{macrocode}
+\newtoks\AM@global@opts
+\newcommand*{\AM@disable@width@height}{width=!,height=!}
+\AM@global@opts\expandafter{\AM@disable@width@height}
+%    \end{macrocode}
 %    \macro{\includepdfset}
 %    This command sets global options for |\includepdf|
 %    and |\includepdfmerge|.
 %    \begin{macrocode}
 \newcommand*{\includepdfset}[1]{%
-  \AM@split@options{pdfpages}{#1}%
-  \edef\AM@temp{{pdfpages}{\the\@temptokena}}%
-  \expandafter\setkeys\AM@temp
+  \AM@global@opts\expandafter{\AM@disable@width@height,#1}%
 }
 %    \end{macrocode}
 %    \macro{\includepdf}
@@ -1334,7 +1351,10 @@
 \newcommand*{\includepdf}[2][]{%
   \begingroup
   \let\AM@threadname\relax
-  \AM@split@options{pdfpages}{#1}%
+  \def\AM@tmp{pdfpages}
+  \expandafter\AM@split@options
+    \expandafter\AM@tmp
+    \expandafter{\the\AM@global@opts,#1}
   \edef\AM@temp{{pdfpages}{\the\@temptokena}}%
   \expandafter\setkeys\AM@temp
 %    \end{macrocode}
@@ -1380,7 +1400,7 @@
 %    \begin{macrocode}
   \ifAM@output
     \expandafter\AM@readlist\expandafter{\AM@pagestemp}%
-    \AM@output{#1}%
+    \expandafter\AM@output\expandafter{\the\AM@global@opts,#1}%
   \fi
 %    \end{macrocode}
 %    \begin{macrocode}
@@ -1395,11 +1415,14 @@
 \newcommand*{\includepdfmerge}[2][]{%
   \begingroup
   \let\AM@currentdocname\relax
-  \AM@split@options{pdfpages}{#1}%
+  \def\AM@tmp{pdfpages}
+  \expandafter\AM@split@options
+    \expandafter\AM@tmp
+    \expandafter{\the\AM@global@opts,#1}%
   \edef\AM@temp{{pdfpages}{\the\@temptokena}}%
   \expandafter\setkeys\AM@temp
   \AM@readlist{#2}%
-  \AM@output{#1}%
+  \expandafter\AM@output\expandafter{\the\AM@global@opts,#1}%
   \AM@CheckAtEnd
   \endgroup
   \AM@ClearShipoutPicture
@@ -4603,6 +4626,14 @@
 %    \begin{itemize}
 %      \item Cope with new primitive names introduced in LuaTeX 0.85.
 %      \item Respect eso-pic's option |texcoord|.
+%    \end{itemize}
+%
+%    \subsection*{2016/04/19 v0.5f}
+%    \begin{itemize}
+%      \item Use |\includegraphics[width=!,height=!,...]{...}| to (kind of)
+%      disable |width| and |height| options.
+%      \item All (really all) options can be made global with
+%      |\includepdfset|. (It's no more restricted to options of pdfpages.)
 %    \end{itemize}
 %
 %    \Finale
