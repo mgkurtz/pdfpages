@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5f}
+\def\AM@fileversion{v0.5g}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4916}
+%    \CheckSum{4925}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1246,6 +1246,7 @@
 \newif\ifAM@reflect\AM@reflectfalse
 \newif\ifAM@reflectall\AM@reflectallfalse
 \newif\ifAM@scale\AM@scaletrue
+\newif\ifAM@newpage\AM@newpagefalse
 %    \end{macrocode}
 %    \subsection{Commands}
 %    Declare macro names and define default values.
@@ -1694,8 +1695,8 @@
 %    of paper.
 %    \begin{macrocode}
   \setboolean{AM@endoflist}{false}%
+  \newpage
   \whiledo{\not\boolean{AM@endoflist}}{%
-    \newpage
     \AM@getfirst{\AM@pagelist}%
       \edef\AM@page{\the\toks@}%
       \AM@isphantom
@@ -1731,6 +1732,7 @@
        \@tempcntb=\AM@xnup\relax
        \ifnum\@tempcnta>\@tempcntb
          \def\AM@xnupi{\@ne}%
+         \AM@newpagetrue
        \fi
       }
       {\@tempcnta=\AM@xnupi\relax
@@ -1747,8 +1749,15 @@
        \@tempcntb=\AM@ynup\relax
        \ifnum\@tempcnta>\@tempcntb
          \def\AM@ynupi{\@ne}%
+         \AM@newpagetrue
        \fi
       }%
+%    \end{macrocode}
+%    \begin{macrocode}
+     \ifAM@newpage
+       \newpage
+       \AM@newpagefalse
+     \fi
 %    \end{macrocode}
 %    Load next page and verify if it has the same page size as the
 %    page template. If not, adjust the scale |\AM@localscale| and
@@ -1848,13 +1857,13 @@
 %    option |texcoord| eso-pic sets the origin to the upper left corner.
 %    Let's take care of this.
 %    \begin{macrocode}
-\edef\AM@texcoord{%
-  \ifESO@texcoord
-    -\AM@pageheight
-  \else
-     \z@
-  \fi
-}
+    \edef\AM@texcoord{%
+      \ifESO@texcoord
+        -\AM@pageheight
+      \else
+         \z@
+      \fi
+    }%
 %    \end{macrocode}
 %    Determine the position (coordinates) of the logical pages.
 %    These are |\AM@xpos| and |\AM@ypos|.
@@ -1997,7 +2006,7 @@
         \hskip\z@
         \ifthenelse{\boolean{AM@turn}\AND\boolean{AM@landscape}}{%
           \AM@setRotate
-        }{}
+        }{}%
         \AM@AddToShipoutPicture{%
           \begingroup\AM@picturecommand\endgroup}%
         \ifAM@firstpage
@@ -2565,7 +2574,7 @@
              {\AM@pdfpages@optionstrue}{}%
   \ifthenelse{\equal{scale}{\AM@temp}}{%
     \AM@scaletrue
-    \def\AM@ooo##1={##1}
+    \def\AM@ooo##1={##1}%
     \setlength{\@tempdima}{\p@ * \AM@scale@factor * \real{\AM@ooo#2}}%
     \edef\AM@scale@factor{\strip@pt\@tempdima}%
   }{}%
@@ -3276,7 +3285,7 @@
   \PackageError{pdfpages}
          {Package pdfpages requires at least\MessageBreak
           pdfTeX version 1.00}
-         {Update your TeX distribution.}
+         {Update your TeX distribution.}%
   \let\AM@endinput\relax
   \expandafter\endinput
 \fi
@@ -3305,9 +3314,9 @@
   \let\AM@lastsavedimageresourcepages\lastsavedimageresourcepages
   \let\AM@luatexpagewidth\pagewidth
   \let\AM@luatexpageheight\pageheight
-  \protected\def\AM@annotation {\pdfextension annot }
-  \protected\def\AM@thread {\pdfextension thread }
-  \protected\def\AM@destination {\pdfextension dest }
+  \protected\def\AM@annotation {\pdfextension annot }%
+  \protected\def\AM@thread {\pdfextension thread }%
+  \protected\def\AM@destination {\pdfextension dest }%
 \fi
 %</ppluatexdef>
 %</(pppdftexdef,ppluatexdef)>
@@ -4073,7 +4082,7 @@
 %    \begin{macrocode}
 {\catcode`\"=12
  \gdef\AM@quote{"}%
-}
+}%
 %    \end{macrocode}
 %    Get last page number.
 %    This driver uses the external program |extractbb| to retrieve the total number
@@ -4148,7 +4157,7 @@
 }
 \def\AM@setpagedimen{%
   \special{pdf:pagesize width \the\AM@pagewidth\space
-                        height \the\AM@pageheight\space}
+                        height \the\AM@pageheight\space}%
 }
 \def\AM@pagesize@boogie{%
   \ifdim\AM@pagewidth=\z@
@@ -4634,6 +4643,12 @@
 %      disable |width| and |height| options.
 %      \item All (really all) options can be made global with
 %      |\includepdfset|. (It's no more restricted to options of pdfpages.)
+%    \end{itemize}
+%
+%    \subsection*{2016/12/11 v0.5g}
+%    \begin{itemize}
+%      \item Conflict between |nup| and |addtotoc| fixed. A |\newpage| was triggered
+%      on each page where |addtotoc| inserted a label.
 %    \end{itemize}
 %
 %    \Finale

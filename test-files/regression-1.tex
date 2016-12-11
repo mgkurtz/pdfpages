@@ -1,0 +1,28 @@
+\documentclass[a4paper,\myClassOptions]{article}
+\usepackage{pdfpages}
+\usepackage[\ifx\kansuji\undefined\else dvipdfmx\fi]{hyperref}
+
+\begin{document}
+\tableofcontents
+\listoffigures
+
+\section{Regression}
+This is 2-up. There should not be a page break after page 1.
+
+\includepdf[
+  pages=1-12,
+  nup=2x2,
+  addtotoc={1,section,1,foobar,sec:foobar},
+  addtolist={1,figure,foobar,fig:foobar}
+]{dummy.pdf}
+
+
+\includepdf[
+  column=true,
+  pages=1-12,
+  nup=2x2,
+  addtotoc={1,section,1,xxx,sec:xxx},
+  addtolist={1,figure,xxx,fig:xxx}
+]{dummy.pdf}
+
+\end{document}

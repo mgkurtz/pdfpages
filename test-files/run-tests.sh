@@ -67,6 +67,8 @@ TESTS="
   demo-3
   demo-4
 
+  regression-1
+
   globalopts
 "
 
