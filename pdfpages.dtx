@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5g}
+\def\AM@fileversion{v0.5h-pretest}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4925}
+%    \CheckSum{4931}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -108,6 +108,7 @@
 \documentclass{ltxdoc}
 \usepackage{array}
 \usepackage{graphicx}
+\usepackage{cmap}
 \usepackage{hypdoc}
 \hypersetup{colorlinks, linkcolor=blue, pdfstartview={Fit},
   bookmarksopenlevel=1, bookmarksnumbered=false}
@@ -1248,6 +1249,11 @@
 \newif\ifAM@scale\AM@scaletrue
 \newif\ifAM@newpage\AM@newpagefalse
 %    \end{macrocode}
+%    Check, if memoir is loaded.
+%    \begin{macrocode}
+\newif\ifAM@memoir\AM@memoirfalse
+\@ifclassloaded{memoir}{\AM@memoirtrue}{}
+%    \end{macrocode}
 %    \subsection{Commands}
 %    Declare macro names and define default values.
 %    \begin{macrocode}
@@ -1960,11 +1966,12 @@
       \setlength{\paperheight}{\AM@pageheight}%
       \AM@fitpaper@special
       \AM@setpagedimen
-      \@ifundefined{stockwidth}{}{%
+      \ifAM@memoir
         \setlength{\stockwidth}{\AM@pagewidth}%
         \setlength{\stockheight}{\AM@pageheight}%
         \setlength{\trimtop}{0pt}%
-        \setlength{\trimedge}{0pt}}%
+        \setlength{\trimedge}{0pt}%
+      \fi
     }{}
 %    \end{macrocode}
 %    |eso-pic| needs |\paperwidth| and |\paperheight|, which may
@@ -4649,6 +4656,12 @@
 %    \begin{itemize}
 %      \item Conflict between |nup| and |addtotoc| fixed. A |\newpage| was triggered
 %      on each page where |addtotoc| inserted a label.
+%    \end{itemize}
+%
+%    \subsection*{2017/01/12 v0.5h}
+%    \begin{itemize}
+%      \item Do not use |\stockwidth| to check for memoir, |\stockwidth| is used
+%      by other packages as well.
 %    \end{itemize}
 %
 %    \Finale
