@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5h}
+\def\AM@fileversion{v0.5i}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -3732,7 +3732,7 @@
     \noexpand\lowercase{%
       \noexpand\def\noexpand\type@ext{.\filename@ext}}}%
   \type@ext
-  \ifx\type@ext\G@pdf@ext
+  \ifx\type@ext\AM@pdf@ext
     \ifdefined\import@path
       \let\AM@import@path\import@path
     \else
@@ -3745,6 +3745,7 @@
     \def\AM@pagecount{1}%
   \fi
 }
+\def\AM@pdf@ext{.pdf}
 %    \end{macrocode}
 %    |\XeTeXversion| has changed from time to time: 0.997, 0.997-dev,
 %    0.998.1
@@ -4662,6 +4663,14 @@
 %    \begin{itemize}
 %      \item Do not use |\stockwidth| to check for memoir, |\stockwidth| is used
 %      by other packages as well.
+%    \end{itemize}
+%
+%    \subsection*{2017/06/13 v0.5i}
+%    \begin{itemize}
+%      \item Since 2017/06/01 (v5.0a) xetex.def does not define
+%      |\def\G@pdf@ext{.pdf}| any more. In consequence of removing
+%      |\G@pdf@ext| pdfpages could no longer determine the number of pages
+%      of a PDF correctly.
 %    \end{itemize}
 %
 %    \Finale
