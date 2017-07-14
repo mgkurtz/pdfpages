@@ -3,18 +3,11 @@
 \@ifclassloaded{memoir}{\memclstrue}{\memclsfalse}
 \makeatletter
 
+\usepackage{float}
+\newfloat{pdfdoc}{h}{pdc}[chapter]
 \usepackage{pdfpages}
 \usepackage{listings}
 \usepackage{hyperref}
-%\def\nameref#1{}
-
-% float.sty muss *nach* hyperref.sty eingebunden werden!
-\ifmemcls\else \usepackage{float} \fi
-
-\ifmemcls\else
-  \newfloat{pdfdoc}{}{pdc}[chapter]
-  \makeatletter \def\toclevel@pdfdoc{0}\makeatother
-\fi
 
 \begin{document}
 \Large

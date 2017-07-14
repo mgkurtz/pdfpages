@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5i}
+\def\AM@fileversion{v0.5j}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4931}
+%    \CheckSum{4923}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -2602,24 +2602,7 @@
 %    \macro{\AM@trim@leadingspace}
 %    Removes leading space.
 %    \begin{macrocode}
-\DeclareRobustCommand{\AM@trim@leadingspace}[1]{%
-  \AM@@trim@leadingspace#1 \END{#1}%
-}
-%    \end{macrocode}
-%    \begin{macrocode}
-\def\AM@@trim@leadingspace#1 #2\END#3{%
-  \begingroup
-    \def\x{#1}%
-  \expandafter\endgroup
-  \ifx\x\@empty
-    \AM@remove@leadingspace#3\END
-  \else
-    #3%
-  \fi
-}
-%    \end{macrocode}
-%    \begin{macrocode}
-\@firstofone{\def\AM@remove@leadingspace} #1\END{#1}
+\DeclareRobustCommand{\AM@trim@leadingspace}[1]{\ifdim\z@=0pt#1\fi}
 %    \end{macrocode}
 %    \macro{\AM@isphantom}
 %    Checks, if current page is an empty (phantom) page.
@@ -2966,13 +2949,16 @@
 \def\AM@addtolist{%
   \def\@captype{\AM@lof@list}%
   \long\def\@makecaption##1##2{}%
-  \let\@fs@capt\relax% float.sty
-  \expandafter\caption\expandafter{\AM@lof@heading}%
+  \def\@fs@capt##1##2{}% float.sty
   \AM@addtolist@hook
-  \@ifundefined{hyper@@anchor}{}{%
-    \@ifundefined{float@caption}{%
-      \hyper@@anchor{\@currentHref}{\relax}%
-  }{}}%
+  \@ifundefined{hyper@@anchor}{%
+    \expandafter\caption\expandafter{\AM@lof@heading}%
+  }{%
+    \hyper@makecurrent{\@captype}%
+    \expandafter\caption\expandafter{\AM@lof@heading}%
+    \hyper@@anchor{\@currentHref}{\relax}%
+    \let\Hy@float@currentHref\@undefined
+  }%
   \label{\AM@lof@label}%
   \vskip-\baselineskip
 }
@@ -2990,7 +2976,7 @@
 \def\AM@parse@loflisti#1,#2,#3,#4,#5\END{%
   \def\AM@lof@page{\AM@trim@space{#1}}%
   \def\AM@lof@list{\AM@trim@space{#2}}%
-  \def\AM@lof@heading{#3}%
+  \def\AM@lof@heading{\ignorespaces #3}%
   \def\AM@lof@label{\AM@trim@space{#4}}%
   \AM@checkinteger{\AM@lof@page}%
   \ifAM@integer\else 
@@ -4671,6 +4657,11 @@
 %      |\def\G@pdf@ext{.pdf}| any more. In consequence of removing
 %      |\G@pdf@ext| pdfpages could no longer determine the number of pages
 %      of a PDF correctly.
+%    \end{itemize}
+%
+%    \subsection*{2017/07/14 v0.5j}
+%    \begin{itemize}
+%      \item Fixed |addtolist| which was broken when used with |float.sty|.
 %    \end{itemize}
 %
 %    \Finale

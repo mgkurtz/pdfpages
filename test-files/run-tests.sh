@@ -10,7 +10,7 @@ function usage ()
     echo "Usage: $basename <options>"
     echo ""
     echo "    --engines     Program names of latex to be used,"
-    echo "                    e.g.: --engine=\"lualatex-80 xelatex\""
+    echo "                    e.g.: --engines=\"lualatex-80 xelatex\""
     echo "    --tests       File names of tests (without extension \`.tex')"
     echo "                    to be run, e.g.: --tests=\"fulltest-a floats-1\""
     echo "    --list-tests  List available tests."
