@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5k}
+\def\AM@fileversion{v0.5l}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4923}
+%    \CheckSum{4930}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -2777,7 +2777,11 @@
           \AM@last\AM@first\AM@last\AM@first
         \fi
       \else
-        \AM@first\AM@last\AM@first\AM@last
+        \ifAM@signaturestar
+          \AM@last\AM@first\AM@last\AM@first
+        \else
+          \AM@first\AM@last\AM@first\AM@last
+        \fi
       \fi
       \advance\@tempcnta by 4
     }%
@@ -4650,6 +4654,14 @@
 %    \begin{itemize}
 %      \item Documentation.
 %    \end{itemize}
+%
+%
+%    \subsection*{2017/10/31 v0.5l}
+%    \begin{itemize}
+%      \item Signatures for right edge binding were wrong when using
+%      |signature*| and |landscape| together.
+%    \end{itemize}
+%
 %    \Finale
 %    
 %    \iffalse
