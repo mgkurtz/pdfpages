@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5l}
+\def\AM@fileversion{v0.5m}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -3078,7 +3078,7 @@
 %    \begin{macrocode}
 \def\AM@CheckValue#1#2{%
   \ifx\\#2\\\PackageError{pdfpages}
-             {Option `#1' must have a non-empty value}%
+             {Option `#1' must have a non-empty value}{}%
   \fi
 }
 %    \end{macrocode}
@@ -3091,7 +3091,7 @@
   \AM@CheckValue{pages}{#1}%
   \def\AM@pagestemp{#1}}
 \define@key{pdfpages}{pages}{\AM@CheckValue{pages}{#1}%
-                             \def\AM@pagestemp{#1}}
+                             \edef\AM@pagestemp{#1}}
 \define@key{pdfpages}{nup}{\AM@parse@nup#1x\END}
 \define@key{pdfpages}{deltax}{\AM@parse@deltax#1 \\}
 \define@key{pdfpages}{deltay}{\AM@parse@deltay#1 \\}
