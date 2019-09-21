@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5m}
+\def\AM@fileversion{v0.5n}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4930}
+%    \CheckSum{4964}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1181,8 +1181,8 @@
 }
 %    \end{macrocode}
 %    Let's save the original meaning of |\includegraphics|, because
-%    graphicx.sty in demo mode (`demo' option) will overwrite |\includegraphics|
-%    \emph{after} |\begin{document}|.
+%    graphicx.sty in demo mode (`demo' option) will overwrite the definition of
+%    |\includegraphics| \emph{after} |\begin{document}|.
 %    \begin{macrocode}
 \let\AM@Ginclude@graphics\Ginclude@graphics
 %    \end{macrocode}
@@ -1256,18 +1256,29 @@
 %    \end{macrocode}
 %    \macro{\AM@checkinteger}
 %    Check, if |#1| is a positive integer.
+%    (Note: |\AM@checkinteger| was not reliable in older versions (<0.5n) of
+%    this package. Let's use the definition from \emph{biblatex.sty} which seems
+%    to be much better.)
 %    \begin{macrocode}
 \newif\ifAM@integer
-\begingroup
-\@makeother_
-\gdef\AM@checkinteger#1{%
-  \ifcat _\ifnum9<1#1_\else A\fi
-    \AM@integertrue
+\def\AM@checkinteger#1{%
+  \expandafter\AM@checkinteger@\expandafter{#1}}
+%    \end{macrocode}
+%    \begin{macrocode}
+\def\AM@checkinteger@#1{%
+  \begingroup
+  \def\do##1{\uccode`##1=`\%}%
+  \do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9%
+  \makeatletter
+  \catcode`\%=9
+  \endlinechar\m@ne
+  \uppercase{\scantokens{\def\AM@temp{#1}}}%
+  \ifx\AM@temp\@empty
+    \global\AM@integertrue
   \else
-    \AM@integerfalse
+    \global\AM@integerfalse
   \fi
-}
-\endgroup
+  \endgroup}
 %    \end{macrocode}
 %    \macro{\AM@findfile}
 %    Find file and set |\AM@currentdocname|.
@@ -2041,8 +2052,11 @@
 %    \end{macrocode}
 %    \macro{\AM@readlist}
 %    \macro{\AM@readlisti}
+%    \macro{\AM@range@or@docname}
 %    \macro{\AM@checkrange}
-%    \macro{\AM@checklast}
+%    \macro{\AM@expand@range}
+%    \macro{\AM@check@valid@pagenumber}
+%    \macro{\AM@strip@slash}
 %    \macro{\AM@checkpagenumber}
 %    \macro{\AM@setnewdocname}
 %    \macro{\AM@append}
@@ -2075,82 +2089,105 @@
   \def\AM@temp{#1}%
   \ifx\END#1
   \else
-    \AM@checkrange#1-\END
+    \AM@range@or@docname{#1}%
     \expandafter\AM@readlisti
   \fi
 }
 %    \end{macrocode}
 %    \begin{macrocode}
-\newcommand{\AM@checkrange}{}
-\def\AM@checkrange#1-#2\END{%
-  \edef\AM@tempi{\AM@trim@space{#1}}%
-  \ifx\\#2\\%
-    \AM@checkinteger{\AM@tempi}%
-    \ifAM@integer
-      \AM@checkpagenumber{\AM@tempi}%
-      \AM@append{\AM@tempi}%
+\def\AM@range@or@docname#1{%
+  \edef\AM@arg{\AM@trim@space{#1}}%
+  \expandafter\AM@checkrange\AM@arg-\END
+  \ifAM@isrange
+    \ifx\AM@currentdocname\relax
+      \AM@setnewdocname{\AM@arg}%
     \else
-      \expandafter\ifx\expandafter\\\AM@tempi\\\AM@append{}%
-      \else\AM@setnewdocname{\AM@tempi}\fi
+      \AM@expand@range\AM@i\AM@ii
     \fi
   \else
-    \expandafter\ifx\expandafter\\\AM@tempi\\%
-      \@tempcnta=1\relax
-      \AM@checklast#2\END
+    \AM@setnewdocname{\AM@arg}%
+  \fi
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\def\AM@last{last}
+\def\AM@empty{}
+\newif\ifAM@isrange
+%    \end{macrocode}
+%    \begin{macrocode}
+\def\AM@checkrange#1-#2\END{%
+  \AM@israngefalse
+  \AM@check@valid@pagenumber{#1}%
+  \ifx\\#1\\%
+    \def\AM@i{1}%
+  \else
+    \edef\AM@i{#1}%
+  \fi
+  \def\AM@ii{}%
+  \ifAM@isrange
+    \ifx\\#2\\%
     \else
-      \def\AM@cmp{last}%
-      \ifx\AM@cmp\AM@tempi
-        \@tempcnta=\AM@pagecount\relax
-        \AM@checklast#2\END
-      \else
-        \AM@checkinteger{\AM@tempi}%
-        \ifAM@integer
-          \@tempcnta=\AM@tempi\relax
-          \AM@checkpagenumber{\the\@tempcnta}%
-          \AM@checklast#2\END
-        \else
-          \AM@setnewdocname{\AM@temp}%
-        \fi
+      \edef\AM@ii{\AM@strip@slash#2\END}%
+      \AM@check@valid@pagenumber{\AM@ii}%
+      \ifx\AM@ii\AM@empty
+        \let\AM@ii\AM@last
       \fi
     \fi
   \fi
 }
 %    \end{macrocode}
 %    \begin{macrocode}
-\newcommand{\AM@checklast}{}
-\def\AM@checklast#1-\END{%
-  \edef\AM@tempii{\AM@trim@space{#1}}%
-  \expandafter\ifx\expandafter\\\AM@tempii\\
-    \@tempcntb=\AM@pagecount\relax
-    \ifAM@DVIoutput
-      \ifnum\AM@pagecount=1
-        \@tempcntb\@tempcnta
-      \fi
-    \fi
-    \advance\@tempcntb\@ne
-    \whiledo{\@tempcnta<\@tempcntb}{%
-      \AM@append{\the\@tempcnta}%
-      \advance\@tempcnta\@ne
-    }%
+\def\AM@expand@range#1#2{%
+  \edef\AM@i{#1}%
+  \edef\AM@ii{#2}%
+  \ifx\AM@i\AM@last
+    \let\AM@i\AM@lastpage
+    \let\AM@i\AM@pagecount
+  \fi
+  \ifx\AM@ii\AM@last
+    \let\AM@ii\AM@lastpage
+    \let\AM@ii\AM@pagecount
+  \fi
+  \ifx\AM@ii\AM@empty
+    \let\AM@ii\AM@i
+  \fi
+  \@tempcnta=\AM@i\relax
+  \@tempcntb=\AM@ii\relax
+  \ifnum\@tempcnta<\@tempcntb
+    \def\AM@rel{<}%
+    \let\AM@inc\@ne
   \else
-    \def\AM@cmp{last}%
-    \ifx\AM@cmp\AM@tempii
-      \let\AM@tempii\AM@pagecount
-    \fi
-    \AM@checkinteger{\AM@tempii}%
-    \ifAM@integer
-      \@tempcntb=\AM@tempii\relax
-      \AM@checkpagenumber{\the\@tempcntb}%
-      \ifnum\@tempcnta<\@tempcntb \def\AM@rel{<}\def\AM@inc{\@ne}%
-      \else \def\AM@rel{>}\def\AM@inc{\m@ne}\fi
-      \advance\@tempcntb\AM@inc
-      \whiledo{\@tempcnta\AM@rel\@tempcntb}{%
-        \AM@append{\the\@tempcnta}%
-        \advance\@tempcnta\AM@inc
-      }%
-    \else
-      \AM@setnewdocname{\AM@temp}%
-    \fi
+    \def\AM@rel{>}%
+    \let\AM@inc\m@ne
+  \fi
+  \advance\@tempcntb\AM@inc
+  \whiledo{\@tempcnta\AM@rel\@tempcntb}{%
+    \AM@checkpagenumber{\the\@tempcnta}%  
+    \AM@append{\the\@tempcnta}%
+    \advance\@tempcnta\AM@inc
+  }%
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\def\AM@check@valid@pagenumber#1{%
+  \AM@checkinteger{#1}%
+  \ifAM@integer
+    \AM@israngetrue
+  \else
+    \AM@israngefalse
+  \fi
+  \edef\AM@tmp{#1}%
+  \ifx\AM@tmp\AM@last
+    \AM@israngetrue
+  \fi
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\def\AM@strip@slash#1-#2\END{%
+  \ifx\\#2\\%
+    #1%
+  \else
+    #1-#2%
   \fi
 }
 %    \end{macrocode}
@@ -2891,11 +2928,11 @@
 \newtoks\AM@toc@title
 \newcommand{\AM@parse@toclisti}{}
 \def\AM@parse@toclisti#1,#2,#3,#4,#5,#6\END{%
-  \def\AM@toc@page{\AM@trim@space{#1}}%
-  \def\AM@toc@section{\AM@trim@space{#2}}%
-  \def\AM@toc@level{\AM@trim@space{#3}}%
+  \edef\AM@toc@page{\AM@trim@space{#1}}%
+  \edef\AM@toc@section{\AM@trim@space{#2}}%
+  \edef\AM@toc@level{\AM@trim@space{#3}}%
   \AM@toc@title{\ignorespaces #4}%
-  \def\AM@toc@label{\AM@trim@space{#5}}%
+  \edef\AM@toc@label{\AM@trim@space{#5}}%
   \AM@checkinteger{\AM@toc@page}%
   \ifAM@integer\else
     \PackageError{pdfpages}
@@ -2960,10 +2997,10 @@
 %    \begin{macrocode}
 \newcommand{\AM@parse@loflisti}{}
 \def\AM@parse@loflisti#1,#2,#3,#4,#5\END{%
-  \def\AM@lof@page{\AM@trim@space{#1}}%
-  \def\AM@lof@list{\AM@trim@space{#2}}%
+  \edef\AM@lof@page{\AM@trim@space{#1}}%
+  \edef\AM@lof@list{\AM@trim@space{#2}}%
   \def\AM@lof@heading{\ignorespaces #3}%
-  \def\AM@lof@label{\AM@trim@space{#4}}%
+  \edef\AM@lof@label{\AM@trim@space{#4}}%
   \AM@checkinteger{\AM@lof@page}%
   \ifAM@integer\else 
     \PackageError{pdfpages}
@@ -4279,8 +4316,8 @@
 %    \begin{macrocode}
 \AM@DVIoutputtrue
 \PackageWarningNoLine{pdfpages}{%
-  I will use a dummy \string\includepdf\space command which\MessageBreak
-  will insert empty pages instead of the actual PDF,\MessageBreak
+  I will use a dummy \string\includepdf\space command\MessageBreak
+  which will insert empty pages instead of the actual PDF,\MessageBreak
   because we are running in
   \ifAM@pkg@demo `demo' mode%
   \else DVI mode or with\MessageBreak dvips driver%
@@ -4660,6 +4697,19 @@
 %    \begin{itemize}
 %      \item Signatures for right edge binding were wrong when using
 %      |signature*| and |landscape| together.
+%    \end{itemize}
+%
+%    \subsection*{2019/09/19 v0.5m}
+%    \begin{itemize}
+%      \item Expanding argument for |pages| option: \par
+%      |\def\foo{1-4}\includepdf[pages=\foo]{dummy.pdf}|
+%    \end{itemize}
+%
+%    \subsection*{2019/09/21 v0.5n}
+%    \begin{itemize}
+%      \item |\AM@checkinteger| rewritten.
+%      \item File names like `1.pdf' or `1-2.pdf' are now handled correctly by |\includepdfmerge|.
+%       Rewritten |\AM@range@or@docname|, |\AM@checkrange|, |\AM@expand@range|, ...
 %    \end{itemize}
 %
 %    \Finale
