@@ -26,4 +26,9 @@ This is 2-up. There should not be a page break after page 1.
   addtolist={1,figure,xxx,fig:xxx}
 ]{dummy.pdf}
 
+
+\def\foo{2-4}
+\includepdf[pages={1,\foo,9}]{dummy.pdf}
+\includepdf[pages=\foo]{dummy.pdf}
+
 \end{document}
