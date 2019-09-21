@@ -3,7 +3,9 @@
 \usepackage{pdfpages}
 
 \begin{document}
-Insert 5 pages (pdflatex, vlatex) and 1 page (latex)
+Insert 5 pages with pdflatex, ... and 26 pages with latex.
+Note that the last page in dvi-mode is `1' which means the
+[pages=26-] is intepreted as [pages=26-1].
 \includepdf[pages=26-]{dummy.pdf}
 
 Insert 5 pages (with option lastpage)
