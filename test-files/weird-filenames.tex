@@ -1,0 +1,26 @@
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+\begin{document}
+
+\verb|\includepdfmerge{1,3,1,2}|\par
+file: 1.pdf\par
+pages: 3, 1, 2
+\includepdfmerge{1,3,1,2}
+
+
+\verb|\includepdfmerge{1,3,1.pdf,2}|\par
+file: 1.pdf\par
+pages: 3, 2
+\includepdfmerge{1,3,1.pdf,2}
+
+\verb|\includepdfmerge{2-4,2-4,1}|\par
+file: 2-4.pdf\par
+pages: 2, 3, 4, 1
+\includepdfmerge{2-4,2-4,1}
+
+\verb|\includepdfmerge{2-4,2-4.pdf,2}|\par
+file: 2-4.pdf\par
+pages: 1, 2
+\includepdfmerge{2-4,2-4.pdf,2}
+
+\end{document}

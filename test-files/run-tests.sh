@@ -67,6 +67,8 @@ TESTS="
   demo-3
   demo-4
 
+  weird-filenames
+
   regression-1
 
   globalopts
