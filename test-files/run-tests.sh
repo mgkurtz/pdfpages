@@ -122,7 +122,9 @@ while true; do
         "-c" | "--clean")
             rm -f *.{aux,log,out,toc,lof,lot,lol,pdc,pdf,ps}
             ln -sf dum/dummy.pdf .
-            ln -sf dum/dummy-l.pdf
+            ln -sf dum/dummy-l.pdf .
+            ln -sf dum/1.pdf .
+            ln -sf dum/2-4.pdf .
             exit 0
             ;;
         "--old")
