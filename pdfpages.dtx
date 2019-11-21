@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5n}
+\def\AM@fileversion{v0.5o}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4964}
+%    \CheckSum{4965}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3444,15 +3444,20 @@
 \let\AM@fitpaper@special\relax
 %    \end{macrocode}
 %    Find file.
+%
+%    Package grffile.sty is a dummy package nowadays, and |\grffile@IfFileExists|
+%    doesn't exists anymore. (21.11.2019)
 %    \begin{macrocode}
 \def\AM@findfile#1{%
   \AM@findfile@i{#1}{pdf}%
   \AM@findfile@ii{#1}%
 }
 \AtBeginDocument{%
-\@ifpackageloaded{grffile}{%
-  \let\AM@IfFileExists\grffile@IfFileExists}{%
-  \let\AM@IfFileExists\IfFileExists}%
+  \let\AM@IfFileExists\IfFileExists
+  \@ifpackageloaded{grffile}{%
+    \@ifundefined{grffile@IfFileExists}{}{%
+      \let\AM@IfFileExists\grffile@IfFileExists}%
+  }{}%
 }
 %    \end{macrocode}
 %    Rotate page.
