@@ -1,0 +1,12 @@
+\providecommand\myClassOptions{}
+\documentclass[a4paper,\myClassOptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+
+\includepdf[
+  pages={3,,5},
+  picturecommand={\put(100,600){\textcolor{red}{\huge Second page must be empty!}}}
+]{dummy.pdf}
+
+\end{document}

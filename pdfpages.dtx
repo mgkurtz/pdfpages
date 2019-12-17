@@ -2097,15 +2097,19 @@
 %    \begin{macrocode}
 \def\AM@range@or@docname#1{%
   \edef\AM@arg{\AM@trim@space{#1}}%
-  \expandafter\AM@checkrange\AM@arg-\END
-  \ifAM@isrange
-    \ifx\AM@currentdocname\relax
-      \AM@setnewdocname{\AM@arg}%
-    \else
-      \AM@expand@range\AM@i\AM@ii
-    \fi
+  \ifx\AM@arg\@empty
+    \AM@append{}
   \else
-    \AM@setnewdocname{\AM@arg}%
+    \expandafter\AM@checkrange\AM@arg-\END
+    \ifAM@isrange
+      \ifx\AM@currentdocname\relax
+        \AM@setnewdocname{\AM@arg}%
+      \else
+        \AM@expand@range\AM@i\AM@ii
+      \fi
+    \else
+      \AM@setnewdocname{\AM@arg}%
+    \fi
   \fi
 }
 %    \end{macrocode}
