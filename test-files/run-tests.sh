@@ -22,6 +22,11 @@ function usage ()
     exit 0
 }
 
+if [ $# == 0 ]; then
+    usage
+    exit
+fi
+
 #
 # defaults
 #
@@ -70,9 +75,12 @@ TESTS="
   weird-filenames
 
   regression-1
+  regression-2
 
   globalopts
 "
+
+PDF_VIEWER=evince
 
 # tests to be run with other engines, e.g. ps4pdf
 SPECIAL_TESTS="
@@ -83,6 +91,7 @@ SPECIAL_TESTS="
 TESTS="$TESTS $SPECIAL_TESTS"
 
 LATEX_ENGINES="pdflatex lualatex xelatex platex"
+LATEX_ENGINES="lualatex"
 
 BATCH=false
 
@@ -229,7 +238,7 @@ function regular_test()
         mv $1.pdf $RES
 
         message ${LATEX^^} $1
-        if_not_batch acroread $RES
+        if_not_batch $PDF_VIEWER $RES
     done
 }
 
@@ -240,7 +249,7 @@ function special_test()
             ps4pdf $1
             RES=ps-tricks.pdf
             message PS4PDF $i
-            if_not_batch acroread $i.pdf
+            if_not_batch $PDF_VIEWER $i.pdf
             ;;
         dvi-mode)
             latex $1
@@ -254,7 +263,7 @@ function special_test()
             ps2pdf $i.ps
             RES=full-dvips.ps
             message DVIPS $i
-            if_not_batch acroread $i.pdf
+            if_not_batch $PDF_VIEWER $i.pdf
             ;;
         *)
             echo "!!! Sorry, I don't know how to run special test \`$1'."
