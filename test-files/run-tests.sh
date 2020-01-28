@@ -73,6 +73,7 @@ TESTS="
   demo-4
 
   weird-filenames
+  merge
 
   regression-1
   regression-2
@@ -95,7 +96,7 @@ LATEX_ENGINES="lualatex"
 
 BATCH=false
 
-PDFPAGES_FILES="pdfpages.sty pppdftex.def ppluatex.def ppxetex.def ppdvips.def ppdvipdfm.def ppvtex.def ppnull.def"
+PDFPAGES_FILES="pdfpages.sty pppdftex.def ppluatex.def ppxetex.def ppdvips.def ppdvipdfmx.def ppvtex.def ppnull.def"
 
 OLD=false
 

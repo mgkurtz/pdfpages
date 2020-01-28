@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5p}
+\def\AM@fileversion{v0.5q-rc}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{4965}
+%    \CheckSum{5022}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -368,6 +368,8 @@
 %                      is inserted in front of the first page.
 %                      Either `true' or `false' (or no value, which
 %                      is equivalent to `true'). \df{openright=false}
+%        \item[openrighteach] Similar to |openright| but affects
+%                      \emph{each} file processed by |\includepdfmerge|.
 %        \item[pagecommand] Declares \LaTeX\ commands, which are executed
 %                      on each sheet of paper.
 %                      \df{pagecommand=\{\bslash thispagestyle\{empty\}\}}
@@ -852,8 +854,7 @@
 %                   A comma separated list of filenames and 
 %                   optional \meta{page spec} specifiers.
 %                   A \meta{page spec} can be everything the
-%                   option |pages| accepts. Leading and trailing
-%                   spaces of items in the list is stripped.
+%                   option |pages| accepts.
 %
 %    \end{tabular}
 %    \end{quote}
@@ -1198,6 +1199,7 @@
 %    \subsection{Booleans}
 %    \begin{macrocode}
 \newif\ifAM@openright\AM@openrightfalse
+\newif\ifAM@openrighteach\AM@openrighteachfalse
 \newif\ifAM@frame\AM@framefalse
 \newif\ifAM@landscape\AM@landscapefalse
 \newif\ifAM@turn\AM@turntrue
@@ -1350,11 +1352,12 @@
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup
+  \AM@pagecnt\@ne
   \let\AM@threadname\relax
   \def\AM@tmp{pdfpages}
   \expandafter\AM@split@options
     \expandafter\AM@tmp
-    \expandafter{\the\AM@global@opts,#1}
+    \expandafter{\the\AM@global@opts,#1}%
   \edef\AM@temp{{pdfpages}{\the\@temptokena}}%
   \expandafter\setkeys\AM@temp
 %    \end{macrocode}
@@ -1414,6 +1417,7 @@
 %    \begin{macrocode}
 \newcommand*{\includepdfmerge}[2][]{%
   \begingroup
+  \AM@pagecnt\@ne
   \let\AM@currentdocname\relax
   \def\AM@tmp{pdfpages}
   \expandafter\AM@split@options
@@ -1521,7 +1525,7 @@
         \let\AM@ynup\AM@temp}%
     }{}%
   \AM@setphantom
-  \ifthenelse{\boolean{AM@openright}}
+  \ifthenelse{\boolean{AM@openright}\and\not\boolean{AM@openrighteach}}
          {\AM@openright}{}%
   \ifx\AM@signature\@empty\AM@filluppagelist
   \else\AM@prepare@signature\AM@signaturetrue\AM@turnfalse\fi
@@ -2064,19 +2068,44 @@
 %    page numbers, page ranges, and/or document names. The
 %    results are stored in two macros: |\AM@pagelist| which
 %    contains only page numbers (page ranges are split into
-%    several page numbers) and |\AM@doclist| which contains
+%    separate page numbers) and |\AM@doclist| which contains
 %    the document names; one name for each page number in
 %    |\AM@pagelist|.
 %    \begin{macrocode}
-\newif\ifAM@defaultone
+\newif\ifAM@default@range@added
 \newcommand*{\AM@readlist}[1]{%
-  \AM@defaultonefalse
+  \AM@default@range@addedtrue
   \def\AM@pagelist{}%
   \def\AM@doclist{}%
   \AM@readlisti#1,\END,
-  \ifAM@defaultone\AM@append{1}\fi
+  \AM@add@default@range
   \edef\AM@doclist{\expandafter\@gobble\AM@doclist\@empty}%
   \edef\AM@pagelist{\expandafter\@gobble\AM@pagelist\@empty}%
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\def\AM@add@default@range{%
+  \ifAM@default@range@added
+  \else
+    \expandafter\AM@read@defaultpages\AM@pagestemp,\END,
+  \fi
+  \AM@default@range@addedtrue
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\def\AM@read@defaultpages#1,{%
+  \ifx\END#1
+  \else
+    \edef\AM@x{\AM@trim@space{#1}}%
+    \ifx\AM@x\@empty
+      \AM@append{}%
+      \AM@ReturnAfterElseFiFi\AM@read@defaultpages
+    \else
+      \expandafter\AM@checkrange\AM@x-\END
+      \AM@expand@range\AM@i\AM@ii
+      \AM@ReturnAfterFiFi\AM@read@defaultpages
+    \fi
+  \fi
 }
 %    \end{macrocode}
 %    \begin{macrocode}
@@ -2098,7 +2127,7 @@
 \def\AM@range@or@docname#1{%
   \edef\AM@arg{\AM@trim@space{#1}}%
   \ifx\AM@arg\@empty
-    \AM@append{}
+    \AM@append{}%
   \else
     \expandafter\AM@checkrange\AM@arg-\END
     \ifAM@isrange
@@ -2106,8 +2135,10 @@
         \AM@setnewdocname{\AM@arg}%
       \else
         \AM@expand@range\AM@i\AM@ii
+        \AM@default@range@addedtrue
       \fi
     \else
+      \AM@add@default@range
       \AM@setnewdocname{\AM@arg}%
     \fi
   \fi
@@ -2211,16 +2242,21 @@
 %    \end{macrocode}
 %    \begin{macrocode}
 \newcommand*{\AM@setnewdocname}[1]{%
-  \ifAM@defaultone
-    \AM@append{1}%
+  \ifAM@openrighteach
+    \ifodd\AM@pagecnt
+      \AM@append{}
+    \fi
   \fi
+  \AM@add@default@range
   \edef\AM@temp{\AM@trim@space{#1}}%
   \AM@findfile{\AM@temp}%
-  \AM@defaultonetrue
+  \AM@default@range@addedfalse
 }
 %    \end{macrocode}
 %    \begin{macrocode}
+\newcount\AM@pagecnt
 \newcommand*{\AM@append}[1]{%
+  \advance\AM@pagecnt\@ne
   \edef\AM@doclist{\AM@doclist,\AM@currentdocname}%
   \edef\AM@pagelist{\AM@pagelist,#1}%
   \ifAM@doublepages
@@ -2236,7 +2272,6 @@
     \edef\AM@pagelist{\AM@pagelist,#1}%
     \repeat
   \fi
-  \AM@defaultonefalse
 }
 %    \end{macrocode}
 %    \macro{\AM@getfirst}
@@ -2294,6 +2329,7 @@
 %    \begin{macrocode}
 \def\AM@ReturnAfterFi#1\fi{\fi#1}
 \def\AM@ReturnAfterFiFi#1\fi\fi{\fi\fi#1}
+\def\AM@ReturnAfterElseFiFi#1\else#2\fi#3\fi{\fi\fi#1}
 %    \end{macrocode}
 %    \begin{macrocode}
 \newcommand{\AM@getlasti}{}
@@ -2562,6 +2598,7 @@
               \equal{offset}{\AM@temp}\or
               \equal{frame}{\AM@temp}\or
               \equal{openright}{\AM@temp}\or
+              \equal{openrighteach}{\AM@temp}\or
               \equal{pagecommand}{\AM@temp}\or
               \equal{landscape}{\AM@temp}\or
               \equal{turn}{\AM@temp}\or
@@ -3140,6 +3177,7 @@
 \define@key{pdfpages}{offset}{\AM@parse@offset#1 \\}
 \define@key{pdfpages}{frame}[true]{\setboolean{AM@frame}{#1}}
 \define@key{pdfpages}{openright}[true]{\setboolean{AM@openright}{#1}}
+\define@key{pdfpages}{openrighteach}[true]{\setboolean{AM@openrighteach}{#1}}
 \define@key{pdfpages}{pagecommand}{\def\AM@pagecommand{#1}}
 \define@key{pdfpages}{landscape}[true]{\setboolean{AM@landscape}{#1}}
 \define@key{pdfpages}{turn}[true]{\setboolean{AM@turn}{#1}}
@@ -4718,6 +4756,28 @@
 %      \item |\AM@checkinteger| rewritten.
 %      \item File names like `1.pdf' or `1-2.pdf' are now handled correctly by |\includepdfmerge|.
 %       Rewritten |\AM@range@or@docname|, |\AM@checkrange|, |\AM@expand@range|, ...
+%    \end{itemize}
+%
+%    \subsection*{2019/11/21 v0.5o}
+%    \begin{itemize}
+%    \item This update fixes a bug with grffile.sty. Pdfpages tried to use
+%      an internal command of grffile.sty, which no longer exists, since
+%      grffile.sty is an empty dummy package nowadays.
+%    \end{itemize}
+%
+%    \subsection*{2019/12/17 v0.5p}
+%    \begin{itemize}
+%    \item Bug fix: Make empty pages empty. Empty pages like [pages={3,,5}]
+%      weren't empty, but set as page 1, which was due to a bug in
+%      |\AM@range@or@docname|.
+%    \end{itemize}
+%
+%    \subsection*{2020/01/27 v0.5q}
+%    \begin{itemize}
+%    \item Now |\includepdfmerge| supports option |pages|,
+%      too. E.g. |\includepdfmerge[pages={2-}]{a.pdf, b.pdf}| inserts all pages
+%      but the first of each pdf.
+%    \item Option |openrighteach| added.
 %    \end{itemize}
 %
 %    \Finale
