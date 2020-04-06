@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5q}
+\def\AM@fileversion{v0.5r-Beta-1}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -1238,6 +1238,18 @@
 \newif\ifAM@memoir\AM@memoirfalse
 \@ifclassloaded{memoir}{\AM@memoirtrue}{}
 %    \end{macrocode}
+%    Pdfpages calls |\includegraphics| several times to retrieve
+%    necessary information (width, height, number of pages, etc.). But only
+%    the final call to |\includegraphics| will actually include the image.
+%    Other packages which hook into |\includegraphics| can determine the
+%    final call to |\includegraphics| by checking the counter
+%    |\AM@includegraphics@status|: During the final call, as well as outside
+%    of pdfpages, this status counter is always 0. While retrieving information
+%    the status counter is larger than 0.
+%    \begin{macrocode}
+\newcount\AM@includegraphics@status
+\AM@includegraphics@status\z@
+%    \end{macrocode}
 %    \subsection{Commands}
 %    Declare macro names and define default values.
 %    \begin{macrocode}
@@ -1352,6 +1364,7 @@
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup
+  \global\AM@includegraphics@status\@ne
   \AM@pagecnt\@ne
   \let\AM@threadname\relax
   \def\AM@tmp{pdfpages}
@@ -1410,6 +1423,7 @@
   \AM@CheckAtEnd
   \endgroup
   \AM@ClearShipoutPicture
+  \global\AM@includegraphics@status\z@
 }
 %    \end{macrocode}
 %    \macro{\includepdfmerge}
@@ -1417,6 +1431,7 @@
 %    \begin{macrocode}
 \newcommand*{\includepdfmerge}[2][]{%
   \begingroup
+  \global\AM@includegraphics@status\@ne
   \AM@pagecnt\@ne
   \let\AM@currentdocname\relax
   \def\AM@tmp{pdfpages}
@@ -1430,6 +1445,7 @@
   \AM@CheckAtEnd
   \endgroup
   \AM@ClearShipoutPicture
+  \global\AM@includegraphics@status\z@
 }
 %    \end{macrocode}
 %    \macro{\AM@CheckAtEnd}
@@ -1936,11 +1952,13 @@
         \noexpand\raise \ht\@tempboxa \hbox{\AM@hyper@begin@i}%
 %    \end{macrocode}
 %    \begin{macrocode}
+        \AM@includegraphics@status\z@
         \AM@hyper@begin@ii\noexpand\AM@fbox{%
           \noexpand\AM@ARBug@hook
           \noexpand\AM@reflectbox{%
             \expandafter\noexpand\expandafter
             \includegraphics\AM@opts{\AM@docname}}}%
+        \AM@includegraphics@status\@ne
         \AM@hyper@end}}%
       }%
     \fi
