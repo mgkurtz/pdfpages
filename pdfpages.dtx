@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5r-Beta-1}
+\def\AM@fileversion{v0.5r-Beta-2}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{5022}
+%    \CheckSum{5057}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -108,6 +108,7 @@
 \documentclass{ltxdoc}
 \usepackage{array}
 \usepackage{graphicx}
+\usepackage{booktabs}
 \usepackage{cmap}
 \usepackage{hypdoc}
 \hypersetup{colorlinks, linkcolor=blue, pdfstartview={Fit},
@@ -1242,10 +1243,19 @@
 %    necessary information (width, height, number of pages, etc.). But only
 %    the final call to |\includegraphics| will actually include the image.
 %    Other packages which hook into |\includegraphics| can determine the
-%    final call to |\includegraphics| by checking the counter
-%    |\AM@includegraphics@status|: During the final call, as well as outside
-%    of pdfpages, this status counter is always 0. While retrieving information
-%    the status counter is larger than 0.
+%    status of |\includegraphics| by checking the counter
+%    |\AM@includegraphics@status|:
+%    \begin{quotation}
+%      \begin{tabular}{@{}cl@{}}
+%             \toprule
+%             Status & Use of |\includegraphics| ...\\
+%             \midrule
+%             0 & outside of pdfpages\\
+%             1 & inside of pdfpages: final call\\
+%             2 & inside of pdfpages: for internal use\\
+%             \bottomrule
+%       \end{tabular}
+%    \end{quotation}
 %    \begin{macrocode}
 \newcount\AM@includegraphics@status
 \AM@includegraphics@status\z@
@@ -1364,7 +1374,7 @@
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup
-  \global\AM@includegraphics@status\@ne
+  \global\AM@includegraphics@status\tw@
   \AM@pagecnt\@ne
   \let\AM@threadname\relax
   \def\AM@tmp{pdfpages}
@@ -1431,7 +1441,7 @@
 %    \begin{macrocode}
 \newcommand*{\includepdfmerge}[2][]{%
   \begingroup
-  \global\AM@includegraphics@status\@ne
+  \global\AM@includegraphics@status\tw@
   \AM@pagecnt\@ne
   \let\AM@currentdocname\relax
   \def\AM@tmp{pdfpages}
@@ -1952,13 +1962,13 @@
         \noexpand\raise \ht\@tempboxa \hbox{\AM@hyper@begin@i}%
 %    \end{macrocode}
 %    \begin{macrocode}
-        \AM@includegraphics@status\z@
+        \AM@includegraphics@status\@ne
         \AM@hyper@begin@ii\noexpand\AM@fbox{%
           \noexpand\AM@ARBug@hook
           \noexpand\AM@reflectbox{%
             \expandafter\noexpand\expandafter
             \includegraphics\AM@opts{\AM@docname}}}%
-        \AM@includegraphics@status\@ne
+        \AM@includegraphics@status\tw@
         \AM@hyper@end}}%
       }%
     \fi
