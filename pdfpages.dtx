@@ -1962,13 +1962,13 @@
         \noexpand\raise \ht\@tempboxa \hbox{\AM@hyper@begin@i}%
 %    \end{macrocode}
 %    \begin{macrocode}
-        \AM@includegraphics@status\@ne
+        \global\AM@includegraphics@status\@ne
         \AM@hyper@begin@ii\noexpand\AM@fbox{%
           \noexpand\AM@ARBug@hook
           \noexpand\AM@reflectbox{%
             \expandafter\noexpand\expandafter
             \includegraphics\AM@opts{\AM@docname}}}%
-        \AM@includegraphics@status\tw@
+        \global\AM@includegraphics@status\tw@
         \AM@hyper@end}}%
       }%
     \fi
