@@ -1242,9 +1242,10 @@
 %    Pdfpages calls |\includegraphics| several times to retrieve necessary
 %    information like width, height, or number of pages without actually
 %    typesetting the image. Just the final call to |\includegraphics| will
-%    eventually typeset the image. Packages which hook into
-%    |\includegraphics| can determine the status of |\includegraphics| by
-%    checking the counter |\pdfpages@includegraphics@status|:
+%    eventually typeset the image.  Packages which hook into
+%    |\includegraphics| and whish to check whether or not this is the final
+%    call to |\includegraphics| can do so by using the counter
+%    |\pdfpages@includegraphics@status|:
 %    \begin{quotation}
 %      \begin{tabular}{@{}cl@{}}
 %             \toprule
