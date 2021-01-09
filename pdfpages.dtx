@@ -1244,7 +1244,7 @@
 %    typesetting the image. Just the final call to |\includegraphics| will
 %    eventually typeset the image. Packages which hook into
 %    |\includegraphics| can determine the status of |\includegraphics| by
-%    checking the counter |\AM@includegraphics@status|:
+%    checking the counter |\pdfpages@includegraphics@status|:
 %    \begin{quotation}
 %      \begin{tabular}{@{}cl@{}}
 %             \toprule
@@ -1257,8 +1257,8 @@
 %       \end{tabular}
 %    \end{quotation}
 %    \begin{macrocode}
-\newcount\AM@includegraphics@status
-\AM@includegraphics@status\z@
+\newcount\pdfpages@includegraphics@status
+\pdfpages@includegraphics@status\z@
 %    \end{macrocode}
 %    \subsection{Commands}
 %    Declare macro names and define default values.
@@ -1374,7 +1374,7 @@
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
   \begingroup
-  \global\AM@includegraphics@status\tw@
+  \global\pdfpages@includegraphics@status\tw@
   \AM@pagecnt\@ne
   \let\AM@threadname\relax
   \def\AM@tmp{pdfpages}
@@ -1433,7 +1433,7 @@
   \AM@CheckAtEnd
   \endgroup
   \AM@ClearShipoutPicture
-  \global\AM@includegraphics@status\z@
+  \global\pdfpages@includegraphics@status\z@
 }
 %    \end{macrocode}
 %    \macro{\includepdfmerge}
@@ -1441,7 +1441,7 @@
 %    \begin{macrocode}
 \newcommand*{\includepdfmerge}[2][]{%
   \begingroup
-  \global\AM@includegraphics@status\tw@
+  \global\pdfpages@includegraphics@status\tw@
   \AM@pagecnt\@ne
   \let\AM@currentdocname\relax
   \def\AM@tmp{pdfpages}
@@ -1455,7 +1455,7 @@
   \AM@CheckAtEnd
   \endgroup
   \AM@ClearShipoutPicture
-  \global\AM@includegraphics@status\z@
+  \global\pdfpages@includegraphics@status\z@
 }
 %    \end{macrocode}
 %    \macro{\AM@CheckAtEnd}
@@ -1962,13 +1962,13 @@
         \noexpand\raise \ht\@tempboxa \hbox{\AM@hyper@begin@i}%
 %    \end{macrocode}
 %    \begin{macrocode}
-        \global\AM@includegraphics@status\@ne
+        \global\pdfpages@includegraphics@status\@ne
         \AM@hyper@begin@ii\noexpand\AM@fbox{%
           \noexpand\AM@ARBug@hook
           \noexpand\AM@reflectbox{%
             \expandafter\noexpand\expandafter
             \includegraphics\AM@opts{\AM@docname}}}%
-        \global\AM@includegraphics@status\tw@
+        \global\pdfpages@includegraphics@status\tw@
         \AM@hyper@end}}%
       }%
     \fi

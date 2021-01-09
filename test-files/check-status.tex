@@ -1,14 +1,5 @@
 \documentclass[a4paper]{article}
 \usepackage{pdfpages}[2020/04/10]
-% \usepackage{pax}
-
-% \let\orig@PAX@includegraphics\PAX@includegraphics
-
-% \def\PAX@includegraphics[#1]#2{%
-%   \message{#2 -- status: \the\AM@includegraphics@status\space}%
-%   \orig@PAX@includegraphics[#1]{#2}%
-% }
-
 
 \makeatletter
 \let\orig@includegraphics\includegraphics
@@ -16,7 +7,7 @@
   \message{%
     ^^Jpdfpages file: #2
     ^^Jpdfpages options: #1
-    ^^Jpdfpages status: \the\AM@includegraphics@status\space
+    ^^Jpdfpages status: \the\pdfpages@includegraphics@status\space
     ^^J}%
   \orig@includegraphics[#1]{#2}}
 \makeatother
