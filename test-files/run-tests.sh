@@ -88,6 +88,7 @@ SPECIAL_TESTS="
   ps-tricks
   dvi-mode
   full-dvips
+  check-status
 "
 TESTS="$TESTS $SPECIAL_TESTS"
 
@@ -243,6 +244,12 @@ function regular_test()
     done
 }
 
+function msg_error()
+{
+    echo $(printf "\033[1;31mError: $1 \033[0;m")
+    exit 1
+}
+
 function special_test()
 {
     case $1 in
@@ -266,6 +273,14 @@ function special_test()
             message DVIPS $i
             if_not_batch $PDF_VIEWER $i.pdf
             ;;
+        check-status)
+            lualatex $i
+            diff <(grep -A2 'pdfpages file:' $1.log) check-status.diff.txt
+            if [ $? -ne 0 ]; then
+                msg_error "Check not passed: \\AM@includegraphics@status";
+            fi
+            ;;
+
         *)
             echo "!!! Sorry, I don't know how to run special test \`$1'."
             exit
@@ -292,7 +307,7 @@ done
 #
 DEST=results_$(date -I)
 test -d $DEST || mkdir $DEST
-test "$ALL_TESTS" != "" && mv $ALL_TESTS $DEST
+#test "$ALL_TESTS" != "" && mv $ALL_TESTS $DEST
 
 #
 # cleanup

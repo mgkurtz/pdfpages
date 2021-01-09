@@ -1,0 +1,34 @@
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}[2020/04/10]
+% \usepackage{pax}
+
+% \let\orig@PAX@includegraphics\PAX@includegraphics
+
+% \def\PAX@includegraphics[#1]#2{%
+%   \message{#2 -- status: \the\AM@includegraphics@status\space}%
+%   \orig@PAX@includegraphics[#1]{#2}%
+% }
+
+
+\makeatletter
+\let\orig@includegraphics\includegraphics
+\renewcommand\includegraphics[2][]{%
+  \message{%
+    ^^Jpdfpages file: #2
+    ^^Jpdfpages options: #1
+    ^^Jpdfpages status: \the\AM@includegraphics@status\space
+    ^^J}%
+  \orig@includegraphics[#1]{#2}}
+\makeatother
+
+\begin{document}
+
+\includegraphics{dum/tiger.pdf}
+
+\includepdf[pages=1-2]{dummy.pdf}
+
+\includegraphics{dum/tiger.pdf}
+
+\includepdfmerge{dummy.pdf,1,dum/tiger.pdf,1}
+
+\end{document}

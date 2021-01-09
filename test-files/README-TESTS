@@ -39,3 +39,7 @@ This are tests of pdfpages.sty
 
 *) crop-test.tex	\paperwidth != \pdfpagewidth
 
+*) status-check.tex    run:
+                          lualatex status-check.tex
+                          diff <(grep -A2 'pdfpagesfile:' status-check.log) status-check-diff.txt
+                          

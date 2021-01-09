@@ -1,0 +1,95 @@
+pdfpages file: dum/tiger.pdf 
+pdfpages options:  
+pdfpages status: 0 
+--
+pdfpages file: dummy.pdf 
+pdfpages options:  
+pdfpages status: 2 
+--
+pdfpages file: dummy.pdf 
+pdfpages options:  
+pdfpages status: 2 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, angle=0 
+pdfpages status: 2 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, an
+gle=0 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, an
+gle=0 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, an
+gle=0 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, sc
+ale=1, angle=0, angle=0 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, an
+gle=0 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, an
+gle=0 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, sc
+ale=1, angle=0, angle=0 
+--
+pdfpages file: dum/tiger.pdf 
+pdfpages options:  
+pdfpages status: 0 
+--
+pdfpages file: dummy.pdf 
+pdfpages options:  
+pdfpages status: 2 
+--
+pdfpages file: dummy.pdf 
+pdfpages options:  
+pdfpages status: 2 
+--
+pdfpages file: dum/tiger.pdf 
+pdfpages options:  
+pdfpages status: 2 
+--
+pdfpages file: dum/tiger.pdf 
+pdfpages options:  
+pdfpages status: 2 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, angle=0 
+pdfpages status: 2 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
+ngle=0 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
+ngle=0 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
+ngle=0 
+--
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, s
+cale=1, angle=0, angle=0 
+--
+pdfpages file: dum/tiger.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
+ngle=0 
+--
+pdfpages file: dum/tiger.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
+ngle=0 
+--
+pdfpages file: dum/tiger.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, s
+cale=0.97586, angle=0, angle=0 
