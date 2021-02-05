@@ -279,6 +279,8 @@ function special_test()
             if [ $? -ne 0 ]; then
                 msg_error "Check not passed: \\AM@includegraphics@status";
             fi
+            RES=check-status.pdf
+            message LUALATEX $i
             ;;
 
         *)
@@ -296,6 +298,8 @@ do
     then
         regular_test $i
     else
+        echo "special $i ......................."
+        read
         special_test $i
     fi
     
@@ -307,7 +311,7 @@ done
 #
 DEST=results_$(date -I)
 test -d $DEST || mkdir $DEST
-#test "$ALL_TESTS" != "" && mv $ALL_TESTS $DEST
+test "$ALL_TESTS" != "" && mv $ALL_TESTS $DEST
 
 #
 # cleanup

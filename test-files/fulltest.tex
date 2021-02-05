@@ -177,6 +177,18 @@ Testing \texttt{picturecommand}\\ and \texttt{picturecommand*}
             picturecommand*={\put(50,50){just on first page}}
            ]{dummy}
 \endgroup
+
+\begingroup
+Frame inside \texttt{Picturecommand} with big \verb|\fboxrule| and \verb|\fboxsep|.
+\setlength\fboxrule{5pt}
+\setlength\fboxsep{15pt}
+\includepdf[
+  pages=1-4,
+  picturecommand={%
+    \put(100,700){\fbox{Just a simple \fbox{foo} test.}}},
+  nup=2x2
+]{dummy.pdf}
+\endgroup
 %\fi
 
 %\iffalse

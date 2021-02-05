@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5r}
+\def\AM@fileversion{v0.5s}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{5059}
+%    \CheckSum{5060}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -174,7 +174,7 @@
 %    simple |\includegraphics{doc.pdf}| normally produces `|Overfull \hbox|'
 %    and `|Overfull \vbox|' warnings, because the size of the inserted pages
 %    does not match the print space.
-%    
+%
 %    The |pdfpages| package makes it easy to insert pages of external \PDF\
 %    documents without worrying about the print space. Here are some
 %    features of the |pdfpages| package: Several logical pages can be
@@ -203,8 +203,8 @@
 %    However, there's a glimmer of hope. Some links may be extracted and later
 %    reinserted by a package called \emph{pax} which can be downloaded from
 %    CTAN \cite{pax}. Have a look at it!
-%    
-%  
+%
+%
 %    \section{Usage}
 %    \subsection{Package Options}
 %
@@ -212,7 +212,7 @@
 %    |\usepackage[|\meta{options}|]{pdfpages}|
 %
 %    \begin{quote}
-%      \meta{option} -- 
+%      \meta{option} --
 %         \begin{minipage}[t]{.8\linewidth}
 %            \setlength\leftmargini{3.5em}
 %            \begin{description}
@@ -231,14 +231,14 @@
 %
 %
 %    \subsection{Commands}
-%    
+%
 %    \DescribeMacro{\includepdf}
 %    Inserts pages of an external \PDF\ document.
-%    
+%
 %    \medskip\noindent
 %    \begin{minipage}{\linewidth}
 %    |\includepdf[|\meta{key=val}|]{|\meta{filename}|}|
-%    
+%
 %    \begin{quote}
 %    \begin{tabular}{@{}l@{\,--~}>{\raggedright}p{.8\linewidth}}
 %        \meta{key=val}   & A comma separated list of options
@@ -250,11 +250,11 @@
 %    \end{quote}
 %    \end{minipage}\bigskip
 %
-%    
+%
 %    \noindent
 %    The following list describes all possible options of
 %    |\includepdf|. All options are using the \meta{key=value} syntax.
-%    
+%
 %    \newcommand*{\df}[1]{(Default: \mbox{|#1|})}
 %
 %    \setlength{\leftmargini}{\parindent}
@@ -266,8 +266,8 @@
 %      \begin{description}
 %      \makeatletter\@beginparpenalty=10000\makeatother
 %        \item[pages] Selects pages to insert. The argument is a comma
-%                     separated list, containing page numbers 
-%                     (|pages={3,5,6,8}|), ranges of page numbers 
+%                     separated list, containing page numbers
+%                     (|pages={3,5,6,8}|), ranges of page numbers
 %                     (|pages={4-9}|) or any combination.
 %                     To insert empty pages use |{}|.
 %                     \par
@@ -279,7 +279,7 @@
 %                     \meta{m}|-|\meta{n}. This selects all pages from
 %                     \meta{m} to \meta{n}. Omitting \meta{m} defaults
 %                     to the first page; omitting \meta{n} defaults to
-%                     the last page of the document. Another way to 
+%                     the last page of the document. Another way to
 %                     select the last page of the document, is to use the
 %                     keyword |last|. (This is only permitted in a
 %                     page range.)
@@ -289,7 +289,7 @@
 %                     all pages in reverse order.
 %                     \par\df{pages=1}
 %        \item[nup]   Puts multiple logical pages onto each sheet
-%                     of paper. The syntax of this option is: 
+%                     of paper. The syntax of this option is:
 %                     |nup=|\meta{xnup}|x|\meta{ynup}. Where
 %                     \meta{xnup} and \meta{ynup} specify the number of
 %                     logical pages in horizontal and vertical direction,
@@ -321,16 +321,16 @@
 %                     \emph{top} margin, respectively, whereas in `twoside'
 %                     documents positive values shift the pages to the
 %                     \emph{outer} and to the \emph{top} margin,
-%                     respectively. See Chapter~\ref{sec:layout} and 
+%                     respectively. See Chapter~\ref{sec:layout} and
 %                     Figure~\ref{fig:layout}. \df{offset=0 0}
 %        \item[frame] Puts a frame around each logical page. The frame is
 %                     made of lines of thickness |\fboxrule|. Either `true'
 %                     or `false' (or no value, which is equivalent to `true').
 %                     \df{frame=false}
-%        \item[column] Pdfpages normally uses `row-major' layout, where 
+%        \item[column] Pdfpages normally uses `row-major' layout, where
 %                     successive pages are placed in rows along the paper.
 %                     The |column| option changes the output into a
-%                     `column-major' layout, where successive pages are 
+%                     `column-major' layout, where successive pages are
 %                     arranged in columns down the paper.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{column=false}
@@ -374,13 +374,13 @@
 %        \item[pagecommand] Declares \LaTeX\ commands, which are executed
 %                      on each sheet of paper.
 %                      \df{pagecommand=\{\bslash thispagestyle\{empty\}\}}
-%        \item[turn] By default pages in landscape format are displayed 
+%        \item[turn] By default pages in landscape format are displayed
 %                     in landscape orientation (if the \PDF\ viewer supports
 %                     this). With \texttt{turn=false} this can be prohibited.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{turn=true}
 %        \item[noautoscale] By default pages are scaled automatically.
-%                     This can be suppressed with the 
+%                     This can be suppressed with the
 %                     \texttt{noautoscale} option.
 %                     In combination with the \texttt{scale} option
 %                     (from graphicx) the user has full control over
@@ -457,7 +457,7 @@
 %                     the cutting edge is always on the inner side.
 %                     Either `true' or `false' (or no value, which is
 %                     equivalent to `true'). \df{doublepagestwist=false}
-%         \item[doublepagestwistodd] Turns the pages such, that the 
+%         \item[doublepagestwistodd] Turns the pages such, that the
 %                     cutting edge is always on the outer side.
 %                     Either `true' or `false' (or no value, which is
 %                     equivalent to `true'). \df{doublepagestwistodd=false}
@@ -489,14 +489,14 @@
 %      \begin{description}
 %        \makeatletter\@beginparpenalty=10000\makeatother
 %        \item[link] Inserted pages become a target
-%                    of a hyperlink. The name of the link is 
+%                    of a hyperlink. The name of the link is
 %                    `\texttt{\meta{filename}.\meta{page number}}'.
-%                    The filename extension of \meta{filename} 
+%                    The filename extension of \meta{filename}
 %                    \emph{must not} be stripped.
 %                    Either `true' or `false' (or no value, which
 %                    is equivalent to `true').
 %                    \df{link=false}
-%        \item[linkname] Changes the default linkname created by the option 
+%        \item[linkname] Changes the default linkname created by the option
 %                        \texttt{link}. Instead of \meta{filename} the
 %                        value of this option is used. E.g.~\texttt{
 %                        linkname=mylink} produces the linknames
@@ -504,10 +504,10 @@
 %        \item[thread] Combines inserted pages to an article thread.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{thread=false}
-%        \item[threadname] Several threads are distinguished by their 
+%        \item[threadname] Several threads are distinguished by their
 %                          threadnames. By default the threadname is equal
 %                          to the filename (plus filename extension), but it
-%                          can be changed with this option. This is useful if 
+%                          can be changed with this option. This is useful if
 %                          the same file is inserted twice or more times and
 %                          should not be combined to one single thread.
 %                          Or the other way round if pages from different
@@ -541,7 +541,7 @@
 %^^A                         \meta{right} \meta{top}},
 %^^A                       \texttt{xyz \meta{left} \meta{top} \meta{zoom}},
 %                       and \texttt{Region}.
-%                       
+%
 %                       See \cite{PDFRef} for a details description of these
 %                       \PDF\ destinations. The |region| destination was
 %                       added by pdfpages and is not a real \PDF\
@@ -591,9 +591,9 @@
 %                       \item[\meta{section}:] \LaTeX\ sectioning name
 %                          -- e.g., section, subsection, \ldots
 %                       \item[\meta{level}:] Number, denoting depth of
-%                          section -- e.g., 1 for section level, 2 for 
+%                          section -- e.g., 1 for section level, 2 for
 %                          subsection level, \ldots
-%                       \item[\meta{heading}:] Title inserted in the 
+%                       \item[\meta{heading}:] Title inserted in the
 %                          table of contents.
 %                       \item[\meta{label}:] Name of the label. This label
 %                          can be referred to with |\ref| and |\pageref|.
@@ -607,7 +607,7 @@
 %                      The |addtotoc| option
 %                      accepts multiple sets of the above mentioned five
 %                      arguments, all separated by commas. The sets must
-%                      be sorted such that the \meta{page number}s are in 
+%                      be sorted such that the \meta{page number}s are in
 %                      ascending order. (Strictly speaking they must have
 %                      the same order as the page numbers specified by
 %                      the |pages| option.)
@@ -648,7 +648,7 @@
 %
 %                      Like \texttt{addtotoc}, \texttt{addtolist} accepts
 %                      multiple sets of the above mentioned four arguments,
-%                      all separated by commas. The proper recursive 
+%                      all separated by commas. The proper recursive
 %                      definition is:
 %
 %                      \texttt{addtolist=}\{\meta{lof-list}\}
@@ -733,11 +733,11 @@
 %                      |\externaldocument|.
 %                      \df{xr-prefix=\{\}}
 %
-%                      
+%
 %      \end{description}
 %
 %    \end{itemize}
-% 
+%
 %
 %    \begin{figure}
 %      \centering
@@ -821,11 +821,11 @@
 %
 %
 %    \noindent
-%    Internally the command |\includepdf| 
-%    makes use of the |\includegraphics| command from the |graphicx| 
+%    Internally the command |\includepdf|
+%    makes use of the |\includegraphics| command from the |graphicx|
 %    (actually |graphics|) package. Hence it is possible to use
 %    all the options of |\includegraphics|, too.
-%    Options which are not interpreted by |\includepdf| 
+%    Options which are not interpreted by |\includepdf|
 %    are passed directly to |\includegraphics|.
 %
 %    Especially the `trim' and `clip' options of |\includegraphics|
@@ -834,7 +834,7 @@
 %    Just use the `trim' and `clip' options as if they were options
 %    of |\includepdf|. They will be passed to |\includegraphics|
 %    internally.
-%    
+%
 %
 %    \begin{samepage}
 %    \bigskip\noindent
@@ -852,7 +852,7 @@
 %        \meta{file-page-list} & \meta{filename}[\textbf{,}^^A
 %                   \meta{page spec}]^^A
 %                   [\textbf{,}\meta{file-page-list}]\\
-%                   A comma separated list of filenames and 
+%                   A comma separated list of filenames and
 %                   optional \meta{page spec} specifiers.
 %                   A \meta{page spec} can be everything the
 %                   option |pages| accepts.
@@ -861,12 +861,12 @@
 %    \end{quote}
 %    \end{samepage}
 %
-%    The |\includepdfmerge| command uses the same options as 
+%    The |\includepdfmerge| command uses the same options as
 %    |\includepdf| with
-%    one exception. The option |pages| has no meaning for 
+%    one exception. The option |pages| has no meaning for
 %    |\includepdfmerge|. Instead the \meta{page spec} specifier
 %    is used to specify which pages should be inserted.
-%    The \meta{page spec} specifier accepts the same values as 
+%    The \meta{page spec} specifier accepts the same values as
 %    the |pages| option. If no \meta{page spec} specifier is given,
 %    only the first page will be inserted.
 %
@@ -885,7 +885,7 @@
 %    So it would be more pleasant to insert the title page of
 %    each document than the first page. This can be done with
 %    the \meta{page spec} specifier. The following example inserts
-%    the second page of \textit{doc1.pdf} and the third page of 
+%    the second page of \textit{doc1.pdf} and the third page of
 %    \textit{doc2.pdf} and \textit{doc3.pdf}:
 %
 %    \begin{quote}
@@ -933,19 +933,19 @@
 %    entries of a thread information dictionary in low-level \PDF\
 %    commands.
 %    (See \cite{PDFRef} for more information.)
-%    
+%
 %    \smallskip
 %    |\renewcommand*{\threadinfodict}|\\\hspace*{\parindent}
 %    |  {/Title (My first thread) /Author (That's me!)}|
-%    
-%    
+%
+%
 %
 %    \subsection{The Layout}\label{sec:layout}
-%    
+%
 %    The default layout can be changed by the options |delta|
 %    and |offset|. Figure~\ref{fig:layout} shows the
 %    meaning of these options.
-%    
+%
 %    The inserted logical pages are being centered on the
 %    sheet of paper by default. To displace them use the |offset|
 %     option, which argument should be two dimensions. E.g.~
@@ -956,17 +956,17 @@
 %    the \emph{right} and to the \emph{top} margin, respectively,
 %    whereas in `twoside' documents positive values shift the pages
 %    to the \emph{outer} and to the \emph{top} margin, respectively.
-%    
+%
 %    By default logical pages are being arranged side by side.
 %    To put some space between them, use the |delta| option,
 %    whose argument should be two dimensions.
 %    Figure~\ref{fig:layout} shows the meaning of |delta|.
-%    
+%
 %    The layout options |delta| and |offset|
 %    \textit{always} refer to a sheet of paper in portrait
-%    orientation. No matter whether you have set the 
+%    orientation. No matter whether you have set the
 %    |landscape| option to |true|, or not.
-%    
+%
 %    If you are confused about horizontal\,(|x|)
 %    and vertical\,(|y|) directions, just set the option
 %    |turn=false|. Now your \PDF\ viewer shows the pages in
@@ -1001,8 +1001,8 @@
 %    \begin{description}
 %      \item[pagecolor]
 %           When setting the background color with |\pagecolor|
-%           (a command from \textit{color.sty}), the first 
-%           |\pagecolor| \emph{must} precede |\usepackage{pdfpages}|. 
+%           (a command from \textit{color.sty}), the first
+%           |\pagecolor| \emph{must} precede |\usepackage{pdfpages}|.
 %           \begin{quote}
 %             |\usepackage{color}|\\
 %             |\pagecolor{white}|\\
@@ -1057,13 +1057,13 @@
 %
 %    \StopEventually{
 %    \begin{thebibliography}{9}
-%    
+%
 %    \bibitem{pdftex}
 %      H\`an Th\^e\llap{\raise 0.5ex\hbox{\'{}}} Th\`anh,
 %      Sebastian Rahtz, Hans Hagen,
 %      \textit{The \pdfTeX\ user manual},
 %      \url{http://www.tug.org/applications/pdftex}
-%      
+%
 %    \bibitem{PDFRef}
 %      \textit{PDF Reference}, Adobe Systems Incorporated,\\
 %      \url{http://www.adobe.com/devnet/pdf/pdf_reference.html}
@@ -1072,7 +1072,7 @@
 %      Heiko Oberdiek,
 %      \textit{pax: Extract and reinsert PDF annotations with pdfTeX}
 %      \url{http://www.ctan.org/pkg/pax}
-%      
+%
 %    \end{thebibliography}
 %    }
 %
@@ -1117,7 +1117,7 @@
 \DeclareOption{null}{\def\AM@driver{null}}
 %    \end{macrocode}
 %    \begin{macrocode}
-\ProcessOptions  
+\ProcessOptions
 %    \end{macrocode}
 %    \subsection{Detection of TeX-Engine}
 %
@@ -1156,6 +1156,7 @@
 \newif\ifAM@DVIoutput\AM@DVIoutputfalse
 \newdimen\AM@pagewidth
 \newdimen\AM@pageheight
+\newdimen\AM@fboxrule
 \input{pp\AM@driver.def}
 \ifx\AM@endinput\relax\expandafter\endinput\fi
 \ifAM@pkg@survey
@@ -1370,7 +1371,7 @@
 }
 %    \end{macrocode}
 %    \macro{\includepdf}
-%    This command inserts any pages of an external 
+%    This command inserts any pages of an external
 %    \PDF\ document.
 %    \begin{macrocode}
 \newcommand*{\includepdf}[2][]{%
@@ -1532,7 +1533,7 @@
     {\def\AM@xnup{\@ne}\def\AM@ynup{\@ne}%
      \def\AM@xnupminusi{\z@}\def\AM@ynupminusi{\z@}}{}%
   \@ifundefined{AM@deltax}
-    {\def\AM@deltax{-\fboxrule}\def\AM@deltay{-\fboxrule}}{}%
+    {\def\AM@deltax{-\AM@fboxrule}\def\AM@deltay{-\AM@fboxrule}}{}%
   \@ifundefined{AM@xoffset}
     {\def\AM@xoffset{\z@}\def\AM@yoffset{\z@}}{}%
   \def\AM@xpos{\z@}\def\AM@ypos{\z@}%
@@ -1581,12 +1582,13 @@
           \fi}{}%
 %    \end{macrocode}
 %    \begin{macrocode}
-  \ifthenelse{\boolean{AM@frame}}
-         {\global\let\AM@fbox\fbox}
+  \ifthenelse{\boolean{AM@frame}}%
+         {\global\let\AM@fbox\fbox
+          \setlength\AM@fboxrule{\fboxrule}}%
          {\global\let\AM@fbox\relax
-          \setlength{\fboxrule}{\z@}}%
-  \ifthenelse{\boolean{AM@reflect}}
-         {\global\let\AM@reflectbox\reflectbox}
+          \setlength\AM@fboxrule{\z@}}%
+  \ifthenelse{\boolean{AM@reflect}}%
+         {\global\let\AM@reflectbox\reflectbox}%
          {\global\let\AM@reflectbox\relax}%
   \setbox\AM@pagebox\null
 %    \end{macrocode}
@@ -1599,9 +1601,6 @@
 %    \end{macrocode}
 %    \begin{macrocode}
   \AM@firstpagetrue
-%    \end{macrocode}
-%    \begin{macrocode}
-  \setlength{\fboxsep}{\z@}%
 %    \end{macrocode}
 %    Determine scaling factor:
 %    The logical pages are scaled such, that they match on
@@ -1643,7 +1642,7 @@
 %    Calculate required scaling in horizontal direction.
 %    \begin{macrocode}
     \def\AM@xscale{%
-      (\AM@pagewidth - \tw@\fboxrule*\AM@xnup 
+      (\AM@pagewidth - \tw@\AM@fboxrule*\AM@xnup
        - \AM@deltax * \AM@xnupminusi) /
       (\AM@xnup * \real{\strip@pt\wd\@tempboxa})
     }%
@@ -1654,7 +1653,7 @@
 %    \begin{macrocode}
     \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
     \def\AM@yscale{
-      (\AM@pageheight - \tw@\fboxrule*\AM@ynup 
+      (\AM@pageheight - \tw@\AM@fboxrule*\AM@ynup
        - \AM@deltay *\AM@ynupminusi) /
       (\AM@ynup * \real{\strip@pt\@tempdimb})
     }%
@@ -1674,7 +1673,7 @@
   \fi
 %    \end{macrocode}
 %    Determine horizontal and vertical margins.
-%    |\AM@xoffset| and |\AM@yoffset| are \textit{not} 
+%    |\AM@xoffset| and |\AM@yoffset| are \textit{not}
 %    taken into account for this calculation.
 %    \begin{macrocode}
   \let\AM@filelist@save\@filelist
@@ -1699,11 +1698,11 @@
   \edef\AM@templateheight{\the\@tempdima}%
   \setlength{\@tempdimb}{\ht\@tempboxa + \dp\@tempboxa}%
   \def\AM@xmargin{%
-    (\AM@pagewidth - (\wd\@tempboxa+\tw@\fboxrule)*\AM@xnup
+    (\AM@pagewidth - (\wd\@tempboxa+\tw@\AM@fboxrule)*\AM@xnup
      - \AM@deltax * \AM@xnupminusi) * \real{.5}%
   }%
   \def\AM@ymargin{%
-    (\AM@pageheight - (\@tempdimb+\tw@\fboxrule)*\AM@ynup
+    (\AM@pageheight - (\@tempdimb+\tw@\AM@fboxrule)*\AM@ynup
      - \AM@deltay * \AM@ynupminusi) * \real{.5}%
   }%
   \setlength{\@tempdima}{\AM@xmargin}%
@@ -1815,7 +1814,7 @@
 %    Smaller pages are \emph{not} scaled up, just their local offset
 %    is adjusted.
 %    \begin{macrocode}
-        \setlength{\@tempdima}{(\AM@templatewidth - \AM@localwd) 
+        \setlength{\@tempdima}{(\AM@templatewidth - \AM@localwd)
              * \real{.5}}%
         \edef\AM@localxoff{\the\@tempdima}%
         \setlength{\@tempdima}{(\AM@templateheight - \AM@localht)
@@ -1904,25 +1903,25 @@
     \ifthenelse{\boolean{AM@landscape}}
       {\def\AM@xpos{%
          \AM@xmargin \AM@add\AM@xoffset + \AM@localxoff +
-         (\AM@templatewidth + \AM@deltax + \tw@\fboxrule) *
+         (\AM@templatewidth + \AM@deltax + \tw@\AM@fboxrule) *
          (\AM@ynupi - 1)
        }%
        \def\AM@ypos{%
          \AM@texcoord +
          \AM@ymargin + \AM@yoffset + \AM@localyoff +
-         (\AM@templateheight + \AM@deltay + \tw@\fboxrule) *
+         (\AM@templateheight + \AM@deltay + \tw@\AM@fboxrule) *
          (\AM@xnupi - 1)
        }%
       }
       {\def\AM@xpos{%
          \AM@xmargin \AM@add\AM@xoffset + \AM@localxoff +
-         (\AM@templatewidth + \AM@deltax + \tw@\fboxrule) *
+         (\AM@templatewidth + \AM@deltax + \tw@\AM@fboxrule) *
          (\AM@xnupi - 1)
        }%
        \def\AM@ypos{%
          \AM@texcoord +
          \AM@ymargin + \AM@yoffset + \AM@localyoff +
-         (\AM@templateheight + \AM@deltay + \tw@\fboxrule) *
+         (\AM@templateheight + \AM@deltay + \tw@\AM@fboxrule) *
          (\AM@ynup-\AM@ynupi)
        }%
       }%
@@ -1930,7 +1929,6 @@
     \edef\AM@xpos{\strip@pt\@tempdima}%
     \setlength{\@tempdima}{\AM@ypos}%
     \edef\AM@ypos{\strip@pt\@tempdima}%
-    \setlength{\fboxsep}{\z@}%
 %    \end{macrocode}
 %    Calculate |fitr| coordinates, if |linkfit=region|.
 %    \begin{macrocode}
@@ -1964,6 +1962,7 @@
 %    \end{macrocode}
 %    \begin{macrocode}
         \global\pdfpages@includegraphics@status\@ne
+        \fboxsep=\z@
         \AM@hyper@begin@ii\noexpand\AM@fbox{%
           \noexpand\AM@ARBug@hook
           \noexpand\AM@reflectbox{%
@@ -2226,7 +2225,7 @@
   \fi
   \advance\@tempcntb\AM@inc
   \whiledo{\@tempcnta\AM@rel\@tempcntb}{%
-    \AM@checkpagenumber{\the\@tempcnta}%  
+    \AM@checkpagenumber{\the\@tempcnta}%
     \AM@append{\the\@tempcnta}%
     \advance\@tempcnta\AM@inc
   }%
@@ -2306,8 +2305,8 @@
 %    \macro{\AM@getfirst}
 %    \macro{\AM@getfirsti}
 %    \macro{\AM@getfirstii}
-%    Parameter |#1| must be a macro containing a  csv-list. 
-%    |\AM@getfirst| removes the first item of this list 
+%    Parameter |#1| must be a macro containing a  csv-list.
+%    |\AM@getfirst| removes the first item of this list
 %    \textit{and} stores it in  |\toks@|.
 %    \begin{macrocode}
 \newif\ifAM@endoflist\AM@endoflistfalse
@@ -2711,7 +2710,7 @@
 %    \macro{\AM@hyper@begin@i}
 %    \macro{\AM@hyper@begin@ii}
 %    \macro{\AM@hyper@end}
-%    Add hypertext operations (targets, links and threads) to 
+%    Add hypertext operations (targets, links and threads) to
 %    the inserted pages.
 %    \begin{macrocode}
 \newcommand{\AM@hyper@begin@i}{%
@@ -2779,7 +2778,7 @@
 }
 %    \end{macrocode}
 %    \macro{\AM@filluppagelist}
-%    The number of items in |\AM@pagelist| and 
+%    The number of items in |\AM@pagelist| and
 %    |\AM@doclist| should be a multiple of
 %    $|\AM@xnup|\nobreak\times\nobreak|\AM@ynup|$.
 %    If not, fill up the lists with empty items.
@@ -2876,7 +2875,7 @@
     }%
     \@tempcnta=\z@
     \@tempcntb=\AM@signature\relax
-    \whiledo{\@tempcnta<\@tempcntb}{%   
+    \whiledo{\@tempcnta<\@tempcntb}{%
       \ifAM@landscape
         \ifAM@signaturestar
           \AM@first\AM@last\AM@first\AM@last
@@ -2931,7 +2930,7 @@
   \def\AM@gobble##1\END,{}%
   \ifx\\#1\\%
     \expandafter\AM@setphantompage
-  \else 
+  \else
     \def\AM@phantompage{#1}%
     \expandafter\AM@gobble
   \fi
@@ -2941,21 +2940,21 @@
 \newcommand{\AM@setphantomdoc}{}
 \def\AM@setphantomdoc#1,#2\END{\edef\AM@phantomdoc{#1}}
 %    \end{macrocode}
-%    \macro{\AM@addtotoc} 
+%    \macro{\AM@addtotoc}
 %    \macro{\AM@parse@toclist}
 %    \macro{\AM@parse@toclisti}
 %    \macro{\AM@rm@from@toclist}
 %    \macro{\AM@rm@from@toclisti}
 %    These macros add entries to the table of contents (toc).
-%    
+%
 %    |\AM@parse@addtotoc| reads the next entries from the list
 %    |\AM@toclist| and prepares some macros (|\AM@toc@page|,
 %    |\AM@toc@section|, etc.), which are used by |\AM@addtotoc|.
-%    
+%
 %    The list |\AM@toclist| is a comma separated list and must
 %    contain a multiple of five entries, which there are:
 %    \meta{page number}, \meta{section}, \meta{level},
-%    \meta{heading} and \meta{label}. 
+%    \meta{heading} and \meta{label}.
 %    \meta{section} is e.g., `chapter', `section', `subsection', etc.
 %    and \meta{level} is a number, denoting depth of section e.g.,
 %    chapter=0, section=1, etc.
@@ -3072,7 +3071,7 @@
   \def\AM@lof@heading{\ignorespaces #3}%
   \edef\AM@lof@label{\AM@trim@space{#4}}%
   \AM@checkinteger{\AM@lof@page}%
-  \ifAM@integer\else 
+  \ifAM@integer\else
     \PackageError{pdfpages}
          {Missing number.\MessageBreak
           Page number in option `addtolist' is not a number}
@@ -3424,7 +3423,7 @@
 
 %</ppluatexdef>
 %    \end{macrocode}
-%    Check if the graphics package was loaded with an 
+%    Check if the graphics package was loaded with an
 %    incompatible driver option (e.g. dvips).
 %    \begin{macrocode}
 %<*pppdftexdef>
@@ -3438,7 +3437,7 @@
   \aftergroup\endinput}{}
 \endgroup
 %    \end{macrocode}
-%    Check for \texttt{pdftex.def} version \texttt{2000/05/12 v0.02u} 
+%    Check for \texttt{pdftex.def} version \texttt{2000/05/12 v0.02u}
 %    or higher:
 %    \begin{list}{$\ast$}{\versionlist}
 %      \makeatletter\@beginparpenalty=10000\makeatother
@@ -3479,12 +3478,12 @@
 %    is used repeatedly on the same file. Heiko is aware of this and will provide
 %    a solution in pdftex.def. Until then we will use the original graphicx's filename
 %    from |\Gread@@pdftex|.
-%    
+%
 %    \def\AM@getpagecount{%
 %      \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
 %      \edef\AM@pagecount{\the\AM@lastsavedimageresourcepages}%
 %    }
-%    
+%
 %    \begin{macrocode}
 %<*(pppdftexdef,ppluatexdef)>
 \let\AM@Gread@@pdftex\Gread@@pdftex
@@ -3654,7 +3653,7 @@
 %
 %    \subsubsection{\VTeX\ driver}
 %
-%    Check if the graphics package was loaded with an 
+%    Check if the graphics package was loaded with an
 %    incompatible driver option (e.g. dvips).
 %    \begin{macrocode}
 \begingroup
@@ -3781,7 +3780,7 @@
 %
 %    \subsubsection{\XeTeX\ driver}
 %
-%    Check if the graphics package was loaded with an 
+%    Check if the graphics package was loaded with an
 %    incompatible driver option (e.g. dvips).
 %    \begin{macrocode}
 \begingroup
@@ -4029,7 +4028,7 @@
 \def\AM@getpagecount{%
   \ifx\AM@pagecount\AM@undefined
     \AM@notsupported{Page selections}
-    \def\AM@pagecount{1}%  
+    \def\AM@pagecount{1}%
     \gdef\AM@getpagecount{%
       \def\AM@pagecount{1}%
     }%
@@ -4071,12 +4070,12 @@
 %    Link to original document.
 %    \begin{macrocode}
 \def\AM@linktodoc@special@begin{Links}
-\let\AM@linktodoc@special@end\relax  
+\let\AM@linktodoc@special@end\relax
 %    \end{macrocode}
 %    Survey.
 %    \begin{macrocode}
 \def\AM@survey@special@begin{\AM@notsupported{Option survey}}
-\let\AM@survey@special@end\relax  
+\let\AM@survey@special@end\relax
 %    \end{macrocode}
 %    Thread.
 %    \begin{macrocode}
@@ -4109,7 +4108,7 @@
     \fi
   }}{}
 %    \end{macrocode}
-%    
+%
 %    \iffalse
 %</ppdvipsdef>
 %
@@ -4297,8 +4296,8 @@
 %    \end{macrocode}
 %    Survey.
 %    \begin{macrocode}
-\let\AM@survey@special@begin\relax   
-\let\AM@survey@special@end\relax  
+\let\AM@survey@special@begin\relax
+\let\AM@survey@special@end\relax
 %    \end{macrocode}
 %    Thread.
 %    \begin{macrocode}
@@ -4809,12 +4808,21 @@
 %    \item Option |openrighteach| added.
 %    \end{itemize}
 %
-%    \subsection*{}
+%    \subsection*{2021/01/09 v0.5r}
 %    \begin{itemize}
 %    \item |\pdfpages@includegraphics@status| added.
 %    \end{itemize}
+%
+%    \subsection*{2021/02/05 v0.5s}
+%    \begin{itemize}
+%    \item Pdfpages redefined |\fboxsep| and |\fboxrule| inside
+%      |\includepdf|. Thereby causing unexpected results if |\fbox| was used
+%      inside option |picturecommand|. This bug is fixed. Now |\fboxsep| and
+%      |\fboxrule| equal the values which were active just before
+%      calling |\includepdf|.
+%    \end{itemize}
 %    \Finale
-%    
+%
 %    \iffalse
 %<*example1>
 \documentclass[a4paper,12pt]{article}
@@ -4870,10 +4878,10 @@ landscape orientation, you use a PDF viewer that
 does not support this option.)
 
 \begin{example}
-\includepdf[nup=1x2, landscape, 
+\includepdf[nup=1x2, landscape,
             pages=4-7, turn=false]{dummy.pdf}
 \end{example}
-\includepdf[nup=1x2, landscape, 
+\includepdf[nup=1x2, landscape,
             pages=4-7, turn=false]{dummy.pdf}
 
 \begin{example}
@@ -4902,7 +4910,7 @@ option \texttt{column}.
 
 \noindent
 Sometimes it might be useful to put an empty page
-at the beginning. 
+at the beginning.
 \begin{example}
 \includepdf[nup=2x2, pages={{},5-7}]{dummy.pdf}
 \end{example}
@@ -4912,7 +4920,7 @@ at the beginning.
 \section{Changing Layout}
 
 To put some space between the logical pages, use the option
-\texttt{delta}. 
+\texttt{delta}.
 
 Any options of \verb|\includegraphics| are allowed in
 \verb|\includepdf| as well. See the \texttt{scale}
@@ -4943,7 +4951,7 @@ document use the \texttt{trim} and \texttt{clip}
 options of the \texttt{graphicx} package.
 
 \begin{example}
-\includepdf[nup=2x2, pages=1-4, 
+\includepdf[nup=2x2, pages=1-4,
             trim=0 40mm 0 40mm,
             clip, pagecommand={}]{dummy.pdf}
 \end{example}
@@ -4952,12 +4960,12 @@ options of the \texttt{graphicx} package.
 \noindent The option
 \verb|pagecommand={\thispagestyle{empty}}|
 is set by default. If you don't want the page style
-to be set to empty, you can remove this default 
+to be set to empty, you can remove this default
 setting by using the \texttt{pagecommand} option
 as follows:
 \verb|pagecommand={}|.
 
-\includepdf[nup=2x2, pages=1-4, 
+\includepdf[nup=2x2, pages=1-4,
             trim=0 40mm 0 40mm,
             clip, pagecommand={}]{dummy.pdf}
 
@@ -5050,7 +5058,7 @@ and the \hyperlink{dummy.pdf.2}{second page}.
 \includepdf[pages=1-2, link]{dummy.pdf}
 
 
-Inserting the same page twice would result in two 
+Inserting the same page twice would result in two
 identical link names. To prevent this use the option
 \texttt{linkname} to specify another name for the links.
 
@@ -5134,11 +5142,11 @@ The next pages were inserted using the following command:
 \end{verbatim}
 
 \noindent
-See Chapter \ref{cha:main} (\nameref{cha:main}) on page 
+See Chapter \ref{cha:main} (\nameref{cha:main}) on page
 \pageref{cha:main}.\par\noindent
-See Section \ref{sec:first} (\nameref{sec:first}) on page 
+See Section \ref{sec:first} (\nameref{sec:first}) on page
 \pageref{sec:first}.\par\noindent
-See Section \ref{sec:second} (\nameref{sec:second}) on page 
+See Section \ref{sec:second} (\nameref{sec:second}) on page
 \pageref{sec:second}.
 
 \includepdf[pages=1-6,
