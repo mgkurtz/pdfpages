@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5s}
+\def\AM@fileversion{v0.5t}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{5060}
+%    \CheckSum{5076}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3531,9 +3531,18 @@
 }
 %    \end{macrocode}
 %    Rotate page.
+%    Use new pdfmanagement macros if available, and fallback to pdflscape
+%    if they are not available.
 %    \begin{macrocode}
-\def\AM@setRotate{\PLS@Rotate{90}}
-\def\AM@resetRotate{\PLS@Rotate{0}}
+\ExplSyntaxOn
+\@ifundefined{pdfmanagement_add:nnn}{%
+  \def\AM@setRotate{\PLS@Rotate{90}}%
+  \def\AM@resetRotate{\PLS@Rotate{0}}%
+}{%
+  \def\AM@setRotate{\pdfmanagement_add:nnn{ThisPage}{Rotate}{90}}%
+  \def\AM@resetRotate{}%
+}%
+\ExplSyntaxOff
 %    \end{macrocode}
 %    Link to original document.
 %    \begin{macrocode}
@@ -3706,6 +3715,8 @@
 \let\AM@pagesize@boogie\relax
 %    \end{macrocode}
 %    Rotate page.
+%    Use new pdfmanagement macros if available, and fallback to pdflscape
+%    if they are not available.
 %    \begin{macrocode}
 \def\AM@setRotate{\special{pS:
     [{ThisPage}\string<\string</Rotate 90\string>\string>%]
@@ -3895,8 +3906,15 @@
 %    \end{macrocode}
 %    Rotate page.
 %    \begin{macrocode}
-\def\AM@setRotate{\PLS@Rotate{90}}
-\def\AM@resetRotate{\PLS@Rotate{0}}
+\ExplSyntaxOn
+\@ifundefined{pdfmanagement_add:nnn}{%
+  \def\AM@setRotate{\PLS@Rotate{90}}%
+  \def\AM@resetRotate{\PLS@Rotate{0}}%
+}{%
+  \def\AM@setRotate{\pdfmanagement_add:nnn{ThisPage}{Rotate}{90}}%
+  \def\AM@resetRotate{}%
+}%
+\ExplSyntaxOff
 %    \end{macrocode}
 %    Link to original document.
 %    \begin{macrocode}
@@ -4820,6 +4838,12 @@
 %      inside option |picturecommand|. This bug is fixed. Now |\fboxsep| and
 %      |\fboxrule| equal the values which were active just before
 %      calling |\includepdf|.
+%    \end{itemize}
+%
+%    \subsection*{2021/03/06 v0.5t}
+%    \begin{itemize}
+%    \item Page rotation: Use new pdfmanagement macros if they are
+%      available, and fallback to pdflscape if they are not available.
 %    \end{itemize}
 %    \Finale
 %

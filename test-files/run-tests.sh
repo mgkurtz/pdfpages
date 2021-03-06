@@ -298,8 +298,6 @@ do
     then
         regular_test $i
     else
-        echo "special $i ......................."
-        read
         special_test $i
     fi
     
