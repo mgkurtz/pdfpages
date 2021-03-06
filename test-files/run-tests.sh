@@ -79,6 +79,9 @@ TESTS="
   regression-2
 
   globalopts
+
+  landscape-1
+  landscape-2
 "
 
 PDF_VIEWER=evince

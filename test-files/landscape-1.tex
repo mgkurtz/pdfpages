@@ -1,0 +1,13 @@
+% This test case uses the new pdfmanagement macros for page rotation
+% instead of pdflscape.sty.
+
+\RequirePackage{pdfmanagement-testphase}
+\DeclareDocumentMetadata{uncompress}
+\documentclass{article}
+\usepackage{pdfpages}
+
+\begin{document}
+
+\includepdf[landscape=true,pages=1-2]{dummy}
+
+\end{document}
