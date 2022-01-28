@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5t}
+\def\AM@fileversion{v0.5u}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{5076}
+%    \CheckSum{5077}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -2974,7 +2974,7 @@
   \AM@addtotoc@hook
   \edef\AM@temp{{\AM@toc@section}{\AM@toc@level}%
            {\z@}{\z@}{\z@}{}[\the\AM@toc@title]{}}%
-  \edef\AM@tempi{\noexpand\csname @\AM@toc@section\noexpand\endcsname%
+  \edef\AM@tempi{\leavevmode\noexpand\csname @\AM@toc@section\noexpand\endcsname%
                  [\the\AM@toc@title]{}}%
   \@ifundefined{@\AM@toc@section}
     {\expandafter\@sect\AM@temp
@@ -4844,6 +4844,12 @@
 %    \begin{itemize}
 %    \item Page rotation: Use new pdfmanagement macros if they are
 %      available, and fallback to pdflscape if they are not available.
+%    \end{itemize}
+%
+%    \subsection*{2021/03/06 v0.5u}
+%    \begin{itemize}
+%    \item Adding |\leavevmode| before |\@chapter|,... in |addtotoc|.
+%    Bug fix for \url{https://tex.stackexchange.com/questions/631514/}.
 %    \end{itemize}
 %    \Finale
 %
