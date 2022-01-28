@@ -55,6 +55,7 @@ TESTS="
   addtotoc-3b
   addtotoc-3c
   addtotoc-3d
+  addtotoc-4
 
   addtolist-1a
   addtolist-1b

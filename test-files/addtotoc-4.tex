@@ -1,0 +1,22 @@
+\documentclass{book}
+\usepackage{pdfpages}
+
+\begin{document}
+
+%
+% Regression test for:
+%    <https://tex.stackexchange.com/questions/631514>
+%
+
+\tableofcontents
+\includepdf[
+  pages=1-4,
+  addtotoc={1,chapter,1,title,label}
+]{dummy.pdf}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
