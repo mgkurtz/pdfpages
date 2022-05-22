@@ -1,5 +1,5 @@
 VERSION=$(shell grep '\\def\\AM@fileversion{' pdfpages.dtx |\
-	sed 's/\\def\\AM@fileversion{\(.*\)}/\1/')
+	sed 's/\\def\\AM@fileversion{v\(.*\)}/\1/')
 DIST=pdfpages-$(VERSION)
 DIST-DIR=$(DIST)
 
