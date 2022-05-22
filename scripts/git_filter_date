@@ -1,12 +1,12 @@
 #!/bin/bash
 
-if [ $1 == "--smudge" ]
+if [ "$1" == "--smudge" ]
 then
 	date=$(git log --pretty=format:"%ai" -1)
 	sed -e "s,\\\$Date:[^$]*\\\$,\\\$Date: $date \\\$,g"
 fi
 
-if [ $1 == "--clean" ]
+if [ "$1" == "--clean" ]
 then
 	sed -e "s,\\\$Date:[^\\\$]*\\\$,\\\$Date:\\\$,g"
 fi
