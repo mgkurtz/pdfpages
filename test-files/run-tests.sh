@@ -83,6 +83,8 @@ TESTS="
 
   landscape-1
   landscape-2
+
+  expand-args
 "
 
 PDF_VIEWER=evince
@@ -235,6 +237,7 @@ function regular_test()
 {
     for LATEX in $LATEX_ENGINES
     do
+        message ${LATEX^^} $1
         run $LATEX $1
         run $LATEX $1
         run $LATEX $1
@@ -243,7 +246,6 @@ function regular_test()
         ALL_TESTS="$ALL_TESTS $RES"
         mv $1.pdf $RES
 
-        message ${LATEX^^} $1
         if_not_batch $PDF_VIEWER $RES
     done
 }
@@ -258,33 +260,33 @@ function special_test()
 {
     case $1 in
         ps-tricks)
+            message PS4PDF $i
             ps4pdf $1
             RES=ps-tricks.pdf
-            message PS4PDF $i
             if_not_batch $PDF_VIEWER $i.pdf
             ;;
         dvi-mode)
+            message LATEX $i
             latex $1
             RES=dvi-mode.dvi
-            message LATEX $i
             if_not_batch xdvi $i
             ;;
         full-dvips)
+            message DVIPS $i
             latex $i
             dvips $i
             ps2pdf $i.ps
             RES=full-dvips.ps
-            message DVIPS $i
             if_not_batch $PDF_VIEWER $i.pdf
             ;;
         check-status)
+            message LUALATEX $i
             lualatex $i
             diff <(grep -A2 'pdfpages file:' $1.log) check-status.diff.txt
             if [ $? -ne 0 ]; then
                 msg_error "Check not passed: \\AM@includegraphics@status";
             fi
             RES=check-status.pdf
-            message LUALATEX $i
             ;;
 
         *)

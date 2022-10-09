@@ -1,0 +1,55 @@
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+
+\def\pagesI{1-4}
+\def\pages{\pagesI}
+
+\def\nupI{2x2}
+\def\nup{\nupI}
+
+\def\deltaxI{2}
+\def\deltax{\deltaxI}
+
+\def\deltayI{4}
+\def\deltay{\deltayI}
+\includepdf[frame, pages=\pages, nup=\nup, deltax=\deltax, deltay=\deltay]{dummy.pdf}
+
+\def\deltaI{2 4}
+\def\delta{\deltaI}
+
+\def\offsetI{10 20}
+\def\offset{\offsetI}
+\includepdf[frame, pages=\pages, nup=\nup, delta=\delta, offset=\offset]{dummy.pdf}
+
+
+\def\doubleI{4}
+\def\double{\doubleI}
+\includepdf[frame, pages=1-2, nup=\nup, duplicatepages=\double]{dummy.pdf}
+
+\def\pagetemplateI{2}
+\def\pagetemplate{\pagetemplateI}
+\includepdf[pagetemplate=\pagetemplate]{dummy.pdf}
+
+
+\tableofcontents
+\listoffigures
+
+\def\tocI{
+  1, section, 1, Section 1, sec:1,
+  2, section, 1, Section 2, sec:2,
+  3, section, 1, Section 3, sec:3
+}
+\def\toc{\tocI}
+
+\def\lofI{
+  1, figure, Figure 1, fig:1,
+  2, figure, Figure 2, fig:2,
+  3, figure, Figure 3, fig:3
+}
+\def\lof{\lofI}
+
+\includepdf[pages=1-4, addtotoc=\toc, addtolist=\lof]{dummy.pdf} 
+
+\end{document}

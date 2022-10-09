@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5v}
+\def\AM@fileversion{v0.5w}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -3208,11 +3208,11 @@
   \def\AM@pagestemp{#1}}
 \define@key{pdfpages}{pages}{\AM@CheckValue{pages}{#1}%
                              \edef\AM@pagestemp{#1}}
-\define@key{pdfpages}{nup}{\AM@parse@nup#1x\END}
-\define@key{pdfpages}{deltax}{\AM@parse@deltax#1 \\}
-\define@key{pdfpages}{deltay}{\AM@parse@deltay#1 \\}
-\define@key{pdfpages}{delta}{\AM@parse@delta#1 \\}
-\define@key{pdfpages}{offset}{\AM@parse@offset#1 \\}
+\define@key{pdfpages}{nup}{\expandafter\AM@parse@nup\expanded{#1}x\END}
+\define@key{pdfpages}{deltax}{\expandafter\AM@parse@deltax\expanded{#1} \\}
+\define@key{pdfpages}{deltay}{\expandafter\AM@parse@deltay\expanded{#1} \\}
+\define@key{pdfpages}{delta}{\expandafter\AM@parse@delta\expanded{#1} \\}
+\define@key{pdfpages}{offset}{\expandafter\AM@parse@offset\expanded{#1} \\}
 \define@key{pdfpages}{frame}[true]{\setboolean{AM@frame}{#1}}
 \define@key{pdfpages}{openright}[true]{\setboolean{AM@openright}{#1}}
 \define@key{pdfpages}{openrighteach}[true]{\setboolean{AM@openrighteach}{#1}}
@@ -3225,13 +3225,12 @@
 \define@key{pdfpages}{noautoscale}[true]%
                      {\setboolean{AM@noautoscale}{#1}}
 \define@key{pdfpages}{thread}[true]{\setboolean{AM@thread}{#1}}
-\define@key{pdfpages}{threadname}{\def\AM@threadname{#1}}
+\define@key{pdfpages}{threadname}{\edef\AM@threadname{#1}}
 \define@key{pdfpages}{link}[true]{\setboolean{AM@link}{#1}}
-%\define@key{pdfpages}{linkfit}{\def\AM@linkfit{#1}}
-\define@key{pdfpages}{linkfit}{\AM@convert@dest{#1}}
-\define@key{pdfpages}{linkname}{\def\AM@linkname@option{#1}}
+\define@key{pdfpages}{linkfit}{\expandafter\AM@convert@dest\expanded{{#1}}}
+\define@key{pdfpages}{linkname}{\edef\AM@linkname@option{#1}}
 \define@key{pdfpages}{linktodoc}[true]{\setboolean{AM@linktodoc}{#1}}
-\define@key{pdfpages}{linktodocfit}{\def\AM@linktodocfit{#1}}
+\define@key{pdfpages}{linktodocfit}{\edef\AM@linktodocfit{#1}}
 \define@key{pdfpages}{linkfilename}{\pdfstringdef\AM@linkfilename{#1}%
                                \AM@linkfilenametrue}
 \define@key{pdfpages}{survey}[true]{%
@@ -3241,10 +3240,10 @@
                       \ifAM@pkg@survey\setboolean{AM@surveynolink}{#1}%
                                       \setboolean{AM@survey}{#1}
                       \else\AM@outputfalse\fi}
-\define@key{pdfpages}{xr-prefix}{\def\AM@xrprefix{#1}}
+\define@key{pdfpages}{xr-prefix}{\edef\AM@xrprefix{#1}}
 \define@key{pdfpages}{fitpaper}[true]{\setboolean{AM@fitpaper}{#1}}
-\define@key{pdfpages}{addtotoc}{\def\AM@toclist{#1,}}
-\define@key{pdfpages}{addtolist}{\def\AM@loflist{#1,}}
+\define@key{pdfpages}{addtotoc}{\edef\AM@toclist{#1,}}
+\define@key{pdfpages}{addtolist}{\edef\AM@loflist{#1,}}
 \define@key{pdfpages}{doublepages}[true]%
                      {\setboolean{AM@doublepages}{#1}}
 \define@key{pdfpages}{doublepagestwist}[true]%
@@ -3266,16 +3265,16 @@
                       \AM@doublepagestmpfalse\AM@doublepagestmpitrue
                       \AM@doublepagestwistxtrue}
 \define@key{pdfpages}{duplicatepages}[2]%
-                     {\def\AM@nduplicatepages{#1}%
+                     {\edef\AM@nduplicatepages{#1}%
                       \AM@duplicatepagestrue}
-\define@key{pdfpages}{signature}{\def\AM@signature{#1}}
-\define@key{pdfpages}{signature*}{\def\AM@signature{#1}%
+\define@key{pdfpages}{signature}{\edef\AM@signature{#1}}
+\define@key{pdfpages}{signature*}{\edef\AM@signature{#1}%
                                   \AM@signaturestartrue}
 \define@key{pdfpages}{booklet}[true]{\setboolean{AM@booklet}{#1}%
                                      \def\AM@signature{x}}
 \define@key{pdfpages}{pagetemplate}{\AM@CheckValue{pagetemplate}{#1}%
                                     \def\AM@pagetemplate{#1}}
-\define@key{pdfpages}{templatesize}{\AM@parse@templatesize#1\END}
+\define@key{pdfpages}{templatesize}{\expandafter\AM@parse@templatesize\expanded{#1}\END}
 \define@key{pdfpages}{rotateoversize}[true]%
                      {\setboolean{AM@rotateoversize}{#1}}
 \define@key{pdfpages}{picturecommand}{\def\AM@picturecommand{#1}}
@@ -3283,7 +3282,7 @@
 \define@key{pdfpages}{newwindow}[true]{\setboolean{AM@newwindow}{#1}}
 \define@key{pdfpages}{reflect*}[true]{\setboolean{AM@reflect}{#1}}
 \define@key{pdfpages}{reflect}[true]{\setboolean{AM@reflectall}{#1}}
-\define@key{pdfpages}{lastpage}{\def\AM@pagecount{#1}}
+\define@key{pdfpages}{lastpage}{\edef\AM@pagecount{#1}}
 %    \end{macrocode}
 %    \macro{\AM@parse@nup}
 %    Parsing \texttt{nup} item.
@@ -4859,13 +4858,18 @@
 %    \subsection*{2022/01/29 v0.5u}
 %    \begin{itemize}
 %    \item Adding |\leavevmode| before |\@chapter|,... in |addtotoc|.
-%    Bug fix for \url{https://tex.stackexchange.com/questions/631514/}.
+%      Bug fix for \url{https://tex.stackexchange.com/questions/631514/}.
 %    \end{itemize}
 %
 %    \subsection*{2022/05/21 v0.5v}
 %    \begin{itemize}
 %    \item Do not enter an infinite loop if the PDF file doesn't exist.
-%    Bug fix for \url{https://tex.stackexchange.com/questions/644971/}.
+%      Bug fix for \url{https://tex.stackexchange.com/questions/644971/}.
+%    \end{itemize}
+%
+%    \subsection*{2022/10/09 v0.5w}
+%    \begin{itemize}
+%    \item Keyval arguments get fully expanded.
 %    \end{itemize}
 %    \Finale
 %
