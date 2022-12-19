@@ -3,6 +3,9 @@
 
 \begin{document}
 
+\tableofcontents
+\listoffigures
+
 \def\pagesI{1-4}
 \def\pages{\pagesI}
 
@@ -33,19 +36,16 @@
 \includepdf[pagetemplate=\pagetemplate]{dummy.pdf}
 
 
-\tableofcontents
-\listoffigures
-
 \def\tocI{
-  1, section, 1, Section 1, sec:1,
-  2, section, 1, Section 2, sec:2,
+  1, section, 1, Section 1 $\mathbf{R^n}$, sec:1,
+  2, section, 1, Section 2 \textit{foobar}, sec:2,
   3, section, 1, Section 3, sec:3
 }
 \def\toc{\tocI}
 
 \def\lofI{
-  1, figure, Figure 1, fig:1,
-  2, figure, Figure 2, fig:2,
+  1, figure, Figure 1 $\mathbf{R^n}$, fig:1,
+  2, figure, Figure 2 \textit{foobar}, fig:2,
   3, figure, Figure 3, fig:3
 }
 \def\lof{\lofI}
