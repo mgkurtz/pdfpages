@@ -85,6 +85,9 @@ TESTS="
   landscape-2
 
   expand-args
+
+  twocolumn-1
+  twocolumn-2
 "
 
 PDF_VIEWER=evince
