@@ -88,6 +88,8 @@ TESTS="
 
   twocolumn-1
   twocolumn-2
+
+  subfiles-1
 "
 
 PDF_VIEWER=evince

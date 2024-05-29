@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.5y}
+\def\AM@fileversion{v0.6a}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{5106}
+%    \CheckSum{5113}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -3831,6 +3831,10 @@
 %    these tex-files to use e.g. |\includegraphics|. However, this does not
 %    work out of the box for pdfpages with XeTeX-driver (as it does with
 %    pdftex-driver). We have to use |\import@path| of |import.sty|.
+%
+%    Oups: |Subfiles.sty| uses |\import@path| as well. But we shall \emph{not}
+%    use |\import@path| in combination with |subfiles.sty|. Let's use macro |\subfix|
+%    to check for |subfiles.sty|.
 %    \begin{macrocode}
 \def\AM@getpagecount{%
   \expandafter\filename@parse\expandafter{\AM@currentdocname}%
@@ -3839,10 +3843,14 @@
       \noexpand\def\noexpand\type@ext{.\filename@ext}}}%
   \type@ext
   \ifx\type@ext\AM@pdf@ext
-    \ifdefined\import@path
-      \let\AM@import@path\import@path
-    \else
+    \ifdefined\subfix
       \let\AM@import@path\@empty
+    \else
+      \ifdefined\import@path
+        \let\AM@import@path\import@path
+      \else
+        \let\AM@import@path\@empty
+      \fi
     \fi
     \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
     \edef\AM@pagecount{\the\XeTeXpdfpagecount\AM@XeTeXquote
@@ -4887,6 +4895,13 @@
 %      \item Define |\@setmarks| if undefined.
 %      \end{itemize}
 %    \end{itemize}
+%
+%    \subsection*{2024/04/29 v0.6a}
+%    \begin{itemize}
+%    \item Bugfix for ppxetex driver: Don't use |\import@path| in combination
+%      with |subfiles.sty|.
+%    \end{itemize}
+%
 %    \Finale
 %
 %    \iffalse
