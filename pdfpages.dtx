@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.6a}
+\def\AM@fileversion{v0.6b}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -3838,10 +3838,10 @@
 %    \begin{macrocode}
 \def\AM@getpagecount{%
   \expandafter\filename@parse\expandafter{\AM@currentdocname}%
-  \edef\type@ext{%
-    \noexpand\lowercase{%
-      \noexpand\def\noexpand\type@ext{.\filename@ext}}}%
-  \type@ext
+  \begingroup\edef\x{%
+    \lowercase{\endgroup
+      \def\noexpand\type@ext{\expandafter\scantokens\expandafter{\filename@ext\noexpand}}}}%
+  \x
   \ifx\type@ext\AM@pdf@ext
     \ifdefined\subfix
       \let\AM@import@path\@empty
@@ -3859,7 +3859,7 @@
     \def\AM@pagecount{1}%
   \fi
 }
-\def\AM@pdf@ext{.pdf}
+\def\AM@pdf@ext{pdf}
 %    \end{macrocode}
 %    |\XeTeXversion| has changed from time to time: 0.997, 0.997-dev,
 %    0.998.1
@@ -4900,6 +4900,11 @@
 %    \begin{itemize}
 %    \item Bugfix for ppxetex driver: Don't use |\import@path| in combination
 %      with |subfiles.sty|.
+%    \end{itemize}
+%
+%    \subsection*{2024/08/20 v0.6b}
+%    \begin{itemize}
+%    \item Make |\includepdf[pages=-]{\detokenize{file.pdf}}| work in xelatex.
 %    \end{itemize}
 %
 %    \Finale
