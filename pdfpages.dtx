@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.6b}
+\def\AM@fileversion{v0.6c}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{5113}
+%    \CheckSum{5128}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -374,6 +374,9 @@
 %        \item[pagecommand] Declares \LaTeX\ commands, which are executed
 %                      on each sheet of paper.
 %                      \df{pagecommand=\{\bslash thispagestyle\{empty\}\}}
+%        \item[pagecommand*] Declares \LaTeX\ commands that are executed
+%                     on the very first page only.
+%                     \df{pagecommand*=\{\}}
 %        \item[turn] By default pages in landscape format are displayed
 %                     in landscape orientation (if the \PDF\ viewer supports
 %                     this). With \texttt{turn=false} this can be prohibited.
@@ -1267,6 +1270,7 @@
 %    \begin{macrocode}
 \newcommand*{\AM@pagestemp}{1}
 \newcommand*{\AM@pagecommand}{\thispagestyle{empty}}
+\newcommand*{\AM@pagecommandstar}{}
 \newcommand*{\AM@lscape@rot}{0}
 \newcommand*{\AM@threadname}{}\newcommand*{\AM@linkname}{}
 \newcommand*{\AM@linkname@option}{}
@@ -2045,7 +2049,10 @@
     \AM@toclof{\AM@page}%
     \ifnum\AM@xnupi=\AM@xnup\relax
       \ifnum\AM@ynupi=\AM@ynup\relax
-        \begingroup\AM@pagecommand\endgroup
+        \begingroup
+           \ifAM@firstpage\AM@pagecommandstar\fi
+           \AM@pagecommand
+        \endgroup
         \hskip\z@
         \ifthenelse{\boolean{AM@turn}\AND\boolean{AM@landscape}}{%
           \AM@setRotate
@@ -2639,6 +2646,7 @@
               \equal{openright}{\AM@temp}\or
               \equal{openrighteach}{\AM@temp}\or
               \equal{pagecommand}{\AM@temp}\or
+              \equal{pagecommand*}{\AM@temp}\or
               \equal{landscape}{\AM@temp}\or
               \equal{turn}{\AM@temp}\or
               \equal{column}{\AM@temp}\or
@@ -3219,6 +3227,7 @@
 \define@key{pdfpages}{openright}[true]{\setboolean{AM@openright}{#1}}
 \define@key{pdfpages}{openrighteach}[true]{\setboolean{AM@openrighteach}{#1}}
 \define@key{pdfpages}{pagecommand}{\def\AM@pagecommand{#1}}
+\define@key{pdfpages}{pagecommand*}{\def\AM@pagecommandstar{#1}}
 \define@key{pdfpages}{landscape}[true]{\setboolean{AM@landscape}{#1}}
 \define@key{pdfpages}{turn}[true]{\setboolean{AM@turn}{#1}}
 \define@key{pdfpages}{column}[true]{\setboolean{AM@column}{#1}}
@@ -4905,6 +4914,11 @@
 %    \subsection*{2024/08/20 v0.6b}
 %    \begin{itemize}
 %    \item Make |\includepdf[pages=-]{\detokenize{file.pdf}}| work in xelatex.
+%    \end{itemize}
+%
+%    \subsection*{2024/10/28 v0.6c}
+%    \begin{itemize}
+%    \item Add option |pagecommand*|.
 %    \end{itemize}
 %
 %    \Finale

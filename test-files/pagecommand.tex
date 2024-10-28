@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{pdfpages}
+\usepackage{lipsum}
+\usepackage{hyperref}
+
+\begin{document}
+\color{blue}
+\tableofcontents
+
+\section {pagecommand and pagecommand*}
+\lipsum[1]
+
+\includepdf[
+  pages=1-8,
+  nup=2x2,
+  pagecommand*={\noindent First page ...},
+  pagecommand={\noindent All pages ...},
+]{dummy.pdf}
+
+
+\section{pagecommand*}
+
+\includepdf[
+  pages=1-2,
+  pagecommand*={
+    \section{Section with includepdf[pagecommand*]}
+    \lipsum[1]}
+]{dummy.pdf}
+
+\lipsum[1]
+
+\end{document}

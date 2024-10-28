@@ -73,6 +73,8 @@ TESTS="
   demo-3
   demo-4
 
+  pagecommand
+
   weird-filenames
   merge
 
