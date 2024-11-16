@@ -1,0 +1,54 @@
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+\usepackage{tikz}
+
+\def\ExpectedResult{%
+  \mbox{}\newpage
+  \AddToShipoutPictureFG*{%
+    \AtPageUpperLeft{%
+      \begin{tikzpicture}[remember picture, overlay]
+        \node [fill = green!20, below right]{\Huge Expected Result};
+      \end{tikzpicture}}}}
+
+\begin{document}
+
+\ExpectedResult
+\includepdf[scale=0.5]{booklet/bk-02-01.png}
+
+\includepdf[
+  pages=-,
+  nup=1x2,
+  booklet,
+]{booklet/normal-landscape.pdf}
+
+\ExpectedResult
+\includepdf[scale=0.5]{booklet/bk-02-02.png}
+
+\includepdf[
+  pages=-,
+  nup=1x2,
+  booklet,
+  swap-flip-edge,
+]{booklet/normal-landscape.pdf}
+
+
+\ExpectedResult
+\includepdf[scale=0.5]{booklet/bk-02-03.png}
+
+\includepdf[
+  pages=-,
+  nup=1x2,
+  booklet*,
+]{booklet/normal-landscape.pdf}
+
+\ExpectedResult
+\includepdf[scale=0.5]{booklet/bk-02-04.png}
+
+\includepdf[
+  pages=-,
+  nup=1x2,
+  booklet*,
+  swap-flip-edge,
+]{booklet/normal-landscape.pdf}
+
+\end{document}

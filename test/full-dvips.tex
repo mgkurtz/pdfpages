@@ -1,0 +1,12 @@
+\providecommand\myClassOptions{}
+\documentclass[a4paper,\myClassOptions]{article}
+\usepackage[dvips]{pdfpages}
+
+\begin{document}
+
+\includepdf{pdf/hog.eps}
+\includepdf{pdf/foo.eps}
+
+\includepdfmerge[nup=1x2]{pdf/hog.eps,pdf/foo.eps}
+
+\end{document}

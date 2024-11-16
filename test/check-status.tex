@@ -1,0 +1,25 @@
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}[2020/04/10]
+
+\makeatletter
+\let\orig@includegraphics\includegraphics
+\renewcommand\includegraphics[2][]{%
+  \message{%
+    ^^Jpdfpages file: #2
+    ^^Jpdfpages options: #1
+    ^^Jpdfpages status: \the\pdfpages@includegraphics@status\space
+    ^^J}%
+  \orig@includegraphics[#1]{#2}}
+\makeatother
+
+\begin{document}
+
+\includegraphics{pdf/tiger.pdf}
+
+\includepdf[pages=1-2]{dummy.pdf}
+
+\includegraphics{pdf/tiger.pdf}
+
+\includepdfmerge{dummy.pdf,1,pdf/tiger.pdf,1}
+
+\end{document}

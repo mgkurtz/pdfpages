@@ -1,0 +1,25 @@
+\providecommand\myClassOptions{}
+\documentclass[a4paper,\myClassOptions]{article}
+\usepackage[demo]{pdfpages}
+\usepackage{hyperref}
+
+\begin{document}
+\hrule
+\begin{description}
+  \Large
+  \item[graphicx:] nodemo
+  \item[pdfpages:] demo
+\end{description}
+\hrule
+
+\tableofcontents
+\includegraphics[scale=.4]{pdf/tiger.pdf}
+
+\includepdf[pages=1-4,
+            addtotoc={1,section,1,page 1,xxx1,
+                      2,section,1,page 2,xxx2,
+                      3,section,1,page 3,xxx3,
+                      4,section,1,page 4,xxx4}
+           ]{file-no-available.pdf}
+
+\end{document}

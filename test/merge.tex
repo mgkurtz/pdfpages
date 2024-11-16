@@ -1,0 +1,25 @@
+\tracingmacros=1
+\documentclass[a4paper,landscape]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+
+{\huge goto next page}
+\newpage
+{\huge Each file starting on a right page}
+\includepdfmerge[pages={5,6}, openrighteach, nup=2x1]{
+  pdf/dummy1.pdf,
+  pdf/dummy2.pdf, 2,
+  pdf/dummy3.pdf,
+  pdf/dummy1.pdf, 2-4,
+  pdf/dummy2.pdf
+}
+
+
+{\huge Inserts pages 2,\{\},3,4 of each file:}
+\includepdfmerge[pages={2,,3-4}]{
+  pdf/dummy1.pdf,
+  pdf/dummy2.pdf,
+  pdf/dummy3.pdf}
+
+\end{document}
