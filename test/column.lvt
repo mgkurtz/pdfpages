@@ -1,0 +1,35 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Column}{
+  \includepdf[
+    pages=1-4, nup=2x2, column,
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Column false}{
+  \includepdf[
+    pages=1-4, nup=2x2, column=false,
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Global option}{
+  \includepdfset{column}
+  \includepdf[
+    pages=1-4, nup=2x2
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Local option overriding global option}{
+  \includepdfset{column=true}
+  \includepdf[
+    pages=1-4, nup=2x2, column=false,
+  ]{dummy.pdf}
+}
+
+\END
+\end{document}

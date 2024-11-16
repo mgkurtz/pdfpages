@@ -1,0 +1,75 @@
+* Evolve
+
+This project provides a large testsuite and uses ~evolve~ to interact with all
+tests.  If you know ~l3build~ you will notice that ~evolve~ is quite similar
+concerning unit testing.
+
+Get the help message of ~evolve~ with:
+#+begin_src 
+# evolve help
+#+end_src
+
+Each test has a specific setup, that specifies things like the testing
+directory, one or more TeX-engines and postprocessing tools to be used for
+testing, etc. These configuration settings are stored in a JSON file called
+~evolve.json~.
+
+Test files have an extension ~.lvt~ that stands for LaTeX verification test.
+
+* Preliminary
+Before starting with unit testing we need to prepare all ~pdf~ files that are
+necessary for the tests.
+#+begin_src 
+cd ./test/
+make
+#+end_src
+
+* Unit testing
+
+Running a test file ~my-test.lvt~:
+#+begin_src
+# evolve check my-test
+#+end_src
+
+This will run the test file ~my-test.lvt~ in all setting environments specified
+for this test in ~evolve.json~. For exampe if the settings are ~lualatex~, ~pdflatex~,
+and ~xelatex~, then this test file is checked with all these TeX-engines.
+
+However, if you want to restrict testing of this file to one specific setting,
+say ~lualatex~, you can do so with:
+#+begin_src 
+# evolve check my-test --setting lualatex
+#+end_src
+
+The ~log~ files of these test runs are compared against ~tlg~ files that were
+created in advance.  A ~tlg~ file represents the ~log~ file of a successful test.
+
+* Creating ~tlg~ files
+
+Creating a ~tlg~ file for test file ~my-test.lvt~:
+#+begin_src 
+# evolve save my-test
+#+end_src
+
+This creates ~tlg~ files for each setting specified in ~evolve.json~ as described
+before for ~evolve check~.
+
+Creating a ~tlg~ for one specific setting only, e.g. ~lualatex~:
+#+begin_src 
+# evolve save my-test --setting lualatex
+#+end_src
+
+* Diffing tests
+
+If ~evolve check~ reports that a test failed, you can diff the log files with:
+#+begin_src 
+# evolve diff my-test --setting lualatex
+#+end_src
+This will most probably yield large diffs since most test files are running with
+LaTeX command ~\showoutput~.
+
+You can get a more pleasant diff with option ~--pdf~ that compares the PDF files
+visually:
+#+begin_src 
+# evolve diff my-test --pdf
+#+end_src

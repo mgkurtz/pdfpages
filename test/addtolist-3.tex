@@ -1,0 +1,37 @@
+\usepackage{pdfpages}
+\usepackage{float}
+\newfloat{pdfdoc}{h}{pdc}
+\usepackage[
+  bookmarksopen, bookmarksopenlevel=5,
+  colorlinks, linkcolor=blue,
+]{hyperref}
+
+\begin{document}
+\START\showoutput
+
+\TEST{Addtolist (float)}{
+  \Large
+
+  \section{Package float.sty}
+  \listof{pdfdoc}{List of floats}
+  \bigskip
+  \begin{tabular}{@{}lll@{}}\hline
+    ref & pageref & nameref\\\hline
+    \ref{fig:pdf1} & \pageref{fig:pdf1} & \nameref{fig:pdf1}\\
+    \ref{fig:pdf2} & \pageref{fig:pdf2} & \nameref{fig:pdf2}\\
+    \ref{fig:pdf3} & \pageref{fig:pdf3} & \nameref{fig:pdf3}\\\hline
+  \end{tabular}
+  \newpage
+  
+  \includepdf[
+    pages=1-5,
+    addtolist={
+      1, pdfdoc, {Float, page 1}, fig:pdf1,
+      3, pdfdoc, {Float, page 3}, fig:pdf2,
+      5, pdfdoc, {Float, page 5}, fig:pdf3},
+  ]{dummy.pdf}
+
+}
+
+%\END
+\end{document}

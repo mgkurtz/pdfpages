@@ -1,0 +1,25 @@
+\input{regression-test}
+\documentclass[a4paper, landscape, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Openright}{
+  \includepdfmerge[nup=2x1,openrighteach]
+  {dummy.pdf,1-3, dummy.pdf,1-3}
+}
+
+\verboseTEST{Openright}{
+  \includepdfmerge[nup=2x1,openrighteach]
+  {dummy.pdf,1-4, dummy.pdf,1-3}
+}
+
+\verboseTEST{Global option}{
+  \includepdfset{openrighteach}
+  \includepdfmerge[nup=2x1]
+  {dummy.pdf,1-3, dummy.pdf,1-3}
+}
+
+\END
+\end{document}

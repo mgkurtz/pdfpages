@@ -1,0 +1,58 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Page 1 (default page)}{
+  \includepdf{dummy.pdf}
+}
+
+\verboseTEST{Page 2}{
+  \includepdf[pages=2]{dummy.pdf}
+}
+
+\verboseTEST{Page list (3,5,1)}{
+  \includepdf[pages={3,5,1}]{dummy.pdf}
+}
+
+\verboseTEST{Empty page}{
+  \includepdf[pages={3,,1}]{dummy.pdf}
+}
+
+\verboseTEST{Page range 3-5}{
+  \includepdf[pages=3-5]{dummy.pdf}
+}
+
+\verboseTEST{Page range, default start page}{
+  \includepdf[pages=-3]{dummy.pdf}
+}
+
+\verboseTEST{Page range, default end page}{
+  \includepdf[pages=8-]{dummy.pdf}
+}
+
+\verboseTEST{Page range, all pages}{
+  \includepdf[pages=-]{dummy.pdf}
+}
+
+\verboseTEST{Page range, backwards 5-3}{
+  \includepdf[pages=5-3]{dummy.pdf}
+}
+
+\verboseTEST{Page range, backwards last-8}{
+  \includepdf[pages={last-8}]{dummy.pdf}
+}
+
+\verboseTEST{Last page}{
+  \includepdf[pages=last]{dummy.pdf}
+}
+
+\verboseTEST{Global option}{
+  \includepdfset{pages=3-5}
+  \includepdf{dummy.pdf}
+}
+
+\END
+\end{document}

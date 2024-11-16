@@ -1,0 +1,1978 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: Addtotoc
+============================================================
+()addtotoc-2-memoir.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 2.
+)
+
+
+Completed box being shipped out [1]
+\vbox(676.36243+3.60004)x371.0
+.\hbox(0.0+0.0)x0.0
+..\special{pdf:docinfo<</Title()/Subject()/Creator(LaTeX with hyperref)/Author()/Keywords()>>}
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set - 21.99626fil
+..\kern 0.0
+..\kern 23.0
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 28.99626fil
+...\kern 0.0
+...\kern 30.0
+...\kern -1.00374
+...\special{pdf:dest (page.1) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(676.36243+3.60004)x371.0
+..\glue 23.0
+..\vbox(653.36243+3.60004)x341.0, shifted 30.0
+...\vbox(12.0+0.0)x341.0
+....\glue 0.0 plus 1.0fil
+....\hbox(12.0+0.0)x341.0
+.....\special{color push gray 0}
+.....\hbox(12.0+0.0)x341.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(12.0+0.0)x341.0
+.......\vbox(12.0+0.0)x341.0
+........\hbox(8.39996+3.60004)x341.0
+.........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+..........\vbox(8.39996+3.60004)x341.0
+...........\hbox(8.39996+3.60004)x341.0, glue set 170.5fil
+............\hbox(0.0+0.0)x0.0
+............\rule(8.39996+3.60004)x0.0
+............\rule(8.39996+3.60004)x0.0
+............\penalty 10000
+............\glue(\parfillskip) 0.0 plus 1.0fil
+............\glue(\rightskip) 0.0 plus 1.0fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\vbox(8.39996+3.60004)x341.0
+..........\hbox(8.39996+3.60004)x341.0, glue set 170.5fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\vbox(8.39996+3.60004)x341.0
+...........\hbox(8.39996+3.60004)x341.0, glue set 341.0fil
+............\glue(\leftskip) 0.0 plus 1.0fil
+............\hbox(0.0+0.0)x0.0
+............\rule(8.39996+3.60004)x0.0
+............\rule(8.39996+3.60004)x0.0
+............\penalty 10000
+............\glue(\parfillskip) 0.0
+............\glue(\rightskip) 0.0
+........\rule(0.0+0.0)x341.0
+........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{color pop}
+...\glue 18.06749
+...\glue(\lineskip) 0.0
+...\vbox(598.0+0.0)x341.0, glue set 307.02348fil
+....\vbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0, glue set - 348.0fil
+......\glue 341.0
+......\glue 7.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{dvipdfmx:config z 0}
+....\special{dvipdfmx:config C 0x40}
+....\special{pdf: docinfo << /Creator (TeX) /CreationDate () /ModDate () /Producer (xdvipdfmx) >> }
+....\write-{}
+....\special{color push gray 0}
+....\special{pdf:majorversion 1}
+....\special{pdf:minorversion 5}
+....\special{dvipdfmx:config C 0x0010}
+....\special{pdf:outline [] 0<</Title(\376\377\000C\000o\000n\000t\000e\000n\000t\000s)/A<</S/GoTo/D(section*.1)>>>>}
+....\special{pdf:outline [] -1<</Title(\376\377\000R\000e\000f\000e\000r\000e\000n\000c\000e\000s)/A<</S/GoTo/D(part.1)>>>>}
+....\special{pdf:outline [] -1<</Title(\376\377\000L\000o\000r\000e\000m\000\040\000\050\000p\000a\000g\000e\000\040\0001\000\051)/A<</S/GoTo/D(part.2)>>>>}
+....\special{pdf:outline [] 0<</Title(\376\377\000\040\000I\000p\000s\000u\000m\000\040\000\050\000p\000a\000g\000e\000\040\0001\000\051)/A<</S/GoTo/D(chapter.1)>>>>}
+....\special{pdf:outline [] 1<</Title(\376\377\000D\000o\000l\000o\000r\000\040\000\050\000p\000a\000g\000e\000\040\0003\000\051)/A<</S/GoTo/D(section.1.1)>>>>}
+....\special{pdf:outline [] 0<</Title(\376\377\000\040\000S\000i\000t\000\040\000\050\000p\000a\000g\000e\000\040\0004\000\051)/A<</S/GoTo/D(chapter.2)>>>>}
+....\special{pdf:outline [] 1<</Title(\376\377\000A\000m\000e\000t\000\040\000\050\000p\000a\000g\000e\000\040\0004\000\051)/A<</S/GoTo/D(section.2.1)>>>>}
+....\special{pdf:docview<</OpenAction[@page1/Fit]/PageMode/UseOutlines>>}
+....\special{pdf:dest (Doc-Start) [@thispage /XYZ @xpos @ypos null]}
+....\special{pdf:dest (section*.1) [@thispage /XYZ @xpos @ypos null]}
+....\write4{\protect \BOOKMARK [0][]{section*.1}{\376\377\000C\000o\000n\000t\000e\000n\000t\000s}{}% 1}
+....\write1{\@writefile{toc}{\protect \contentsline {chapter}{Contents}{\thepage }{section*.1}\protected@file@percent }}
+....\glue(\topskip) 10.0
+....\rule(0.0+0.0)x*
+....\penalty 10000
+....\glue 50.0
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\hbox(14.47652+0.24887)x341.0, glue set 249.8062fil
+.....\hbox(0.0+0.0)x0.0
+.....\TU/lmr/bx/n/20.74 Contents
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\marks1{\__mark_id:n {1}\MakeTextUppercase    []{Contents}}
+....\marks2{\__mark_id:n {2}\MakeTextUppercase    []{Contents}}
+....\marks3{\__mark_id:n {3}\MakeTextUppercase    []{Contents}}
+....\mark{{\MakeTextUppercase    []{Contents}}{\MakeTextUppercase    []{Contents}}}
+....\penalty 10000
+....\glue 40.0
+....\glue 10.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 5.87512
+....\hbox(8.376+0.14398)x341.0, glue set 269.63596fill
+.....\glue(\leftskip) 15.0
+.....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+.....\penalty 10000
+.....\glue -15.0
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(section*.1)>>>>}
+.....\special{color push rgb 0 0 1}
+.....\TU/lmr/bx/n/12 Contents
+.....\special{color pop}
+.....\special{pdf:eann}
+.....\penalty 10000
+.....\leaders 0.0 plus 1.0fill
+......\hbox(1.728+0.0)x2670.38197
+.......\mathon
+.......\kern 1333.31299
+.......\hbox(1.728+0.0)x3.756
+........\TU/lmr/bx/n/12 .
+.......\kern 1333.31299
+.......\mathoff
+.....\penalty 10000
+.....\hbox(7.872+0.0)x18.60004, glue set 11.84404fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/bx/n/12 1
+.....\penalty 10000
+.....\glue(\parfillskip) -30.60004
+.....\glue(\rightskip) 30.60004
+....\penalty -301
+....\glue 22.5 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 6.69102
+....\hbox(7.665+0.12044)x341.0, glue set 248.26997fill
+.....\glue(\leftskip) 15.0
+.....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+.....\penalty 10000
+.....\glue -15.0
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(part.1)>>>>}
+.....\special{color push rgb 0 0 1}
+.....\hbox(7.5117+0.0)x15.0, glue set 10.2258fil
+......\TU/lmr/bx/n/10.95 I
+......\glue 0.0 plus 1.0fil
+.....\TU/lmr/bx/n/10.95 References
+.....\special{color pop}
+.....\special{pdf:eann}
+.....\leaders 0.0 plus 1.0fill
+......\hbox(1.7082+0.0)x2436.78162
+.......\mathon
+.......\kern 1216.64429
+.......\hbox(1.7082+0.0)x3.49304
+........\TU/lmr/bx/n/10.95 .
+.......\kern 1216.64429
+.......\mathoff
+.....\hbox(7.17224+0.12044)x18.60004, glue set 12.30379fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\TU/lmr/bx/n/10.95 3
+.....\penalty 10000
+.....\glue(\parfillskip) -30.60004
+.....\glue(\rightskip) 30.60004
+....\penalty 10000
+....\glue 22.5 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 6.16707
+....\hbox(8.2125+2.72653)x341.0, glue set 222.41702fill
+.....\glue(\leftskip) 15.0
+.....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+.....\penalty 10000
+.....\glue -15.0
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(part.2)>>>>}
+.....\special{color push rgb 0 0 1}
+.....\hbox(7.5117+0.0)x15.0, glue set 5.1012fil
+......\TU/lmr/bx/n/10.95 II
+......\glue 0.0 plus 1.0fil
+.....\TU/lmr/bx/n/10.95 Lorem
+.....\glue 4.19385 plus 2.09692 minus 1.39795
+.....\TU/lmr/bx/n/10.95 (page
+.....\glue 4.19385 plus 2.09692 minus 1.39795
+.....\TU/lmr/bx/n/10.95 1)
+.....\special{color pop}
+.....\special{pdf:eann}
+.....\leaders 0.0 plus 1.0fill
+......\hbox(1.7082+0.0)x2436.78162
+.......\mathon
+.......\kern 1216.64429
+.......\hbox(1.7082+0.0)x3.49304
+........\TU/lmr/bx/n/10.95 .
+.......\kern 1216.64429
+.......\mathoff
+.....\hbox(7.17224+0.12044)x18.60004, glue set 12.30379fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\TU/lmr/bx/n/10.95 6
+.....\penalty 10000
+.....\glue(\parfillskip) -30.60004
+.....\glue(\rightskip) 30.60004
+....\penalty 10000
+....\glue 10.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.77347
+....\hbox(9.0+3.01198)x341.0, glue set 217.54398fill
+.....\glue(\leftskip) 15.0
+.....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+.....\penalty 10000
+.....\glue -15.0
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter.1)>>>>}
+.....\special{color push rgb 0 0 1}
+.....\hbox(7.872+0.0)x15.0, glue set 8.244fil
+......\TU/lmr/bx/n/12 1
+......\glue 0.0 plus 1.0fil
+.....\TU/lmr/bx/n/12 Ipsum
+.....\glue 4.5 plus 2.25 minus 1.5
+.....\TU/lmr/bx/n/12 (page
+.....\glue 4.5 plus 2.25 minus 1.5
+.....\TU/lmr/bx/n/12 1)
+.....\special{color pop}
+.....\special{pdf:eann}
+.....\penalty 10000
+.....\leaders 0.0 plus 1.0fill
+......\hbox(1.728+0.0)x2670.38197
+.......\mathon
+.......\kern 1333.31299
+.......\hbox(1.728+0.0)x3.756
+........\TU/lmr/bx/n/12 .
+.......\kern 1333.31299
+.......\mathoff
+.....\penalty 10000
+.....\hbox(7.872+0.14398)x18.60004, glue set 11.84404fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/bx/n/12 6
+.....\penalty 10000
+.....\glue(\parfillskip) -30.60004
+.....\glue(\rightskip) 30.60004
+....\glue 0.0 plus 0.2
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.48802
+....\hbox(9.0+3.01198)x341.0, glue set 209.47192fill
+.....\glue(\leftskip) 38.00003
+.....\hbox(0.0+0.0)x15.0
+.....\hbox(0.0+0.0)x0.0
+.....\penalty 10000
+.....\glue -38.00003
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(section.1.1)>>>>}
+.....\special{color push rgb 0 0 1}
+.....\hbox(7.98+0.0)x23.00003, glue set 7.97603fil
+......\TU/lmr/m/n/12 1.1
+......\glue 0.0 plus 1.0fil
+.....\TU/lmr/m/n/12 Dolor
+.....\glue 3.912 plus 1.956 minus 1.304
+.....\TU/lmr/m/n/12 (page
+.....\glue 3.912 plus 1.956 minus 1.304
+.....\TU/lmr/m/n/12 3)
+.....\special{color pop}
+.....\special{pdf:eann}
+.....\penalty 10000
+.....\leaders 0.0 plus 1.0fill
+......\hbox(1.164+0.0)x9.26392
+.......\mathon
+.......\kern 2.99995
+.......\hbox(1.164+0.0)x3.264
+........\TU/lmr/m/n/12 .
+.......\kern 2.99995
+.......\mathoff
+.....\penalty 10000
+.....\hbox(7.98+0.25198)x18.60004, glue set 12.72003fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/12 8
+.....\penalty 10000
+.....\glue(\parfillskip) -30.60004
+.....\glue(\rightskip) 30.60004
+....\penalty -301
+....\glue 10.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.48802
+....\hbox(9.0+3.01198)x341.0, glue set 237.64398fill
+.....\glue(\leftskip) 15.0
+.....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+.....\penalty 10000
+.....\glue -15.0
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter.2)>>>>}
+.....\special{color push rgb 0 0 1}
+.....\hbox(7.872+0.0)x15.0, glue set 8.244fil
+......\TU/lmr/bx/n/12 2
+......\glue 0.0 plus 1.0fil
+.....\TU/lmr/bx/n/12 Sit
+.....\glue 4.5 plus 2.25 minus 1.5
+.....\TU/lmr/bx/n/12 (page
+.....\glue 4.5 plus 2.25 minus 1.5
+.....\TU/lmr/bx/n/12 4)
+.....\special{color pop}
+.....\special{pdf:eann}
+.....\penalty 10000
+.....\leaders 0.0 plus 1.0fill
+......\hbox(1.728+0.0)x2670.38197
+.......\mathon
+.......\kern 1333.31299
+.......\hbox(1.728+0.0)x3.756
+........\TU/lmr/bx/n/12 .
+.......\kern 1333.31299
+.......\mathoff
+.....\penalty 10000
+.....\hbox(7.872+0.14398)x18.60004, glue set 11.84404fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/bx/n/12 9
+.....\penalty 10000
+.....\glue(\parfillskip) -30.60004
+.....\glue(\rightskip) 30.60004
+....\glue 0.0 plus 0.2
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.48802
+....\hbox(9.0+3.01198)x341.0, glue set 209.65193fill
+.....\glue(\leftskip) 38.00003
+.....\hbox(0.0+0.0)x15.0
+.....\hbox(0.0+0.0)x0.0
+.....\penalty 10000
+.....\glue -38.00003
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(section.2.1)>>>>}
+.....\special{color push rgb 0 0 1}
+.....\hbox(7.98+0.0)x23.00003, glue set 7.97603fil
+......\TU/lmr/m/n/12 2.1
+......\glue 0.0 plus 1.0fil
+.....\TU/lmr/m/n/12 Amet
+.....\glue 3.912 plus 1.956 minus 1.304
+.....\TU/lmr/m/n/12 (page
+.....\glue 3.912 plus 1.956 minus 1.304
+.....\TU/lmr/m/n/12 4)
+.....\special{color pop}
+.....\special{pdf:eann}
+.....\penalty 10000
+.....\leaders 0.0 plus 1.0fill
+......\hbox(1.164+0.0)x9.26392
+.......\mathon
+.......\kern 2.99995
+.......\hbox(1.164+0.0)x3.264
+........\TU/lmr/m/n/12 .
+.......\kern 2.99995
+.......\mathoff
+.....\penalty 10000
+.....\hbox(7.98+0.25198)x18.60004, glue set 12.72003fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/12 9
+.....\penalty 10000
+.....\glue(\parfillskip) -30.60004
+.....\glue(\rightskip) 30.60004
+....\glue -3.01198
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+...\glue(\baselineskip) 16.89497
+...\hbox(8.39996+3.60004)x341.0
+....\special{color push gray 0}
+....\hbox(8.39996+3.60004)x341.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(8.39996+3.60004)x341.0
+......\vbox(8.39996+3.60004)x341.0
+.......\glue -3.60004
+.......\glue 0.0
+.......\rule(0.0+0.0)x341.0
+.......\glue 3.60004
+.......\hbox(8.39996+3.60004)x341.0
+........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+.........\vbox(8.39996+3.60004)x341.0
+..........\hbox(8.39996+3.60004)x341.0, glue set 170.5fil
+...........\hbox(0.0+0.0)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0 plus 1.0fil
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(8.39996+3.60004)x341.0
+.........\hbox(8.39996+3.60004)x341.0, glue set 168.0fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\rule(8.39996+3.60004)x0.0
+..........\TU/lmr/m/n/10 1
+..........\rule(8.39996+3.60004)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(8.39996+3.60004)x341.0
+..........\hbox(8.39996+3.60004)x341.0, glue set 341.0fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+.\kern -679.96246
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 679.96246
+.\kern 0.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [2]
+\vbox(676.36243+0.0)x422.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set - 21.99626fil
+..\kern 0.0
+..\kern 23.0
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 79.99626fil
+...\kern 0.0
+...\kern 81.0
+...\kern -1.00374
+...\special{pdf:dest (page.2) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(676.36243+0.0)x422.0
+..\glue 23.0
+..\vbox(653.36243+0.0)x341.0, shifted 81.0
+...\vbox(12.0+0.0)x341.0, glue set 12.0fil
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x341.0
+.....\special{color push gray 0}
+.....\hbox(0.0+0.0)x341.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(0.0+0.0)x341.0
+.......\vbox(0.0+0.0)x341.0
+........\hbox(0.0+0.0)x0.0
+.........\hbox(0.0+0.0)x0.0
+..........\vbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fill
+.........\hbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\vbox(0.0+0.0)x0.0
+........\rule(0.0+0.0)x341.0
+........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{color pop}
+...\glue 18.06749
+...\glue(\lineskip) 0.0
+...\vbox(598.0+0.0)x0.0, glue set 588.0fil
+....\vbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0, glue set 124.0fil
+......\glue -7.0
+......\glue -117.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\write-{}
+....\glue(\topskip) 10.0
+....\hbox(0.0+0.0)x0.0
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+...\glue(\baselineskip) 25.29494
+...\hbox(0.0+0.0)x341.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x341.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(0.0+0.0)x341.0
+......\vbox(0.0+0.0)x341.0
+.......\glue -3.60004
+.......\glue 0.0
+.......\rule(0.0+0.0)x341.0
+.......\glue 3.60004
+.......\hbox(0.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(0.0+0.0)x0.0
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+.\kern -676.36243
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 676.36243
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [3]
+\vbox(676.36243+3.60004)x371.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set - 21.99626fil
+..\kern 0.0
+..\kern 23.0
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 28.99626fil
+...\kern 0.0
+...\kern 30.0
+...\kern -1.00374
+...\special{pdf:dest (page.3) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(676.36243+3.60004)x371.0
+..\glue 23.0
+..\vbox(653.36243+3.60004)x341.0, shifted 30.0
+...\vbox(12.0+0.0)x341.0
+....\glue 0.0 plus 1.0fil
+....\hbox(12.0+0.0)x341.0
+.....\special{color push gray 0}
+.....\hbox(12.0+0.0)x341.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(12.0+0.0)x341.0
+.......\vbox(12.0+0.0)x341.0
+........\hbox(8.39996+3.60004)x341.0
+.........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+..........\vbox(8.39996+3.60004)x341.0
+...........\hbox(8.39996+3.60004)x341.0, glue set 170.5fil
+............\hbox(0.0+0.0)x0.0
+............\rule(8.39996+3.60004)x0.0
+............\rule(8.39996+3.60004)x0.0
+............\penalty 10000
+............\glue(\parfillskip) 0.0 plus 1.0fil
+............\glue(\rightskip) 0.0 plus 1.0fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\vbox(8.39996+3.60004)x341.0
+..........\hbox(8.39996+3.60004)x341.0, glue set 170.5fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\vbox(8.39996+3.60004)x341.0
+...........\hbox(8.39996+3.60004)x341.0, glue set 341.0fil
+............\glue(\leftskip) 0.0 plus 1.0fil
+............\hbox(0.0+0.0)x0.0
+............\rule(8.39996+3.60004)x0.0
+............\rule(8.39996+3.60004)x0.0
+............\penalty 10000
+............\glue(\parfillskip) 0.0
+............\glue(\rightskip) 0.0
+........\rule(0.0+0.0)x341.0
+........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{color pop}
+...\glue 18.06749
+...\glue(\lineskip) 0.0
+...\vbox(598.0+0.0)x341.0, glue set 173.66667fil
+....\vbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0, glue set - 348.0fil
+......\glue 341.0
+......\glue 7.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue(\topskip) 10.0
+....\hbox(0.0+0.0)x0.0
+....\glue 0.0 plus 1.0fil
+....\special{pdf:dest (section*.2) [@thispage /XYZ @xpos @ypos null]}
+....\penalty 10000
+....\special{pdf:dest (part.1) [@thispage /XYZ @xpos @ypos null]}
+....\penalty 10000
+....\write4{\protect \BOOKMARK [-1][]{part.1}{\376\377\000R\000e\000f\000e\000r\000e\000n\000c\000e\000s}{}% 2}
+....\write1{\@writefile{toc}{\protect \contentsline {part}{\protect \partnumberline {I}References}{\thepage }{part.1}\protected@file@percent }}
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 10.14592
+....\hbox(11.85408+0.10367)x341.0, glue set 144.77872fil
+.....\glue(\leftskip) 0.0 plus 1.0fil
+.....\hbox(0.0+0.0)x0.0
+.....\TU/lmr/bx/n/17.28 Part
+.....\glue 6.48 plus 3.23999 minus 2.15999
+.....\TU/lmr/bx/n/17.28 I
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\glue 20.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 10.37833
+....\hbox(14.518+0.24887)x341.0, glue set 115.91231fil
+.....\glue(\leftskip) 0.0 plus 1.0fil
+.....\hbox(0.0+0.0)x0.0
+.....\TU/lmr/bx/n/20.74 References
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\glue 0.0 plus 1.0fil
+....\glue -0.24887
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+...\glue(\baselineskip) 16.89497
+...\hbox(8.39996+3.60004)x341.0
+....\special{color push gray 0}
+....\hbox(8.39996+3.60004)x341.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(8.39996+3.60004)x341.0
+......\vbox(8.39996+3.60004)x341.0
+.......\glue -3.60004
+.......\glue 0.0
+.......\rule(0.0+0.0)x341.0
+.......\glue 3.60004
+.......\hbox(8.39996+3.60004)x341.0
+........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+.........\vbox(8.39996+3.60004)x341.0
+..........\hbox(8.39996+3.60004)x341.0, glue set 170.5fil
+...........\hbox(0.0+0.0)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0 plus 1.0fil
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(8.39996+3.60004)x341.0
+.........\hbox(8.39996+3.60004)x341.0, glue set 168.0fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\rule(8.39996+3.60004)x0.0
+..........\TU/lmr/m/n/10 3
+..........\rule(8.39996+3.60004)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(8.39996+3.60004)x341.0
+..........\hbox(8.39996+3.60004)x341.0, glue set 341.0fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+.\kern -679.96246
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 679.96246
+.\kern 0.0
+
+
+
+
+Completed box being shipped out [4]
+\vbox(676.36243+0.0)x422.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set - 21.99626fil
+..\kern 0.0
+..\kern 23.0
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 79.99626fil
+...\kern 0.0
+...\kern 81.0
+...\kern -1.00374
+...\special{pdf:dest (page.4) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(676.36243+0.0)x422.0
+..\glue 23.0
+..\vbox(653.36243+0.0)x341.0, shifted 81.0
+...\vbox(12.0+0.0)x341.0, glue set 12.0fil
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x341.0
+.....\special{color push gray 0}
+.....\hbox(0.0+0.0)x341.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(0.0+0.0)x341.0
+.......\vbox(0.0+0.0)x341.0
+........\hbox(0.0+0.0)x0.0
+.........\hbox(0.0+0.0)x0.0
+..........\vbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fill
+.........\hbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\vbox(0.0+0.0)x0.0
+........\rule(0.0+0.0)x341.0
+........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{color pop}
+...\glue 18.06749
+...\glue(\lineskip) 0.0
+...\vbox(598.0+0.0)x0.0, glue set 588.0fil
+....\vbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0, glue set 124.0fil
+......\glue -7.0
+......\glue -117.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue(\topskip) 10.0
+....\hbox(0.0+0.0)x0.0
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+...\glue(\baselineskip) 25.29494
+...\hbox(0.0+0.0)x341.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x341.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(0.0+0.0)x341.0
+......\vbox(0.0+0.0)x341.0
+.......\glue -3.60004
+.......\glue 0.0
+.......\rule(0.0+0.0)x341.0
+.......\glue 3.60004
+.......\hbox(0.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(0.0+0.0)x0.0
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+.\kern -676.36243
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 676.36243
+.\kern 0.0
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+
+
+Completed box being shipped out [5]
+\vbox(676.36243+3.60004)x371.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set - 21.99626fil
+..\kern 0.0
+..\kern 23.0
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 28.99626fil
+...\kern 0.0
+...\kern 30.0
+...\kern -1.00374
+...\special{pdf:dest (page.5) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(676.36243+3.60004)x371.0
+..\glue 23.0
+..\vbox(653.36243+3.60004)x341.0, shifted 30.0
+...\vbox(12.0+0.0)x341.0
+....\glue 0.0 plus 1.0fil
+....\hbox(12.0+0.0)x341.0
+.....\special{color push gray 0}
+.....\hbox(12.0+0.0)x341.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(12.0+0.0)x341.0
+.......\vbox(12.0+0.0)x341.0
+........\hbox(8.39996+3.60004)x341.0
+.........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+..........\vbox(8.39996+3.60004)x341.0
+...........\hbox(8.39996+3.60004)x341.0, glue set 142.095fil
+............\hbox(0.0+0.0)x0.0
+............\rule(8.39996+3.60004)x0.0
+............\TU/lmr/m/sl/10 CONTENTS
+............\rule(8.39996+3.60004)x0.0
+............\penalty 10000
+............\glue(\parfillskip) 0.0 plus 1.0fil
+............\glue(\rightskip) 0.0 plus 1.0fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\vbox(8.39996+3.60004)x341.0
+..........\hbox(8.39996+3.60004)x341.0, glue set 170.5fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\vbox(8.39996+3.60004)x341.0
+...........\hbox(8.39996+3.60004)x341.0, glue set 336.0fil
+............\glue(\leftskip) 0.0 plus 1.0fil
+............\hbox(0.0+0.0)x0.0
+............\rule(8.39996+3.60004)x0.0
+............\TU/lmr/m/n/10 5
+............\rule(8.39996+3.60004)x0.0
+............\penalty 10000
+............\glue(\parfillskip) 0.0
+............\glue(\rightskip) 0.0
+........\rule(0.0+0.0)x341.0
+........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{color pop}
+...\glue 18.06749
+...\glue(\lineskip) 0.0
+...\vbox(598.0+0.0)x341.0, glue set 514.80011fil
+....\vbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0, glue set - 348.0fil
+......\glue 341.0
+......\glue 7.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue(\topskip) 0.0
+....\hbox(47.09995+41.09995)x341.0, glue set 167.03595fil
+.....\hbox(0.0+0.0)x15.0
+.....\hbox(47.09995+41.09995)x158.96405
+......\mathon
+......\vbox(47.09995+41.09995)x158.96405
+.......\rule(0.4+0.0)x158.96405
+.......\hbox(10.14995+4.35004)x158.96405
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x24.54002
+.........\rule(10.14995+4.35004)x0.0
+.........\glue 0.00002
+.........\TU/lmtt/m/n/12 ref
+.........\kern 0.0
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x49.26001
+.........\glue 6.0
+.........\glue 0.00002
+.........\TU/lmtt/m/n/12 pageref
+.........\kern 0.0
+.........\glue 0.0 plus 1.0fil
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x85.16402, glue set 35.904fil
+.........\glue 0.00002
+.........\TU/lmtt/m/n/12 nameref
+.........\kern 0.0
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+.......\rule(0.4+0.0)x158.96405
+.......\hbox(10.14995+4.35004)x158.96405
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x24.54002, glue set 9.744fil
+.........\rule(10.14995+4.35004)x0.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(part.2)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 II
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x49.26001, glue set 37.37999fil
+.........\glue 6.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(part.2)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 6
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x85.16402
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(part.2)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 Lorem
+.........\glue 3.912 plus 1.956 minus 1.304
+.........\TU/lmr/m/n/12 (page
+.........\glue 3.912 plus 1.956 minus 1.304
+.........\TU/lmr/m/n/12 1)
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+.......\glue(\lineskip) 0.0
+.......\hbox(10.14995+4.35004)x158.96405
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x24.54002, glue set 12.66fil
+.........\rule(10.14995+4.35004)x0.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter.1)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 1
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x49.26001, glue set 37.37999fil
+.........\glue 6.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter.1)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 6
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x85.16402, glue set 79.164fil
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter.1)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+.......\glue(\lineskip) 0.0
+.......\hbox(10.14995+4.35004)x158.96405
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x24.54002, glue set 3.516fil
+.........\rule(10.14995+4.35004)x0.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(section.1.1)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 1.1
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x49.26001, glue set 37.37999fil
+.........\glue 6.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(section.1.1)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 8
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x85.16402, glue set 4.236fil
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(section.1.1)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 Dolor
+.........\glue 3.912 plus 1.956 minus 1.304
+.........\TU/lmr/m/n/12 (page
+.........\glue 3.912 plus 1.956 minus 1.304
+.........\TU/lmr/m/n/12 3)
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+.......\glue(\lineskip) 0.0
+.......\hbox(10.14995+4.35004)x158.96405
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x24.54002, glue set 12.66fil
+.........\rule(10.14995+4.35004)x0.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter.2)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 2
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x49.26001, glue set 37.37999fil
+.........\glue 6.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter.2)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 9
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x85.16402, glue set 79.164fil
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(chapter.2)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+.......\glue(\lineskip) 0.0
+.......\hbox(10.14995+4.35004)x158.96405
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x24.54002, glue set 3.516fil
+.........\rule(10.14995+4.35004)x0.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(section.2.1)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 2.1
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x49.26001, glue set 37.37999fil
+.........\glue 6.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(section.2.1)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 9
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+........\glue(\tabskip) 0.0
+........\hbox(10.14995+4.35004)x85.16402, glue set 4.416fil
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(section.2.1)>>>>}
+.........\special{color push rgb 0 0 1}
+.........\TU/lmr/m/n/12 Amet
+.........\glue 3.912 plus 1.956 minus 1.304
+.........\TU/lmr/m/n/12 (page
+.........\glue 3.912 plus 1.956 minus 1.304
+.........\TU/lmr/m/n/12 4)
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+.......\rule(0.4+0.0)x158.96405
+......\mathoff
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue -5.0
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+...\glue(\baselineskip) 16.89497
+...\hbox(8.39996+3.60004)x341.0
+....\special{color push gray 0}
+....\hbox(8.39996+3.60004)x341.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(8.39996+3.60004)x341.0
+......\vbox(8.39996+3.60004)x341.0
+.......\glue -3.60004
+.......\glue 0.0
+.......\rule(0.0+0.0)x341.0
+.......\glue 3.60004
+.......\hbox(8.39996+3.60004)x341.0
+........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+.........\vbox(8.39996+3.60004)x341.0
+..........\hbox(8.39996+3.60004)x341.0, glue set 170.5fil
+...........\hbox(0.0+0.0)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0 plus 1.0fil
+...........\glue(\rightskip) 0.0 plus 1.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(8.39996+3.60004)x341.0
+.........\hbox(8.39996+3.60004)x341.0, glue set 170.5fil
+..........\glue(\leftskip) 0.0 plus 1.0fil
+..........\hbox(0.0+0.0)x0.0
+..........\rule(8.39996+3.60004)x0.0
+..........\rule(8.39996+3.60004)x0.0
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0
+..........\glue(\rightskip) 0.0 plus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\hbox(8.39996+3.60004)x0.0, glue set - 341.0fil
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(8.39996+3.60004)x341.0
+..........\hbox(8.39996+3.60004)x341.0, glue set 341.0fil
+...........\glue(\leftskip) 0.0 plus 1.0fil
+...........\hbox(0.0+0.0)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\rule(8.39996+3.60004)x0.0
+...........\penalty 10000
+...........\glue(\parfillskip) 0.0
+...........\glue(\rightskip) 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+.\kern -679.96246
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 679.96246
+.\kern 0.0
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\ignorespaces' on input line 34.
+
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+Completed box being shipped out [6]
+\vbox(676.36243+0.0)x422.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(845.06526+0.01842)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(845.08368+0.0)x0.0, glue set - 597.52103fil, shifted 0.01842
+......\kern -0.01315
+......\hbox(845.08368+0.0)x597.53418
+.......\hbox(845.08368+0.0)x597.53418
+........\hbox(0.0+0.0)x0.0, shifted -845.08368
+........\hbox(845.08368+0.0)x597.53418
+.........\hbox(845.08368+0.0)x597.53418
+..........\kern 0.0
+..........\hbox(845.08368+0.0)x597.53418
+...........\special{pdf:btrans rotate 0}
+...........\hbox(845.08368+0.0)x597.53418
+............\hbox(845.08368+0.0)x597.53418
+.............\hbox(845.08368+0.0)x597.53418
+..............\kern 0.0
+..............\hbox(845.08368+0.0)x597.53418
+...............\special{pdf:btrans rotate 0}
+...............\hbox(845.08368+0.0)x597.53418
+................\hbox(845.08368+0.0)x597.53418
+.................\hbox(845.08368+0.0)x597.53418
+..................\hbox(845.08368+0.0)x0.0
+...................\special{pdf:btrans}
+...................\special{x:scale 1 1}
+...................\hbox(845.08368+0.0)x0.0, glue set - 597.53418fil
+....................\hbox(845.08368+0.0)x597.53418
+.....................\hbox(845.08368+0.0)x597.53418
+......................\hbox(845.08574+0.0)x597.53564
+.......................\hbox(845.08574+0.0)x597.53564
+........................\hbox(845.08574+0.0)x0.0
+.........................\special{pdf:btrans}
+.........................\special{x:scale 1.00005 1.00005}
+.........................\hbox(845.04706+0.0)x0.0, glue set - 597.5083fil
+..........................\hbox(845.04706+0.0)x597.5083
+...........................\XeTeXpdffile "···/dummy.pdf"
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\special{pdf:etrans}
+........................\kern 597.53564
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+...................\special{pdf:etrans}
+..................\kern 597.53418
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{pdf:etrans}
+...........\special{pdf:etrans}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set - 21.99626fil
+..\kern 0.0
+..\kern 23.0
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 79.99626fil
+...\kern 0.0
+...\kern 81.0
+...\kern -1.00374
+...\special{pdf:dest (page.6) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(676.36243+0.0)x422.0
+..\glue 23.0
+..\vbox(653.36243+0.0)x341.0, shifted 81.0
+...\vbox(12.0+0.0)x341.0, glue set 12.0fil
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x341.0
+.....\special{color push gray 0}
+.....\hbox(0.0+0.0)x341.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(0.0+0.0)x341.0
+.......\vbox(0.0+0.0)x341.0
+........\hbox(0.0+0.0)x0.0
+.........\hbox(0.0+0.0)x0.0
+..........\vbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fill
+.........\hbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\vbox(0.0+0.0)x0.0
+........\rule(0.0+0.0)x341.0
+........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{color pop}
+...\glue 18.06749
+...\glue(\lineskip) 0.0
+...\vbox(598.0+0.0)x341.0, glue set 553.5fil
+....\vbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0, glue set 124.0fil
+......\glue -7.0
+......\glue -117.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\write-{}
+....\glue(\topskip) 10.0
+....\hbox(0.0+0.0)x341.0, glue set 163.0fil
+.....\glue(\leftskip) 0.0 plus 1.0fil
+.....\hbox(0.0+0.0)x15.0
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0
+......\hbox(0.0+0.0)x0.0, shifted -14.5
+.......\special{pdf:dest (section*.3) [@thispage /XYZ @xpos @ypos null]}
+.......\penalty 10000
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0
+......\hbox(0.0+0.0)x0.0, shifted -14.5
+.......\special{pdf:dest (part.2) [@thispage /XYZ @xpos @ypos null]}
+.......\penalty 10000
+.....\write4{\protect \BOOKMARK [-1][]{part.2}{\376\377\000L\000o\000r\000e\000m\000\040\000\050\000p\000a\000g\000e\000\040\0001\000\051}{}% 3}
+.....\write1{\@writefile{toc}{\protect \contentsline {part}{\protect \partnumberline {II}\ignorespaces  Lorem (page 1)}{\thepage }{part.2}\protected@file@percent }}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\glue 20.0
+....\write1{\newlabel{sec:1}{{II}{\thepage }{\ignorespaces  Lorem (page 1)}{part.2}{}}}
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 14.5
+....\hbox(0.0+0.0)x341.0, glue set 322.088fil
+.....\hbox(0.0+0.0)x15.0
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0
+......\hbox(0.0+0.0)x0.0, shifted -14.5
+.......\special{pdf:dest (chapter.1) [@thispage /XYZ @xpos @ypos null]}
+.......\penalty 10000
+.....\glue 3.912 plus 1.956 minus 1.304
+.....\write1{\@writefile{lof}{\protect \addvspace {10pt}}}
+.....\write1{\@writefile{lot}{\protect \addvspace {10pt}}}
+.....\write4{\protect \BOOKMARK [0][]{chapter.1}{\376\377\000\040\000I\000p\000s\000u\000m\000\040\000\050\000p\000a\000g\000e\000\040\0001\000\051}{part.2}% 4}
+.....\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \chapternumberline {1}\ignorespaces  Ipsum (page 1)}{\thepage }{chapter.1}\protected@file@percent }}
+.....\write1{\newlabel{sec:2}{{1}{\thepage }{\the \AM@toc@title }{chapter.1}{}}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\marks1{\__mark_id:n {4}\MakeTextUppercase    []{Chapter\ 1. \ \ignorespaces  Ipsum (page 1)}}
+....\marks2{\__mark_id:n {5}}
+....\mark{{\MakeTextUppercase    []{Chapter\ 1. \ \ignorespaces  Ipsum (page 1)}}{}}
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+...\glue(\baselineskip) 25.29494
+...\hbox(0.0+0.0)x341.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x341.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(0.0+0.0)x341.0
+......\vbox(0.0+0.0)x341.0
+.......\glue -3.60004
+.......\glue 0.0
+.......\rule(0.0+0.0)x341.0
+.......\glue 3.60004
+.......\hbox(0.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(0.0+0.0)x0.0
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+.\kern -676.36243
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 676.36243
+.\kern 0.0
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+
+Completed box being shipped out [7]
+\vbox(676.36243+0.0)x371.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(845.06526+0.01842)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(845.08368+0.0)x0.0, glue set - 597.52103fil, shifted 0.01842
+......\kern -0.01315
+......\hbox(845.08368+0.0)x597.53418
+.......\hbox(845.08368+0.0)x597.53418
+........\hbox(0.0+0.0)x0.0, shifted -845.08368
+........\hbox(845.08368+0.0)x597.53418
+.........\hbox(845.08368+0.0)x597.53418
+..........\kern 0.0
+..........\hbox(845.08368+0.0)x597.53418
+...........\special{pdf:btrans rotate 0}
+...........\hbox(845.08368+0.0)x597.53418
+............\hbox(845.08368+0.0)x597.53418
+.............\hbox(845.08368+0.0)x597.53418
+..............\kern 0.0
+..............\hbox(845.08368+0.0)x597.53418
+...............\special{pdf:btrans rotate 0}
+...............\hbox(845.08368+0.0)x597.53418
+................\hbox(845.08368+0.0)x597.53418
+.................\hbox(845.08368+0.0)x597.53418
+..................\hbox(845.08368+0.0)x0.0
+...................\special{pdf:btrans}
+...................\special{x:scale 1 1}
+...................\hbox(845.08368+0.0)x0.0, glue set - 597.53418fil
+....................\hbox(845.08368+0.0)x597.53418
+.....................\hbox(845.08368+0.0)x597.53418
+......................\hbox(845.08574+0.0)x597.53564
+.......................\hbox(845.08574+0.0)x597.53564
+........................\hbox(845.08574+0.0)x0.0
+.........................\special{pdf:btrans}
+.........................\special{x:scale 1.00005 1.00005}
+.........................\hbox(845.04706+0.0)x0.0, glue set - 597.5083fil
+..........................\hbox(845.04706+0.0)x597.5083
+...........................\XeTeXpdffile "···/dummy.pdf"
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\special{pdf:etrans}
+........................\kern 597.53564
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+...................\special{pdf:etrans}
+..................\kern 597.53418
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{pdf:etrans}
+...........\special{pdf:etrans}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set - 21.99626fil
+..\kern 0.0
+..\kern 23.0
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 28.99626fil
+...\kern 0.0
+...\kern 30.0
+...\kern -1.00374
+...\special{pdf:dest (page.7) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(676.36243+0.0)x371.0
+..\glue 23.0
+..\vbox(653.36243+0.0)x341.0, shifted 30.0
+...\vbox(12.0+0.0)x341.0, glue set 12.0fil
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x341.0
+.....\special{color push gray 0}
+.....\hbox(0.0+0.0)x341.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(0.0+0.0)x341.0
+.......\vbox(0.0+0.0)x341.0
+........\hbox(0.0+0.0)x0.0
+.........\hbox(0.0+0.0)x0.0
+..........\vbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fill
+.........\hbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\vbox(0.0+0.0)x0.0
+........\rule(0.0+0.0)x341.0
+........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{color pop}
+...\glue 18.06749
+...\glue(\lineskip) 0.0
+...\vbox(598.0+0.0)x341.0, glue set 588.0fil
+....\vbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0, glue set - 348.0fil
+......\glue 341.0
+......\glue 7.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\write-{}
+....\glue(\topskip) 10.0
+....\hbox(0.0+0.0)x341.0, glue set 326.0fil
+.....\hbox(0.0+0.0)x15.0
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+...\glue(\baselineskip) 25.29494
+...\hbox(0.0+0.0)x341.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x341.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(0.0+0.0)x341.0
+......\vbox(0.0+0.0)x341.0
+.......\glue -3.60004
+.......\glue 0.0
+.......\rule(0.0+0.0)x341.0
+.......\glue 3.60004
+.......\hbox(0.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(0.0+0.0)x0.0
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+.\kern -676.36243
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 676.36243
+.\kern 0.0
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 3>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 3>
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 3>
+
+Completed box being shipped out [8]
+\vbox(676.36243+0.0)x422.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(845.06526+0.01842)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(845.08368+0.0)x0.0, glue set - 597.52103fil, shifted 0.01842
+......\kern -0.01315
+......\hbox(845.08368+0.0)x597.53418
+.......\hbox(845.08368+0.0)x597.53418
+........\hbox(0.0+0.0)x0.0, shifted -845.08368
+........\hbox(845.08368+0.0)x597.53418
+.........\hbox(845.08368+0.0)x597.53418
+..........\kern 0.0
+..........\hbox(845.08368+0.0)x597.53418
+...........\special{pdf:btrans rotate 0}
+...........\hbox(845.08368+0.0)x597.53418
+............\hbox(845.08368+0.0)x597.53418
+.............\hbox(845.08368+0.0)x597.53418
+..............\kern 0.0
+..............\hbox(845.08368+0.0)x597.53418
+...............\special{pdf:btrans rotate 0}
+...............\hbox(845.08368+0.0)x597.53418
+................\hbox(845.08368+0.0)x597.53418
+.................\hbox(845.08368+0.0)x597.53418
+..................\hbox(845.08368+0.0)x0.0
+...................\special{pdf:btrans}
+...................\special{x:scale 1 1}
+...................\hbox(845.08368+0.0)x0.0, glue set - 597.53418fil
+....................\hbox(845.08368+0.0)x597.53418
+.....................\hbox(845.08368+0.0)x597.53418
+......................\hbox(845.08574+0.0)x597.53564
+.......................\hbox(845.08574+0.0)x597.53564
+........................\hbox(845.08574+0.0)x0.0
+.........................\special{pdf:btrans}
+.........................\special{x:scale 1.00005 1.00005}
+.........................\hbox(845.04706+0.0)x0.0, glue set - 597.5083fil
+..........................\hbox(845.04706+0.0)x597.5083
+...........................\XeTeXpdffile "···/dummy.pdf"
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\special{pdf:etrans}
+........................\kern 597.53564
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+...................\special{pdf:etrans}
+..................\kern 597.53418
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{pdf:etrans}
+...........\special{pdf:etrans}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set - 21.99626fil
+..\kern 0.0
+..\kern 23.0
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 79.99626fil
+...\kern 0.0
+...\kern 81.0
+...\kern -1.00374
+...\special{pdf:dest (page.8) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(676.36243+0.0)x422.0
+..\glue 23.0
+..\vbox(653.36243+0.0)x341.0, shifted 81.0
+...\vbox(12.0+0.0)x341.0, glue set 12.0fil
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x341.0
+.....\special{color push gray 0}
+.....\hbox(0.0+0.0)x341.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(0.0+0.0)x341.0
+.......\vbox(0.0+0.0)x341.0
+........\hbox(0.0+0.0)x0.0
+.........\hbox(0.0+0.0)x0.0
+..........\vbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fill
+.........\hbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\vbox(0.0+0.0)x0.0
+........\rule(0.0+0.0)x341.0
+........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{color pop}
+...\glue 18.06749
+...\glue(\lineskip) 0.0
+...\vbox(598.0+0.0)x341.0, glue set 588.0fil
+....\vbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0, glue set 124.0fil
+......\glue -7.0
+......\glue -117.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\write-{}
+....\special{pdf:dest (section.1.1) [@thispage /XYZ @xpos @ypos null]}
+....\glue(\topskip) 10.0
+....\hbox(0.0+0.0)x341.0, glue set 341.0fil
+.....\glue 0.0
+.....\write4{\protect \BOOKMARK [1][]{section.1.1}{\376\377\000D\000o\000l\000o\000r\000\040\000\050\000p\000a\000g\000e\000\040\0003\000\051}{chapter.1}% 5}
+.....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {1.1}\ignorespaces  Dolor (page 3)}{\thepage }{section.1.1}\protected@file@percent }}
+.....\glue 0.0
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\marks2{\__mark_id:n {6}\MakeTextUppercase    []{1.1. \ \ignorespaces  Dolor (page 3)}}
+....\marks3{\__mark_id:n {7}\MakeTextUppercase    []{1.1. \ \ignorespaces  Dolor (page 3)}}
+....\mark{{\MakeTextUppercase    []{Chapter\ 1. \ \ignorespaces  Ipsum (page 1)}}{\MakeTextUppercase    []{1.1. \ \ignorespaces  Dolor (page 3)}}}
+....\glue 0.0 plus -1.0
+....\glue -14.5
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 14.5
+....\hbox(0.0+0.0)x341.0, glue set 326.0fil
+.....\hbox(0.0+0.0)x15.0
+.....\glue 0.0
+.....\write1{\newlabel{sec:3}{{1.1}{\thepage }{\ignorespaces  Dolor (page 3)}{section.1.1}{}}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+...\glue(\baselineskip) 25.29494
+...\hbox(0.0+0.0)x341.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x341.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(0.0+0.0)x341.0
+......\vbox(0.0+0.0)x341.0
+.......\glue -3.60004
+.......\glue 0.0
+.......\rule(0.0+0.0)x341.0
+.......\glue 3.60004
+.......\hbox(0.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(0.0+0.0)x0.0
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+.\kern -676.36243
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 676.36243
+.\kern 0.0
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 4>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 4>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\ignorespaces' on input line 34.
+
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 4>
+
+Completed box being shipped out [9]
+\vbox(676.36243+0.0)x371.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(845.06526+0.01842)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(845.08368+0.0)x0.0, glue set - 597.52103fil, shifted 0.01842
+......\kern -0.01315
+......\hbox(845.08368+0.0)x597.53418
+.......\hbox(845.08368+0.0)x597.53418
+........\hbox(0.0+0.0)x0.0, shifted -845.08368
+........\hbox(845.08368+0.0)x597.53418
+.........\hbox(845.08368+0.0)x597.53418
+..........\kern 0.0
+..........\hbox(845.08368+0.0)x597.53418
+...........\special{pdf:btrans rotate 0}
+...........\hbox(845.08368+0.0)x597.53418
+............\hbox(845.08368+0.0)x597.53418
+.............\hbox(845.08368+0.0)x597.53418
+..............\kern 0.0
+..............\hbox(845.08368+0.0)x597.53418
+...............\special{pdf:btrans rotate 0}
+...............\hbox(845.08368+0.0)x597.53418
+................\hbox(845.08368+0.0)x597.53418
+.................\hbox(845.08368+0.0)x597.53418
+..................\hbox(845.08368+0.0)x0.0
+...................\special{pdf:btrans}
+...................\special{x:scale 1 1}
+...................\hbox(845.08368+0.0)x0.0, glue set - 597.53418fil
+....................\hbox(845.08368+0.0)x597.53418
+.....................\hbox(845.08368+0.0)x597.53418
+......................\hbox(845.08574+0.0)x597.53564
+.......................\hbox(845.08574+0.0)x597.53564
+........................\hbox(845.08574+0.0)x0.0
+.........................\special{pdf:btrans}
+.........................\special{x:scale 1.00005 1.00005}
+.........................\hbox(845.04706+0.0)x0.0, glue set - 597.5083fil
+..........................\hbox(845.04706+0.0)x597.5083
+...........................\XeTeXpdffile "···/dummy.pdf"
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\special{pdf:etrans}
+........................\kern 597.53564
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+...................\special{pdf:etrans}
+..................\kern 597.53418
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{pdf:etrans}
+...........\special{pdf:etrans}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set - 21.99626fil
+..\kern 0.0
+..\kern 23.0
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 28.99626fil
+...\kern 0.0
+...\kern 30.0
+...\kern -1.00374
+...\special{pdf:dest (page.9) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(676.36243+0.0)x371.0
+..\glue 23.0
+..\vbox(653.36243+0.0)x341.0, shifted 30.0
+...\vbox(12.0+0.0)x341.0, glue set 12.0fil
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x341.0
+.....\special{color push gray 0}
+.....\hbox(0.0+0.0)x341.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(0.0+0.0)x341.0
+.......\vbox(0.0+0.0)x341.0
+........\hbox(0.0+0.0)x0.0
+.........\hbox(0.0+0.0)x0.0
+..........\vbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\glue 0.0 plus 1.0fill
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fill
+.........\hbox(0.0+0.0)x0.0
+..........\glue 0.0 plus 1.0fil minus 1.0fil
+..........\vbox(0.0+0.0)x0.0
+........\rule(0.0+0.0)x341.0
+........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\special{color pop}
+...\glue 18.06749
+...\glue(\lineskip) 0.0
+...\vbox(598.0+0.0)x341.0, glue set 588.0fil
+....\vbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0, glue set - 348.0fil
+......\glue 341.0
+......\glue 7.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\write-{}
+....\glue(\topskip) 10.0
+....\hbox(0.0+0.0)x341.0, glue set 322.088fil
+.....\hbox(0.0+0.0)x15.0
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0
+......\hbox(0.0+0.0)x0.0, shifted -14.5
+.......\special{pdf:dest (chapter.2) [@thispage /XYZ @xpos @ypos null]}
+.......\penalty 10000
+.....\glue 3.912 plus 1.956 minus 1.304
+.....\write1{\@writefile{lof}{\protect \addvspace {10pt}}}
+.....\write1{\@writefile{lot}{\protect \addvspace {10pt}}}
+.....\write4{\protect \BOOKMARK [0][]{chapter.2}{\376\377\000\040\000S\000i\000t\000\040\000\050\000p\000a\000g\000e\000\040\0004\000\051}{part.2}% 6}
+.....\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \chapternumberline {2}\ignorespaces  Sit (page 4)}{\thepage }{chapter.2}\protected@file@percent }}
+.....\write1{\newlabel{sec:4}{{2}{\thepage }{\the \AM@toc@title }{chapter.2}{}}}
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0
+......\hbox(0.0+0.0)x0.0, shifted -14.5
+.......\special{pdf:dest (section.2.1) [@thispage /XYZ @xpos @ypos null]}
+.......\penalty 10000
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\marks1{\__mark_id:n {8}\MakeTextUppercase    []{Chapter\ 2. \ \ignorespaces  Sit (page 4)}}
+....\marks2{\__mark_id:n {9}}
+....\mark{{\MakeTextUppercase    []{Chapter\ 2. \ \ignorespaces  Sit (page 4)}}{}}
+....\glue 0.0 plus -1.0
+....\glue -14.5
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 14.5
+....\hbox(0.0+0.0)x341.0, glue set 341.0fil
+.....\glue 0.0
+.....\write4{\protect \BOOKMARK [1][]{section.2.1}{\376\377\000A\000m\000e\000t\000\040\000\050\000p\000a\000g\000e\000\040\0004\000\051}{chapter.2}% 7}
+.....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {2.1}\ignorespaces  Amet (page 4)}{\thepage }{section.2.1}\protected@file@percent }}
+.....\glue 0.0
+.....\glue 0.0
+.....\write1{\newlabel{sec:5}{{2.1}{\thepage }{\ignorespaces  Amet (page 4)}{section.2.1}{}}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\marks2{\__mark_id:n {10}\MakeTextUppercase    []{2.1. \ \ignorespaces  Amet (page 4)}}
+....\marks3{\__mark_id:n {11}\MakeTextUppercase    []{2.1. \ \ignorespaces  Amet (page 4)}}
+....\mark{{\MakeTextUppercase    []{Chapter\ 2. \ \ignorespaces  Sit (page 4)}}{\MakeTextUppercase    []{2.1. \ \ignorespaces  Amet (page 4)}}}
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+...\glue(\baselineskip) 25.29494
+...\hbox(0.0+0.0)x341.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x341.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(0.0+0.0)x341.0
+......\vbox(0.0+0.0)x341.0
+.......\glue -3.60004
+.......\glue 0.0
+.......\rule(0.0+0.0)x341.0
+.......\glue 3.60004
+.......\hbox(0.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0
+.........\vbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\glue 0.0 plus 1.0fill
+........\vbox(0.0+0.0)x0.0
+........\glue 0.0 plus 1.0fill
+........\hbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.........\vbox(0.0+0.0)x0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+.\kern -676.36243
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 676.36243
+.\kern 0.0
+
+
+============================================================
+
+\tf@toc=\write5
+\openout5 = `addtotoc-2-memoir.toc'.
+
+()addtotoc-2-memoir.aux)
+Package rerunfilecheck Info: File `addtotoc-2-memoir.out' has not changed.
+(rerunfilecheck)             Checksum: 2E2EB036B8FD8189F7B694F553075114;826.
+
+

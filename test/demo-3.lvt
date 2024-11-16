@@ -1,0 +1,15 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage[demo]{graphicx}
+\usepackage[nodemo]{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{graphicx: demo\\pdfpages: nodemo}{
+  \includegraphics{file-not-available.pdf}
+  \includepdf[pages=1-2]{dummy.pdf}
+}
+
+\END
+\end{document}

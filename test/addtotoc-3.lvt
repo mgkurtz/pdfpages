@@ -1,0 +1,22 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{book}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+%
+% Regression test for issue:
+%    <https://tex.stackexchange.com/questions/631514>
+% Pages 1 and 2 should not overlap.
+%
+\verboseTEST{Regression test: addtotoc}{
+  \tableofcontents
+  \includepdf[
+    pages=1-2,
+    addtotoc={1,chapter,1,title,label}
+  ]{dummy.pdf}
+}
+
+%\END
+\end{document}

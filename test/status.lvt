@@ -1,0 +1,38 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\makeatletter
+\let\orig@includegraphics\includegraphics
+\renewcommand\includegraphics[2][]{%
+  \message{%
+    ^^Jpdfpages file: #2
+    ^^Jpdfpages options: #1
+    ^^Jpdfpages status: \the\pdfpages@includegraphics@status\space
+    ^^J}%
+  \orig@includegraphics[#1]{#2}}
+\makeatother
+
+\begin{document}
+\START
+
+\verboseTEST{status = 0 (not pdfpages)}{
+  \includegraphics{hog.pdf}
+}
+\newpage
+
+\verboseTEST{status = 2 (temporary), 1 (final)}{
+  \includepdf[pages=1-2]{dummy.pdf}
+}
+
+\verboseTEST{status = 0 (not pdfpages)}{
+  \includegraphics{hog.pdf}
+}
+\newpage
+
+\verboseTEST{status = 2 (temporary), 1 (final)}{
+  \includepdfmerge{dummy.pdf, 1, hog.pdf, 1}
+}
+
+\END
+\end{document}

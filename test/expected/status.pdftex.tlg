@@ -1,0 +1,208 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: status = 0 (not pdfpages)
+============================================================
+
+pdfpages file: hog.pdf 
+pdfpages options:  
+pdfpages status: 0 
+
+LaTeX Warning: File `hog.pdf' not found on input line 1.
+
+
+! Package pdftex.def Error: File `hog.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+============================================================
+
+
+
+[1
+
+]
+============================================================
+TEST 2: status = 2 (temporary), 1 (final)
+============================================================
+
+pdfpages file: dummy.pdf 
+pdfpages options:  
+pdfpages status: 2 
+<dummy.pdf, id=9, 597.50829pt x 845.0471pt>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+Package pdftex.def Info: dummy.pdf  used on input line 1.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+
+pdfpages file: dummy.pdf 
+pdfpages options:  
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+Package pdftex.def Info: dummy.pdf  used on input line 1.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, angle=0 
+pdfpages status: 2 
+<dummy.pdf, id=12, page=1, 597.50829pt x 845.0471pt>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package pdftex.def Info: dummy.pdf , page1 used on input line 1.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package pdftex.def Info: dummy.pdf , page1 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package pdftex.def Info: dummy.pdf , page1 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package pdftex.def Info: dummy.pdf , page1 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, scale=1, angle=0, angle=0 
+pdfpages status: 1 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package pdftex.def Info: dummy.pdf , page1 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+[2
+
+ <···/dummy.pdf>] 
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, angle=0 
+pdfpages status: 2 
+<dummy.pdf, id=27, page=2, 597.50829pt x 845.0471pt>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+Package pdftex.def Info: dummy.pdf , page2 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+Package pdftex.def Info: dummy.pdf , page2 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, scale=1, angle=0, angle=0 
+pdfpages status: 1 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+Package pdftex.def Info: dummy.pdf , page2 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+[3
+
+ <···/dummy.pdf>]
+============================================================
+
+============================================================
+TEST 3: status = 0 (not pdfpages)
+============================================================
+
+pdfpages file: hog.pdf 
+pdfpages options:  
+pdfpages status: 0 
+
+LaTeX Warning: File `hog.pdf' not found on input line 1.
+
+
+! Package pdftex.def Error: File `hog.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+============================================================
+
+
+
+[4]
+============================================================
+TEST 4: status = 2 (temporary), 1 (final)
+============================================================
+
+pdfpages file: dummy.pdf 
+pdfpages options:  
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+Package pdftex.def Info: dummy.pdf  used on input line 1.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+
+pdfpages file: dummy.pdf 
+pdfpages options:  
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+Package pdftex.def Info: dummy.pdf  used on input line 1.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+
+! Package pdfpages Error: Cannot find file `hog.pdf'.
+
+See the pdfpages package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 }
+      
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+
+! Package pdfpages Error: Cannot find file `1'.
+
+See the pdfpages package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 }
+      
+(That was another \errmessage.)
+
+============================================================
+
+

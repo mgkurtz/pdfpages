@@ -1,0 +1,17 @@
+\input{regression-test}
+\documentclass[a4paper, dvipdfmx, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Running program extractbb}{
+  \includepdf[pages=-]{dummy.pdf}
+}
+
+\verboseTEST{Get number of pages from file xbb-file}{
+  \includepdf[pages=-]{dummy-xbb.pdf}
+}
+
+\END
+\end{document}

@@ -1,0 +1,29 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{signature}{
+  \includepdf[pages=1-8, landscape,
+    signature=4]{dummy-big.pdf}
+}
+
+\verboseTEST{signature}{
+  \includepdf[pages=1-6, landscape,
+    signature=4]{dummy-big.pdf}
+}
+
+\verboseTEST{signature}{
+  \includepdf[pages=1-16, landscape,
+    signature=8]{dummy-big.pdf}
+}
+
+\verboseTEST{signature}{
+  \includepdf[pages=1-12, landscape,
+    signature=8]{dummy-big.pdf}
+}
+
+\END
+\end{document}

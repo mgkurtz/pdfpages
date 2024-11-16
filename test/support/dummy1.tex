@@ -1,0 +1,32 @@
+\documentclass[a4paper]{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{lscape}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\addtolength{\headheight}{6pt}
+
+\begin{document}
+\pagecolor{blue}
+
+\pagestyle{fancy}
+\chead{\Large This is the header of the included pdf document}
+\cfoot{\Large This is the footer of the included pdf document}
+
+\newcounter{mypage}
+\setcounter{mypage}{1}
+\whiledo{\themypage < 11}{
+  \vspace*{\fill}
+  \centering\scalebox{4}{\Huge Page -- \themypage}
+  \par\vspace{30mm}
+  \scalebox{2.5}{\ttfamily\Huge\jobname.pdf}
+  \vspace*{\fill}
+  \newpage
+  \stepcounter{mypage}
+}
+
+\end{document}

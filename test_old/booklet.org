@@ -1,0 +1,38 @@
+* Combination of Landscape/Portrait
+
+
+There are some important points that have a significant impact on the layout of
+a booklet:
+
+ * Option ~landscape~ of the document class.
+ * Option ~landscape~ of the ~\includepdf~ command.
+ * Paper format of the included PDF.
+ * Option ~nup~ of the ~\includepdf~ command.
+
+Apply option ~landscape~ either for the document class or for the ~\includepdf~ command.
+But do not apply it twice, because this will create a paper in ~portrait~ orientation.
+
+ * Option ~swap-flip-edge~
+
+ 
+The following table shows possible combinations.
+
+ 
+| documentclass | includepdf | content (pdf) | fold left |        | fold top |       |
+|               |            |               | nup=2x1   |        | nup=1x2  |       |
+|---------------+------------+---------------+-----------+--------+----------+-------|
+| P             | P          | P             | slim      | [[./booklet-portrait-left.pdf][P-left]] |          | [[./booklet-portrait-top.pdf][P-top]] |
+| P             | P          | L             |           |        | normal   |       |
+| P             | L          | P             | normal    |        |          |       |
+| P             | L          | L             |           |        | slim     |       |
+|               |            |               |           |        |          |       |
+| L             | P          | P             | normal    | [[./booklet-landscape-left.pdf][L-left]] |          | [[./bookmark-landscape-top.pdf][L-top]] |
+| L             | P          | L             |           |        | slim     |       |
+| L             | L          | P             | slim      |        |          |       |
+| L             | L          | L             |           |        | normal   |       |
+|               |            |               |           |        |          |       |
+
+~P~ ... portrait
+~L~ ... landscape
+
+[[./booklet-portrait-left.pdf]]

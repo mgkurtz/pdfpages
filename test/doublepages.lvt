@@ -1,0 +1,84 @@
+\input{regression-test}
+\documentclass[a4paper, landscape, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+%%
+%% doublepages
+%%
+\verboseTEST{Doublepages}{
+  \includepdf[
+    pages=1-2, nup=2x1,
+    doublepages
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Doublepages (global option)}{
+  \includepdfset{doublepages}
+  \includepdf[pages=1-2, nup=2x1]{dummy.pdf}
+}
+
+%%
+%% doublepagestwist
+%%
+\verboseTEST{Doublepagestwist}{
+  \includepdf[
+    pages=1-2, nup=2x1,
+    doublepagestwist,
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Goublepagestwist (global option)}{
+  \includepdfset{doublepagestwist}
+  \includepdf[pages=1-2, nup=2x1]{dummy.pdf}
+}
+
+%%
+%% doublepagestwist*
+%%
+\verboseTEST{Doublepagestwist*}{
+  \includepdf[
+    pages=1-2, nup=2x1,
+    doublepagestwist*,
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Doublepagestwist* (global option)}{
+  \includepdfset{doublepagestwist*}
+  \includepdf[pages=1-2, nup=2x1]{dummy.pdf}
+}
+
+%%
+%% doublepagestwistodd
+%%
+\verboseTEST{Doublepagestwistodd}{
+  \includepdf[
+    pages=1-2, nup=2x1,
+    doublepagestwistodd,
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Doublepagestwistodd (global option)}{
+  \includepdfset{doublepagestwistodd}
+  \includepdf[pages=1-2, nup=2x1]{dummy.pdf}
+}
+
+%%
+%% doublepagestwistodd*
+%%
+\verboseTEST{Doublepagestwistodd*}{
+  \includepdf[
+    pages=1-2, nup=2x1,
+    doublepagestwistodd*,
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Doublepagestwistodd* (global option)}{
+  \includepdfset{doublepagestwistodd*}
+  \includepdf[pages=1-2, nup=2x1]{dummy.pdf}
+}
+
+\END
+\end{document}

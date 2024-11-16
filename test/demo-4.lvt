@@ -1,0 +1,14 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage[nodemo]{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{graphicx: nodemo\\pdfpages: nodemo}{
+  \includegraphics{hog.pdf}
+  \includepdf[pages=1-2]{dummy.pdf}
+}
+
+\END
+\end{document}

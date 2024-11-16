@@ -6,8 +6,10 @@ auto/*
 *.lot
 *.lof
 *.lol
+*.hd
 
 pdfpages.ins
+pdfpages.installer
 pdfpages.sty
 ppdvipdfmx.def
 ppdvips.def
@@ -22,6 +24,7 @@ pdf-hyp.tex
 pdf-toc.tex
 
 pdfpages.pdf
+pdfpages.tds.zip
 
 /t?.*
 

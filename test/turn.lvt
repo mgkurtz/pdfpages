@@ -1,0 +1,22 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Turn}{
+  \includepdf[landscape, turn=false,
+    picturecommand={\put(100, 100){\LARGE Some text ...}}
+  ]{dummy-landscape.pdf}
+}
+
+\verboseTEST{Global arguments}{
+  \includepdfset{turn=false}
+  \includepdf[
+    picturecommand={\put(100, 100){\LARGE Some text ...}}
+  ]{dummy.pdf}
+}
+
+\END
+\end{document}

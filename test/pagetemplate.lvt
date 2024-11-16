@@ -1,0 +1,47 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\Large
+\START\showoutput
+
+\verboseTEST{%
+  pagetemplate=1: A4P\\
+  scale: A4L, A3L
+}{
+  \includepdf[
+    pages=-, nup=3x3, frame
+  ]{mixed1.pdf}
+}
+
+
+\verboseTEST{%
+  pagetemplate=7: A5P\\
+  scale: A4P, A4L, A3L
+}{
+  \includepdf[
+    pagetemplate=7, frame,
+    pages=-, nup=3x3,
+  ]{mixed1.pdf}
+}
+
+\verboseTEST{%
+  pagetemplate=1: A4L\\
+  scale: A4P}{
+  \includepdf[
+    pages=-, nup=2x2, frame
+  ]{mixed2.pdf}
+}
+  
+\verboseTEST{%
+  pagetemplaet=2: A4P\\
+  scale: A4L}{
+  \includepdf[
+    pagetemplate=2, frame,
+    pages=-, nup=2x2,
+  ]{mixed2.pdf}
+}
+
+\END
+\end{document}

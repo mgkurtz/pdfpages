@@ -1,0 +1,40 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Picturecommand}{
+  \includepdf[
+    pages=1-2,
+    picturecommand={\put(100,200){\Huge Test}}
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Picturecommand*}{
+  \includepdf[
+    pages=1-2,
+    picturecommand*={\put(100,200){\Huge Test}}
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Global options}{
+  \Huge
+  \includepdfset{scale=0.8, frame,
+    picturecommand={\put(80,300){
+        \color{blue}
+        Foo \emph{bar} {\bfseries baz}
+        \begin{tabular}[t]{ll}
+          1&2\\3&4\\
+        \end{tabular}}}}
+  \includepdf{dummy}
+  \includepdfmerge{dummy}
+  Resetting global settings \ldots
+  \includepdfset{}
+  \includepdf{dummy}
+  \includepdfmerge{dummy}
+}
+
+\END
+\end{document}

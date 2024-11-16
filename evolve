@@ -1,0 +1,559 @@
+#!/usr/bin/env lua
+
+---@diagnostic disable:lowercase-global
+local argparse = require('argparse')
+local cjson = require('cjson')
+local lfs = require('lfs')
+local ansicolors = require('ansicolors')
+
+
+local arg_parser = argparse()
+   :name('evolve')
+   :description('Lightweight unit testing framework for LaTeX packages.')
+   :add_help_command()
+   :command_target('command')
+arg_parser:option('-v --verbose')
+   :description('Show verbose output. Increase verbosity by using -v several times.')
+   :args(0)
+   :count('*')
+   :default(0)
+arg_parser:option('-s --setting')
+   :description('Run commands only in the given <setting>.')
+   :args(1)
+
+local arg_save = arg_parser:command('save')
+   :summary('Save test results.')
+   :description('Run test and save expected results.')
+arg_save
+   :argument('tests')
+   :description('Names of tests.')
+   :args('0+')
+arg_save
+   :option('--overwrite-all')
+   :description('Overwrite all expected test results.')
+   :args(0)
+
+local arg_check = arg_parser:command('check')
+   :summary('Run tests.')
+   :description('Run tests and compare with expected results.')
+arg_check
+   :argument('tests')
+   :description('Names of tests.')
+   :args('0+')
+
+local arg_diff = arg_parser:command('diff')
+   :summary('Show diff.')
+   :description('Diff tests.')
+arg_diff
+   :argument('tests')
+   :description('Names of tests.')
+   :args('1+')
+arg_diff
+   :option('-p --pdf')
+   :description('Show pdf diff')
+   :args(0)
+
+local dir_expected = 'expected'
+local dir_results = 'results'
+local dir_diff = 'diff'
+
+function script_rel_path()
+   local str = debug.getinfo(1, 'S').source:sub(2)
+   return str:match('(.*)/')
+end
+
+function is_verbose(priority)
+   return priority <= cli_args.verbose
+end
+
+function print_verbose(priority, ...)
+   if is_verbose(priority) then
+      print(string.format(...))
+   end
+end
+
+function read_config_file()
+   local fd = io.open(cons_path({'evolve.json'}))
+   if not fd then
+      arg_parser:error('Cannot open file \'evolve.json\'.')
+   end ---@cast fd -nil
+   local text = fd:read('*a')
+   local success, config = pcall(cjson.decode, text)
+   if not success then
+      arg_parser:error('Invalid JSON data in file \'evolve.json\'.\n       ' .. config)
+   end
+   return config
+end
+
+function get_config_settings(test)
+   for glob, settings in pairs(config.settings) do
+      if string.match(test, '^' .. glob .. '$') then
+         return settings
+      end
+   end
+   print_verbose(1, 'Using default setup for test \'%s\'.', test)
+   return config.settings['DEFAULT']
+end
+
+function cons_path(...)
+   local path = {scriptdir, ...}
+   local file = table.remove(path)
+   return table.concat(path, '/') .. '/' .. table.concat(file, '.')
+end
+
+function assert_file_exists(file)
+   if not lfs.attributes(file) then
+      io.write('\n')
+      io.flush()
+      arg_parser:error(string.format('File not found: %s', file))
+   end
+end
+
+function normalize_log(content)
+   content = grep_test_content(content)
+   content = sanitize_filenames(content)
+   return content
+end
+
+function grep_test_content(content)
+   local new_content = ''
+   local skip_line = true
+   for line in string.gmatch(content, '(.-)\n') do
+      if line == 'START-TEST-LOG'
+         or string.match(line, '^%)?TIMO$')
+      then
+         skip_line = false
+      elseif line == 'END-TEST-LOG'
+         or line == 'OMIT'
+      then
+         skip_line = true
+      end
+      if not skip_line then
+         new_content = new_content .. line .. '\n'
+      end
+   end
+   return new_content
+end
+
+function sanitize_filenames(content)
+   local new_content = ''
+   -- pattern matching paths like: C:/foo/bar/xox.fd or /foo/bar/xox.sty
+   local path_pattern = '%w?:?/[^ %<%>]*/([^/%(%)]*%.%w*)'
+   for line in string.gmatch(content, '([^\n]*)\n') do
+      -- ignore ./ at beginning of filenames
+      line = string.gsub(line, '%(%.%/', '()')
+      -- ignore path of files
+      line = string.gsub(line, '%(' .. path_pattern, '(···/%1')
+      line = string.gsub(line, '<' .. path_pattern, '<···/%1')
+      line = string.gsub(line, '{' .. path_pattern, '{···/%1')
+      line = string.gsub(line, '"' .. path_pattern, '"···/%1')
+      --
+      new_content = new_content .. line .. '\n'
+   end
+   return new_content
+end
+
+function print_test_header(test, show)
+   if show then
+      io.write(string.format('  %s: ', test))
+      if cli_args.verbose > 0 then
+         io.write('\n')
+      end
+   end
+end
+
+function is_setting_requested(setting)
+   if cli_args.setting == nil or cli_args.setting == setting.job then
+      return true
+   else
+      return false
+   end
+end
+
+function foreach_setting(func, show_header)
+   local results = {}
+   local done = false
+   for _, test in ipairs(cli_args.tests) do
+      print_test_header(test, show_header)
+      for _, setting in ipairs(get_config_settings(test)) do
+         if is_setting_requested(setting) then
+            local res = func(test, setting)
+            results[#results + 1] = {test = test, job = setting.job, result = res}
+            done = true
+         end
+      end
+      io.write('\n')
+   end
+   if not done then
+      arg_parser:error(string.format('Setting \'%s\' not found.', cli_args.setting))
+   end
+   return results
+end
+
+function copy_log_file_normalized(from, to)
+   local fd_from, fd_to = assert(io.open(from, 'r')), assert(io.open(to, 'w'))
+   local content = fd_from:read('*a')
+   print_verbose(1, 'Normalizing file %s.', from)
+   content = normalize_log(content)
+   print_verbose(1, 'Writing file %s.', to)
+   fd_to:write(content)
+   fd_to:close()
+   fd_from:close()
+end
+
+function copy_file(from, to)
+   run_shell('cp %s %s', from, to)
+end
+
+function cmd_save()
+   if #cli_args.tests == 0 then
+      if cli_args.overwrite_all then
+         cli_args.tests = find_test_files()
+      else
+         arg_parser:error('Test names missing. Either name all tests individually\n' ..
+                          '       or use --overwrite-all.')
+      end
+   end
+   print('Saving test results:')
+   foreach_setting(cmd_save_run, true)
+end
+
+function get_config_tasks(setting)
+   return config.job[setting.job].tasks
+end
+
+function cmd_save_run(test, setting)
+   local testdir = setting.testdir
+   assert_file_exists(cons_path(testdir, {test, 'lvt'}))
+   local tasks = get_config_tasks(setting)
+   mkdir(cons_path(testdir, dir_expected, {}))
+   local engine
+   for _ = 1, setting.runs do
+      for _, task in ipairs(tasks) do
+         local param = get_task_param(task, test)
+         local command = param.command
+         engine = param.engine or engine
+         local content = run_shell('cd %s; %s', cons_path(testdir, {}), command)
+         print_verbose(2, content)
+      end
+   end
+   copy_log_file_normalized(
+      cons_path(testdir, {test, 'log'}),
+      cons_path(testdir, dir_expected, {test, engine, 'tlg'}))
+   copy_file(
+      cons_path(testdir, {test, 'pdf'}),
+      cons_path(testdir, dir_expected, {test, engine, 'pdf'}))
+   show_progress()
+end
+
+function find_test_dirs()
+   local dirs = {}
+   for _, settings in pairs(config.settings) do
+      for _, setting in ipairs(settings) do
+         if not dirs[setting.testdir] then
+            dirs[setting.testdir] = true
+         end
+      end
+   end
+   local dir_list = {}
+   for dir, _ in pairs(dirs) do
+      dir_list[#dir_list + 1] = dir
+   end
+   return dir_list
+end
+
+function find_test_files()
+   local tests = {}
+   local dirs = find_test_dirs()
+   for _, testdir in ipairs(dirs) do
+      for file in lfs.dir(testdir) do
+         if file:match('.*%.lvt$') then
+            tests[#tests + 1] = file:gsub('.lvt', '')
+         end
+      end
+   end
+   table.sort(tests)
+   return tests
+end
+
+function cmd_check()
+   print('Running tests: ')
+   if #cli_args.tests == 0 then
+      cli_args.tests = find_test_files()
+   end
+   local results = foreach_setting(cmd_check_run, true)
+   print(summary_failed_tests(results))
+end
+
+function cmd_check_run(test, setting)
+   local testdir = setting.testdir
+   assert_file_exists(cons_path(testdir, {test, 'lvt'}))
+   local tasks = get_config_tasks(setting)
+   mkdir(cons_path(testdir, dir_results, {}))
+   local engine
+   for _ = 1, setting.runs do
+      for _, task in ipairs(tasks) do
+         local param = get_task_param(task, test)
+         local command = param.command
+         engine = param.engine or engine
+         local content = run_shell('cd %s; %s', cons_path(testdir, {}), command)
+         print_verbose(2, content)
+      end
+   end
+   copy_log_file_normalized(
+      cons_path(testdir, {test, 'log'}),
+      cons_path(testdir, dir_results, {test, engine, 'tlg'}))
+   copy_file(
+      cons_path(testdir, {test, 'pdf'}),
+      cons_path(testdir, dir_results, {test, engine, 'pdf'}))
+   local content, ret = run_shell('diff %s %s',
+      cons_path(testdir, dir_expected, {test, engine, 'tlg'}),
+      cons_path(testdir, dir_results, {test, engine, 'tlg'}))
+   print_verbose(2, content)
+   show_progress(ret and true or false)
+   return ret and true or false
+end
+
+function textcolor(color, text)
+   local str = string.format('%%{%s}', color)
+      .. text:gsub('\n', string.format('\n%%%%{%s}', color))
+   return ansicolors(str)
+end
+
+function progress_icon(value)
+   if value == true then
+      return textcolor('green', '●')
+   elseif value == false then
+      return textcolor('red', '🗲')
+   else
+      return textcolor('cyan', '🟊')
+   end
+end
+
+function show_progress(value)
+   io.write(progress_icon(value))
+end
+
+function progress_list(tbl)
+   local sym = {}
+   for _, item in ipairs(tbl) do
+      sym[#sym + 1] = item and progress_icon(true) or progress_icon(false)
+   end
+   return table.concat(sym), #sym
+end
+
+
+function column_width(results)
+   local wd_test = 0
+   local wd_job = 0
+   local failed_tests = 0
+   for _, item in ipairs(results) do
+      if not item.result then
+         failed_tests = failed_tests + 1
+         wd_test = (wd_test < string.len(item.test))
+            and string.len(item.test) or wd_test
+         wd_job = (wd_job < string.len(item.job))
+            and string.len(item.job) or wd_job
+      end
+   end
+   return wd_test, wd_job, failed_tests
+end
+
+function summary_failed_tests(results)
+   local wd_test, wd_setting, failed_tests = column_width(results)
+   if failed_tests == 0 then
+      return ''
+   end
+   local table_len = wd_test + 3 + wd_setting + 3 + 1
+   local line = string.rep('-', table_len) .. '\n'
+   local details = string.format('%%-%ds   %%-%ds   %%1s\n', wd_test, wd_setting)
+   local str = '\nFailed tests:\n' .. line
+      .. string.format(details, 'Test', 'Setting', 'R')
+      .. line
+   for _, item in ipairs(results) do
+      if not item.result then
+         str = str
+            .. string.format(details, item.test, item.job, progress_icon(item.result))
+      end
+   end
+   str = str .. line
+   return str
+end
+
+function cmd_diff()
+   if cli_args.pdf then
+      foreach_setting(cmd_diff_pdf)
+   else
+      foreach_setting(cmd_diff_text)
+   end
+end
+
+function get_engine(test, tasks)
+   local engine
+   for _, task in pairs(tasks) do
+      engine = get_task_param(task, test).engine or engine
+   end
+   return engine
+end
+
+function cmd_diff_text(test, setting)
+   local testdir = setting.testdir
+   assert_file_exists(cons_path(testdir, {test, 'lvt'}))
+   local tasks = get_config_tasks(setting)
+   local engine = get_engine(test, tasks)
+   if cli_args.engine and
+      cli_args.engine ~= engine then
+      return
+   end
+   local content, success = run_shell(
+      "diff -c -F '^TEST [[:digit:]]\\+:' %s %s",
+      cons_path(testdir, dir_expected, {test, engine, 'tlg'}),
+      cons_path(testdir, dir_results, {test, engine, 'tlg'}))
+   if not success then
+      print(cmd_diff_error_header(test, engine))
+      print(content)
+   end
+end
+
+function cmd_diff_error_header(test, engine)
+   local str =
+      string.rep('*', 80)
+      .. '\n*\n'
+      .. string.format('*  Error -- Test: %s, Engine: %s', test, engine)
+      .. '\n*\n'
+      .. string.rep('*', 80)
+   return textcolor('cyan', str)
+end
+
+function cmd_diff_pdf(test, setting)
+   local testdir = setting.testdir
+   assert_file_exists(cons_path(testdir, {test, 'lvt'}))
+   local tasks = get_config_tasks(setting)
+   local engine = get_engine(test, tasks)
+   if cli_args.engine and
+      cli_args.engine ~= engine then
+      return
+   end
+   local pdf_expected = cons_path(testdir, dir_expected, {test, engine, 'pdf'})
+   local pdf_result = cons_path(testdir, dir_results, {test, engine, 'pdf'})
+   local _, success = run_shell(
+      'diff-pdf %s %s', pdf_expected, pdf_result)
+   if success then
+      print_verbose(0, 'Files \'%s\' and \'%s\' are equal.', pdf_expected, pdf_result)
+   else
+      local viewer = os.getenv('PDFVIEWER')
+      if not viewer or string.len(viewer) == 0 then
+         run_shell('diff-pdf -vgm --view %s %s', pdf_expected, pdf_result)
+      else
+         mkdir(cons_path(testdir, dir_diff, {}))
+         local pdf_diff = cons_path(testdir, dir_diff, {test, engine, 'pdf'})
+         run_shell('diff-pdf -vgm --output-diff=%s %s %s; $PDFVIEWER %s',
+                   pdf_diff, pdf_expected, pdf_result, pdf_diff)
+      end
+   end
+end
+
+function get_cmd_func(name)
+   return _G['cmd_' .. name]
+end
+
+function get_task_param(name, test)
+   local func = _G['task_' .. name]
+   return func(test)
+end
+
+function mkdir(dir)
+   local attrs = lfs.attributes(dir)
+   if not attrs then
+      lfs.mkdir(dir)
+   elseif attrs.mode ~= 'directory' then
+      arg_parser:error(string.format('Cannot create directory \'%s\'.', dir))
+   end
+end
+
+function run_shell(...)
+   local cmd = string.format(...) .. ' 2>&1' -- redirect stderr to stdout
+   print_verbose(1, cmd)
+   local fd = assert(io.popen(cmd))
+   local content = fd:read('*a')
+   local success = fd:close()
+   return content, success
+end
+
+local tex_settings =
+   '-interaction=nonstopmode ' ..
+   '-cnf-line=max_print_line=9999 '
+--MikTeX: -max-print-line=9999
+
+function task_lualatex(test)
+   return {
+      command = string.format('lualatex %s %s.lvt', tex_settings, test),
+      engine = 'luatex'
+   }
+end
+
+function task_xelatex(test)
+   return {
+      command = string.format('xelatex %s %s.lvt', tex_settings, test),
+      engine = 'xetex'
+   }
+end
+
+function task_pdflatex(test)
+   return {
+      command = string.format('pdflatex %s %s.lvt', tex_settings, test),
+      engine = 'pdftex'
+   }
+end
+
+function task_latex(test)
+   return {
+      command = string.format('latex %s %s.lvt', tex_settings, test),
+      engine = 'tex'
+   }
+end
+
+function task_dvips(test)
+   return {
+      command = string.format('dvips %s.dvi', test),
+      engine = nil
+   }
+end
+
+function task_ps2pdf(test)
+   return {
+      command = string.format('ps2pdf %s.ps', test),
+      engine = nil
+   }
+end
+
+function task_ps4pdf(test)
+   return {
+      command = string.format('ps4pdf %s.lvt', test),
+      engine = 'ps4pdf'
+   }
+end
+
+function task_platex(test)
+   return {
+      command = string.format('platex %s.lvt', test),
+      engine = 'ptex'
+   }
+end
+
+function task_dvipdfmx(test)
+   return {
+      command = string.format('dvipdfmx %s', test),
+      engine = nil
+   }
+end
+
+--------------------------------------------------------------------------------
+--
+-- main
+--
+--------------------------------------------------------------------------------
+scriptdir = script_rel_path()
+cli_args = arg_parser:parse()
+config = read_config_file()
+get_cmd_func(cli_args.command)()

@@ -1,0 +1,28 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{minimal}
+\usepackage{pdfpages}
+
+% Regression test:
+%    Class 'minimal' does not set \paperwidth and \paperheight, which
+%    are essential for pdfpages.
+
+\begin{document}
+\START\showoutput
+
+\TEST{test1}{
+  \includepdf{hog.pdf}
+}
+
+\TEST{test2}{
+  \includepdf{dummy.pdf}
+}
+
+\TEST{test3}{
+  \includepdf[
+    pages=1-2, nup=2x1,
+    landscape
+  ]{dummy.pdf}
+}
+
+\END
+\end{document}

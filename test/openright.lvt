@@ -1,0 +1,23 @@
+\input{regression-test}
+\documentclass[a4paper, landscape, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Openright}{
+  \includepdf[
+    pages=1-3, nup=2x1,
+    openright,
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Global option}{
+  \includepdfset{openright}
+  \includepdf[
+    pages=1-3, nup=2x1,
+  ]{dummy.pdf}
+}
+
+\END
+\end{document}

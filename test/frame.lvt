@@ -1,0 +1,38 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Frame}{
+  \includepdf[scale=0.8, frame]{dummy.pdf}
+}
+
+\verboseTEST{Global option}{
+  \includepdfset{frame}
+  \includepdf[scale=0.8]{dummy.pdf}
+}
+
+\verboseTEST{Local options overriding global option}{
+  \includepdfset{frame=true}
+  \includepdf[scale=0.8, frame=false]{dummy.pdf}
+}
+
+\verboseTEST{Big frames}{
+  \setlength\fboxrule{10pt}
+  \includepdf[
+    scale=0.8, frame
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Big frames in nup}{
+  \setlength\fboxrule{10pt}
+  \includepdf[
+    pages=1-4, nup=2x2,
+    scale=0.8, frame
+  ]{dummy.pdf}
+}
+
+\END
+\end{document}

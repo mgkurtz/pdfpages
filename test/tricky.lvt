@@ -1,0 +1,28 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+\usepackage{mhchem}
+
+\begin{document}
+\START\showoutput
+
+
+% Do not expand macros in the arguments of 'addtotoc' and 'addtolist'
+% too early. E.g. the macro \ce shall be written unexpanded into
+% the aux file.
+
+\TEST{Chemical formulas}{
+  \tableofcontents
+  \listoffigures
+
+  \section{\ce{H2O}}
+  \includepdf[addtotoc={1,section,1, no space,ref:xox}]{dummy.pdf}
+  \includepdf[addtotoc={1,section,1, \ce{H2O},ref:xox}]{dummy.pdf}
+  \includepdf[addtotoc={1,section,1,\ce{CrO4^2-},ref:xox}]{dummy.pdf}
+
+  \begin{figure}\caption{comparision}\label{fig:foo}\end{figure}
+  \includepdf[addtolist={1,figure, \ce{CrO4^2-},fig:foo}]{dummy.pdf}
+}
+
+%\END
+\end{document}

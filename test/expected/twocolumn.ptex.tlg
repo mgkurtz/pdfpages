@@ -1,0 +1,186 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: There should be no issues with $\backslash $@setmarks not being defined
+ in twocolumn mode.
+============================================================
+
+! LaTeX Error: Cannot determine size of graphic in dummy.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+! LaTeX Error: Cannot determine size of graphic in dummy.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+! LaTeX Error: Cannot determine size of graphic in dummy.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+! LaTeX Error: Cannot determine size of graphic in dummy.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 1.
+
+! LaTeX Error: Cannot determine size of graphic in dummy.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+[1
+
+
+]
+============================================================
+
+============================================================
+TEST 2: PDF shall be on next page (not this one).
+============================================================
+
+! LaTeX Error: Cannot determine size of graphic in dummy.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+! LaTeX Error: Cannot determine size of graphic in dummy.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+
+
+[2
+
+]
+
+! LaTeX Error: Cannot determine size of graphic in dummy.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+! LaTeX Error: Cannot determine size of graphic in dummy.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+
+! LaTeX Error: Cannot determine size of graphic in dummy.xbb (no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 }
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+[3
+
+]
+============================================================
+
+

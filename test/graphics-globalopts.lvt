@@ -1,0 +1,26 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+\Large
+
+\vspace*{10mm}
+Global settings of \verb|width| and \verb|height| shall have an
+impact on \verb|\includegraphics| but must not have an impact
+on \verb|\includepdf|.
+
+The following picture will be scaled down, while \verb|\includepdf|
+will be in full size.
+\vspace{10mm}
+
+\verboseTEST{includegraphics: scaled down,\\ includepdf: full size}{
+  \setkeys{Gin}{
+    width=5cm, height=5cm, keepaspectratio}
+  \includegraphics{hog.pdf}
+  \includepdf{dummy.pdf}
+}
+
+\END
+\end{document}

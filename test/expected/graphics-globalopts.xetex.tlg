@@ -1,0 +1,518 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+
+Overfull \hbox (40.9929pt too wide) in paragraph at lines 14--17
+[]\TU/lmr/m/n/14.4 The following picture will be scaled down, while [][]\TU/lmtt/m/n/14.4 \includepdf
+
+\hbox(10.1376+3.19678)x345.0, glue set - 1.0
+.\hbox(0.0+0.0)x15.0
+.\TU/lmr/m/n/14.4 The
+.\glue 4.6944 plus 2.3472 minus 1.56479
+.\TU/lmr/m/n/14.4 following
+.\glue 4.6944 plus 2.3472 minus 1.56479
+.\TU/lmr/m/n/14.4 picture
+.\glue 4.6944 plus 2.3472 minus 1.56479
+.\TU/lmr/m/n/14.4 will
+.\glue 4.6944 plus 2.3472 minus 1.56479
+.\TU/lmr/m/n/14.4 be
+.\glue 4.6944 plus 2.3472 minus 1.56479
+.\TU/lmr/m/n/14.4 scaled
+.\glue 4.6944 plus 2.3472 minus 1.56479
+.\TU/lmr/m/n/14.4 down,
+.\glue 4.6944 plus 2.93399 minus 1.25183
+.\TU/lmr/m/n/14.4 while
+.\glue 4.6944 plus 2.3472 minus 1.56479
+.\hbox(0.0+0.0)x0.0
+.\setlanguage2 (hyphenmin 2,3)
+.\TU/lmtt/m/n/14.4 \includepdf
+.\glue(\rightskip) 0.0
+
+============================================================
+TEST 1: includegraphics: scaled down,\\ includepdf: full size
+============================================================
+
+LaTeX Warning: File `hog.pdf' not found on input line 1.
+
+! Unable to load picture or PDF file 'hog.pdf'.
+<to be read again> 
+                   }
+l.23 }
+      
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.23 }
+      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.23 }
+      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf>
+! Unable to load picture or PDF file 'hog.pdf'.
+<to be read again> 
+                   \GPT@clipend 
+l.23 }
+      
+The requested image couldn't be read because
+it was not a recognized image format.
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+
+
+Completed box being shipped out [1]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 430.91089fil
+...\special{dvipdfmx:config z 0}
+...\special{dvipdfmx:config C 0x40}
+...\special{pdf: docinfo << /Creator (TeX) /CreationDate () /ModDate () /Producer (xdvipdfmx) >> }
+...\write-{}
+...\special{color push gray 0}
+...\glue(\topskip) 10.0
+...\rule(0.0+0.0)x*
+...\penalty 10000
+...\glue 28.45274
+...\glue 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\hbox(10.1376+3.29758)x345.0, glue set - 0.51567
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/14.4 Global
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 settings
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 of
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\hbox(0.0+0.0)x0.0
+....\setlanguage2 (hyphenmin 2,3)
+....\TU/lmtt/m/n/14.4 width
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\setlanguage0 (hyphenmin 2,3)
+....\TU/lmr/m/n/14.4 and
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\hbox(0.0+0.0)x0.0
+....\setlanguage2 (hyphenmin 2,3)
+....\TU/lmtt/m/n/14.4 height
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\setlanguage0 (hyphenmin 2,3)
+....\TU/lmr/m/n/14.4 shall
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 have
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 an
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 im-
+....\glue(\rightskip) 0.0
+...\penalty 250
+...\glue(\baselineskip) 4.70883
+...\hbox(9.99359+3.29758)x345.0, glue set - 0.76111
+....\TU/lmr/m/n/14.4 pact
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 on
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\hbox(0.0+0.0)x0.0
+....\setlanguage2 (hyphenmin 2,3)
+....\TU/lmtt/m/n/14.4 \includegraphics
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\setlanguage0 (hyphenmin 2,3)
+....\TU/lmr/m/n/14.4 but
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 must
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 not
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 have
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 an
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 impact
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 4.70883
+...\hbox(9.99359+3.19678)x345.0, glue set 239.92325fil
+....\TU/lmr/m/n/14.4 on
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\hbox(0.0+0.0)x0.0
+....\setlanguage2 (hyphenmin 2,3)
+....\TU/lmtt/m/n/14.4 \includepdf
+....\setlanguage0 (hyphenmin 2,3)
+....\TU/lmr/m/n/14.4 .
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.66562
+...\hbox(10.1376+3.19678)x345.0, glue set - 1.0
+....\hbox(0.0+0.0)x15.0
+....\TU/lmr/m/n/14.4 The
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 following
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 picture
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 will
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 be
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 scaled
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 down,
+....\glue 4.6944 plus 2.93399 minus 1.25183
+....\TU/lmr/m/n/14.4 while
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\hbox(0.0+0.0)x0.0
+....\setlanguage2 (hyphenmin 2,3)
+....\TU/lmtt/m/n/14.4 \includepdf
+....\glue(\rightskip) 0.0
+...\penalty 300
+...\glue(\baselineskip) 4.66562
+...\hbox(10.1376+0.14398)x345.0, glue set 225.90247fil
+....\setlanguage0 (hyphenmin 2,3)
+....\TU/lmr/m/n/14.4 will
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 be
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 in
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 full
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\TU/lmr/m/n/14.4 size.
+....\glue 6.25919 plus 7.0416 minus 0.52159
+....\penalty 10000
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 28.45274
+...\glue 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 17.85602
+...\hbox(0.0+0.0)x345.0, glue set 273.66724fil
+....\hbox(0.0+0.0)x15.0
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\hbox(0.0+0.0)x0.0
+.......\hbox(0.0+0.0)x0.0
+........\special{pdf:btrans}
+........\special{x:scale 1.00009 1.00009}
+........\hbox(0.0+0.0)x0.0
+.........\hbox(0.0+0.0)x0.0
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+........\special{pdf:etrans}
+.......\kern 0.0
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\glue 4.6944 plus 2.3472 minus 1.56479
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 23.34
+..\hbox(6.66+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(6.66+0.0)x345.0, glue set 170.0fil
+....\glue 0.0 plus 1.0fil
+....\TU/lmr/m/n/10 1
+....\glue 0.0 plus 1.0fil
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(830.82048+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(0.0+114.68318)x0.0, glue set - 362.45941fil, shifted -830.82048
+......\kern 14.22636
+......\hbox(0.0+114.68318)x348.23305
+.......\hbox(13.39359+96.68318)x348.23305, shifted 18.0
+........\special{color push gray 0}
+........\hbox(13.39359+96.68318)x348.23305
+.........\hbox(13.39359+96.68318)x348.23305
+..........\hbox(110.07677+0.0)x348.23305, shifted 96.68318
+...........\vbox(110.07677+0.0)x348.23305
+............\kern 0.4
+............\hbox(109.27678+0.0)x348.23305
+.............\kern 0.4
+.............\vbox(109.27678+0.0)x347.43306
+..............\kern 0.0
+..............\hbox(12.99359+96.28319)x347.43306
+...............\kern 0.0
+...............\special{color push cmyk 0 0 0.5 0}
+...............\special{color push cmyk 0 0 0.5 0}
+...............\hbox(12.99359+96.28319)x0.0, glue set - 347.43306fil
+................\rule(12.99359+96.28319)x347.43306
+................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{color pop}
+...............\hbox(12.99359+96.28319)x347.43306
+................\kern 3.0
+................\special{color push gray 0}
+................\vbox(9.99359+93.28319)x341.43306
+.................\hbox(9.99359+2.89438)x341.43306, glue set 130.77556fil
+..................\hbox(0.0+0.0)x0.0
+..................\special{color push rgb 1 0.3 0.3}
+..................\TU/lmr/bx/n/14.4 includegraphics:
+..................\glue 7.19998 plus 5.4 minus 0.9
+..................\TU/lmr/bx/n/14.4 scaled
+..................\glue 5.4 plus 2.7 minus 1.79999
+..................\TU/lmr/bx/n/14.4 down,
+..................\penalty 10000
+..................\glue 0.0 plus 1.0fil
+..................\penalty -10000
+..................\glue(\rightskip) 0.0
+.................\penalty 300
+.................\glue(\baselineskip) 5.02562
+.................\hbox(10.08+2.79358)x341.43306, glue set 201.86833fil
+..................\TU/lmr/bx/n/14.4 includepdf:
+..................\glue 7.19998 plus 5.4 minus 0.9
+..................\TU/lmr/bx/n/14.4 full
+..................\glue 5.4 plus 2.7 minus 1.79999
+..................\TU/lmr/bx/n/14.4 size
+..................\special{color pop}
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 5.21283
+.................\hbox(9.99359+3.28319)x341.43306, glue set 237.6091fil
+..................\hbox(0.0+0.0)x0.0
+..................\TU/lmtt/m/n/14.4 \setkeys{Gin}{
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.72322
+.................\hbox(9.99359+3.29758)x341.43306, glue set 52.20915fil
+..................\hbox(0.0+0.0)x0.0
+..................\TU/lmtt/m/n/14.4 width=5cm,
+..................\glue 7.416
+..................\TU/lmtt/m/n/14.4 height=5cm,
+..................\glue 7.416
+..................\TU/lmtt/m/n/14.4 keepaspectratio}
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.70883
+.................\hbox(9.99359+3.29758)x341.43306, glue set 156.03314fil
+..................\hbox(0.0+0.0)x0.0
+..................\TU/lmtt/m/n/14.4 \includegraphics{hog.pdf}
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.70883
+.................\hbox(9.99359+3.28319)x341.43306, glue set 178.28113fil
+..................\hbox(0.0+0.0)x0.0
+..................\TU/lmtt/m/n/14.4 \includepdf{dummy.pdf}
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+................\special{color pop}
+................\kern 3.0
+...............\special{color pop}
+...............\kern 0.0
+..............\kern 0.0
+.............\kern 0.4
+............\kern 0.4
+.........\kern -348.23305
+.........\hbox(13.39359+96.68318)x348.23305
+..........\vbox(110.07677+0.0)x348.23305, shifted 96.68318
+...........\rule(0.4+0.0)x*
+...........\kern -0.2
+...........\hbox(109.67677+0.0)x348.23305
+............\rule(109.67677+0.0)x0.4
+............\kern 347.43306
+............\rule(109.67677+0.0)x0.4
+...........\kern -0.2
+...........\rule(0.4+0.0)x*
+........\special{color pop}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+Completed box being shipped out [2]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(845.06526+0.01842)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(845.08368+0.0)x0.0, glue set - 597.52103fil, shifted 0.01842
+......\kern -0.01315
+......\hbox(845.08368+0.0)x597.53418
+.......\hbox(845.08368+0.0)x597.53418
+........\hbox(0.0+0.0)x0.0, shifted -845.08368
+........\hbox(845.08368+0.0)x597.53418
+.........\hbox(845.08368+0.0)x597.53418
+..........\kern 0.0
+..........\hbox(845.08368+0.0)x597.53418
+...........\special{pdf:btrans rotate 0}
+...........\hbox(845.08368+0.0)x597.53418
+............\hbox(845.08368+0.0)x597.53418
+.............\hbox(845.08368+0.0)x597.53418
+..............\kern 0.0
+..............\hbox(845.08368+0.0)x597.53418
+...............\special{pdf:btrans rotate 0}
+...............\hbox(845.08368+0.0)x597.53418
+................\hbox(845.08368+0.0)x597.53418
+.................\hbox(845.08368+0.0)x597.53418
+..................\hbox(845.08368+0.0)x0.0
+...................\special{pdf:btrans}
+...................\special{x:scale 1 1}
+...................\hbox(845.08368+0.0)x0.0, glue set - 597.53418fil
+....................\hbox(845.08368+0.0)x597.53418
+.....................\hbox(845.08368+0.0)x597.53418
+......................\hbox(845.08574+0.0)x597.53564
+.......................\hbox(845.08574+0.0)x597.53564
+........................\hbox(845.08574+0.0)x0.0
+.........................\special{pdf:btrans}
+.........................\special{x:scale 1.00005 1.00005}
+.........................\hbox(845.04706+0.0)x0.0, glue set - 597.5083fil
+..........................\hbox(845.04706+0.0)x597.5083
+...........................\XeTeXpdffile "···/dummy.pdf"
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\special{pdf:etrans}
+........................\kern 597.53564
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+...................\special{pdf:etrans}
+..................\kern 597.53418
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{pdf:etrans}
+...........\special{pdf:etrans}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+============================================================
+
+

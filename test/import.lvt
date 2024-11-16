@@ -1,0 +1,14 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{import}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Using import.sty}{
+  \import{subdir/}{import.tex}
+}
+
+\END
+\end{document}

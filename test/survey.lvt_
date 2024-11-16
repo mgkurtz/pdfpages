@@ -1,0 +1,92 @@
+%%
+%% The 'survey' option has a bug. It's not working currently.
+%%
+
+% \input{regression-test}
+\documentclass[a4paper, landscape]{article}
+\usepackage[draft, enable-survey]{pdfpages}
+
+\begin{document}
+%\START\showoutput
+\Huge
+
+%%
+%% Slide 1
+%%
+Lorem
+\newpage
+Lorem ipsum
+\newpage
+Lorem ipsum dolor
+\newpage
+Lorem ipsum dolor sit
+\newpage
+\AddToSurvey
+Lorem ipsum dolor sit amet. 
+\newpage
+
+%%
+%% Slide 2
+%%
+\begin{itemize}
+\item lorem
+\end{itemize}
+\newpage
+\begin{itemize}
+\item lorem
+\item ipsum
+\end{itemize}
+\newpage
+\begin{itemize}
+\item lorem
+\item ipsum
+\item dolor
+\end{itemize}
+\newpage
+\begin{itemize}
+\item lorem
+\item ipsum
+\item dolor
+\item sit
+\end{itemize}
+\newpage
+\AddToSurvey
+\begin{itemize}
+\item lorem
+\item ipsum
+\item dolor
+\item sit
+\item amet
+\end{itemize}
+\newpage
+
+%%
+%% Slide 3
+%%
+\begin{tabular}{ll}\hline
+  Lorem           & \phantom{Ipsum} \\
+  \phantom{Dolor} & \phantom{Amet}  \\\hline
+\end{tabular}
+\newpage
+\begin{tabular}{ll}\hline
+  Lorem           & \phantom{Ipsum} \\
+  Dolor           & \phantom{Amet}  \\\hline
+\end{tabular}
+\newpage
+\begin{tabular}{ll}\hline
+  Lorem           & Ipsum           \\
+  Dolor           & \phantom{Amet}  \\\hline
+\end{tabular}
+\newpage
+\AddToSurvey
+\begin{tabular}{ll}\hline
+  Lorem           & Ipsum           \\
+  Dolor           & Amet            \\\hline
+\end{tabular}
+\newpage
+
+% \includepdf[survey, nup=2x2]{opt-survey.tpdf}
+\includepdf[survey]{Xdummy.pdf}
+
+%\END
+\end{document}

@@ -1,0 +1,87 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+
+\begin{document}
+\START\showoutput
+\LARGE
+
+\verboseTEST{link}{
+  \includepdf[pages=1-2, scale=0.8, frame,
+    link]{dummy.pdf}
+}
+\begin{tabular}{l}
+  \hyperlink{dummy.pdf.1}{page 1}\\
+  \hyperlink{dummy.pdf.2}{page 2}\\
+\end{tabular}
+
+\newpage
+\verboseTEST{linkname}{
+  \includepdf[pages=1-2, scale=0.8, frame,
+    link, linkname=foo
+  ]{dummy.pdf}
+}
+\begin{tabular}{l}
+  \hyperlink{foo.1}{page 1}\\
+  \hyperlink{foo.2}{page 2}\\
+\end{tabular}
+
+\newpage
+\verboseTEST{linkfit: Fit (explicit)}{
+  \includepdf[pages=1-2, scale=0.8, frame,
+    link, linkname=fit,
+    linkfit=Fit]{dummy.pdf}
+}
+\begin{tabular}{l}
+  \hyperlink{fit.1}{page 1}\\
+  \hyperlink{fit.2}{page 2}\\
+\end{tabular}
+
+\newpage
+\verboseTEST{linkfit: FitH}{
+  \includepdf[pages=1-2, scale=0.8, frame,
+    link, linkname=fith,
+    linkfit=FitH 10]{dummy.pdf}
+}
+\begin{tabular}{l}
+  \hyperlink{fith.1}{page 1}\\
+  \hyperlink{fith.2}{page 2}\\
+\end{tabular}
+
+\newpage
+\verboseTEST{linkfit: FitV}{
+  \includepdf[pages=1-2, scale=0.8, frame,
+    link, linkname=fitv,
+    linkfit=FitV 10]{dummy.pdf}
+}
+\begin{tabular}{l}
+  \hyperlink{fitv.1}{page 1}\\
+  \hyperlink{fitv.2}{page 2}\\
+\end{tabular}
+
+\newpage
+\verboseTEST{linkfit: Region}{
+  \includepdf[pages=1-2, scale=0.6, frame,
+    link, linkname=region,
+    linkfit=Region]{dummy.pdf}
+}
+\begin{tabular}{l}
+  \hyperlink{region.1}{page 1}\\
+  \hyperlink{region.2}{page 2}\\
+\end{tabular}
+
+\newpage
+\verboseTEST{linkfit: XYZ}{
+  \includepdf[pages=1-2, scale=0.6, frame,
+    link, linkname=xyz,
+    linkfit=XYZ 10 10 2.5]{dummy.pdf}
+}
+\begin{tabular}{l}
+  \hyperlink{xyz.1}{page 1}\\
+  \hyperlink{xyz.2}{page 2}\\
+\end{tabular}
+
+\newpage
+\END
+\end{document}

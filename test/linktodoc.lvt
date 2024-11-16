@@ -1,0 +1,32 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+
+\begin{document}
+\START\showoutput
+\LARGE
+
+\verboseTEST{linktodoc}{
+  \includepdf[pages=1-2, linktodoc]{dummy1.pdf}
+}
+
+\verboseTEST{linktodoc: /FitH 800}{
+  \includepdf[pages=1-2,
+    linktodoc, linktodocfit=/FitH 800]{dummy2.pdf}
+}
+
+\verboseTEST{linktodoc: /FitV 100}{
+  \includepdf[pages=1-2,
+    linktodoc, linktodocfit=/FitV 100]{dummy3.pdf}
+}
+
+\verboseTEST{newwindow}{
+  \includepdf[pages=1-2,
+    linktodoc, newwindow
+  ]{dummy.pdf}
+}
+
+\newpage
+\END
+\end{document}

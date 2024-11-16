@@ -1,0 +1,70 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\title{\Huge Booklet:\\
+  Left-Binding\\
+  with\\
+  Included Landscape Pages\\
+  {\huge (Documentclass \texttt{portrait})}}
+\date{}
+
+\begin{document}
+\START\showoutput
+\maketitle
+\newpage
+
+\verboseTEST{Landscape pages on portrait paper}{
+  \includepdf[pages=-, booklet,
+    nup=2x1,
+  ]{normal-landscape.pdf}
+}
+
+\verboseTEST{Landscape pages on portrait paper\\(flip-other-edge)}{
+  \includepdf[pages=-, booklet,
+    nup=2x1,
+    flip-other-edge,
+  ]{normal-landscape.pdf}
+}
+
+\verboseTEST{Landscape pages on landscape paper}{
+  \includepdf[pages=-, booklet,
+    nup=2x1, landscape,
+  ]{normal-landscape.pdf}
+}
+
+\verboseTEST{Landscape pages on landscape paper\\(flip-other-edge)}{
+  \includepdf[pages=-, booklet,
+    nup=2x1, landscape,
+    flip-other-edge,
+  ]{normal-landscape.pdf}
+}
+
+\verboseTEST{Slim landscape pages on portrait paper}{
+  \includepdf[pages=-, booklet,
+    nup=2x1,
+  ]{slim-landscape.pdf}
+}
+
+\verboseTEST{Slim landscape pages on portrait paper\\(flip-other-edge)}{
+  \includepdf[pages=-, booklet,
+    nup=2x1,
+    flip-other-edge,
+  ]{slim-landscape.pdf}
+}
+
+\verboseTEST{Slim landscape pages on landscape paper}{
+  \includepdf[pages=-, booklet,
+    nup=2x1, landscape,
+  ]{slim-landscape.pdf}
+}
+
+\verboseTEST{Slim landscape pages on landscape paper\\(flip-other-edge)}{
+  \includepdf[pages=-, booklet,
+    nup=2x1, landscape,
+    flip-other-edge
+  ]{slim-landscape.pdf}
+}
+
+\END
+\end{document}

@@ -1,7 +1,14 @@
 auto/*
-/results_*
-/*.pdc
-/*.xbb
+results/*
+diff/*
 
-/1.pdf
-/2-4.pdf
+/*.pdf
+/*.ps
+/*.eps
+/*.dvi
+/*.pdc
+/*.mfl
+/*.xbb
+/*.png
+/*.jpg
+

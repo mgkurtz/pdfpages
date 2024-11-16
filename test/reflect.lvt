@@ -1,0 +1,31 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Reflect}{
+  \includepdf[
+    pages=1-2, reflect]{dummy.pdf}
+}
+
+\verboseTEST{Global option}{
+  \includepdfset{reflect}
+  \includepdf[pages=1-2]{dummy.pdf}
+}
+
+\verboseTEST{Reflect (whole page)}{
+  \includepdf[pages=1-8,
+    reflect, nup=2x2
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Reflect* (logical pages)}{
+  \includepdf[pages=1-8,
+    reflect*, nup=2x2
+  ]{dummy.pdf}
+}
+
+\END
+\end{document}

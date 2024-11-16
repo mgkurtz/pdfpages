@@ -1,0 +1,69 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: There should be no issues with $\backslash $@setmarks not being defined in twocolumn mode.
+============================================================
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 1.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+[1
+
+
+]
+============================================================
+
+============================================================
+TEST 2: PDF shall be on next page (not this one).
+============================================================
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+
+
+
+[2
+
+]
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+[3
+
+]
+============================================================
+
+

@@ -1,0 +1,2952 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: Positioning of floats (interaction with includepdf)
+============================================================
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+Completed box being shipped out [1]
+\vbox(682.0+0.0)x452.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(845.06526+0.01842)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(845.08368+0.0)x0.0, glue set - 597.52103fil, shifted 0.01842
+......\kern -0.01315
+......\hbox(845.08368+0.0)x597.53418
+.......\hbox(845.08368+0.0)x597.53418
+........\hbox(0.0+0.0)x0.0, shifted -845.08368
+........\hbox(845.08368+0.0)x597.53418
+.........\hbox(845.08368+0.0)x597.53418
+..........\kern 0.0
+..........\hbox(845.08368+0.0)x597.53418
+...........\special{pdf:btrans rotate 0}
+...........\hbox(845.08368+0.0)x597.53418
+............\hbox(845.08368+0.0)x597.53418
+.............\hbox(845.08368+0.0)x597.53418
+..............\kern 0.0
+..............\hbox(845.08368+0.0)x597.53418
+...............\special{pdf:btrans rotate 0}
+...............\hbox(845.08368+0.0)x597.53418
+................\hbox(845.08368+0.0)x597.53418
+.................\hbox(845.08368+0.0)x597.53418
+..................\hbox(845.08368+0.0)x0.0
+...................\special{pdf:btrans}
+...................\special{x:scale 1 1}
+...................\hbox(845.08368+0.0)x0.0, glue set - 597.53418fil
+....................\hbox(845.08368+0.0)x597.53418
+.....................\hbox(845.08368+0.0)x597.53418
+......................\hbox(845.08574+0.0)x597.53564
+.......................\hbox(845.08574+0.0)x597.53564
+........................\hbox(845.08574+0.0)x0.0
+.........................\special{pdf:btrans}
+.........................\special{x:scale 1.00005 1.00005}
+.........................\hbox(845.04706+0.0)x0.0, glue set - 597.5083fil
+..........................\hbox(845.04706+0.0)x597.5083
+...........................\XeTeXpdffile "···/dummy.pdf"
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\special{pdf:etrans}
+........................\kern 597.53564
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+...................\special{pdf:etrans}
+..................\kern 597.53418
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{pdf:etrans}
+...........\special{pdf:etrans}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x452.0
+..\vbox(12.0+0.0)x452.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x452.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x452.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x452.0
+...\hbox(598.0+0.0)x452.0, glue set 5.0fil
+....\hbox(0.0+0.0)x221.0, glue set 221.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil
+....\special{color push gray 0}
+....\rule(*+*)x0.0
+....\special{color pop}
+....\glue 0.0 plus 1.0fil
+....\hbox(598.0+0.0)x221.0
+.....\vbox(598.0+0.0)x221.0, glue set 588.0fil
+......\special{dvipdfmx:config z 0}
+......\special{dvipdfmx:config C 0x40}
+......\special{pdf: docinfo << /Creator (TeX) /CreationDate () /ModDate () /Producer (xdvipdfmx) >> }
+......\write-{}
+......\special{color push gray 0}
+......\write-{}
+......\glue(\topskip) 10.0
+......\hbox(0.0+0.0)x221.0, glue set 211.0fil
+.......\hbox(0.0+0.0)x10.0
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue 0.0 plus 1.0fil
+......\glue 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x452.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x452.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+
+
+
+Completed box being shipped out [2]
+\vbox(682.0+0.0)x452.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x452.0
+..\vbox(12.0+0.0)x452.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x452.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x452.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x452.0, glue set - 0.0
+...\vbox(61.20308+0.00002)x452.0
+....\special{color push gray 0}
+....\vbox(61.20308+0.0)x452.0
+.....\hbox(32.4129+23.79018)x452.0, glue set 115.26802fil
+......\glue(\leftskip) 0.0 plus 1.0fil
+......\hbox(0.0+0.0)x0.0
+......\hbox(32.4129+23.79018)x218.13397
+.......\hbox(32.4129+23.79018)x218.13397
+........\hbox(56.20308+0.0)x218.13397, shifted 23.79018
+.........\vbox(56.20308+0.0)x218.13397
+..........\kern 0.4
+..........\hbox(55.40309+0.0)x218.13397
+...........\kern 0.4
+...........\vbox(55.40309+0.0)x217.33398
+............\kern 19.91692
+............\hbox(12.096+3.47327)x217.33398
+.............\kern 19.91692
+.............\TU/lmr/bx/n/17.28 OK,
+.............\glue 6.48 plus 3.23999 minus 2.15999
+.............\TU/lmr/bx/n/17.28 if
+.............\glue 6.48 plus 3.23999 minus 2.15999
+.............\TU/lmr/bx/n/17.28 this
+.............\glue 6.48 plus 3.23999 minus 2.15999
+.............\TU/lmr/bx/n/17.28 is
+.............\glue 6.48 plus 3.23999 minus 2.15999
+.............\TU/lmr/bx/n/17.28 page
+.............\glue 6.48 plus 3.23999 minus 2.15999
+.............\TU/lmr/bx/n/17.28 2.
+.............\kern 19.91692
+............\kern 19.91692
+...........\kern 0.4
+..........\kern 0.4
+.......\kern -218.13397
+.......\hbox(32.4129+23.79018)x218.13397
+........\vbox(56.20308+0.0)x218.13397, shifted 23.79018
+.........\rule(0.4+0.0)x*
+.........\kern -0.2
+.........\hbox(55.80309+0.0)x218.13397
+..........\rule(55.80309+0.0)x0.4
+..........\kern 217.33398
+..........\rule(55.80309+0.0)x0.4
+.........\kern -0.2
+.........\rule(0.4+0.0)x*
+......\glue 3.33 plus 1.665 minus 1.11
+......\penalty 10000
+......\penalty 10000
+......\glue(\parfillskip) 0.0
+......\glue(\rightskip) 0.0 plus 1.0fil
+.....\glue 5.0
+.....\glue 0.0
+.....\glue 0.0
+....\special{color pop}
+...\glue 12.0 plus 2.0 minus 2.0
+...\glue -12.0 plus -2.0 minus -2.0
+...\glue 20.0 plus 2.0 minus 4.0
+...\hbox(516.79692+0.0)x452.0, glue set 5.0fil
+....\hbox(516.79692+0.0)x221.0
+.....\vbox(516.79692+0.0)x221.0, glue set 0.93231
+......\glue(\topskip) 3.06
+......\hbox(6.94+1.93999)x221.0, glue set - 0.00467
+.......\hbox(0.0+0.0)x10.0
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipsc-
+.......\glue(\rightskip) 0.0
+......\penalty 250
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set - 0.62534
+.......\TU/lmr/m/n/10 ing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set - 0.15707
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.06061
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 do-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8042
+.......\TU/lmr/m/n/10 lores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.57466
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eir-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.88718
+.......\TU/lmr/m/n/10 mod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.32637
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue(\rightskip) 0.0
+......\penalty 150
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.04999)x221.0, glue set 36.07999fil
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set - 0.00467
+.......\hbox(0.0+0.0)x10.0
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipsc-
+.......\glue(\rightskip) 0.0
+......\penalty 250
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set - 0.62534
+.......\TU/lmr/m/n/10 ing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set - 0.15707
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.06061
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 do-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8042
+.......\TU/lmr/m/n/10 lores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.57466
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eir-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.88718
+.......\TU/lmr/m/n/10 mod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.32637
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue(\rightskip) 0.0
+......\penalty 150
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.04999)x221.0, glue set 36.07999fil
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8024
+.......\hbox(0.0+0.0)x10.0
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadip-
+.......\glue(\rightskip) 0.0
+......\penalty 250
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.96428
+.......\TU/lmr/m/n/10 scing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 in-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.79193
+.......\TU/lmr/m/n/10 vidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set - 0.48541
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.66968
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 1.0432
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 non-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set 0.78937
+.......\TU/lmr/m/n/10 umy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.79001
+......\hbox(7.16+2.05998)x221.0, glue set 0.11168
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set 0.51451
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.05998)x221.0, glue set - 0.00621
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set - 0.10997
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.05998)x221.0, glue set 0.94606
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.06061
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 do-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8042
+.......\TU/lmr/m/n/10 lores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.57466
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eir-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.88718
+.......\TU/lmr/m/n/10 mod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.32637
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue(\rightskip) 0.0
+......\penalty 150
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.04999)x221.0, glue set 36.07999fil
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set - 0.00467
+.......\hbox(0.0+0.0)x10.0
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipsc-
+.......\glue(\rightskip) 0.0
+......\penalty 250
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set - 0.62534
+.......\TU/lmr/m/n/10 ing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set - 0.15707
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.06061
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 do-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8042
+.......\TU/lmr/m/n/10 lores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.57466
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eir-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.88718
+.......\TU/lmr/m/n/10 mod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue(\rightskip) 0.0
+......\glue -2.05998
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil
+....\special{color push gray 0}
+....\rule(*+*)x0.0
+....\special{color pop}
+....\glue 0.0 plus 1.0fil
+....\hbox(516.79692+0.0)x221.0
+.....\vbox(516.79692+0.0)x221.0, glue set 0.93231
+......\glue(\topskip) 2.84
+......\hbox(7.16+2.04999)x221.0, glue set 0.32637
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue(\rightskip) 0.0
+......\penalty 150
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.04999)x221.0, glue set 36.07999fil
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8024
+.......\hbox(0.0+0.0)x10.0
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadip-
+.......\glue(\rightskip) 0.0
+......\penalty 250
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.96428
+.......\TU/lmr/m/n/10 scing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 in-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.79193
+.......\TU/lmr/m/n/10 vidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set - 0.48541
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.66968
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 1.0432
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 non-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set 0.78937
+.......\TU/lmr/m/n/10 umy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.79001
+......\hbox(7.16+2.05998)x221.0, glue set 0.11168
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set 0.51451
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.05998)x221.0, glue set - 0.00621
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set - 0.10997
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.05998)x221.0, glue set 0.94606
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.06061
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 do-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8042
+.......\TU/lmr/m/n/10 lores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.57466
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eir-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.88718
+.......\TU/lmr/m/n/10 mod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.32637
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue(\rightskip) 0.0
+......\penalty 150
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.04999)x221.0, glue set 36.07999fil
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set - 0.00467
+.......\hbox(0.0+0.0)x10.0
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipsc-
+.......\glue(\rightskip) 0.0
+......\penalty 250
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set - 0.62534
+.......\TU/lmr/m/n/10 ing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set - 0.15707
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.06061
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 do-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8042
+.......\TU/lmr/m/n/10 lores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.57466
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eir-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.88718
+.......\TU/lmr/m/n/10 mod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.32637
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue(\rightskip) 0.0
+......\penalty 150
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.04999)x221.0, glue set 36.07999fil
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8024
+.......\hbox(0.0+0.0)x10.0
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadip-
+.......\glue(\rightskip) 0.0
+......\penalty 250
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.96428
+.......\TU/lmr/m/n/10 scing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 in-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.79193
+.......\TU/lmr/m/n/10 vidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set - 0.48541
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.66968
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 1.0432
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 non-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set 0.78937
+.......\TU/lmr/m/n/10 umy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.79001
+......\hbox(7.16+2.05998)x221.0, glue set 0.11168
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set 0.51451
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.05998)x221.0, glue set - 0.00621
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set - 0.10997
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.05998)x221.0, glue set 0.94606
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.06061
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 do-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8042
+.......\TU/lmr/m/n/10 lores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue(\rightskip) 0.0
+......\glue -1.93999
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue(\baselineskip) 23.34
+..\hbox(6.66+0.0)x452.0
+...\special{color push gray 0}
+...\hbox(6.66+0.0)x452.0, glue set 223.5fil
+....\glue 0.0 plus 1.0fil
+....\TU/lmr/m/n/10 2
+....\glue 0.0 plus 1.0fil
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+============================================================
+
+
+
+
+
+
+Completed box being shipped out [3]
+\vbox(682.0+0.21999)x452.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.21999)x452.0
+..\vbox(12.0+0.0)x452.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x452.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x452.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x452.0
+...\hbox(598.0+0.0)x452.0, glue set 5.0fil
+....\hbox(598.0+0.0)x221.0
+.....\vbox(598.0+0.0)x221.0, glue set 12.0fil
+......\glue(\topskip) 3.06
+......\hbox(6.94+2.05998)x221.0, glue set 0.57466
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eir-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.88718
+.......\TU/lmr/m/n/10 mod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.32637
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue(\rightskip) 0.0
+......\penalty 150
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.04999)x221.0, glue set 36.07999fil
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set - 0.00467
+.......\hbox(0.0+0.0)x10.0
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipsc-
+.......\glue(\rightskip) 0.0
+......\penalty 250
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set - 0.62534
+.......\TU/lmr/m/n/10 ing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set - 0.15707
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.06061
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 do-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8042
+.......\TU/lmr/m/n/10 lores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.57466
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eir-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.88718
+.......\TU/lmr/m/n/10 mod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.32637
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue(\rightskip) 0.0
+......\penalty 150
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.04999)x221.0, glue set 36.07999fil
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8024
+.......\hbox(0.0+0.0)x10.0
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadip-
+.......\glue(\rightskip) 0.0
+......\penalty 250
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.96428
+.......\TU/lmr/m/n/10 scing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 in-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.79193
+.......\TU/lmr/m/n/10 vidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set - 0.48541
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.66968
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 1.0432
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 non-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set 0.78937
+.......\TU/lmr/m/n/10 umy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.79001
+......\hbox(7.16+2.05998)x221.0, glue set 0.11168
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set 0.51451
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.05998)x221.0, glue set - 0.00621
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.04999)x221.0, glue set - 0.10997
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.05998)x221.0, glue set 0.94606
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.06061
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 do-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8042
+.......\TU/lmr/m/n/10 lores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.57466
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eir-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.88718
+.......\TU/lmr/m/n/10 mod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.32637
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue(\rightskip) 0.0
+......\penalty 150
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.04999)x221.0, glue set 36.07999fil
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set - 0.00467
+.......\hbox(0.0+0.0)x10.0
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipsc-
+.......\glue(\rightskip) 0.0
+......\penalty 250
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set - 0.62534
+.......\TU/lmr/m/n/10 ing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set - 0.15707
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.06061
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 do-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8042
+.......\TU/lmr/m/n/10 lores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.57466
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eir-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.88718
+.......\TU/lmr/m/n/10 mod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.32637
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue(\rightskip) 0.0
+......\penalty 150
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.04999)x221.0, glue set 36.07999fil
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set - 0.00467
+.......\hbox(0.0+0.0)x10.0
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipsc-
+.......\glue(\rightskip) 0.0
+......\penalty 250
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set - 0.62534
+.......\TU/lmr/m/n/10 ing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eirmod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set - 0.15707
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.06061
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 do-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+1.93999)x221.0, glue set 0.8042
+.......\TU/lmr/m/n/10 lores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 Lorem
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ipsum
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sit
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 amet,
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 3.12001
+......\hbox(6.94+2.05998)x221.0, glue set 0.57466
+.......\TU/lmr/m/n/10 consetetur
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 sadipscing
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 elitr,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 nonumy
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eir-
+.......\glue(\rightskip) 0.0
+......\penalty 100
+......\glue(\baselineskip) 3.00002
+......\hbox(6.94+2.05998)x221.0, glue set 0.88718
+.......\TU/lmr/m/n/10 mod
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 tempor
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 invidunt
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ut
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 labore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolore
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 magna
+.......\glue(\rightskip) 0.0
+......\glue(\baselineskip) 2.78001
+......\hbox(7.16+2.04999)x221.0, glue set 0.32637
+.......\TU/lmr/m/n/10 aliquyam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 erat,
+.......\glue 3.33 plus 2.08124 minus 0.888
+.......\TU/lmr/m/n/10 sed
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 diam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 voluptua.
+.......\glue 4.44 plus 4.99498 minus 0.37
+.......\TU/lmr/m/n/10 At
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 vero
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 eos
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue(\rightskip) 0.0
+......\penalty 150
+......\glue(\baselineskip) 3.01001
+......\hbox(6.94+2.04999)x221.0, glue set 36.07999fil
+.......\TU/lmr/m/n/10 accusam
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 justo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 duo
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 dolores
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 et
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 ea
+.......\glue 3.33 plus 1.665 minus 1.11
+.......\TU/lmr/m/n/10 rebum.
+.......\penalty 10000
+.......\glue(\parfillskip) 0.0 plus 1.0fil
+.......\glue(\rightskip) 0.0
+......\glue -2.04999
+......\glue 0.0 plus 1.0fil
+......\glue 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil
+....\special{color push gray 0}
+....\rule(*+*)x0.0
+....\special{color pop}
+....\glue 0.0 plus 1.0fil
+....\hbox(598.0+0.0)x221.0, glue set 221.0fil
+.....\vbox(598.0+0.0)x0.0, glue set 588.0fil
+......\write-{}
+......\glue(\topskip) 10.0
+......\vbox(0.0+0.0)x0.0
+......\glue 0.0 plus 1.0fil
+......\glue 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue(\baselineskip) 23.34
+..\hbox(6.66+0.21999)x452.0
+...\special{color push gray 0}
+...\hbox(6.66+0.21999)x452.0, glue set 223.5fil
+....\glue 0.0 plus 1.0fil
+....\TU/lmr/m/n/10 3
+....\glue 0.0 plus 1.0fil
+...\special{color pop}
+.\kern -682.21999
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.21999
+.\kern 0.0
+
+
+()floats-4.aux)
+
