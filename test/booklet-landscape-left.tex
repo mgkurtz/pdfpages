@@ -1,0 +1,68 @@
+\documentclass[a4paper, landscape]{article}
+\usepackage{pdfpages}
+\usepackage{booklet-test}
+
+\title{\Huge
+  Documentclass Landscape\\
+  Fold on the Left}
+\date{}
+
+\begin{document}
+\maketitle
+
+\ExpectedResult{booklet/booklet-landscape-left-1.png}
+\includepdf[pages=-, booklet,
+  nup=2x1,
+]{booklet/normal-portrait.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-landscape-left-2.png}
+\includepdf[pages=-, booklet,
+  nup=2x1,
+]{booklet/normal-landscape.pdf}
+
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-landscape-left-3.png}
+\includepdf[pages=-, booklet,
+  landscape,
+  nup=2x1,
+]{booklet/normal-portrait.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-landscape-left-4.png}
+\includepdf[pages=-, booklet,
+  landscape,
+  nup=2x1,
+]{booklet/normal-landscape.pdf}
+
+%
+% Slim format
+%
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-landscape-left-5.png}
+\includepdf[pages=-, booklet,
+  nup=2x1,
+]{booklet/slim-portrait.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-landscape-left-6.png}
+\includepdf[pages=-, booklet,
+  nup=2x1,
+]{booklet/slim-landscape.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-landscape-left-7.png}
+\includepdf[pages=-, booklet,
+  landscape,
+  nup=2x1,
+]{booklet/slim-portrait.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-landscape-left-8.png}
+\includepdf[pages=-, booklet,
+  landscape,
+  nup=2x1,
+]{booklet/slim-landscape.pdf}
+
+\end{document}

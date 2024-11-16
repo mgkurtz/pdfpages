@@ -33,8 +33,8 @@ KEY_CURSOR_DOWN=$'\e[B'
 KEY_CURSOR_RIGHT=$'\e[C'
 KEY_CURSOR_LEFT=$'\e[D'
 KEY_ESCAPE=$'\e'
-KEY_HOME=$'\eOH'
-KEY_END=$'\eOF'
+KEY_HOME=$'\e[H'
+KEY_END=$'\e[F'
 
 #
 # mupdf commands
@@ -121,13 +121,14 @@ while ReadKey  ; do
             xdotool set_window --name "$fileB" $WID_B
             ;;
         [0-9])
-            PAGENR="$PAGENR${_REPLY}"
+	    xdotool key -window $WID_A ${_REPLY}
+	    xdotool key -window $WID_B ${_REPLY}
             ;;
         g | $KEY_HOME)
-            xdotool key -window $WID_A $PAGENR g
+            xdotool key -window $WID_A g
             xdotool key -window $WID_A $FIT_PAGE
             xdotool set_window --name "$fileA" $WID_A
-            xdotool key -window $WID_B $PAGENR g
+            xdotool key -window $WID_B g
             xdotool key -window $WID_B $FIT_PAGE
             xdotool set_window --name "$fileB" $WID_B
             PAGENR=""
@@ -141,8 +142,6 @@ while ReadKey  ; do
             xdotool set_window --name "$fileB" $WID_B
             ;;
         q | $KEY_ESCAPE)
-            #xdotool key -window $WID_A $FILE_EXIT
-            #xdotool key -window $WID_B $FILE_EXIT
             kill $PID_A
             kill $PID_B
             break

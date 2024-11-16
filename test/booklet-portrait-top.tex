@@ -1,0 +1,68 @@
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+\usepackage{booklet-test}
+
+\title{\Huge
+  Documentclass Portrait\\
+  Fold on the Top}
+\date{}
+
+\begin{document}
+\maketitle
+
+\ExpectedResult{booklet/booklet-portrait-top-1.png}
+\includepdf[pages=-, booklet,
+  nup=1x2,
+]{booklet/normal-portrait.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-portrait-top-2.png}
+\includepdf[pages=-, booklet,
+  nup=1x2,
+]{booklet/normal-landscape.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-portrait-top-3.png}
+\includepdf[pages=-, booklet,
+  landscape,
+  nup=1x2,
+]{booklet/normal-portrait.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-portrait-top-4.png}
+\includepdf[pages=-, booklet,
+  landscape,
+  nup=1x2,
+]{booklet/normal-landscape.pdf}
+
+%
+% Slim format
+%
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-portrait-top-5.png}
+\includepdf[pages=-, booklet,
+  nup=1x2,
+]{booklet/slim-portrait.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-portrait-top-6.png}
+\includepdf[pages=-, booklet,
+  nup=1x2,
+]{booklet/slim-landscape.pdf}
+
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-portrait-top-7.png}
+\includepdf[pages=-, booklet,
+  landscape,
+  nup=1x2,
+]{booklet/slim-portrait.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-portrait-top-8.png}
+\includepdf[pages=-, booklet,
+  landscape,
+  nup=1x2,
+]{booklet/slim-landscape.pdf}
+
+\end{document}

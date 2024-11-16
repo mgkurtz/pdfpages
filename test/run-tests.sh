@@ -73,12 +73,14 @@ TESTS="
   demo-3
   demo-4
 
-  booklet-01
-  booklet-02
-  booklet-03
-  booklet-04
-  booklet-05
-  booklet-06
+  booklet-portrait-left
+  booklet-portrait-top
+  booklet-landscape-left
+  booklet-landscape-top
+  booklet-flip-portrait-left
+  booklet-flip-portrait-top
+  booklet-flip-landscape-left
+  booklet-flip-landscape-top
 
   pagecommand
 
