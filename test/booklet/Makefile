@@ -1,8 +1,14 @@
-all: normal-portrait.pdf normal-landscape.pdf \
-	slim-portrait.pdf slim-landscape.pdf
+PDFS= \
+	normal-portrait.pdf \
+	normal-landscape.pdf \
+	slim-portrait.pdf \
+	slim-landscape.pdf
+
+all: $(PDFS)
 
 %.pdf: %.tex
-	lualatex $^
+	lualatex $<
+	lualatex $<
 
 .PHONY: clean
 clean:

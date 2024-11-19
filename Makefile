@@ -3,35 +3,54 @@ VERSION=$(shell grep '\\def\\AM@fileversion{' pdfpages.dtx |\
 DIST=pdfpages-$(VERSION)
 DIST-DIR=$(DIST)
 
-
-DIST-FILES=pdfpages.ins pdfpages.dtx README dummy.pdf dummy-l.pdf
-CTAN-DOC-FILES=pdfpages.pdf
-
-TDS-STY-FILES=pdfpages.sty pppdftex.def ppluatex.def ppvtex.def ppxetex.def ppdvipdfmx.def ppdvips.def ppnull.def
-TDS-DOC-FILES=pdfpages.pdf pdf-ex.tex pdf-hyp.tex pdf-toc.tex \
-	 dummy.pdf dummy-l.pdf
-TDS-SRC-FILES=pdfpages.dtx pdfpages.ins README
+DIST-FILES= \
+	pdfpages.ins \
+	pdfpages.dtx \
+	README \
+	dummy.pdf \
+	dummy-l.pdf
+CTAN-DOC-FILES= \
+	pdfpages.pdf
+TDS-STY-FILES= \
+	pdfpages.sty \
+	pppdftex.def \
+	ppluatex.def \
+	ppvtex.def \
+	ppxetex.def \
+	ppdvipdfmx.def \
+	ppdvips.def \
+	ppnull.def
+TDS-DOC-FILES= \
+	pdfpages.pdf \
+	pdf-ex.tex \
+	pdf-hyp.tex \
+	pdf-toc.tex \
+	dummy.pdf \
+	dummy-l.pdf
+TDS-SRC-FILES= \
+	pdfpages.dtx \
+	pdfpages.ins \
+	README
 
 TDS-STY-DIR=tex/latex/pdfpages
 TDS-DOC-DIR=doc/latex/pdfpages
 TDS-SRC-DIR=source/latex/pdfpages
 
-
+.PHONY: all
 all: sty
 
-installer=pdfpages.installer
-ins:
-	echo '\\input{docstrip}\\askforoverwritefalse\\generate{\\file{pdfpages.ins}{\\from{pdfpages.dtx}{installer}}}\\endbatchfile' > $(installer)
-	latex $(installer)
-	rm $(installer)
-
+.PHONY: sty
 sty: ins
 	latex pdfpages.ins
 
+.PHONY: ins
+ins:
+	echo '\\input{docstrip}\\askforoverwritefalse\\generate{\\file{pdfpages.ins}{\\from{pdfpages.dtx}{installer}}}\\endbatchfile' > pdfpages.installer
+	latex pdfpages.installer
+	rm pdfpages.installer
 
-release: git-check release-force
-release-force: distclean ins
-	tex pdfpages.ins
+.PHONY: tds
+tds: sty
 	echo '\PassOptionsToClass{a4paper}{ltxdoc}' > ltxdoc.cfg
 	-pdflatex -interaction=nonstopmode pdfpages.dtx
 	pdflatex pdfpages.dtx
@@ -41,8 +60,6 @@ release-force: distclean ins
 
 	rm -rf $(DIST-DIR)
 	mkdir $(DIST-DIR)
-	mkdir $(DIST-DIR)/pdfpages
-	cp $(DIST-FILES) $(CTAN-DOC-FILES) $(DIST-DIR)/pdfpages
 	mkdir -p $(DIST-DIR)/$(TDS-STY-DIR)
 	cp $(TDS-STY-FILES) $(DIST-DIR)/$(TDS-STY-DIR)
 	mkdir -p $(DIST-DIR)/$(TDS-DOC-DIR)
@@ -55,14 +72,21 @@ release-force: distclean ins
 	find $(DIST-DIR) -type f -exec chmod 644 {} \;
 
 	cd $(DIST-DIR); zip -r pdfpages.tds.zip tex doc source
+	cp $(DIST-DIR)/pdfpages.tds.zip .
 	cd $(DIST-DIR); chmod 644 pdfpages.tds.zip
-	cd $(DIST-DIR); rm -r tex doc source
 
-#	cd $(DIST-DIR); tar cjfh $(DIST).tar.bz2 *
+.PHONY: release
+release: git-check release-force
+
+.PHONY: release-force
+release-force: tds
+	mkdir $(DIST-DIR)/pdfpages
+	cp $(DIST-FILES) $(CTAN-DOC-FILES) $(DIST-DIR)/pdfpages
+	cd $(DIST-DIR); rm -r tex doc source
 	cd $(DIST-DIR); zip -r $(DIST).zip *
 	cd $(DIST-DIR); rm -rf pdfpages pdfpages.tds.zip
 
-
+.PHONY: git-check
 git-check:
 ifneq "$(shell git status --porcelain pdfpages.dtx)" ""
 	@echo "!!!"
@@ -75,15 +99,20 @@ endif
 	rm pdfpages.dtx
 	git checkout pdfpages.dtx
 
-FORCE:
+subdirs := test
+.PHONY: $(subdirs)
+$(subdirs):
+	$(MAKE) -C $@ $(MAKECMDGOALS)
 
-clean:
-	rm -f pdfpages.{sty,aux,log,toc,out,dvi,pdf}
+.PHONY: clean
+clean: $(subdirs)
+	rm -f $(addprefix pdfpages, .sty .aux .log .toc .out .dvi .pdf .hd)
+	rm -f $(addprefix pdf-ex, .tex .log .aux)
+	rm -f $(addprefix pdf-hyp, .tex .log .aux)
+	rm -f $(addprefix pdf-toc, .tex .log .aux)
 	rm -f $(TDS-STY-FILES)
-	rm -f pdf-ex.{tex,log,aux}
-	rm -f pdf-hyp.{tex,log,aux}
-	rm -f pdf-toc.{tex,log,aux}
-	rm -rf $(TMP-DIR)
 
-distclean: clean
-	rm -f *.bz2 pdfpages.ins
+.PHONY: distclean
+distclean: clean $(subdirs)
+	rm -f pdfpages.tds.zip
+

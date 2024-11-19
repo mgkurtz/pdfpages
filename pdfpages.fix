@@ -9,34 +9,7 @@
   \expandafter\endinput
 \fi
 
-\def\tmp{xetex}
-\ifx\AM@driver\tmp
-  
-\def\AM@getpagecount{%
-  \expandafter\filename@parse\expandafter{\AM@currentdocname}%
-  \edef\type@ext{%
-    \noexpand\lowercase{%
-      \noexpand\def\noexpand\type@ext{.\filename@ext}}}%
-  \type@ext
-  \ifx\type@ext\AM@pdf@ext
-    \ifdefined\subfix
-      \let\AM@import@path\@empty
-    \else
-      \ifdefined\import@path
-        \let\AM@import@path\import@path
-      \else
-        \let\AM@import@path\@empty
-      \fi
-    \fi
-    \setbox\@tempboxa=\hbox{\includegraphics{\AM@currentdocname}}%
-    \edef\AM@pagecount{\the\XeTeXpdfpagecount\AM@XeTeXquote
-      \AM@import@path\AM@currentdocname\AM@XeTeXquote\relax}%
-  \else
-    \def\AM@pagecount{1}%
-  \fi
-}
-
-\fi
+%%% bugfix code here
 
 \endinput
 
