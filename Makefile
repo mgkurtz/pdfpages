@@ -106,7 +106,7 @@ $(subdirs):
 
 .PHONY: clean
 clean: $(subdirs)
-	rm -f $(addprefix pdfpages, .sty .aux .log .toc .out .dvi .pdf .hd)
+	rm -f $(addprefix pdfpages, .ins .sty .aux .log .toc .out .dvi .pdf .hd)
 	rm -f $(addprefix pdf-ex, .tex .log .aux)
 	rm -f $(addprefix pdf-hyp, .tex .log .aux)
 	rm -f $(addprefix pdf-toc, .tex .log .aux)
