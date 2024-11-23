@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{5227}
+%    \CheckSum{5182}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1011,7 +1011,7 @@
 %    But it should not be used for both at the same time.
 %
 %    For duplex printing there are two ways of flipping a sheet of
-%    paper. Either by the long edge or by the short edge. But note that
+%    paper. Either on the long edge or on the short edge. But note that
 %    the layouts are different depending on the flip edge.
 %
 %    Thus, you have to tell you printer in the printer settings which
@@ -1052,9 +1052,9 @@
 %            \fi
 %          }%
 %          \ifpflip
-%            \flipedge (TL)++(0, 3pt) -- ++(\pw, 0);
-%          \else
 %            \flipedge (BL)++(-3pt, 0) -- ++(0, \ph);
+%          \else
+%            \flipedge (TL)++(0, 3pt) -- ++(\pw, 0);
 %          \fi
 %        \else
 %          ^^A portrait page
@@ -1069,9 +1069,9 @@
 %            \fi
 %          }%
 %          \ifpflip
-%            \flipedge (BL)++(-3pt, 0) -- ++(0, \ph);
-%          \else
 %            \flipedge (TL) ++(0, 3pt) -- ++(\pw, 0);
+%          \else
+%            \flipedge (BL)++(-3pt, 0) -- ++(0, \ph);
 %          \fi
 %        \fi
 %    }}
@@ -1081,7 +1081,7 @@
 %    \def\cvert#1{\multicolumn{1}{c}{\adjustbox{valign=c}{#1}}}
 %
 %    \medskip
-%    • Flip edge perpendicular to binding edge:
+%    • Flip edge paralell to binding edge:
 %
 %    \begin{small}
 %      \begin{tabularx}{\linewidth}{X@{\qquad\qquad}X}
@@ -1096,7 +1096,7 @@
 %    \end{small}\medskip
 %
 %    \medskip
-%    • Flip edge parallel to binding edge:
+%    • Flip edge perpendicular to binding edge:
 %
 %    \begin{small}
 %      \begin{tabularx}{\linewidth}{X@{\qquad\qquad}X}
@@ -1710,22 +1710,12 @@
   \fi
 %    \end{macrocode}
 %    \begin{macrocode}
-  % \ifthenelse{\boolean{AM@landscape}}{%
-  %   \def\AM@lscape@rot{90}%
-  %   \@ifundefined{AM@shortnupsyntax}{}{%
-  %     \let\AM@temp\AM@xnup
-  %     \let\AM@xnup\AM@ynup
-  %     \let\AM@ynup\AM@temp}%
-  % }{}%
-
   \ifAM@landscape
     \def\AM@lscape@rot{90}%
       \let\AM@temp\AM@xnup
       \let\AM@xnup\AM@ynup
       \let\AM@ynup\AM@temp
   \fi
-
-  
   \AM@setphantom
   \ifthenelse{\boolean{AM@openright}\and\not\boolean{AM@openrighteach}}
          {\AM@openright}{}%
@@ -1890,9 +1880,6 @@
     \edef\AM@xnup{\AM@ynup}%
     \edef\AM@ynup{\AM@temp}%
   }{}%
-  % \ifAM@signature
-  %   \ifAM@landscape\AM@upsidedownfalse\else\AM@upsidedowntrue\fi
-  % \fi
 %    \end{macrocode}
 %    This loop arranges one or more \PDF\ pages onto each sheet
 %    of paper.
@@ -2112,10 +2099,10 @@
 %    \begin{macrocode}
     \ifnum\AM@xnupi=1
       \ifnum\AM@ynupi=1
-        \ifAM@reflectall \setbox\AM@pagebox\null \fi
-
+        \ifAM@reflectall
+          \setbox\AM@pagebox\null
+        \fi
         \ifAM@swap@flip@edge
-        \else
           \ifAM@signature
             \ifAM@upsidedown\AM@upsidedownfalse\else\AM@upsidedowntrue\fi
             \@tempdima=\AM@xoffset\relax
@@ -2123,7 +2110,6 @@
             \edef\AM@xoffset{\the\@tempdima}%
           \fi
         \fi
-        
       \fi
     \fi
     \ifAM@phantompage
@@ -2242,20 +2228,6 @@
           }%
           \AM@ClearShipoutPicture
         \fi
-%    \end{macrocode}
-%    When creating signatures, every second page must be rotated
-%    by $180^{\circ}$ and therefore the xoffset must be multiplied
-%    by $-1$.
-%    \begin{macrocode}
-        % \message{^^J Next: \ifAM@upsidedown ROT ROT ROT\else--- --- ---\fi}
-        % \ifAM@swap@flip@edge
-        %   \ifAM@signature
-        %     \ifAM@upsidedown\AM@upsidedownfalse\else\AM@upsidedowntrue\fi
-        %     \@tempdima=\AM@xoffset\relax
-        %     \multiply\@tempdima\m@ne
-        %     \edef\AM@xoffset{\the\@tempdima}%
-        %   \fi
-        % \fi
       \fi
     \fi
 %    \end{macrocode}
@@ -3073,29 +3045,29 @@
       \ifAM@landscape
         \ifAM@signaturestar
           \ifAM@swap@flip@edge
-            \AM@first\AM@last\AM@last\AM@first
-          \else
             \AM@last\AM@first\AM@last\AM@first
+          \else
+            \AM@first\AM@last\AM@last\AM@first
           \fi
         \else
           \ifAM@swap@flip@edge
-            \AM@last\AM@first\AM@first\AM@last
-          \else
             \AM@first\AM@last\AM@first\AM@last
+          \else
+            \AM@last\AM@first\AM@first\AM@last
           \fi
         \fi
       \else
         \ifAM@signaturestar
           \ifAM@swap@flip@edge
-            \AM@first\AM@last\AM@last\AM@first
-          \else
             \AM@last\AM@first\AM@last\AM@first
+          \else
+            \AM@first\AM@last\AM@last\AM@first
           \fi
         \else
           \ifAM@swap@flip@edge
-            \AM@last\AM@first\AM@first\AM@last
-          \else
             \AM@first\AM@last\AM@first\AM@last
+          \else
+            \AM@last\AM@first\AM@first\AM@last
           \fi
         \fi
       \fi
@@ -3492,10 +3464,7 @@
         \def\AM@signature{non-empty}
         \AM@signaturestartrue
       \fi}}
-
-\define@key{pdfpages}{swap-flip-edge}[true]{
-  \setboolean{AM@swap@flip@edge}{#1}}
-
+\define@key{pdfpages}{swap-flip-edge}[true]{\setboolean{AM@swap@flip@edge}{#1}}
 \define@key{pdfpages}{pagetemplate}{\AM@CheckValue{pagetemplate}{#1}%
                                     \def\AM@pagetemplate{#1}}
 \define@key{pdfpages}{templatesize}{\expandafter\AM@parse@templatesize\expanded{#1}\END}

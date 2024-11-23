@@ -1,0 +1,78 @@
+\documentclass[a4paper, landscape]{article}
+\usepackage{pdfpages}
+\usepackage{booklet-test}
+
+\title{\Huge
+  Booklet with Top-Binding\\
+  and\\
+  Included Landscape Pages\\
+  {\LARGE (Documentclass \texttt{landscape)}}}
+\date{}
+
+\begin{document}
+\maketitle
+
+%
+% Landscape pages on portrait paper
+%
+\ExpectedResult{booklet/booklet-TL-2-1.png}
+\includepdf[pages=-, booklet,
+  nup=1x2, landscape,
+]{booklet/normal-landscape.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-TL-2-1.png}
+\includepdf[pages=-, booklet,
+  nup=1x2, landscape,
+  swap-flip-edge,
+]{booklet/normal-landscape.pdf}
+
+%
+% Landscape pages on landscape paper
+%
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-TL-2-2.png}
+\includepdf[pages=-, booklet,
+  nup=1x2,
+]{booklet/normal-landscape.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-TL-2-2.png}
+\includepdf[pages=-, booklet,
+  nup=1x2,
+  swap-flip-edge,
+]{booklet/normal-landscape.pdf}
+
+%
+% Landscape pages (slim) on portrait paper
+%
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-TL-2-3.png}
+\includepdf[pages=-, booklet,
+  nup=1x2, landscape,
+]{booklet/slim-landscape.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-TL-2-3.png}
+\includepdf[pages=-, booklet,
+  nup=1x2, landscape,
+  swap-flip-edge,
+]{booklet/slim-landscape.pdf}
+
+%
+% Landscape pages (slim) on landscape paper
+%
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-TL-2-3.png}
+\includepdf[pages=-, booklet,
+  nup=1x2,
+]{booklet/slim-landscape.pdf}
+
+\mbox{}\newpage
+\ExpectedResult{booklet/booklet-TL-2-3.png}
+\includepdf[pages=-, booklet,
+  nup=1x2,
+  swap-flip-edge
+]{booklet/slim-landscape.pdf}
+
+\end{document}

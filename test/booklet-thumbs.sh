@@ -26,8 +26,10 @@ function cleanup() {
 }
 
 function run() {
-    echo "Creating thumbs: $1.pdf"
     file=$1
+    echo "Running LaTeX:   $1.tex"
+    lualatex $file &> /dev/null
+    echo "Creating thumbs: $1.pdf"
     create_thumbs $file.pdf
     join_thumbs  3 $file-1.png
     join_thumbs  9 $file-2.png
@@ -40,13 +42,12 @@ function run() {
     cleanup
 }
 
-run booklet-portrait-left
-run booklet-portrait-top
-run booklet-landscape-left
-run booklet-landscape-top
+run booklet-LP-1
+run booklet-LP-2
+run booklet-LL-1
+run booklet-LL-2
 
-run booklet-flip-portrait-left
-run booklet-flip-portrait-top
-run booklet-flip-landscape-left
-run booklet-flip-landscape-top
-
+run booklet-TP-1
+run booklet-TP-2
+run booklet-TL-1
+run booklet-TL-2
