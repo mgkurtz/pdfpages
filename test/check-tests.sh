@@ -29,9 +29,10 @@ files=$@
 test -d $dirA || dir_error $dirA
 test -d $dirB || dir_error $dirB
 
+shopt -s nullglob
 if [ "$files" = "" ]
 then
-    files=$(cd $dirA; ls -x *.pdf)
+    files=$(cd $dirA; ls -x *.pdf */*.pdf)
 fi
 
 
@@ -54,6 +55,6 @@ do
         continue
     fi
 
+    echo "Comparing $fileA and $fileB"
     ./check-pdf.sh $fileA $fileB
-   
 done

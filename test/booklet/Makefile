@@ -17,3 +17,5 @@ clean:
 .PHONY: distclean
 distclean: clean
 	rm -f *.pdf
+
+test:

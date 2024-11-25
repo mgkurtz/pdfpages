@@ -115,7 +115,7 @@ SPECIAL_TESTS="
 TESTS="$TESTS $SPECIAL_TESTS"
 
 LATEX_ENGINES="pdflatex lualatex xelatex platex"
-LATEX_ENGINES="lualatex"
+#LATEX_ENGINES="lualatex"
 
 BATCH=false
 
@@ -153,9 +153,7 @@ while true; do
             shift
             ;;
         "-c" | "--clean")
-            rm -f *.{aux,log,out,toc,lof,lot,lol,pdc,pdf,ps}
-            ln -sf pdf/1.pdf .
-            ln -sf pdf/2-4.pdf .
+            rm -f *.{aux,log,out,toc,lof,lot,lol,pdc,pdf,ps,dvi}
             exit 0
             ;;
         "--old")
@@ -250,18 +248,16 @@ function run_platex ()
 function regular_test()
 {
     for LATEX in $LATEX_ENGINES
-    do
+    do (
         message ${LATEX^^} $1
+        cd -- $LATEX
+        ln -fs ../$1.tex
         run $LATEX $1
-        run $LATEX $1
-        run $LATEX $1
+        grep -q 'Package rerunfilecheck Warning:' $1.log && run $LATEX $1
+        grep -q 'Package rerunfilecheck Warning:' $1.log && run $LATEX $1
         post_run $LATEX $1
-        RES="$1-$LATEX.pdf"
-        ALL_TESTS="$ALL_TESTS $RES"
-        mv $1.pdf $RES
-
-        if_not_batch $PDF_VIEWER $RES
-    done
+        if_not_batch $PDF_VIEWER $1.pdf
+    ) done
 }
 
 function msg_error()
@@ -271,7 +267,8 @@ function msg_error()
 }
 
 function special_test()
-{
+{ (
+    rm -rf special; mkdir special; cd special
     case $1 in
         ps-tricks)
             message PS4PDF $i
@@ -308,9 +305,12 @@ function special_test()
             exit
             ;;
     esac
-    ALL_TESTS="$ALL_TESTS $RES"
-}
+) }
 
+rm -rf $LATEX_ENGINES
+mkdir -p -- $LATEX_ENGINES
+
+export TEXINPUTS=..:../pdf:
 
 for i in $TESTS
 do
@@ -320,7 +320,6 @@ do
     else
         special_test $i
     fi
-    
 done
 
 
@@ -328,8 +327,15 @@ done
 # backup results
 #
 DEST=results_$(date -I)
-test -d $DEST || mkdir $DEST
+mkdir -p $DEST
 test "$ALL_TESTS" != "" && mv $ALL_TESTS $DEST
+for LATEX in special $LATEX_ENGINES; do
+    if ls -- $LATEX/*.pdf &>/dev/null; then
+        mkdir -p $DEST/$LATEX
+        mv $LATEX/*.pdf $DEST/$LATEX
+        rm -rf $LATEX
+    fi
+done
 
 #
 # cleanup

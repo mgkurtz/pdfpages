@@ -14,3 +14,4 @@ clean:
 .PHONY: distclean
 distclean: clean unlink-test-files
 
+test:

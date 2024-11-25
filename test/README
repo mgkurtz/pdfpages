@@ -1,4 +1,17 @@
-This are tests of pdfpages.sty
+# Regression tests for pdfpages
+
+To create the pdf files from all tests via lualatex run
+
+    ./run-tests.sh --batch
+
+This will take some time and put todays results in a results_YYYY-MM-DD folder.
+When you have xdotool and mupdf installed, you can compare the results in two
+folders by running check-tests.sh and keeping the terminal window focussed
+while pressing arrow keys (or `q` for exit) to watch the pdfs.
+
+    ./check-tests.sh <result-folder> <expectation-folder>
+
+## List of tests
 
 *) fulltest.tex		Some basic test
    full-post.tex        VTeX: include PostScript (vlatex and vlatexp)
@@ -42,4 +55,3 @@ This are tests of pdfpages.sty
 *) status-check.tex    run:
                           lualatex status-check.tex
                           diff <(grep -A2 'pdfpagesfile:' status-check.log) status-check-diff.txt
-                          
