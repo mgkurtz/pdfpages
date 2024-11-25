@@ -40,7 +40,7 @@ TDS-SRC-DIR=source/latex/pdfpages
 all: sty
 
 .PHONY: sty
-sty: ins
+sty: ins git-config smudge
 	latex pdfpages.ins
 
 .PHONY: ins
@@ -98,6 +98,18 @@ ifneq "$(shell git status --porcelain pdfpages.dtx)" ""
 endif
 	rm pdfpages.dtx
 	git checkout pdfpages.dtx
+
+.PHONY: git-config
+git-config:
+	git config filter.date_sha1.clean 'scripts/git_filter_date_sha1 --clean'
+	git config filter.date_sha1.smudge 'scripts/git_filter_date_sha1 --smudge'
+
+.PHONY: smudge
+smudge:
+ifeq '$(findstring $$Date: YYYY-MM-DD, $(file < pdfpages.dtx))' '$$Date: YYYY-MM-DD'
+	scripts/git_filter_date_sha1 --smudge <pdfpages.dtx >pdfpages-smudge.dtx
+	mv pdfpages-smudge.dtx pdfpages.dtx
+endif
 
 subdirs := test
 .PHONY: $(subdirs)
