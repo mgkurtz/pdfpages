@@ -1,0 +1,18 @@
+name: CI
+
+on: [ push, pull_request ]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get -y --no-install-recommends install texlive-latex-extra texlive-xetex texlive-luatex poppler-utils
+    - name: Check TeX log
+      run: l3build check booklet-LL-1 demo-1 pagecommand fulltest-a
+    - name: Upload build folder
+      uses: actions/upload-artifact@v4
+      with:
+        name: build
+        path: build/
