@@ -2,10 +2,9 @@ module = "pdfpages"
 
 dynamicfiles = {"*.aux", "*.toc", "*.out"}
 
-target_list.check.pre = function(_)
-	return os.setenv("PATH",  ".:" .. os.getenv("PATH")) and runcmd("make all", "test") or 1
+checkinit_hook = function(_)
+	return runcmd("make all", "test") or 1
 end
-target_list.save.pre = target_list.check.pre
 
 uploadconfig = {
 	pkg = "pdfpages",
