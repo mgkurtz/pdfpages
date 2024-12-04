@@ -1,10 +1,6 @@
 #!/bin/bash
 
-read hash
-
-echo "0$hash" | grep -q '^[0-9a-f]*$' || { echo "smudging $hash did not work" >&2; exit 1; }
-
 case "$1" in
---smudge) git show "nolfs:$hash" ;;
---clean) cat ;; # For now
+--smudge) read hash; git show "nolfs:$hash" ;;
+--clean) sha1sum | cut -f1 -d\  ;; # For now
 esac
