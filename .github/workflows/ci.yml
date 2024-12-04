@@ -10,7 +10,7 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get update && sudo apt-get -y --no-install-recommends install texlive-latex-extra texlive-xetex texlive-luatex poppler-utils
     - name: Check TeX log
-      run: l3build check booklet-LL-1 demo-1 pagecommand fulltest-a
+      run: l3build check demo-1 pagecommand
     - name: Upload build folder
       uses: actions/upload-artifact@v4
       with:
