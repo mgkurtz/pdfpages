@@ -3,7 +3,7 @@ name: CI
 on: [ push, pull_request ]
 
 jobs:
-  setup:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -12,6 +12,7 @@ jobs:
     - name: Check TeX log
       run: l3build check demo-1 pagecommand
     - name: Upload build folder
+      if: ${{ failure() }}
       uses: actions/upload-artifact@v4
       with:
         name: build
