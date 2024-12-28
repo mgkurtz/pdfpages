@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.6c}
+\def\AM@fileversion{v0.6d-git}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -1384,6 +1384,7 @@
   \global\pdfpages@includegraphics@status\tw@
   \@ifundefined{@setmarks}{\let\@setmarks\relax}{}
   \AM@pagecnt\@ne
+  \AM@reset@view
   \let\AM@threadname\relax
   \def\AM@tmp{pdfpages}
   \expandafter\AM@split@options
@@ -1451,6 +1452,8 @@
   \begingroup
   \global\pdfpages@includegraphics@status\tw@
   \AM@pagecnt\@ne
+  \AM@reset@view
+  \let\AM@threadname\relax
   \let\AM@currentdocname\relax
   \def\AM@tmp{pdfpages}
   \expandafter\AM@split@options
@@ -1945,10 +1948,6 @@
     \setlength{\@tempdima}{\AM@ypos}%
     \edef\AM@ypos{\strip@pt\@tempdima}%
 %    \end{macrocode}
-%    Calculate |fitr| coordinates, if |linkfit=region|.
-%    \begin{macrocode}
-     \AM@region@calc
-%    \end{macrocode}
 %    Ship out page.
 %    \begin{macrocode}
     \ifnum\AM@xnupi=1
@@ -1973,7 +1972,8 @@
 %    \end{macrocode}
 %    Raise the target of a link to the top of the included page.
 %    \begin{macrocode}
-        \noexpand\raise \ht\@tempboxa \hbox{\AM@hyper@begin@i}%
+        \noexpand\raise \ifx\\\AM@view@ypos\\\ht\@tempbox\else\AM@view@ypos\p@\fi
+        \hbox to 0pt {\hskip\AM@view@xpos bp\AM@hyper@begin@i}%
 %    \end{macrocode}
 %    \begin{macrocode}
         \global\pdfpages@includegraphics@status\@ne
@@ -3363,7 +3363,14 @@
       \dimen@.99626\dimen@
       \edef#2{\strip@pt\dimen@ bp}%
     \fi
-}
+  }
+%    \end{macrocode}
+%    Multiplication of #1 by 1000.
+%    Used to calculate the zoom factor (destination XYZ) for pdftex and luatex.
+%    \begin{macrocode}
+\def\AM@thousand#1{\AM@thousand@i#1.0000.\END}
+\def\AM@thousand@i#1.#2.#3\END{\AM@thousand@ii#1.#2#3\END}
+\def\AM@thousand@ii#1.#2#3#4#5#6\END{#1#2#3#4}
 %    \end{macrocode}
 %    Load patch file, if one exists.
 %    \begin{macrocode}
@@ -3603,7 +3610,10 @@
 %    \end{macrocode}
 %    Destination of links.
 %    \begin{macrocode}
-\def\AM@view{fit}
+\def\AM@reset@view{%
+  \def\AM@view{fit}%
+  \def\AM@view@xpos{0}%
+  \def\AM@view@ypos{}}
 \def\AM@dest@special{\AM@destination name {\AM@linkname.\AM@page} \AM@view}
 \def\AM@anchor@special{\AM@destination name {pdfpages.\the\count1} fit}
 %    \end{macrocode}
@@ -3611,29 +3621,32 @@
 %    \pdfTeX\ does not support positional parameters to |fith| etc.
 %    \begin{macrocode}
 \def\AM@convert@dest#1{%
-  \expandafter\AM@convert@dest@i\ifdim\z@=0pt#1 \END\fi}
-\def\AM@convert@dest@i#1 #2\END{%
-  \begingroup
+  \AM@convert@dest@i #1 0 0 0\END}
+\def\AM@convert@dest@i#1 #2 #3 #4\END{%
   \def\tag{#1}%
   \def\x{FitH}%
   \ifx\x\tag
-    \gdef\AM@view{fith}%
+    \def\AM@view{fith}%
+    \def\AM@view@ypos{#2}%
   \else
     \def\x{FitBH}%
     \ifx\x\tag
-      \gdef\AM@view{fitbh}%
+      \def\AM@view{fitbh}%
+      \def\AM@view@ypos{#2}%
     \else
       \def\x{FitV}%
       \ifx\x\tag
-        \gdef\AM@view{fitv}%
+        \def\AM@view{fitv}%
+        \def\AM@view@xpos{#2}%
       \else
         \def\x{FitBV}%
         \ifx\x\tag
-          \gdef\AM@view{fitbv}%
+          \def\AM@view{fitbv}%
+          \def\AM@view@xpos{#2}%
         \else
           \def\x{FitR}%
           \ifx\x\tag
-            \gdef\AM@view{fitr}%
+            \def\AM@view{fitr}%
             \PackageWarningNoLine{pdfpages}{%
               `linkfit=FitR' is not supported,
               I will try `linkfit=Region'.}%
@@ -3641,19 +3654,22 @@
           \else
             \def\x{FitB}%
             \ifx\x\tag
-              \gdef\AM@view{fitb}%
+              \def\AM@view{fitb}%
             \else
-              \def\x{XZY}%
+              \def\x{XYZ}%
               \ifx\x\tag
-                \gdef\AM@view{xyz zoom #2}%
+                \def\AM@view{xyz zoom \AM@thousand{#4}}%
+                \def\AM@view@xpos{#2}
+                \def\AM@view@ypos{#3}
               \else
                 \def\x{Region}%
                 \ifx\x\tag
-                  \gdef\AM@view{fitr
-                                width\the\wd\@tempboxa\space
-                                height0pt depth\AM@region@depth}%
+                  \def\AM@view{fitr
+                    width \the\wd\@tempboxa
+                    height \the\ht\@tempboxa
+                    depth \the\dp\@tempboxa}%
                 \else
-                  \gdef\AM@view{fit}%
+                  \def\AM@view{fit}%
                 \fi
               \fi
             \fi
@@ -3662,11 +3678,6 @@
       \fi
     \fi
   \fi
-  \endgroup
-}
-\def\AM@region@calc{%
-  \setlength{\@tempdima}{\ht\@tempboxa + \dp\@tempboxa}%
-  \edef\AM@region@depth{\the\@tempdima}%
 }
 %    \end{macrocode}
 %    Do not disable |\includegraphics|.
@@ -3790,13 +3801,16 @@
 %    \end{macrocode}
 %    Destination of links.
 %    \begin{macrocode}
+\def\AM@reset@view{%
+  \def\AM@view{}%
+  \def\AM@view@xpos{0}%
+  \def\AM@view@ypos{}}
 \def\AM@dest@special{\special{!aname \AM@linkname.\AM@page}}
 \def\AM@anchor@special{\special{!aname pdfpages.\the\count1}}
 %    \end{macrocode}
 %    Convert synatx of \PDF\ destinations.
 %    \begin{macrocode}
 \def\AM@convert@dest#1{}
-\def\AM@region@calc{}
 %    \end{macrocode}
 %    Do not disable |\includegraphics|.
 %    \begin{macrocode}
@@ -3990,7 +4004,10 @@
 %    \end{macrocode}
 %    Destination of links.
 %    \begin{macrocode}
-\def\AM@view{/Fit}
+\def\AM@reset@view{%
+  \def\AM@view{/Fit}%
+  \def\AM@view@xpos{0}%
+  \def\AM@view@ypos{}}
 \def\AM@dest@special{%
   \special{pdf: dest (\AM@linkname.\AM@page) [ @thispage \AM@view ]}}
 \def\AM@anchor@special{%
@@ -3999,47 +4016,52 @@
 %    Convert synatx of \PDF\ destinations.
 %    \begin{macrocode}
 \def\AM@convert@dest#1{%
-  \expandafter\AM@convert@dest@i\ifdim\z@=0pt#1 \END\fi}
-\def\AM@convert@dest@i#1 #2\END{%
-  \begingroup
+  \AM@convert@dest@i #1 0 0 0\END}
+\def\AM@convert@dest@i#1 #2 #3 #4\END{%
   \def\tag{#1}%
   \def\x{FitH}%
   \ifx\x\tag
-    \gdef\AM@view{/FitH @ypos}%
+    \def\AM@view{/FitH @ypos}%
+    \def\AM@view@ypos{#2}%
   \else
     \def\x{FitBH}%
     \ifx\x\tag
-      \gdef\AM@view{/FitBH @ypos}%
+      \def\AM@view{/FitBH @ypos}%
+      \def\AM@view@ypos{#2}%
     \else
       \def\x{FitV}%
       \ifx\x\tag
-        \gdef\AM@view{/FitV @xpos}%
+        \def\AM@view{/FitV @xpos}%
+        \def\AM@view@xpos{#2}%
       \else
         \def\x{FitBV}%
         \ifx\x\tag
-          \gdef\AM@view{/FitBV @xpos}%
+          \def\AM@view{/FitBV @xpos}%
+          \def\AM@view@xpos{#2}%
         \else
           \def\x{fitr}%
           \ifx\x\tag
-            \gdef\AM@view{/XYZ @xpos @ypos null}%
+            \def\AM@view{/XYZ @xpos @ypos null}%
             \PackageWarningNoLine{pdfpages}{%
               `linkfit=FitR' is not supported.}%
           \else
             \def\x{FitB}%
             \ifx\x\tag
-              \gdef\AM@view{/FitB}%
+              \def\AM@view{/FitB}%
             \else
               \def\x{XYZ}%
               \ifx\x\tag
-                \gdef\AM@view{/XYZ @xpos @ypos null}%
+                \def\AM@view{/XYZ @xpos @ypos #4}%
+                \def\AM@view@xpos{#2}%
+                \def\AM@view@ypos{#3}%
               \else
                 \def\x{Region}%
                 \ifx\x\tag
-                  \gdef\AM@view{/XYZ @xpos @ypos null}%
+                  \def\AM@view{/XYZ @xpos @ypos null}%
                   \PackageWarningNoLine{pdfpages}{%
                     `linkfit=Region' is not supported by XeTeX.}%
                 \else
-                  \gdef\AM@view{/Fit}%
+                  \def\AM@view{/Fit}%
                 \fi
               \fi
             \fi
@@ -4048,9 +4070,7 @@
       \fi
     \fi
   \fi
-  \endgroup
 }
-\def\AM@region@calc{}
 %    \end{macrocode}
 %    Do not disable |\includegraphics|.
 %    \begin{macrocode}
@@ -4130,13 +4150,16 @@
 %    \end{macrocode}
 %    Destination of links.
 %    \begin{macrocode}
+\def\AM@reset@view{%
+  \def\AM@view{}%
+  \def\AM@view@xpos{0}%
+  \def\AM@view@ypos{}}
 \def\AM@dest@special{\AM@notsupported{Links}}
 \def\AM@anchor@special{\AM@notsupported{Links}}
 %    \end{macrocode}
 %    Convert synatx of \PDF\ destinations.
 %    \begin{macrocode}
 \def\AM@convert@dest#1{}
-\def\AM@region@calc{}
 %    \end{macrocode}
 %    Do not disable |\includegraphics|.
 %    \begin{macrocode}
@@ -4358,7 +4381,10 @@
 %    \end{macrocode}
 %    Destination of links.
 %    \begin{macrocode}
-\def\AM@view{/Fit}
+\def\AM@reset@view{%
+  \def\AM@view{/Fit}%
+  \def\AM@view@xpos{0}%
+  \def\AM@view@ypos{}}
 \def\AM@dest@special{%
   \special{pdf: dest (\AM@linkname.\AM@page) [ @thispage \AM@view ]}}
 \def\AM@anchor@special{%
@@ -4418,7 +4444,6 @@
   \fi
   \endgroup
 }
-\def\AM@region@calc{}
 %    \end{macrocode}
 %    Do not disable |\includegraphics|.
 %    \begin{macrocode}
@@ -4510,6 +4535,10 @@
 %    \end{macrocode}
 %    Destination of links.
 %    \begin{macrocode}
+\def\AM@reset@view{%
+  \def\AM@view{}%
+  \def\AM@view@xpos{0}%
+  \def\AM@view@ypos{}}
 \let\AM@dest@special\relax
 \let\AM@anchor@special\relax
 %    \end{macrocode}
@@ -4526,9 +4555,6 @@
 %    Don't check page numbers.
 %    \begin{macrocode}
 \newcommand*{\AM@checkpagenumber}[1]{}
-%    \end{macrocode}
-%    \begin{macrocode}
-\def\AM@region@calc{}
 %    \end{macrocode}
 %
 %    \iffalse
