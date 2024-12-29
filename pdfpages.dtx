@@ -2159,7 +2159,9 @@
 \def\AM@readlisti#1,{%
   \ifx\AM@currentdocname\relax
   \else
-    \AM@getpagecount
+    \ifx\AM@pagecount\AM@undefined
+      \AM@getpagecount
+    \fi
   \fi
   \def\AM@temp{#1}%
   \ifx\END#1
@@ -4258,6 +4260,10 @@
   \immediate\openin\@inputcheck=\AM@xbb@filename
   \AM@read@xbb\@inputcheck
   \immediate\closein\@inputcheck
+  \ifx\AM@pagecount\AM@undefined
+  \else
+    \PackageInfo{pdfpages}{Reading file `\AM@xbb@filename'}%
+  \fi
 %    \end{macrocode}
 %    Try reading output of program |extractbb|.
 %    \begin{macrocode}
@@ -4266,6 +4272,10 @@
       \AM@quote|extractbb -O \AM@currentdocname\AM@quote
     \AM@read@xbb\@inputcheck
     \immediate\closein\@inputcheck
+    \ifx\AM@pagecount\AM@undefined
+    \else
+      \PackageInfo{pdfpages}{Running extractbb on file `\AM@currentdocname'}%
+    \fi
   \fi
 %    \end{macrocode}
 %    If all fails set number of pages to 1. Maybe it is a graphics file
