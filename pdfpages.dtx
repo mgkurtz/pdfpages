@@ -2987,7 +2987,7 @@
   \def\@seccntformat##1{}\def\@makechapterhead##1{}%
   \def\@endpart{}\def\partname{}%
   \def\autodot{}% KOMA classes
-  \def\ch@pt@c{\the\AM@toc@title}% memoir classes
+  \edef\ch@pt@c{\the\AM@toc@title}% memoir classes
   \let\AM@addcontentsline\addcontentsline
   \def\addcontentsline##1##2##3{%
     \AM@addcontentsline{##1}{##2}{##3}%
