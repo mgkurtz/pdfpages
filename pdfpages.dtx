@@ -417,10 +417,10 @@
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{booklet=false}
 %       \item[booklet*] Similar to |booklet|, but for right-edge binding.
-%       \item[swap-flip-edge] Swap the flip edge for duplex printing.
+%       \item[flip-other-edge] Flip paper for duplex printing on the other edge.
 %                     Only relevant in combination with |booklet|, |booklet*|,
 %                     |signature|, or |signature*|. See section \ref{sec:booklets}.
-%                     \df{swap-flip-edge=false}
+%                     \df{flip-other-edge=false}
 %       \item[picturecommand] Declares picture commands which are executed
 %                      on every page within a picture environment with the
 %                      base point at the lower left corner of the page.
@@ -1001,7 +1001,7 @@
 %      overriding any |nup| setting of the user. But this is no longer the
 %      case. Now the user has to choose a correct |nup| setting.}  of the
 %      |\includepdf| command.
-%    \item Option |swap-flip-edge| of the |\includepdf| command.
+%    \item Option |flip-other-edge| of the |\includepdf| command.
 %    \end{itemize}
 %
 %    Changing the paper orientation to landscape can be done either by
@@ -1016,7 +1016,7 @@
 %
 %    Thus, you have to tell you printer in the printer settings which
 %    flip edge you prefer. And you have to generate the corresponding
-%    layout with |\includepdf|, which provides the option |swap-flip-edge|
+%    layout with |\includepdf|, which provides the option |flip-other-edge|
 %    to swap the flip edge.
 %
 %    Here are some examples in which the flip edge is marked by a red
@@ -1106,7 +1106,7 @@
 %        |\includepdf[|                       & |\includepdf[|                       \\
 %        |   pages=-,|                        & |   pages=-,|                        \\
 %        |   booklet, nup=2x1,|               & |   booklet, nup=1x2|                \\
-%        |   swap-flip-edge|                  & |   swap-flip-edge|                  \\
+%        |   flip-other-edge|                 & |   flip-other-edge|                 \\
 %        |]{...}|                             & |]{...}|                             \\
 %      \end{tabularx}
 %    \end{small}
@@ -2822,7 +2822,7 @@
               \equal{signature*}{\AM@temp}\or
               \equal{booklet}{\AM@temp}\or
               \equal{booklet*}{\AM@temp}\or
-              \equal{swap-flip-edge}{\AM@temp}\or
+              \equal{flip-other-edge}{\AM@temp}\or
               \equal{pagetemplate}{\AM@temp}\or
               \equal{templatesize}{\AM@temp}\or
               \equal{rotateoversize}{\AM@temp}\or
@@ -3464,7 +3464,7 @@
         \def\AM@signature{non-empty}
         \AM@signaturestartrue
       \fi}}
-\define@key{pdfpages}{swap-flip-edge}[true]{\setboolean{AM@swap@flip@edge}{#1}}
+\define@key{pdfpages}{flip-other-edge}[true]{\setboolean{AM@swap@flip@edge}{#1}}
 \define@key{pdfpages}{pagetemplate}{\AM@CheckValue{pagetemplate}{#1}%
                                     \def\AM@pagetemplate{#1}}
 \define@key{pdfpages}{templatesize}{\expandafter\AM@parse@templatesize\expanded{#1}\END}
