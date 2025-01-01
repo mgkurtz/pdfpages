@@ -1,0 +1,11 @@
+\usepackage{tikz}
+
+\def\ExpectedResult#1{%
+  \newpage
+  \AddToShipoutPictureFG*{%
+    \AtPageUpperLeft{%
+      \begin{tikzpicture}[remember picture, overlay]
+        \node [fill = green!20, below right, scale=3]{\Huge Expected Result};
+      \end{tikzpicture}}}
+  \includepdf[scale=0.7]{#1}
+}

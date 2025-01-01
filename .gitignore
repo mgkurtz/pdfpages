@@ -6,6 +6,7 @@ auto/*
 *.lot
 *.lof
 *.lol
+*.hd
 
 pdfpages.ins
 pdfpages.sty
@@ -22,6 +23,7 @@ pdf-hyp.tex
 pdf-toc.tex
 
 pdfpages.pdf
+pdfpages.tds.zip
 
 /t?.*
 

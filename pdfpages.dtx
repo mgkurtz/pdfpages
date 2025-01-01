@@ -27,7 +27,7 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.6c}
+\def\AM@fileversion{v0.6d-git}
 \def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
 \def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
 \def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
@@ -84,7 +84,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{5128}
+%    \CheckSum{5182}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -108,7 +108,10 @@
 \documentclass{ltxdoc}
 \usepackage{array}
 \usepackage{graphicx}
-\usepackage{booktabs}
+\usepackage{booktabs, tabularx}
+\usepackage{tikz}
+\usetikzlibrary{decorations, decorations.pathmorphing}
+\usepackage{adjustbox}
 \usepackage{cmap}
 \usepackage{hypdoc}
 \hypersetup{colorlinks, linkcolor=blue, pdfstartview={Fit},
@@ -407,13 +410,17 @@
 %                     \hspace*{6em} |landscape]{portrait-doc.pdf}|\par
 %                     An example for documents in landscape orientation:\par
 %                     |\includepdf[pages=-, signature=8]{landscape-doc.pdf}|
-%       \item[signature*] Similar to |signature|, but now for right-edge
-%                     binding.
+%       \item[signature*] Similar to |signature|, but for right-edge binding.
 %       \item[booklet] This option is just a shortcut of the `signature'
 %                     option, if you choose a signature value
 %                     so large that all pages fit into one signature.
 %                     Either `true' or `false' (or no value, which
 %                     is equivalent to `true'). \df{booklet=false}
+%       \item[booklet*] Similar to |booklet|, but for right-edge binding.
+%       \item[flip-other-edge] Flip paper for duplex printing on the other edge.
+%                     Only relevant in combination with |booklet|, |booklet*|,
+%                     |signature|, or |signature*|. See section \ref{sec:booklets}.
+%                     \df{flip-other-edge=false}
 %       \item[picturecommand] Declares picture commands which are executed
 %                      on every page within a picture environment with the
 %                      base point at the lower left corner of the page.
@@ -943,7 +950,8 @@
 %
 %
 %
-%    \subsection{The Layout}\label{sec:layout}
+%    \subsection{Layout}
+%    \label{sec:layout}
 %
 %    The default layout can be changed by the options |delta|
 %    and |offset|. Figure~\ref{fig:layout} shows the
@@ -979,6 +987,147 @@
 %    Regardless of any other options.
 %
 %
+%    \subsection{Boolets}
+%    \label{sec:booklets}
+%
+%    There are some important points that have a significant impact on the
+%    layout of a booklet:
+%
+%    \begin{itemize}
+%    \item Option |landscape| of the document class.
+%    \item Option |landscape| of the |\includepdf| command.
+%    \item Paper format of the included PDF.
+%    \item Option |nup|\footnote{Up to version 0.6c the |booklet| option was
+%      overriding any |nup| setting of the user. But this is no longer the
+%      case. Now the user has to choose a correct |nup| setting.}  of the
+%      |\includepdf| command.
+%    \item Option |flip-other-edge| of the |\includepdf| command.
+%    \end{itemize}
+%
+%    Changing the paper orientation to landscape can be done either by
+%    using |landscape| as an option of the document class,
+%    i.e. |\documentclass[landscape,...]{...}|, or as an option of the
+%    |\includepdf| command, i.e |\includepdf[landscape,...]{...}|.
+%    But it should not be used for both at the same time.
+%
+%    For duplex printing there are two ways of flipping a sheet of
+%    paper. Either on the long edge or on the short edge. But note that
+%    the layouts are different depending on the flip edge.
+%
+%    Thus, you have to tell you printer in the printer settings which
+%    flip edge you prefer. And you have to generate the corresponding
+%    layout with |\includepdf|, which provides the option |flip-other-edge|
+%    to swap the flip edge.
+%
+%    Here are some examples in which the flip edge is marked by a red
+%    zigzag line.
+%
+%    \newif\ifpflip
+%    \newif\ifplandscape
+%    \tikzset{
+%      wd/.initial = 20mm, wd/.get = \pw, wd/.store in = \pw,
+%      ht/.initial = 14mm, ht/.get = \ph, ht/.store in = \ph,
+%      flip/.is if = pflip,
+%      lscape/.is if = plandscape,
+%      pics/page/.code = {%
+%        \def\hh{\dimexpr \ph/2 \relax}
+%        \def\hw{\dimexpr \pw/2 \relax}
+%        \coordinate (TL) at (-\hw, \hh);^^A top left
+%        \coordinate (CL) at (-\hw, 0); ^^A center left
+%        \coordinate (BL) at (-\hw, -\hh); ^^A bottom left
+%        \coordinate (BC) at (0, -\hh); ^^A bottom center
+%        \def\lskip{2pt}
+%        \def\flipedge{\draw [color=red, decorate, decoration=saw, double]}
+%        \draw (BL) rectangle ++(\pw, \ph);
+%        \ifplandscape
+%          ^^A landscape page
+%          \draw (CL) -- ++(\pw, 0);
+%          \foreach \i in {0,...,20}{%
+%            \def\ycur{\dimexpr \hh*3/18 + \lskip*\i \relax}
+%            \def\ymax{\dimexpr \hh*7/9 \relax}
+%            \draw [color=gray] (CL)++(1/9*\pw, \ycur) -- ++(7/9*\pw, 0);
+%            \draw [color=gray] (CL)++(1/9*\pw, -\ycur) -- ++(7/9*\pw, 0);
+%            \ifdim \ycur > \dimexpr \ymax - \lskip \relax
+%              \breakforeach
+%            \fi
+%          }%
+%          \ifpflip
+%            \flipedge (BL)++(-3pt, 0) -- ++(0, \ph);
+%          \else
+%            \flipedge (TL)++(0, 3pt) -- ++(\pw, 0);
+%          \fi
+%        \else
+%          ^^A portrait page
+%          \draw (BC) -- ++(0, \ph);
+%          \foreach \i in {0,...,20}{%
+%            \def\ycur{\dimexpr \hh - \ph*1/9 - \lskip*\i \relax}
+%            \def\ymin{\dimexpr -\hh + \ph*3/18 \relax}
+%            \draw [color=gray] (-7/9*\hw, \ycur) -- ++(6/9*\hw, 0);
+%            \draw [color=gray] (1/9*\hw, \ycur) -- ++(6/9*\hw, 0);
+%            \ifdim \ycur < \dimexpr \ymin + \lskip \relax
+%              \breakforeach
+%            \fi
+%          }%
+%          \ifpflip
+%            \flipedge (TL) ++(0, 3pt) -- ++(\pw, 0);
+%          \else
+%            \flipedge (BL)++(-3pt, 0) -- ++(0, \ph);
+%          \fi
+%        \fi
+%    }}
+%
+%    \def\lpage#1{\tikz\pic[wd=20mm, ht=14mm, #1]{page};}
+%    \def\ppage#1{\tikz\pic[wd=14mm, ht=20mm, #1]{page};}
+%    \def\cvert#1{\multicolumn{1}{c}{\adjustbox{valign=c}{#1}}}
+%
+%    \medskip
+%    • Flip edge paralell to binding edge:
+%
+%    \begin{small}
+%      \begin{tabularx}{\linewidth}{X@{\qquad\qquad}X}
+%        \cvert{\lpage{}}                     & \cvert{\ppage{lscape}}               \\
+%        |\documentclass[landscape]{article}| & |\documentclass{article}|            \\
+%        |...|                                & |...|                                \\
+%        |\includepdf[|                       & |\includepdf[|                       \\
+%        |   pages=-,|                        & |   pages=-,|                        \\
+%        |   booklet, nup=2x1,|               & |   booklet, nup=1x2|                \\
+%        |]{...}|                             & |]{...}|                             \\
+%      \end{tabularx}
+%    \end{small}\medskip
+%
+%    \medskip
+%    • Flip edge perpendicular to binding edge:
+%
+%    \begin{small}
+%      \begin{tabularx}{\linewidth}{X@{\qquad\qquad}X}
+%        \cvert{\lpage{flip}}                 & \cvert{\ppage{lscape, flip}}         \\
+%        |\documentclass[landscape]{article}| & |\documentclass{article}|            \\
+%        |...|                                & |...|                                \\
+%        |\includepdf[|                       & |\includepdf[|                       \\
+%        |   pages=-,|                        & |   pages=-,|                        \\
+%        |   booklet, nup=2x1,|               & |   booklet, nup=1x2|                \\
+%        |   flip-other-edge|                 & |   flip-other-edge|                 \\
+%        |]{...}|                             & |]{...}|                             \\
+%      \end{tabularx}
+%    \end{small}
+%
+%    \medskip Very slim paper formats require a slightly different layout
+%    like in the following example. Note the difference in using |landscape|
+%    compared to the examples above.
+%
+%    \begin{small}
+%      \begin{tabularx}{\linewidth}{X@{\qquad\qquad}X}
+%        \cvert{\ppage{}}                     & \cvert{\lpage{lscape}}               \\
+%        |\documentclass{article}|            & |\documentclass[landscape]{article}| \\
+%        |...|                                & |...|                                \\
+%        |\includepdf[|                       & |\includepdf[|                       \\
+%        |   pages=-,|                        & |   pages=-,|                        \\
+%        |   booklet, nup=2x1,|               & |   booklet, nup=1x2|                \\
+%        |]{...}|                             & |]{...}|                             \\
+%      \end{tabularx}
+%    \end{small}
+%
+%
 %    \subsection{Hints for Users of platex}
 %    \begin{itemize}
 %      \item
@@ -986,7 +1135,7 @@
 %      add |dvipdfmx| as a class option, e.g.:
 %
 %      \begin{quote}
-%        |\documentclass[dvipdfmx]{article}|\\
+%        |\documentclass[dvipdfmx]{article}|                                         \\
 %        |\usepackage{pdfpages}|
 %      \end{quote}
 %
@@ -1150,7 +1299,7 @@
 %    \subsection{Required Packages and Version Checking}
 %
 %    \begin{macrocode}
-\RequirePackage{ifthen, calc, eso-pic}
+\RequirePackage{ifthen, calc, eso-pic, etoolbox}
 %\@ifundefined{kansuji}{%
   \RequirePackage{graphicx}%
 %}{%
@@ -1228,7 +1377,8 @@
 \newif\ifAM@signature\AM@signaturefalse
 \newif\ifAM@signaturestar\AM@signaturestarfalse
 \newif\ifAM@booklet\AM@bookletfalse
-\newif\ifAM@sigrotate\AM@sigrotatefalse
+\newif\ifAM@swap@flip@edge\AM@swap@flip@edgefalse
+\newif\ifAM@upsidedown\AM@upsidedownfalse
 \newif\ifAM@newwindow\AM@newwindowtrue
 \newif\ifAM@rescale\AM@rescalefalse
 \newif\ifAM@rotateoversize\AM@rotateoversizefalse
@@ -1560,18 +1710,17 @@
   \fi
 %    \end{macrocode}
 %    \begin{macrocode}
-  \ifthenelse{\boolean{AM@landscape}}
-    {\def\AM@lscape@rot{90}%
-     \@ifundefined{AM@shortnupsyntax}{}
-       {\let\AM@temp\AM@xnup
-        \let\AM@xnup\AM@ynup
-        \let\AM@ynup\AM@temp}%
-    }{}%
+  \ifAM@landscape
+    \def\AM@lscape@rot{90}%
+      \let\AM@temp\AM@xnup
+      \let\AM@xnup\AM@ynup
+      \let\AM@ynup\AM@temp
+  \fi
   \AM@setphantom
   \ifthenelse{\boolean{AM@openright}\and\not\boolean{AM@openrighteach}}
          {\AM@openright}{}%
   \ifx\AM@signature\@empty\AM@filluppagelist
-  \else\AM@prepare@signature\AM@signaturetrue\AM@turnfalse\fi
+  \else\AM@prepare@signature\AM@signaturetrue\fi
 %    \end{macrocode}
 %    \begin{macrocode}
   \@tempcnta=\AM@xnup\relax \advance\@tempcnta\m@ne
@@ -1726,14 +1875,11 @@
   \edef\AM@ymargin{\the\@tempdima}%
 %    \end{macrocode}
 %    \begin{macrocode}
-  \ifthenelse{\boolean{AM@landscape}}
-       {\edef\AM@temp{\AM@xnup}%
-        \edef\AM@xnup{\AM@ynup}%
-        \edef\AM@ynup{\AM@temp}}
-       {}%
-  \ifAM@signature
-    \ifAM@landscape\AM@sigrotatefalse\else\AM@sigrotatetrue\fi
-  \fi
+  \ifthenelse{\boolean{AM@landscape}}{%
+    \edef\AM@temp{\AM@xnup}%
+    \edef\AM@xnup{\AM@ynup}%
+    \edef\AM@ynup{\AM@temp}%
+  }{}%
 %    \end{macrocode}
 %    This loop arranges one or more \PDF\ pages onto each sheet
 %    of paper.
@@ -1953,7 +2099,17 @@
 %    \begin{macrocode}
     \ifnum\AM@xnupi=1
       \ifnum\AM@ynupi=1
-        \ifAM@reflectall \setbox\AM@pagebox\null \fi
+        \ifAM@reflectall
+          \setbox\AM@pagebox\null
+        \fi
+        \ifAM@swap@flip@edge
+          \ifAM@signature
+            \ifAM@upsidedown\AM@upsidedownfalse\else\AM@upsidedowntrue\fi
+            \@tempdima=\AM@xoffset\relax
+            \multiply\@tempdima\m@ne
+            \edef\AM@xoffset{\the\@tempdima}%
+          \fi
+        \fi
       \fi
     \fi
     \ifAM@phantompage
@@ -1963,7 +2119,7 @@
         \edef\AM@opts{[\AM@disable@width@height,\the\@temptokena,
                        page=\AM@page, scale=\AM@globalscale,
                        scale=\AM@localscale,
-                       \ifAM@sigrotate angle=180,\fi
+                       \ifAM@upsidedown angle=180,\fi
                        \ifAM@doublepagestwist\ifAM@doublepagestmp
                        angle=180,\fi\fi
                        angle=\AM@rotateoversize, angle=\AM@lscape@rot]}%
@@ -2071,17 +2227,6 @@
             \global\let\@filelist\AM@filelist@save
           }%
           \AM@ClearShipoutPicture
-        \fi
-%    \end{macrocode}
-%    When creating signatures, every second page must be rotated
-%    by $180^{\circ}$ and therefore the xoffset must be multiplied
-%    by $-1$.
-%    \begin{macrocode}
-        \ifAM@signature
-          \ifAM@sigrotate\AM@sigrotatefalse\else\AM@sigrotatetrue\fi
-          \@tempdima=\AM@xoffset\relax
-          \multiply\@tempdima\m@ne
-          \edef\AM@xoffset{\the\@tempdima}%
         \fi
       \fi
     \fi
@@ -2676,6 +2821,8 @@
               \equal{signature}{\AM@temp}\or
               \equal{signature*}{\AM@temp}\or
               \equal{booklet}{\AM@temp}\or
+              \equal{booklet*}{\AM@temp}\or
+              \equal{flip-other-edge}{\AM@temp}\or
               \equal{pagetemplate}{\AM@temp}\or
               \equal{templatesize}{\AM@temp}\or
               \equal{rotateoversize}{\AM@temp}\or
@@ -2897,15 +3044,31 @@
     \whiledo{\@tempcnta<\@tempcntb}{%
       \ifAM@landscape
         \ifAM@signaturestar
-          \AM@first\AM@last\AM@first\AM@last
+          \ifAM@swap@flip@edge
+            \AM@last\AM@first\AM@last\AM@first
+          \else
+            \AM@first\AM@last\AM@last\AM@first
+          \fi
         \else
-          \AM@last\AM@first\AM@last\AM@first
+          \ifAM@swap@flip@edge
+            \AM@first\AM@last\AM@first\AM@last
+          \else
+            \AM@last\AM@first\AM@first\AM@last
+          \fi
         \fi
       \else
         \ifAM@signaturestar
-          \AM@last\AM@first\AM@last\AM@first
+          \ifAM@swap@flip@edge
+            \AM@last\AM@first\AM@last\AM@first
+          \else
+            \AM@first\AM@last\AM@last\AM@first
+          \fi
         \else
-          \AM@first\AM@last\AM@first\AM@last
+          \ifAM@swap@flip@edge
+            \AM@first\AM@last\AM@first\AM@last
+          \else
+            \AM@last\AM@first\AM@first\AM@last
+          \fi
         \fi
       \fi
       \advance\@tempcnta by 4
@@ -2922,10 +3085,18 @@
 %    \end{macrocode}
 %    \begin{macrocode}
   \AM@pagesize@boogie
-  \ifdim\AM@pagewidth<\AM@pageheight
-    \def\AM@xnup{\@ne}\def\AM@ynup{\tw@}%
-  \else
-    \def\AM@xnup{\tw@}\def\AM@ynup{\@ne}%
+  \ifnum\AM@xnup=1\relax
+    \ifnum\AM@ynup=1\relax
+      \ifdim\AM@pagewidth<\AM@pageheight
+        \def\AM@xnup{1}\def\AM@ynup{2}%
+      \else
+        \def\AM@xnup{2}\def\AM@ynup{1}%
+      \fi
+      \PackageWarningNoLine{pdfpages}{%
+        Option `nup' not set correctly. \MessageBreak
+        I will continue with `nup=\AM@xnup x\AM@ynup'. Please remember\MessageBreak
+        to set `nup' correctly when using `\ifAM@booklet booklet\else signature\fi'}
+    \fi
   \fi
 }
 %    \end{macrocode}
@@ -3281,8 +3452,19 @@
 \define@key{pdfpages}{signature}{\edef\AM@signature{#1}}
 \define@key{pdfpages}{signature*}{\edef\AM@signature{#1}%
                                   \AM@signaturestartrue}
-\define@key{pdfpages}{booklet}[true]{\setboolean{AM@booklet}{#1}%
-                                     \def\AM@signature{x}}
+\define@key{pdfpages}{booklet}[true]{
+  \setboolean{AM@booklet}{#1}%
+  \ifAM@booklet
+    \def\AM@signature{non-empty}
+  \fi}
+\define@key{pdfpages}{booklet*}[true]{
+  \ifstrequal{#1}{true}{%
+      \setboolean{AM@booklet}{#1}
+      \ifAM@booklet
+        \def\AM@signature{non-empty}
+        \AM@signaturestartrue
+      \fi}}
+\define@key{pdfpages}{flip-other-edge}[true]{\setboolean{AM@swap@flip@edge}{#1}}
 \define@key{pdfpages}{pagetemplate}{\AM@CheckValue{pagetemplate}{#1}%
                                     \def\AM@pagetemplate{#1}}
 \define@key{pdfpages}{templatesize}{\expandafter\AM@parse@templatesize\expanded{#1}\END}

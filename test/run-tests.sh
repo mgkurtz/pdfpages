@@ -73,12 +73,14 @@ TESTS="
   demo-3
   demo-4
 
-  booklet-01
-  booklet-02
-  booklet-03
-  booklet-04
-  booklet-05
-  booklet-06
+  booklet-LL-1
+  booklet-LL-2
+  booklet-LP-1
+  booklet-LP-2
+  booklet-TL-1
+  booklet-TL-2
+  booklet-TP-1
+  booklet-TP-2
 
   pagecommand
 
