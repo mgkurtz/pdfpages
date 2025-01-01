@@ -1,0 +1,20 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+%%
+%% Regression test:
+%%    https://tex.stackexchange.com/questions/724700
+%% Using \detokenized confused pdfpages thus that only
+%% the first page was included.
+%%
+\TEST{Detokenize}{
+  \includepdf[pages=1-2
+  ]{\detokenize{foo~bar.pdf}}
+}
+
+\END
+\end{document}

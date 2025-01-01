@@ -1,0 +1,31 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Columnstrict=true}{
+  \includepdf[
+    pages=1-5, nup=3x3, frame,
+    column, columnstrict,
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Columnstrict=false}{
+  \includepdf[
+    pages=1-5, nup=3x3, frame,
+    column, columnstrict=false,
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Global option}{
+  \includepdfset{column, columnstrict}
+  \includepdf[
+    pages=1-5, nup=3x3, frame,
+  ]{dummy.pdf}
+  
+}
+
+\END
+\end{document}

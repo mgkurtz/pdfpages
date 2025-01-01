@@ -1,0 +1,20 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Landscape}{
+  \includepdf[landscape]{dummy-landscape.pdf}
+}
+
+\verboseTEST{Landscape}{
+  \includepdf[
+    landscape,
+    picturecommand={\put(100,100){\Huge Testing}}
+  ]{dummy-landscape.pdf}
+}
+
+\END
+\end{document}

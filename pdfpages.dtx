@@ -3234,6 +3234,7 @@
   \def\@captype{\AM@lof@list}%
   \long\def\@makecaption##1##2{}%
   \def\@fs@capt##1##2{}% float.sty
+  \edef\@currentlabelname{\the\AM@lof@heading}% float.sty
   \AM@addtolist@hook
   \@ifundefined{hyper@@anchor}{%
     \expandafter\caption\expandafter{\the\AM@lof@heading}%
@@ -3261,7 +3262,7 @@
 \def\AM@parse@loflisti#1,#2,#3,#4,#5\END{%
   \edef\AM@lof@page{\AM@trim@space{#1}}%
   \edef\AM@lof@list{\AM@trim@space{#2}}%
-  \AM@lof@heading{\ignorespaces #3}%
+  \AM@lof@heading{#3}%
   \edef\AM@lof@label{\AM@trim@space{#4}}%
   \AM@checkinteger{\AM@lof@page}%
   \ifAM@integer\else

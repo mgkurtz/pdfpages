@@ -1,0 +1,22 @@
+\input{regression-test}
+\documentclass[a5paper, \classoptions]{article}
+\usepackage{pdfpages}
+\usepackage[cam,a4,center,axes,noinfo]{crop}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{crop (1)}{
+  \includepdf{hog.pdf}
+}
+
+\verboseTEST{crop (2)}{
+  \includepdf{dummy3.pdf}
+}
+
+\verboseTEST{crop (3)}{
+  \includepdf[nup=2x1, pages=1-2, landscape, turn=false]{dummy3.pdf}
+}
+
+\END
+\end{document}

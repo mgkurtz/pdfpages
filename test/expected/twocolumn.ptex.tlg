@@ -1,0 +1,68 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: There should be no issues with $\backslash $@setmarks not being defined
+ in twocolumn mode.
+============================================================
+Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 1.
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+[1
+
+
+]
+============================================================
+
+============================================================
+TEST 2: PDF shall be on next page (not this one).
+============================================================
+Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+
+
+[2
+
+]
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+[3
+
+]
+============================================================
+
+

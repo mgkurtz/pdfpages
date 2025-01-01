@@ -1,0 +1,1188 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: Addtolist (float)
+============================================================
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 34.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 34.
+
+Class scrartcl Warning: Usage of \float@listhead detected!
+(scrartcl)              This could be, because you are using
+(scrartcl)              package `float` without `floatbytocbasic`.
+(scrartcl)              Implementation of \float@listhead became
+(scrartcl)              deprecated in KOMA-Script v3.01 2008/11/14 and
+(scrartcl)              has been replaced by several more flexible
+(scrartcl)              features of package `tocbasic`.
+(scrartcl)              Implementation of \float@listhead will
+(scrartcl)              be removed from KOMA-Script soon on input line 34.
+
+()addtolist-3-koma.pdc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 1.
+)
+\tf@pdc=\write4
+
+\openout4 = `addtolist-3-koma.pdc'.
+
+
+
+
+Completed box being shipped out [1]
+\vbox(655.63496+0.0)x435.61176, yoko direction
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\special{pdf:docinfo<</Title()/Subject()/Creator(LaTeX with hyperref)/Author(
+)\ETC.}
+..\special{papersize=597.50793pt,845.04694pt}
+..\special{papersize=597.50793pt,845.04694pt}
+..\special{papersize=597.50793pt,845.04694pt}
+..\special{papersize=597.50793pt,845.04694pt}
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(0.0+0.0)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set 26.16905fil, yoko direction
+..\kern 0.0
+..\kern -25.16531
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 16.35246fil, yoko direction
+...\kern 0.0
+...\kern 17.3562
+...\kern -1.00374
+...\special{pdf:dest (page.1) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(655.63496+0.0)x435.61176, yoko direction
+..\glue -25.16531
+..\vbox(680.80028+0.0)x418.25555, shifted 17.3562, yoko direction
+...\vbox(17.0+0.0)x418.25555, glue set 17.0fil, yoko direction
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color pop}
+...\glue 20.40001
+...\glue(\lineskip) 0.0
+...\vbox(595.80026+0.0)x418.25555, glue set 400.73747fil, yoko direction
+....\special{ps: /setdistillerparams where {pop << /CompressPages false /Compre
+ssS\ETC.}
+....\special{! <</DocumentUUID (DocumentUUID)>> setpagedevice}
+....\special{! <</InstanceUUID (InstanceUUID)>> setpagedevice}
+....\write-{}
+....\special{color push gray 0}
+....\special{pdf:majorversion 1}
+....\special{pdf:minorversion 5}
+....\special{dvipdfmx:config C 0x0010}
+....\special{pdf:docview<</OpenAction[@page1/Fit]/PageMode/UseOutlines>>}
+....\special{pdf:dest (Doc-Start) [@thispage /XYZ @xpos @ypos null]}
+....\special{pdf:dest (section.1) [@thispage /XYZ @xpos @ypos null]}
+....\special{color push  Black}
+....\glue(\topskip) 1.00002
+....\hbox(9.99998+2.79999)x418.25555, glue set 145.01152fil
+.....\hbox(9.99998+0.0)x15.84006, yoko direction
+......\glue 0.0
+......\displace 0.0
+......\OT1/cmss/bx/n/14.4 1
+......\glue 7.92003
+.....\displace 0.0
+.....\OT1/cmss/bx/n/14.4 P
+.....\kern-0.44
+.....\OT1/cmss/bx/n/14.4 a
+.....\OT1/cmss/bx/n/14.4 c
+.....\OT1/cmss/bx/n/14.4 k
+.....\kern-0.44
+.....\OT1/cmss/bx/n/14.4 a
+.....\OT1/cmss/bx/n/14.4 g
+.....\OT1/cmss/bx/n/14.4 e
+.....\glue 5.28001 plus 2.64 minus 1.76
+.....\OT1/cmss/bx/n/14.4 ^^M (ligature fl)
+.....\OT1/cmss/bx/n/14.4 o
+.....\OT1/cmss/bx/n/14.4 a
+.....\OT1/cmss/bx/n/14.4 t
+.....\OT1/cmss/bx/n/14.4 .
+.....\OT1/cmss/bx/n/14.4 s
+.....\OT1/cmss/bx/n/14.4 t
+.....\kern-0.44
+.....\OT1/cmss/bx/n/14.4 y
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\special{color pop}
+....\special{pdf:out [] 1<</Title(\376\377\000P\000a\000c\000k\000a\000g\000e\0
+00\\ETC.}
+....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberl
+ine \ETC.}
+....\penalty 10000
+....\glue 14.26001 plus 1.23997
+....\special{color push  Black}
+....\penalty 10000
+....\penalty 10000
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 5.20003
+....\hbox(9.99998+0.0)x418.25555, glue set 167.59563fil
+.....\hbox(0.0+0.0)x0.0, yoko direction
+......\glue 0.0
+.....\hbox(0.0+0.0)x0.0, yoko direction
+......\kern 0.0
+......\penalty 10000
+......\hbox(0.0+0.0)x0.0, yoko direction
+.......\hbox(0.0+0.0)x0.0, shifted -18.0, yoko direction
+........\special{pdf:dest (section*.1) [@thispage /XYZ @xpos @ypos null]}
+........\penalty 10000
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\displace 0.0
+.....\OT1/cmss/bx/n/14.4 L
+.....\OT1/cmss/bx/n/14.4 i
+.....\OT1/cmss/bx/n/14.4 s
+.....\OT1/cmss/bx/n/14.4 t
+.....\glue 5.28001 plus 2.64 minus 1.76
+.....\OT1/cmss/bx/n/14.4 o
+.....\OT1/cmss/bx/n/14.4 f
+.....\glue 5.28001 plus 2.64 minus 1.76
+.....\OT1/cmss/bx/n/14.4 ^^M (ligature fl)
+.....\OT1/cmss/bx/n/14.4 o
+.....\OT1/cmss/bx/n/14.4 a
+.....\OT1/cmss/bx/n/14.4 t
+.....\OT1/cmss/bx/n/14.4 s
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\special{color pop}
+....\penalty 10000
+....\glue 14.26001 plus 1.23997
+....\glue 0.0 plus 0.2
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 8.00002
+....\hbox(9.99998+2.79999)x418.25555, glue set 261.55406fill
+.....\glue(\leftskip) 53.5794
+.....\hbox(0.0+0.0)x21.14975, yoko direction
+.....\hbox(0.0+0.0)x0.0, yoko direction
+.....\penalty 10000
+.....\glue -53.5794
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<<
+/S/G\ETC.}
+.....\special{color push rgb 0 0 1}
+.....\hbox(9.27998+0.0)x32.42966, glue set 25.37975fil, yoko direction
+......\displace 0.0
+......\OT1/cmr/m/n/14.4 1
+......\glue 0.0 plus 1.0fil
+.....\displace 0.0
+.....\OT1/cmr/m/n/14.4 F
+.....\OT1/cmr/m/n/14.4 l
+.....\OT1/cmr/m/n/14.4 o
+.....\OT1/cmr/m/n/14.4 a
+.....\OT1/cmr/m/n/14.4 t
+.....\OT1/cmr/m/n/14.4 ,
+.....\glue 4.69994 plus 2.93744 minus 1.2533
+.....\OT1/cmr/m/n/14.4 p
+.....\OT1/cmr/m/n/14.4 a
+.....\OT1/cmr/m/n/14.4 g
+.....\OT1/cmr/m/n/14.4 e
+.....\glue 4.69994 plus 2.34996 minus 1.56664
+.....\OT1/cmr/m/n/14.4 1
+.....\special{color pop}
+.....\special{pdf:eann}
+.....\penalty 10000
+.....\leaders 0.0 plus 1.0fill
+......\hbox(1.4+0.0)x11.1165, yoko direction
+.......\displace 0.0
+.......\mathon
+.......\kern 3.59995
+.......\hbox(1.4+0.0)x3.91661, yoko(math) direction
+........\displace 0.0
+........\OT1/cmr/m/n/14.4 .
+.......\kern 3.59995
+.......\mathoff
+.....\penalty 10000
+.....\hbox(9.27998+0.0)x21.85478, glue set 14.80487fil, yoko direction
+......\glue 0.0 plus 1.0fil
+......\special{color push  Black}
+......\displace 0.0
+......\OT1/cmr/m/n/14.4 2
+......\kern -1.0
+......\kern 1.0
+.....\special{color pop}
+.....\penalty 10000
+.....\glue(\parfillskip) -35.95462
+.....\glue(\rightskip) 35.95462
+....\glue 0.0 plus 0.2
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 5.20003
+....\hbox(9.99998+2.79999)x418.25555, glue set 261.55406fill
+.....\glue(\leftskip) 53.5794
+.....\hbox(0.0+0.0)x21.14975, yoko direction
+.....\hbox(0.0+0.0)x0.0, yoko direction
+.....\penalty 10000
+.....\glue -53.5794
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<<
+/S/G\ETC.}
+.....\special{color push rgb 0 0 1}
+.....\hbox(9.27998+0.0)x32.42966, glue set 25.37975fil, yoko direction
+......\displace 0.0
+......\OT1/cmr/m/n/14.4 2
+......\glue 0.0 plus 1.0fil
+.....\displace 0.0
+.....\OT1/cmr/m/n/14.4 F
+.....\OT1/cmr/m/n/14.4 l
+.....\OT1/cmr/m/n/14.4 o
+.....\OT1/cmr/m/n/14.4 a
+.....\OT1/cmr/m/n/14.4 t
+.....\OT1/cmr/m/n/14.4 ,
+.....\glue 4.69994 plus 2.93744 minus 1.2533
+.....\OT1/cmr/m/n/14.4 p
+.....\OT1/cmr/m/n/14.4 a
+.....\OT1/cmr/m/n/14.4 g
+.....\OT1/cmr/m/n/14.4 e
+.....\glue 4.69994 plus 2.34996 minus 1.56664
+.....\OT1/cmr/m/n/14.4 3
+.....\special{color pop}
+.....\special{pdf:eann}
+.....\penalty 10000
+.....\leaders 0.0 plus 1.0fill
+......\hbox(1.4+0.0)x11.1165, yoko direction
+.......\displace 0.0
+.......\mathon
+.......\kern 3.59995
+.......\hbox(1.4+0.0)x3.91661, yoko(math) direction
+........\displace 0.0
+........\OT1/cmr/m/n/14.4 .
+.......\kern 3.59995
+.......\mathoff
+.....\penalty 10000
+.....\hbox(9.27998+0.0)x21.85478, glue set 14.80487fil, yoko direction
+......\glue 0.0 plus 1.0fil
+......\special{color push  Black}
+......\displace 0.0
+......\OT1/cmr/m/n/14.4 4
+......\kern -1.0
+......\kern 1.0
+.....\special{color pop}
+.....\penalty 10000
+.....\glue(\parfillskip) -35.95462
+.....\glue(\rightskip) 35.95462
+....\glue 0.0 plus 0.2
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 5.20003
+....\hbox(9.99998+2.79999)x418.25555, glue set 261.55406fill
+.....\glue(\leftskip) 53.5794
+.....\hbox(0.0+0.0)x21.14975, yoko direction
+.....\hbox(0.0+0.0)x0.0, yoko direction
+.....\penalty 10000
+.....\glue -53.5794
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<<
+/S/G\ETC.}
+.....\special{color push rgb 0 0 1}
+.....\hbox(9.27998+0.0)x32.42966, glue set 25.37975fil, yoko direction
+......\displace 0.0
+......\OT1/cmr/m/n/14.4 3
+......\glue 0.0 plus 1.0fil
+.....\displace 0.0
+.....\OT1/cmr/m/n/14.4 F
+.....\OT1/cmr/m/n/14.4 l
+.....\OT1/cmr/m/n/14.4 o
+.....\OT1/cmr/m/n/14.4 a
+.....\OT1/cmr/m/n/14.4 t
+.....\OT1/cmr/m/n/14.4 ,
+.....\glue 4.69994 plus 2.93744 minus 1.2533
+.....\OT1/cmr/m/n/14.4 p
+.....\OT1/cmr/m/n/14.4 a
+.....\OT1/cmr/m/n/14.4 g
+.....\OT1/cmr/m/n/14.4 e
+.....\glue 4.69994 plus 2.34996 minus 1.56664
+.....\OT1/cmr/m/n/14.4 5
+.....\special{color pop}
+.....\special{pdf:eann}
+.....\penalty 10000
+.....\leaders 0.0 plus 1.0fill
+......\hbox(1.4+0.0)x11.1165, yoko direction
+.......\displace 0.0
+.......\mathon
+.......\kern 3.59995
+.......\hbox(1.4+0.0)x3.91661, yoko(math) direction
+........\displace 0.0
+........\OT1/cmr/m/n/14.4 .
+.......\kern 3.59995
+.......\mathoff
+.....\penalty 10000
+.....\hbox(9.27998+0.0)x21.85478, glue set 14.80487fil, yoko direction
+......\glue 0.0 plus 1.0fil
+......\special{color push  Black}
+......\displace 0.0
+......\OT1/cmr/m/n/14.4 6
+......\kern -1.0
+......\kern 1.0
+.....\special{color pop}
+.....\penalty 10000
+.....\glue(\parfillskip) -35.95462
+.....\glue(\rightskip) 35.95462
+....\glue 12.0 plus 4.0 minus 4.0
+....\glue 0.0
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\lineskip) 1.0
+....\hbox(40.19998+33.0)x418.25555, glue set 241.72229fil
+.....\hbox(0.0+0.0)x10.95003, yoko direction
+.....\hbox(0.0+0.0)x0.0, yoko direction
+.....\hbox(40.19998+33.0)x165.58324, yoko direction
+......\displace 0.0
+......\mathon
+......\vbox(40.19998+33.0)x165.58324, yoko(math) direction
+.......\rule(0.4+0.0)x165.58324
+.......\hbox(12.59995+5.40005)x165.58324, yoko(math) direction
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x22.05814, yoko(math) direction
+.........\rule(12.59995+5.40005)x0.0
+.........\glue 0.00002
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 r
+.........\OT1/cmr/m/n/14.4 e
+.........\OT1/cmr/m/n/14.4 f
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x56.25778, yoko(math) direction
+.........\glue 6.0
+.........\glue 0.00002
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 p
+.........\OT1/cmr/m/n/14.4 a
+.........\OT1/cmr/m/n/14.4 g
+.........\OT1/cmr/m/n/14.4 e
+.........\OT1/cmr/m/n/14.4 r
+.........\OT1/cmr/m/n/14.4 e
+.........\OT1/cmr/m/n/14.4 f
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x87.26732, glue set 32.30959fil, yoko(math) dire
+ction
+.........\glue 6.0
+.........\glue 0.00002
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 n
+.........\OT1/cmr/m/n/14.4 a
+.........\OT1/cmr/m/n/14.4 m
+.........\OT1/cmr/m/n/14.4 e
+.........\OT1/cmr/m/n/14.4 r
+.........\OT1/cmr/m/n/14.4 e
+.........\OT1/cmr/m/n/14.4 f
+.........\glue 0.0 plus 1.0fil
+........\glue(\tabskip) 0.0
+.......\rule(0.4+0.0)x165.58324
+.......\hbox(12.59995+5.40005)x165.58324, yoko(math) direction
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x22.05814, glue set 9.00821fil, yoko(math) direc
+tion
+.........\rule(12.59995+5.40005)x0.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
+/A<<···/G\ETC.}
+.........\special{color push rgb 0 0 1}
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 1
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x56.25778, glue set 37.20786fil, yoko(math) dire
+ction
+.........\glue 6.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
+/A<<···/G\ETC.}
+.........\special{color push rgb 0 0 1}
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 2
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x87.26732, yoko(math) direction
+.........\glue 6.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
+/A<<···/G\ETC.}
+.........\special{color push rgb 0 0 1}
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 F
+.........\OT1/cmr/m/n/14.4 l
+.........\OT1/cmr/m/n/14.4 o
+.........\OT1/cmr/m/n/14.4 a
+.........\OT1/cmr/m/n/14.4 t
+.........\OT1/cmr/m/n/14.4 ,
+.........\glue 4.69994 plus 2.93744 minus 1.2533
+.........\OT1/cmr/m/n/14.4 p
+.........\OT1/cmr/m/n/14.4 a
+.........\OT1/cmr/m/n/14.4 g
+.........\OT1/cmr/m/n/14.4 e
+.........\glue 4.69994 plus 2.34996 minus 1.56664
+.........\OT1/cmr/m/n/14.4 1
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+........\glue(\tabskip) 0.0
+.......\glue(\lineskip) 0.0
+.......\hbox(12.59995+5.40005)x165.58324, yoko(math) direction
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x22.05814, glue set 9.00821fil, yoko(math) direc
+tion
+.........\rule(12.59995+5.40005)x0.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
+/A<<···/G\ETC.}
+.........\special{color push rgb 0 0 1}
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 2
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x56.25778, glue set 37.20786fil, yoko(math) dire
+ction
+.........\glue 6.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
+/A<<···/G\ETC.}
+.........\special{color push rgb 0 0 1}
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 4
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x87.26732, yoko(math) direction
+.........\glue 6.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
+/A<<···/G\ETC.}
+.........\special{color push rgb 0 0 1}
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 F
+.........\OT1/cmr/m/n/14.4 l
+.........\OT1/cmr/m/n/14.4 o
+.........\OT1/cmr/m/n/14.4 a
+.........\OT1/cmr/m/n/14.4 t
+.........\OT1/cmr/m/n/14.4 ,
+.........\glue 4.69994 plus 2.93744 minus 1.2533
+.........\OT1/cmr/m/n/14.4 p
+.........\OT1/cmr/m/n/14.4 a
+.........\OT1/cmr/m/n/14.4 g
+.........\OT1/cmr/m/n/14.4 e
+.........\glue 4.69994 plus 2.34996 minus 1.56664
+.........\OT1/cmr/m/n/14.4 3
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+........\glue(\tabskip) 0.0
+.......\glue(\lineskip) 0.0
+.......\hbox(12.59995+5.40005)x165.58324, yoko(math) direction
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x22.05814, glue set 9.00821fil, yoko(math) direc
+tion
+.........\rule(12.59995+5.40005)x0.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
+/A<<···/G\ETC.}
+.........\special{color push rgb 0 0 1}
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 3
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x56.25778, glue set 37.20786fil, yoko(math) dire
+ction
+.........\glue 6.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
+/A<<···/G\ETC.}
+.........\special{color push rgb 0 0 1}
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 6
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+.........\glue 6.0
+........\glue(\tabskip) 0.0
+........\hbox(12.59995+5.40005)x87.26732, yoko(math) direction
+.........\glue 6.0
+.........\glue 0.00002
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
+/A<<···/G\ETC.}
+.........\special{color push rgb 0 0 1}
+.........\displace 0.0
+.........\OT1/cmr/m/n/14.4 F
+.........\OT1/cmr/m/n/14.4 l
+.........\OT1/cmr/m/n/14.4 o
+.........\OT1/cmr/m/n/14.4 a
+.........\OT1/cmr/m/n/14.4 t
+.........\OT1/cmr/m/n/14.4 ,
+.........\glue 4.69994 plus 2.93744 minus 1.2533
+.........\OT1/cmr/m/n/14.4 p
+.........\OT1/cmr/m/n/14.4 a
+.........\OT1/cmr/m/n/14.4 g
+.........\OT1/cmr/m/n/14.4 e
+.........\glue 4.69994 plus 2.34996 minus 1.56664
+.........\OT1/cmr/m/n/14.4 5
+.........\special{color pop}
+.........\special{pdf:eann}
+.........\glue 0.0 plus 1.0fil
+........\glue(\tabskip) 0.0
+.......\rule(0.4+0.0)x165.58324
+......\mathoff
+.....\hbox(0.0+0.0)x0.0, yoko direction
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue -5.5
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+....\glue 0.0 plus 0.0001fil
+...\glue(\baselineskip) 40.54335
+...\hbox(7.05666+0.0)x418.25555, yoko direction
+....\special{color push  Black}
+....\hbox(7.05666+0.0)x418.25555, yoko direction
+.....\hbox(7.05666+0.0)x418.25555, yoko direction
+......\vbox(7.05666+0.0)x418.25555, yoko direction
+.......\hbox(7.05666+0.0)x418.25555, glue set 206.39027fil, yoko direction
+........\glue 0.0 plus 1.0fil
+........\special{color push  Black}
+........\displace 0.0
+........\OT1/cmr/m/n/10.95 1
+........\special{color pop}
+........\glue 0.0 plus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\special{color pop}
+.\kern -655.63496
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(0.0+0.0)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 655.63496
+.\kern 0.0
+.\kern 0.0
+
+
+Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 34.
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+Package hyperref Info: bookmark level for unknown pdfdoc defaults to 0 on input
+ line 34.
+
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+Completed box being shipped out [2]
+\vbox(655.63496+0.0)x435.61176, yoko direction
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(845.12155+0.07462)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38326fil, shifted 0.07462, yoko d
+irection
+......\kern 0.12468
+......\hbox(845.19617+0.0)x597.25858, yoko direction
+.......\hbox(845.19617+0.0)x597.25858, yoko direction
+........\hbox(0.0+0.0)x0.0, shifted -1.0, yoko direction
+.........\glue 0.0
+........\hbox(845.19617+0.0)x597.25858, yoko direction
+.........\hbox(845.19617+0.0)x597.25858, yoko direction
+..........\kern 0.0
+..........\hbox(845.19617+0.0)x597.25858, yoko direction
+...........\special{pdf:btrans rotate 0}
+...........\hbox(845.19617+0.0)x597.25858, yoko direction
+............\hbox(845.19617+0.0)x597.25858, yoko direction
+.............\hbox(845.19617+0.0)x597.25858, yoko direction
+..............\kern 0.0
+..............\hbox(845.19617+0.0)x597.25858, yoko direction
+...............\special{pdf:btrans rotate 0}
+...............\hbox(845.19617+0.0)x597.25858, yoko direction
+................\hbox(845.19617+0.0)x597.25858, yoko direction
+.................\hbox(845.19617+0.0)x597.25858, yoko direction
+..................\hbox(845.19617+0.0)x0.0, yoko direction
+...................\special{pdf:btrans}
+...................\special{x:scale 1 1}
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
+ction
+....................\hbox(845.19617+0.0)x597.25858, yoko direction
+.....................\hbox(845.19617+0.0)x597.25858, yoko direction
+......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842
+ clip 0 width 597.258\ETC.}
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+...................\special{pdf:etrans}
+..................\kern 597.25858
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{pdf:etrans}
+...........\special{pdf:etrans}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set 26.16905fil, yoko direction
+..\kern 0.0
+..\kern -25.16531
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 16.35246fil, yoko direction
+...\kern 0.0
+...\kern 17.3562
+...\kern -1.00374
+...\special{pdf:dest (page.2) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(655.63496+0.0)x435.61176, yoko direction
+..\glue -25.16531
+..\vbox(680.80028+0.0)x418.25555, shifted 17.3562, yoko direction
+...\vbox(17.0+0.0)x418.25555, glue set 17.0fil, yoko direction
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color pop}
+...\glue 20.40001
+...\glue(\lineskip) 0.0
+...\vbox(595.80026+0.0)x418.25555, glue set 584.73781fil, yoko direction
+....\write-{}
+....\write1{\@writefile{pdc}{\protect \contentsline {pdfdoc}{\protect \numberli
+ne \ETC.}
+....\special{pdf:dest (pdfdoc.1) [@thispage /XYZ @xpos @ypos null]}
+....\write1{\newlabel{fig:pdf1}{{1}{\thepage }{ {Float, page 1}}{pdfdoc.1}{}}}
+....\glue(\topskip) 11.0
+....\hbox(0.0+0.0)x418.25555, glue set 407.30553fil
+.....\hbox(0.0+0.0)x10.95003, yoko direction
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+....\glue 0.0 plus 0.0001fil
+...\glue(\baselineskip) 47.6
+...\hbox(0.0+0.0)x418.25555, yoko direction
+....\special{color push  Black}
+....\hbox(0.0+0.0)x418.25555, yoko direction
+....\special{color pop}
+.\kern -655.63496
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(0.0+0.0)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 655.63496
+.\kern 0.0
+
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+Completed box being shipped out [3]
+\vbox(655.63496+0.0)x435.61176, yoko direction
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(845.12155+0.07462)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38326fil, shifted 0.07462, yoko d
+irection
+......\kern 0.12468
+......\hbox(845.19617+0.0)x597.25858, yoko direction
+.......\hbox(845.19617+0.0)x597.25858, yoko direction
+........\hbox(0.0+0.0)x0.0, shifted -1.0, yoko direction
+.........\glue 0.0
+........\hbox(845.19617+0.0)x597.25858, yoko direction
+.........\hbox(845.19617+0.0)x597.25858, yoko direction
+..........\kern 0.0
+..........\hbox(845.19617+0.0)x597.25858, yoko direction
+...........\special{pdf:btrans rotate 0}
+...........\hbox(845.19617+0.0)x597.25858, yoko direction
+............\hbox(845.19617+0.0)x597.25858, yoko direction
+.............\hbox(845.19617+0.0)x597.25858, yoko direction
+..............\kern 0.0
+..............\hbox(845.19617+0.0)x597.25858, yoko direction
+...............\special{pdf:btrans rotate 0}
+...............\hbox(845.19617+0.0)x597.25858, yoko direction
+................\hbox(845.19617+0.0)x597.25858, yoko direction
+.................\hbox(845.19617+0.0)x597.25858, yoko direction
+..................\hbox(845.19617+0.0)x0.0, yoko direction
+...................\special{pdf:btrans}
+...................\special{x:scale 1 1}
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
+ction
+....................\hbox(845.19617+0.0)x597.25858, yoko direction
+.....................\hbox(845.19617+0.0)x597.25858, yoko direction
+......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 595 842
+ clip 0 width 597.258\ETC.}
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+...................\special{pdf:etrans}
+..................\kern 597.25858
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{pdf:etrans}
+...........\special{pdf:etrans}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set 26.16905fil, yoko direction
+..\kern 0.0
+..\kern -25.16531
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 16.35246fil, yoko direction
+...\kern 0.0
+...\kern 17.3562
+...\kern -1.00374
+...\special{pdf:dest (page.3) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(655.63496+0.0)x435.61176, yoko direction
+..\glue -25.16531
+..\vbox(680.80028+0.0)x418.25555, shifted 17.3562, yoko direction
+...\vbox(17.0+0.0)x418.25555, glue set 17.0fil, yoko direction
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color pop}
+...\glue 20.40001
+...\glue(\lineskip) 0.0
+...\vbox(595.80026+0.0)x418.25555, glue set 584.73781fil, yoko direction
+....\write-{}
+....\glue(\topskip) 11.0
+....\hbox(0.0+0.0)x418.25555, glue set 407.30553fil
+.....\hbox(0.0+0.0)x10.95003, yoko direction
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+....\glue 0.0 plus 0.0001fil
+...\glue(\baselineskip) 47.6
+...\hbox(0.0+0.0)x418.25555, yoko direction
+....\special{color push  Black}
+....\hbox(0.0+0.0)x418.25555, yoko direction
+....\special{color pop}
+.\kern -655.63496
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(0.0+0.0)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 655.63496
+.\kern 0.0
+
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+Completed box being shipped out [4]
+\vbox(655.63496+0.0)x435.61176, yoko direction
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(845.12155+0.07462)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38326fil, shifted 0.07462, yoko d
+irection
+......\kern 0.12468
+......\hbox(845.19617+0.0)x597.25858, yoko direction
+.......\hbox(845.19617+0.0)x597.25858, yoko direction
+........\hbox(0.0+0.0)x0.0, shifted -1.0, yoko direction
+.........\glue 0.0
+........\hbox(845.19617+0.0)x597.25858, yoko direction
+.........\hbox(845.19617+0.0)x597.25858, yoko direction
+..........\kern 0.0
+..........\hbox(845.19617+0.0)x597.25858, yoko direction
+...........\special{pdf:btrans rotate 0}
+...........\hbox(845.19617+0.0)x597.25858, yoko direction
+............\hbox(845.19617+0.0)x597.25858, yoko direction
+.............\hbox(845.19617+0.0)x597.25858, yoko direction
+..............\kern 0.0
+..............\hbox(845.19617+0.0)x597.25858, yoko direction
+...............\special{pdf:btrans rotate 0}
+...............\hbox(845.19617+0.0)x597.25858, yoko direction
+................\hbox(845.19617+0.0)x597.25858, yoko direction
+.................\hbox(845.19617+0.0)x597.25858, yoko direction
+..................\hbox(845.19617+0.0)x0.0, yoko direction
+...................\special{pdf:btrans}
+...................\special{x:scale 1 1}
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
+ction
+....................\hbox(845.19617+0.0)x597.25858, yoko direction
+.....................\hbox(845.19617+0.0)x597.25858, yoko direction
+......................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 595 842
+ clip 0 width 597.258\ETC.}
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+...................\special{pdf:etrans}
+..................\kern 597.25858
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{pdf:etrans}
+...........\special{pdf:etrans}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set 26.16905fil, yoko direction
+..\kern 0.0
+..\kern -25.16531
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 16.35246fil, yoko direction
+...\kern 0.0
+...\kern 17.3562
+...\kern -1.00374
+...\special{pdf:dest (page.4) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(655.63496+0.0)x435.61176, yoko direction
+..\glue -25.16531
+..\vbox(680.80028+0.0)x418.25555, shifted 17.3562, yoko direction
+...\vbox(17.0+0.0)x418.25555, glue set 17.0fil, yoko direction
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color pop}
+...\glue 20.40001
+...\glue(\lineskip) 0.0
+...\vbox(595.80026+0.0)x418.25555, glue set 584.73781fil, yoko direction
+....\write-{}
+....\write1{\@writefile{pdc}{\protect \contentsline {pdfdoc}{\protect \numberli
+ne \ETC.}
+....\special{pdf:dest (pdfdoc.2) [@thispage /XYZ @xpos @ypos null]}
+....\write1{\newlabel{fig:pdf2}{{2}{\thepage }{ {Float, page 3}}{pdfdoc.2}{}}}
+....\glue(\topskip) 11.0
+....\hbox(0.0+0.0)x418.25555, glue set 407.30553fil
+.....\hbox(0.0+0.0)x10.95003, yoko direction
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+....\glue 0.0 plus 0.0001fil
+...\glue(\baselineskip) 47.6
+...\hbox(0.0+0.0)x418.25555, yoko direction
+....\special{color push  Black}
+....\hbox(0.0+0.0)x418.25555, yoko direction
+....\special{color pop}
+.\kern -655.63496
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(0.0+0.0)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 655.63496
+.\kern 0.0
+
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+Completed box being shipped out [5]
+\vbox(655.63496+0.0)x435.61176, yoko direction
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(845.12155+0.07462)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38326fil, shifted 0.07462, yoko d
+irection
+......\kern 0.12468
+......\hbox(845.19617+0.0)x597.25858, yoko direction
+.......\hbox(845.19617+0.0)x597.25858, yoko direction
+........\hbox(0.0+0.0)x0.0, shifted -1.0, yoko direction
+.........\glue 0.0
+........\hbox(845.19617+0.0)x597.25858, yoko direction
+.........\hbox(845.19617+0.0)x597.25858, yoko direction
+..........\kern 0.0
+..........\hbox(845.19617+0.0)x597.25858, yoko direction
+...........\special{pdf:btrans rotate 0}
+...........\hbox(845.19617+0.0)x597.25858, yoko direction
+............\hbox(845.19617+0.0)x597.25858, yoko direction
+.............\hbox(845.19617+0.0)x597.25858, yoko direction
+..............\kern 0.0
+..............\hbox(845.19617+0.0)x597.25858, yoko direction
+...............\special{pdf:btrans rotate 0}
+...............\hbox(845.19617+0.0)x597.25858, yoko direction
+................\hbox(845.19617+0.0)x597.25858, yoko direction
+.................\hbox(845.19617+0.0)x597.25858, yoko direction
+..................\hbox(845.19617+0.0)x0.0, yoko direction
+...................\special{pdf:btrans}
+...................\special{x:scale 1 1}
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
+ction
+....................\hbox(845.19617+0.0)x597.25858, yoko direction
+.....................\hbox(845.19617+0.0)x597.25858, yoko direction
+......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 595 842
+ clip 0 width 597.258\ETC.}
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+...................\special{pdf:etrans}
+..................\kern 597.25858
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{pdf:etrans}
+...........\special{pdf:etrans}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set 26.16905fil, yoko direction
+..\kern 0.0
+..\kern -25.16531
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 16.35246fil, yoko direction
+...\kern 0.0
+...\kern 17.3562
+...\kern -1.00374
+...\special{pdf:dest (page.5) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(655.63496+0.0)x435.61176, yoko direction
+..\glue -25.16531
+..\vbox(680.80028+0.0)x418.25555, shifted 17.3562, yoko direction
+...\vbox(17.0+0.0)x418.25555, glue set 17.0fil, yoko direction
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color pop}
+...\glue 20.40001
+...\glue(\lineskip) 0.0
+...\vbox(595.80026+0.0)x418.25555, glue set 584.73781fil, yoko direction
+....\write-{}
+....\glue(\topskip) 11.0
+....\hbox(0.0+0.0)x418.25555, glue set 407.30553fil
+.....\hbox(0.0+0.0)x10.95003, yoko direction
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+....\glue 0.0 plus 0.0001fil
+...\glue(\baselineskip) 47.6
+...\hbox(0.0+0.0)x418.25555, yoko direction
+....\special{color push  Black}
+....\hbox(0.0+0.0)x418.25555, yoko direction
+....\special{color pop}
+.\kern -655.63496
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(0.0+0.0)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 655.63496
+.\kern 0.0
+
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+Completed box being shipped out [6]
+\vbox(655.63496+0.0)x435.61176, yoko direction
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(845.12155+0.07462)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38326fil, shifted 0.07462, yoko d
+irection
+......\kern 0.12468
+......\hbox(845.19617+0.0)x597.25858, yoko direction
+.......\hbox(845.19617+0.0)x597.25858, yoko direction
+........\hbox(0.0+0.0)x0.0, shifted -1.0, yoko direction
+.........\glue 0.0
+........\hbox(845.19617+0.0)x597.25858, yoko direction
+.........\hbox(845.19617+0.0)x597.25858, yoko direction
+..........\kern 0.0
+..........\hbox(845.19617+0.0)x597.25858, yoko direction
+...........\special{pdf:btrans rotate 0}
+...........\hbox(845.19617+0.0)x597.25858, yoko direction
+............\hbox(845.19617+0.0)x597.25858, yoko direction
+.............\hbox(845.19617+0.0)x597.25858, yoko direction
+..............\kern 0.0
+..............\hbox(845.19617+0.0)x597.25858, yoko direction
+...............\special{pdf:btrans rotate 0}
+...............\hbox(845.19617+0.0)x597.25858, yoko direction
+................\hbox(845.19617+0.0)x597.25858, yoko direction
+.................\hbox(845.19617+0.0)x597.25858, yoko direction
+..................\hbox(845.19617+0.0)x0.0, yoko direction
+...................\special{pdf:btrans}
+...................\special{x:scale 1 1}
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
+ction
+....................\hbox(845.19617+0.0)x597.25858, yoko direction
+.....................\hbox(845.19617+0.0)x597.25858, yoko direction
+......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 595 842
+ clip 0 width 597.258\ETC.}
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+...................\special{pdf:etrans}
+..................\kern 597.25858
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{pdf:etrans}
+...........\special{pdf:etrans}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set 26.16905fil, yoko direction
+..\kern 0.0
+..\kern -25.16531
+..\kern -1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 16.35246fil, yoko direction
+...\kern 0.0
+...\kern 17.3562
+...\kern -1.00374
+...\special{pdf:dest (page.6) [@thispage /XYZ @xpos @ypos null]}
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(655.63496+0.0)x435.61176, yoko direction
+..\glue -25.16531
+..\vbox(680.80028+0.0)x418.25555, shifted 17.3562, yoko direction
+...\vbox(17.0+0.0)x418.25555, glue set 17.0fil, yoko direction
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color push  Black}
+.....\hbox(0.0+0.0)x418.25555, yoko direction
+.....\special{color pop}
+...\glue 20.40001
+...\glue(\lineskip) 0.0
+...\vbox(595.80026+0.0)x418.25555, glue set 584.73781fil, yoko direction
+....\write-{}
+....\write1{\@writefile{pdc}{\protect \contentsline {pdfdoc}{\protect \numberli
+ne \ETC.}
+....\special{pdf:dest (pdfdoc.3) [@thispage /XYZ @xpos @ypos null]}
+....\write1{\newlabel{fig:pdf3}{{3}{\thepage }{ {Float, page 5}}{pdfdoc.3}{}}}
+....\glue(\topskip) 11.0
+....\hbox(0.0+0.0)x418.25555, glue set 407.30553fil
+.....\hbox(0.0+0.0)x10.95003, yoko direction
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+....\glue 0.0 plus 0.0001fil
+...\glue(\baselineskip) 47.6
+...\hbox(0.0+0.0)x418.25555, yoko direction
+....\special{color push  Black}
+....\hbox(0.0+0.0)x418.25555, yoko direction
+....\special{color pop}
+.\kern -655.63496
+.\hbox(0.0+0.0)x0.0, yoko direction
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, yoko direction
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0, yoko direction
+....\hbox(0.0+0.0)x0.0, shifted 845.04694, yoko direction
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 655.63496
+.\kern 0.0
+
+
+============================================================
+
+()addtolist-3-koma.aux)
+Package rerunfilecheck Info: File `addtolist-3-koma.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+

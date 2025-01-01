@@ -1,0 +1,25 @@
+\input{regression-test}
+\documentclass[a4paper, twoside, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Shift towards inner side and up}{
+  \includepdf[
+    pages = 1-4,
+    offset = 20mm 30mm,
+    frame
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Shift towards outer side and down}{
+  \includepdf[
+    pages = 1-4,
+    offset = -20mm -30mm,
+    frame
+  ]{dummy.pdf}
+}
+
+\END
+\end{document}

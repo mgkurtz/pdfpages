@@ -1,0 +1,39 @@
+\usepackage{pdfpages}
+\usepackage{newfloat}
+\DeclareFloatingEnvironment[
+  fileext = mfl,
+]{myfloat}
+
+\usepackage[
+  bookmarksopen, bookmarksopenlevel=5,
+  colorlinks, linkcolor=blue,
+]{hyperref}
+
+\begin{document}
+\START\showoutput
+
+\TEST{Addtolist (newfloat)}{
+  \Large
+
+  \section{Package newfloat.sty}
+  \listofmyfloat
+  \bigskip
+  \begin{tabular}{@{}lll@{}}\hline
+    ref & pageref & nameref\\\hline
+    \ref{mfl:pdf1} & \pageref{mfl:pdf1} & \nameref{mfl:pdf1}\\
+    \ref{mfl:pdf2} & \pageref{mfl:pdf2} & \nameref{mfl:pdf2}\\
+    \ref{mfl:pdf3} & \pageref{mfl:pdf3} & \nameref{mfl:pdf3}\\\hline
+  \end{tabular}
+
+  \includepdf[
+    pages=1-5,
+    addtolist={
+      1, myfloat, {Newfloat, page 1}, mfl:pdf1,
+      3, myfloat, {Newfloat, page 3}, mfl:pdf2,
+      5, myfloat, {Newfloat, page 5}, mfl:pdf3},
+  ]{dummy.pdf}
+
+}
+
+%\END
+\end{document}

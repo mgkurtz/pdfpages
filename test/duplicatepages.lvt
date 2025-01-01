@@ -1,0 +1,19 @@
+\input{regression-test}
+\documentclass[a5paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{duplicatepages}{
+  \includepdf[pages=1-2,
+  duplicatepages]{dummy.pdf}
+}
+
+\verboseTEST{duplicatepages=3}{
+  \includepdf[pages=1-2,
+  duplicatepages=3]{dummy.pdf}
+}
+
+\END
+\end{document}

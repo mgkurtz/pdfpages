@@ -1,0 +1,175 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: status = 0 (not pdfpages)
+============================================================
+
+pdfpages file: hog.pdf 
+pdfpages options:  
+pdfpages status: 0 
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf>
+============================================================
+
+
+
+[1
+
+]
+============================================================
+TEST 2: status = 2 (temporary), 1 (final)
+============================================================
+
+pdfpages file: dummy.pdf 
+pdfpages options:  
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, scale=1, angle=0, angle=0 
+pdfpages status: 1 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+[2
+
+] 
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, scale=1, angle=0, angle=0 
+pdfpages status: 1 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+[3
+
+]
+============================================================
+
+============================================================
+TEST 3: status = 0 (not pdfpages)
+============================================================
+
+pdfpages file: hog.pdf 
+pdfpages options:  
+pdfpages status: 0 
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf>
+============================================================
+
+
+
+[4]
+============================================================
+TEST 4: status = 2 (temporary), 1 (final)
+============================================================
+
+pdfpages file: dummy.pdf 
+pdfpages options:  
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, scale=1, angle=0, angle=0 
+pdfpages status: 1 
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+[5
+
+] 
+pdfpages file: hog.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf, page 1>
+
+pdfpages file: hog.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf, page 1>
+
+
+
+pdfpages file: hog.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, scale=1, angle=0, angle=0 
+pdfpages status: 1 
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf, page 1>
+[6
+
+]
+============================================================
+
+

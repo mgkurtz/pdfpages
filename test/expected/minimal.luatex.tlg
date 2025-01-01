@@ -1,0 +1,473 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: test1
+============================================================
+<hog.pdf, id=1, 251.94125pt x 213.79875pt>
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf>
+Package luatex.def Info: hog.pdf  used on input line 14.
+(luatex.def)             Requested size: 251.94063pt x 213.79822pt.
+
+Package pdfpages Warning: Erroneous page width of 0.0pt is corrected.
+
+
+Package pdfpages Warning: Erroneous page height of 0.0pt is corrected.
+
+<hog.pdf, id=3, page=1, 251.94125pt x 213.79875pt>
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf, page 1>
+Package luatex.def Info: hog.pdf , page1 used on input line 14.
+(luatex.def)             Requested size: 251.94063pt x 213.79822pt.
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf, page 1>
+Package luatex.def Info: hog.pdf , page1 used on input line 14.
+(luatex.def)             Requested size: 599.74678pt x 508.94846pt.
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf, page 1>
+Package luatex.def Info: hog.pdf , page1 used on input line 14.
+(luatex.def)             Requested size: 599.74678pt x 508.94846pt.
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf, page 1>
+Package luatex.def Info: hog.pdf , page1 used on input line 14.
+(luatex.def)             Requested size: 599.74678pt x 508.94846pt.
+
+
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf, page 1>
+Package luatex.def Info: hog.pdf , page1 used on input line 14.
+(luatex.def)             Requested size: 599.74678pt x 508.94846pt.
+
+Completed box being shipped out [1]
+\vbox(578.15999+0.0)x469.75499, direction TLT
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(676.99765+0.0)x0.0, shifted 845.04684, direction TLT
+.....\kern0.0
+.....\hbox(508.94846+0.0)x0.0, glue set - 598.62732fil, shifted -168.0492, direction TLT
+......\kern-1.11945
+......\hbox(508.94846+0.0)x599.74678, direction TLT
+.......\hbox(508.94846+0.0)x599.74678, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -1.0, direction TLT
+.........\glue 0.0
+........\hbox(508.94846+0.0)x599.74678, direction TLT
+.........\hbox(508.94846+0.0)x599.74678, direction TLT
+..........\kern0.0
+..........\hbox(508.94846+0.0)x599.74678, direction TLT
+...........\hbox(508.94846+0.0)x599.74678, direction TLT
+............\hbox(508.94846+0.0)x599.74678, direction TLT
+.............\hbox(508.94846+0.0)x599.74678, direction TLT
+..............\kern0.0
+..............\hbox(508.94846+0.0)x599.74678, direction TLT
+...............\hbox(508.94846+0.0)x599.74678, direction TLT
+................\hbox(508.94846+0.0)x599.74678, direction TLT
+.................\hbox(508.94846+0.0)x599.74678, direction TLT
+..................\hbox(508.94846+0.0)x0.0, direction TLT
+...................\hbox(508.94846+0.0)x0.0, glue set - 599.74677fil, direction TLT
+....................\hbox(508.94846+0.0)x599.74678, direction TLT
+.....................\hbox(508.94846+0.0)x599.74678, direction TLT
+......................\hbox(508.94972+0.0)x599.74828, direction TLT
+.......................\hbox(508.94972+0.0)x599.74828, direction TLT
+........................\hbox(508.94972+0.0)x0.0, direction TLT
+.........................\pdfsave
+.........................\pdfsetmatrix{2.38051 0 0 2.38051}
+.........................\hbox(213.79875+0.0)x0.0, glue set - 251.94125fil, direction TLT
+..........................\hbox(213.79875+0.0)x251.94125, direction TLT
+...........................\image(213.79875+0.0)x251.94125
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\pdfrestore
+........................\kern599.74828
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+..................\kern599.74678
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 0.0
+.\vbox(578.15999+0.0)x469.75499, direction TLT
+..\vbox(0.0+0.0)x469.75499, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x469.75499, direction TLT
+....\pdfcolorstack 0 push {0 g 0 G}
+....\hbox(0.0+0.0)x469.75499, direction TLT
+....\pdfcolorstack 0 pop
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(578.15999+0.0)x469.75499, glue set 568.15997fil, direction TLT
+...\pdfcolorstack 0 push {0 g 0 G}
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x469.75499, glue set 449.755fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x20.0, direction TLT
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+..\glue(\baselineskip) 0.0
+..\hbox(0.0+0.0)x469.75499, direction TLT
+...\pdfcolorstack 0 push {0 g 0 G}
+...\hbox(0.0+0.0)x469.75499, direction TLT
+...\pdfcolorstack 0 pop
+.\kern-578.15999
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(0.0+0.0)x0.0, shifted 845.04684, direction TLT
+.....\kern0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern578.15999
+.\kern0.0
+
+
+<./hog.pdf>
+============================================================
+
+============================================================
+TEST 2: test2
+============================================================
+<dummy.pdf, id=16, 597.50829pt x 845.04709pt>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+Package luatex.def Info: dummy.pdf  used on input line 18.
+(luatex.def)             Requested size: 597.50682pt x 845.04503pt.
+
+Package pdfpages Warning: Erroneous page width of 0.0pt is corrected.
+
+
+Package pdfpages Warning: Erroneous page height of 0.0pt is corrected.
+
+<dummy.pdf, id=18, page=1, 597.50829pt x 845.04709pt>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package luatex.def Info: dummy.pdf , page1 used on input line 18.
+(luatex.def)             Requested size: 597.50682pt x 845.04503pt.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package luatex.def Info: dummy.pdf , page1 used on input line 18.
+(luatex.def)             Requested size: 597.53416pt x 845.08371pt.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package luatex.def Info: dummy.pdf , page1 used on input line 18.
+(luatex.def)             Requested size: 597.53416pt x 845.08371pt.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package luatex.def Info: dummy.pdf , page1 used on input line 18.
+(luatex.def)             Requested size: 597.53416pt x 845.08371pt.
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package luatex.def Info: dummy.pdf , page1 used on input line 18.
+(luatex.def)             Requested size: 597.53416pt x 845.08371pt.
+
+Completed box being shipped out [2]
+\vbox(578.15999+0.0)x469.75499, direction TLT
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(845.06528+0.01843)x0.0, shifted 845.04684, direction TLT
+.....\kern0.0
+.....\hbox(845.08371+0.0)x0.0, glue set - 597.521fil, shifted 0.01843, direction TLT
+......\kern-0.01314
+......\hbox(845.08371+0.0)x597.53416, direction TLT
+.......\hbox(845.08371+0.0)x597.53416, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -1.0, direction TLT
+.........\glue 0.0
+........\hbox(845.08371+0.0)x597.53416, direction TLT
+.........\hbox(845.08371+0.0)x597.53416, direction TLT
+..........\kern0.0
+..........\hbox(845.08371+0.0)x597.53416, direction TLT
+...........\hbox(845.08371+0.0)x597.53416, direction TLT
+............\hbox(845.08371+0.0)x597.53416, direction TLT
+.............\hbox(845.08371+0.0)x597.53416, direction TLT
+..............\kern0.0
+..............\hbox(845.08371+0.0)x597.53416, direction TLT
+...............\hbox(845.08371+0.0)x597.53416, direction TLT
+................\hbox(845.08371+0.0)x597.53416, direction TLT
+.................\hbox(845.08371+0.0)x597.53416, direction TLT
+..................\hbox(845.08371+0.0)x0.0, direction TLT
+...................\hbox(845.08371+0.0)x0.0, glue set - 597.53418fil, direction TLT
+....................\hbox(845.08371+0.0)x597.53416, direction TLT
+.....................\hbox(845.08371+0.0)x597.53416, direction TLT
+......................\hbox(845.08577+0.0)x597.53563, direction TLT
+.......................\hbox(845.08577+0.0)x597.53563, direction TLT
+........................\hbox(845.08577+0.0)x0.0, direction TLT
+.........................\pdfsave
+.........................\pdfsetmatrix{1.00005 0 0 1.00005}
+.........................\hbox(845.04709+0.0)x0.0, glue set - 597.5083fil, direction TLT
+..........................\hbox(845.04709+0.0)x597.50829, direction TLT
+...........................\image(845.04709+0.0)x597.50829
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\pdfrestore
+........................\kern597.53563
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+..................\kern597.53416
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 0.0
+.\vbox(578.15999+0.0)x469.75499, direction TLT
+..\vbox(0.0+0.0)x469.75499, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x469.75499, direction TLT
+....\pdfcolorstack 0 push {0 g 0 G}
+....\hbox(0.0+0.0)x469.75499, direction TLT
+....\pdfcolorstack 0 pop
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(578.15999+0.0)x469.75499, glue set 568.15997fil, direction TLT
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x469.75499, glue set 449.755fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x20.0, direction TLT
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+..\glue(\baselineskip) 0.0
+..\hbox(0.0+0.0)x469.75499, direction TLT
+...\pdfcolorstack 0 push {0 g 0 G}
+...\hbox(0.0+0.0)x469.75499, direction TLT
+...\pdfcolorstack 0 pop
+.\kern-578.15999
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(0.0+0.0)x0.0, shifted 845.04684, direction TLT
+.....\kern0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern578.15999
+.\kern0.0
+
+
+<./dummy.pdf>
+============================================================
+
+============================================================
+TEST 3: test3
+============================================================
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+Package luatex.def Info: dummy.pdf  used on input line 25.
+(luatex.def)             Requested size: 597.50682pt x 845.04503pt.
+
+Package pdfpages Warning: Erroneous page width of 0.0pt is corrected.
+
+
+Package pdfpages Warning: Erroneous page height of 0.0pt is corrected.
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package luatex.def Info: dummy.pdf , page1 used on input line 25.
+(luatex.def)             Requested size: 597.50682pt x 845.04503pt.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package luatex.def Info: dummy.pdf , page1 used on input line 25.
+(luatex.def)             Requested size: 422.50157pt x 597.5377pt.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package luatex.def Info: dummy.pdf , page1 used on input line 25.
+(luatex.def)             Requested size: 422.50157pt x 597.5377pt.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package luatex.def Info: dummy.pdf , page1 used on input line 25.
+(luatex.def)             Requested size: 422.50157pt x 597.5377pt.
+<dummy.pdf, id=37, page=2, 597.50829pt x 845.04709pt>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+Package luatex.def Info: dummy.pdf , page2 used on input line 25.
+(luatex.def)             Requested size: 422.50157pt x 597.5377pt.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+Package luatex.def Info: dummy.pdf , page2 used on input line 25.
+(luatex.def)             Requested size: 422.50157pt x 597.5377pt.
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package luatex.def Info: dummy.pdf , page1 used on input line 25.
+(luatex.def)             Requested size: 422.50157pt x 597.5377pt.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+Package luatex.def Info: dummy.pdf , page2 used on input line 25.
+(luatex.def)             Requested size: 422.50157pt x 597.5377pt.
+
+Completed box being shipped out [3]
+\vbox(578.15999+0.0)x469.75499, direction TLT
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(845.025+0.0)x0.0, shifted 845.04684, direction TLT
+.....\kern0.0
+.....\hbox(422.50157+0.0)x0.0, glue set - 597.52283fil, shifted -0.02185, direction TLT
+......\kern-0.01491
+......\hbox(422.50157+0.0)x597.5377, direction TLT
+.......\hbox(422.50157+0.0)x597.5377, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -1.0, direction TLT
+.........\glue 0.0
+........\hbox(422.50157+0.0)x597.5377, direction TLT
+.........\hbox(422.50157+0.0)x597.5377, direction TLT
+..........\kern597.5377
+..........\hbox(597.5377+0.0)x0.0, direction TLT
+...........\pdfsave
+...........\pdfsetmatrix{0 1 -1 0}
+...........\hbox(597.5377+0.0)x0.0, direction TLT
+............\hbox(597.5377+0.0)x422.50157, direction TLT
+.............\hbox(597.5377+0.0)x422.50157, direction TLT
+..............\kern0.0
+..............\hbox(597.5377+0.0)x422.50157, direction TLT
+...............\hbox(597.5377+0.0)x422.50157, direction TLT
+................\hbox(597.5377+0.0)x422.50157, direction TLT
+.................\hbox(597.5377+0.0)x422.50157, direction TLT
+..................\hbox(597.5377+0.0)x0.0, direction TLT
+...................\hbox(597.5377+0.0)x0.0, glue set - 422.50159fil, direction TLT
+....................\hbox(597.5377+0.0)x422.50157, direction TLT
+.....................\hbox(597.5377+0.0)x422.50157, direction TLT
+......................\hbox(597.53917+0.0)x422.50261, direction TLT
+.......................\hbox(597.53917+0.0)x422.50261, direction TLT
+........................\hbox(597.53917+0.0)x0.0, direction TLT
+.........................\pdfsave
+.........................\pdfsetmatrix{.7071 0 0 .7071}
+.........................\hbox(845.04709+0.0)x0.0, glue set - 597.5083fil, direction TLT
+..........................\hbox(845.04709+0.0)x597.50829, direction TLT
+...........................\image(845.04709+0.0)x597.50829
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\pdfrestore
+........................\kern422.50261
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+..................\kern422.50157
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...........\pdfrestore
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(422.50157+0.0)x0.0, glue set - 597.52283fil, shifted -422.52342, direction TLT
+......\kern-0.01491
+......\hbox(422.50157+0.0)x597.5377, direction TLT
+.......\hbox(422.50157+0.0)x597.5377, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -1.0, direction TLT
+.........\glue 0.0
+........\hbox(422.50157+0.0)x597.5377, direction TLT
+.........\hbox(422.50157+0.0)x597.5377, direction TLT
+..........\kern597.5377
+..........\hbox(597.5377+0.0)x0.0, direction TLT
+...........\pdfsave
+...........\pdfsetmatrix{0 1 -1 0}
+...........\hbox(597.5377+0.0)x0.0, direction TLT
+............\hbox(597.5377+0.0)x422.50157, direction TLT
+.............\hbox(597.5377+0.0)x422.50157, direction TLT
+..............\kern0.0
+..............\hbox(597.5377+0.0)x422.50157, direction TLT
+...............\hbox(597.5377+0.0)x422.50157, direction TLT
+................\hbox(597.5377+0.0)x422.50157, direction TLT
+.................\hbox(597.5377+0.0)x422.50157, direction TLT
+..................\hbox(597.5377+0.0)x0.0, direction TLT
+...................\hbox(597.5377+0.0)x0.0, glue set - 422.50159fil, direction TLT
+....................\hbox(597.5377+0.0)x422.50157, direction TLT
+.....................\hbox(597.5377+0.0)x422.50157, direction TLT
+......................\hbox(597.53917+0.0)x422.50261, direction TLT
+.......................\hbox(597.53917+0.0)x422.50261, direction TLT
+........................\hbox(597.53917+0.0)x0.0, direction TLT
+.........................\pdfsave
+.........................\pdfsetmatrix{.7071 0 0 .7071}
+.........................\hbox(845.04709+0.0)x0.0, glue set - 597.5083fil, direction TLT
+..........................\hbox(845.04709+0.0)x597.50829, direction TLT
+...........................\image(845.04709+0.0)x597.50829
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\pdfrestore
+........................\kern422.50261
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+..................\kern422.50157
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...........\pdfrestore
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 0.0
+.\vbox(578.15999+0.0)x469.75499, direction TLT
+..\vbox(0.0+0.0)x469.75499, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x469.75499, direction TLT
+....\pdfcolorstack 0 push {0 g 0 G}
+....\hbox(0.0+0.0)x469.75499, direction TLT
+....\pdfcolorstack 0 pop
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(578.15999+0.0)x469.75499, glue set 568.15997fil, direction TLT
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x469.75499, glue set 449.755fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x20.0, direction TLT
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+..\glue(\baselineskip) 0.0
+..\hbox(0.0+0.0)x469.75499, direction TLT
+...\pdfcolorstack 0 push {0 g 0 G}
+...\hbox(0.0+0.0)x469.75499, direction TLT
+...\pdfcolorstack 0 pop
+.\kern-578.15999
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(0.0+0.0)x0.0, shifted 845.04684, direction TLT
+.....\kern0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern578.15999
+.\kern0.0
+
+
+<./dummy.pdf>
+============================================================
+
+

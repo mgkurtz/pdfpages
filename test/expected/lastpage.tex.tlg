@@ -1,0 +1,2060 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: Insert empty page: 1\\(Default: lastpage=1)
+============================================================
+
+Package pdfpages Warning: I cannot determine the number of pages of the
+(pdfpages)                included document, because we are running in
+(pdfpages)                DVI mode. 
+(pdfpages)                You can use the option `lastpage' to give me a hint.
+
+
+
+
+Completed box being shipped out [1]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\special{header=l3backend-dvips.pro}
+..\special{papersize=597.50787pt,845.04684pt}
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\special{ps: /setdistillerparams where {pop << /CompressPages false /CompressStreams false >> setdistillerparams} if }
+...\special{! <</DocumentUUID (DocumentUUID)>> setpagedevice}
+...\special{! <</InstanceUUID (InstanceUUID)>> setpagedevice}
+...\write-{}
+...\special{color push gray 0}
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(832.10046+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.27998+54.59999)x0.0, glue set - 362.45941fil, shifted -830.82048
+......\kern 14.22636
+......\hbox(1.27998+54.59999)x348.23305
+.......\hbox(13.27998+42.59999)x348.23305, shifted 12.0
+........\special{color push gray 0}
+........\hbox(13.27998+42.59999)x348.23305
+.........\hbox(13.27998+42.59999)x348.23305
+..........\hbox(55.87997+0.0)x348.23305, shifted 42.59999
+...........\vbox(55.87997+0.0)x348.23305
+............\kern 0.4
+............\hbox(55.07999+0.0)x348.23305
+.............\kern 0.4
+.............\vbox(55.07999+0.0)x347.43306
+..............\kern 0.0
+..............\hbox(12.87999+42.2)x347.43306
+...............\kern 0.0
+...............\special{color push cmyk 0 0 0.5 0}
+...............\special{color push cmyk 0 0 0.5 0}
+...............\hbox(12.87999+42.2)x0.0, glue set - 347.43306fil
+................\rule(12.87999+42.2)x347.43306
+................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{color pop}
+...............\hbox(12.87999+42.2)x347.43306
+................\kern 3.0
+................\special{color push gray 0}
+................\vbox(9.87999+39.2)x341.43306
+.................\hbox(9.87999+2.79999)x341.43306, glue set 192.44324fil
+..................\hbox(0.0+0.0)x0.0
+..................\special{color push rgb 1 0.3 0.3}
+..................\OT1/cmr/bx/n/14.4 I
+..................\OT1/cmr/bx/n/14.4 n
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 r
+..................\OT1/cmr/bx/n/14.4 t
+..................\glue 5.4 plus 2.7 minus 1.79999
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 m
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 t
+..................\kern-0.45001
+..................\OT1/cmr/bx/n/14.4 y
+..................\glue 5.4 plus 2.7 minus 1.79999
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 g
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 :
+..................\glue 7.19998 plus 5.4 minus 0.9
+..................\OT1/cmr/bx/n/14.4 1
+..................\penalty 10000
+..................\glue 0.0 plus 1.0fil
+..................\penalty -10000
+..................\glue(\rightskip) 0.0
+.................\penalty 300
+.................\glue(\baselineskip) 4.40002
+.................\hbox(10.79999+3.59999)x341.43306, glue set 186.56827fil
+..................\OT1/cmr/bx/n/14.4 (
+..................\OT1/cmr/bx/n/14.4 D
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 f
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 u
+..................\OT1/cmr/bx/n/14.4 l
+..................\OT1/cmr/bx/n/14.4 t
+..................\OT1/cmr/bx/n/14.4 :
+..................\glue 7.19998 plus 5.4 minus 0.9
+..................\OT1/cmr/bx/n/14.4 l
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 t
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 g
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 =
+..................\OT1/cmr/bx/n/14.4 1
+..................\OT1/cmr/bx/n/14.4 )
+..................\special{color pop}
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.40002
+.................\hbox(9.99998+3.2)x341.43306, glue set 111.72342fil
+..................\hbox(0.0+0.0)x0.0
+..................\OT1/cmtt/m/n/14.4 \
+..................\OT1/cmtt/m/n/14.4 i
+..................\OT1/cmtt/m/n/14.4 n
+..................\OT1/cmtt/m/n/14.4 c
+..................\OT1/cmtt/m/n/14.4 l
+..................\OT1/cmtt/m/n/14.4 u
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 f
+..................\OT1/cmtt/m/n/14.4 [
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 a
+..................\OT1/cmtt/m/n/14.4 g
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 s
+..................\OT1/cmtt/m/n/14.4 =
+..................\OT1/cmtt/m/n/14.4 -
+..................\OT1/cmtt/m/n/14.4 ]
+..................\OT1/cmtt/m/n/14.4 {
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 u
+..................\OT1/cmtt/m/n/14.4 m
+..................\OT1/cmtt/m/n/14.4 m
+..................\OT1/cmtt/m/n/14.4 y
+..................\OT1/cmtt/m/n/14.4 .
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 f
+..................\OT1/cmtt/m/n/14.4 }
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+................\special{color pop}
+................\kern 3.0
+...............\special{color pop}
+...............\kern 0.0
+..............\kern 0.0
+.............\kern 0.4
+............\kern 0.4
+.........\kern -348.23305
+.........\hbox(13.27998+42.59999)x348.23305
+..........\vbox(55.87997+0.0)x348.23305, shifted 42.59999
+...........\rule(0.4+0.0)x*
+...........\kern -0.2
+...........\hbox(55.47998+0.0)x348.23305
+............\rule(55.47998+0.0)x0.4
+............\kern 347.43306
+............\rule(55.47998+0.0)x0.4
+...........\kern -0.2
+...........\rule(0.4+0.0)x*
+........\special{color pop}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+.\kern 0.0
+
+
+
+============================================================
+
+============================================================
+TEST 2: Insert empty pages: 1-10\\(lastpages=10)
+============================================================
+
+
+
+Completed box being shipped out [2]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(832.10046+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.27998+54.59999)x0.0, glue set - 362.45941fil, shifted -830.82048
+......\kern 14.22636
+......\hbox(1.27998+54.59999)x348.23305
+.......\hbox(13.27998+42.59999)x348.23305, shifted 12.0
+........\special{color push gray 0}
+........\hbox(13.27998+42.59999)x348.23305
+.........\hbox(13.27998+42.59999)x348.23305
+..........\hbox(55.87997+0.0)x348.23305, shifted 42.59999
+...........\vbox(55.87997+0.0)x348.23305
+............\kern 0.4
+............\hbox(55.07999+0.0)x348.23305
+.............\kern 0.4
+.............\vbox(55.07999+0.0)x347.43306
+..............\kern 0.0
+..............\hbox(12.87999+42.2)x347.43306
+...............\kern 0.0
+...............\special{color push cmyk 0 0 0.5 0}
+...............\special{color push cmyk 0 0 0.5 0}
+...............\hbox(12.87999+42.2)x0.0, glue set - 347.43306fil
+................\rule(12.87999+42.2)x347.43306
+................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{color pop}
+...............\hbox(12.87999+42.2)x347.43306
+................\kern 3.0
+................\special{color push gray 0}
+................\vbox(9.87999+39.2)x341.43306
+.................\hbox(9.87999+2.79999)x341.43306, glue set 164.45325fil
+..................\hbox(0.0+0.0)x0.0
+..................\special{color push rgb 1 0.3 0.3}
+..................\OT1/cmr/bx/n/14.4 I
+..................\OT1/cmr/bx/n/14.4 n
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 r
+..................\OT1/cmr/bx/n/14.4 t
+..................\glue 5.4 plus 2.7 minus 1.79999
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 m
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 t
+..................\kern-0.45001
+..................\OT1/cmr/bx/n/14.4 y
+..................\glue 5.4 plus 2.7 minus 1.79999
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 g
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 :
+..................\glue 7.19998 plus 5.4 minus 0.9
+..................\OT1/cmr/bx/n/14.4 1
+..................\OT1/cmr/bx/n/14.4 -
+..................\discretionary
+..................\OT1/cmr/bx/n/14.4 1
+..................\OT1/cmr/bx/n/14.4 0
+..................\penalty 10000
+..................\glue 0.0 plus 1.0fil
+..................\penalty -10000
+..................\glue(\rightskip) 0.0
+.................\penalty 300
+.................\glue(\baselineskip) 4.40002
+.................\hbox(10.79999+3.59999)x341.43306, glue set 236.2115fil
+..................\OT1/cmr/bx/n/14.4 (
+..................\OT1/cmr/bx/n/14.4 l
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 t
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 g
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 =
+..................\OT1/cmr/bx/n/14.4 1
+..................\OT1/cmr/bx/n/14.4 0
+..................\OT1/cmr/bx/n/14.4 )
+..................\special{color pop}
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.40002
+.................\hbox(9.99998+3.2)x341.43306, glue set 15.39357fil
+..................\hbox(0.0+0.0)x0.0
+..................\OT1/cmtt/m/n/14.4 \
+..................\OT1/cmtt/m/n/14.4 i
+..................\OT1/cmtt/m/n/14.4 n
+..................\OT1/cmtt/m/n/14.4 c
+..................\OT1/cmtt/m/n/14.4 l
+..................\OT1/cmtt/m/n/14.4 u
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 f
+..................\OT1/cmtt/m/n/14.4 [
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 a
+..................\OT1/cmtt/m/n/14.4 g
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 s
+..................\OT1/cmtt/m/n/14.4 =
+..................\OT1/cmtt/m/n/14.4 -
+..................\OT1/cmtt/m/n/14.4 ,
+..................\glue 7.40999
+..................\OT1/cmtt/m/n/14.4 l
+..................\OT1/cmtt/m/n/14.4 a
+..................\OT1/cmtt/m/n/14.4 s
+..................\OT1/cmtt/m/n/14.4 t
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 a
+..................\OT1/cmtt/m/n/14.4 g
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 =
+..................\OT1/cmtt/m/n/14.4 1
+..................\OT1/cmtt/m/n/14.4 0
+..................\OT1/cmtt/m/n/14.4 ]
+..................\OT1/cmtt/m/n/14.4 {
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 u
+..................\OT1/cmtt/m/n/14.4 m
+..................\OT1/cmtt/m/n/14.4 m
+..................\OT1/cmtt/m/n/14.4 y
+..................\OT1/cmtt/m/n/14.4 .
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 f
+..................\OT1/cmtt/m/n/14.4 }
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+................\special{color pop}
+................\kern 3.0
+...............\special{color pop}
+...............\kern 0.0
+..............\kern 0.0
+.............\kern 0.4
+............\kern 0.4
+.........\kern -348.23305
+.........\hbox(13.27998+42.59999)x348.23305
+..........\vbox(55.87997+0.0)x348.23305, shifted 42.59999
+...........\rule(0.4+0.0)x*
+...........\kern -0.2
+...........\hbox(55.47998+0.0)x348.23305
+............\rule(55.47998+0.0)x0.4
+............\kern 347.43306
+............\rule(55.47998+0.0)x0.4
+...........\kern -0.2
+...........\rule(0.4+0.0)x*
+........\special{color pop}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [3]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [4]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [5]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [6]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [7]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [8]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [9]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [10]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [11]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+============================================================
+
+============================================================
+TEST 3: Insert empty pages: 8-1\\(Default: lastpage=1)
+============================================================
+
+Package pdfpages Warning: I cannot determine the number of pages of the
+(pdfpages)                included document, because we are running in
+(pdfpages)                DVI mode. 
+(pdfpages)                You can use the option `lastpage' to give me a hint.
+
+
+
+
+Completed box being shipped out [12]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(832.10046+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.27998+90.59999)x0.0, glue set - 362.45941fil, shifted -830.82048
+......\kern 14.22636
+......\hbox(1.27998+90.59999)x348.23305
+.......\hbox(13.27998+78.59999)x348.23305, shifted 12.0
+........\special{color push gray 0}
+........\hbox(13.27998+78.59999)x348.23305
+.........\hbox(13.27998+78.59999)x348.23305
+..........\hbox(91.87997+0.0)x348.23305, shifted 78.59999
+...........\vbox(91.87997+0.0)x348.23305
+............\kern 0.4
+............\hbox(91.07999+0.0)x348.23305
+.............\kern 0.4
+.............\vbox(91.07999+0.0)x347.43306
+..............\kern 0.0
+..............\hbox(12.87999+78.2)x347.43306
+...............\kern 0.0
+...............\special{color push cmyk 0 0 0.5 0}
+...............\special{color push cmyk 0 0 0.5 0}
+...............\hbox(12.87999+78.2)x0.0, glue set - 347.43306fil
+................\rule(12.87999+78.2)x347.43306
+................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{color pop}
+...............\hbox(12.87999+78.2)x347.43306
+................\kern 3.0
+................\special{color push gray 0}
+................\vbox(9.87999+75.2)x341.43306
+.................\hbox(9.87999+2.79999)x341.43306, glue set 172.55324fil
+..................\hbox(0.0+0.0)x0.0
+..................\special{color push rgb 1 0.3 0.3}
+..................\OT1/cmr/bx/n/14.4 I
+..................\OT1/cmr/bx/n/14.4 n
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 r
+..................\OT1/cmr/bx/n/14.4 t
+..................\glue 5.4 plus 2.7 minus 1.79999
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 m
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 t
+..................\kern-0.45001
+..................\OT1/cmr/bx/n/14.4 y
+..................\glue 5.4 plus 2.7 minus 1.79999
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 g
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 :
+..................\glue 7.19998 plus 5.4 minus 0.9
+..................\OT1/cmr/bx/n/14.4 8
+..................\OT1/cmr/bx/n/14.4 -
+..................\discretionary
+..................\OT1/cmr/bx/n/14.4 1
+..................\penalty 10000
+..................\glue 0.0 plus 1.0fil
+..................\penalty -10000
+..................\glue(\rightskip) 0.0
+.................\penalty 300
+.................\glue(\baselineskip) 4.40002
+.................\hbox(10.79999+3.59999)x341.43306, glue set 186.56827fil
+..................\OT1/cmr/bx/n/14.4 (
+..................\OT1/cmr/bx/n/14.4 D
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 f
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 u
+..................\OT1/cmr/bx/n/14.4 l
+..................\OT1/cmr/bx/n/14.4 t
+..................\OT1/cmr/bx/n/14.4 :
+..................\glue 7.19998 plus 5.4 minus 0.9
+..................\OT1/cmr/bx/n/14.4 l
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 t
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 g
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 =
+..................\OT1/cmr/bx/n/14.4 1
+..................\OT1/cmr/bx/n/14.4 )
+..................\special{color pop}
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.40002
+.................\hbox(9.99998+3.2)x341.43306, glue set 252.5132fil
+..................\hbox(0.0+0.0)x0.0
+..................\OT1/cmtt/m/n/14.4 \
+..................\OT1/cmtt/m/n/14.4 i
+..................\OT1/cmtt/m/n/14.4 n
+..................\OT1/cmtt/m/n/14.4 c
+..................\OT1/cmtt/m/n/14.4 l
+..................\OT1/cmtt/m/n/14.4 u
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 f
+..................\OT1/cmtt/m/n/14.4 [
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 6.00002
+.................\hbox(8.79999+3.2)x341.43306, glue set 282.15315fil
+..................\hbox(0.0+0.0)x0.0
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 a
+..................\OT1/cmtt/m/n/14.4 g
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 s
+..................\OT1/cmtt/m/n/14.4 =
+..................\OT1/cmtt/m/n/14.4 8
+..................\OT1/cmtt/m/n/14.4 -
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.80002
+.................\hbox(9.99998+3.2)x341.43306, glue set 252.5132fil
+..................\hbox(0.0+0.0)x0.0
+..................\OT1/cmtt/m/n/14.4 ]
+..................\OT1/cmtt/m/n/14.4 {
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 u
+..................\OT1/cmtt/m/n/14.4 m
+..................\OT1/cmtt/m/n/14.4 m
+..................\OT1/cmtt/m/n/14.4 y
+..................\OT1/cmtt/m/n/14.4 .
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 f
+..................\OT1/cmtt/m/n/14.4 }
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+................\special{color pop}
+................\kern 3.0
+...............\special{color pop}
+...............\kern 0.0
+..............\kern 0.0
+.............\kern 0.4
+............\kern 0.4
+.........\kern -348.23305
+.........\hbox(13.27998+78.59999)x348.23305
+..........\vbox(91.87997+0.0)x348.23305, shifted 78.59999
+...........\rule(0.4+0.0)x*
+...........\kern -0.2
+...........\hbox(91.47998+0.0)x348.23305
+............\rule(91.47998+0.0)x0.4
+............\kern 347.43306
+............\rule(91.47998+0.0)x0.4
+...........\kern -0.2
+...........\rule(0.4+0.0)x*
+........\special{color pop}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [13]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [14]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [15]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [16]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [17]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [18]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [19]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+============================================================
+
+============================================================
+TEST 4: Insert empty pages: 8-10\\(lastpage:10)
+============================================================
+
+
+
+Completed box being shipped out [20]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(832.10046+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.27998+90.59999)x0.0, glue set - 362.45941fil, shifted -830.82048
+......\kern 14.22636
+......\hbox(1.27998+90.59999)x348.23305
+.......\hbox(13.27998+78.59999)x348.23305, shifted 12.0
+........\special{color push gray 0}
+........\hbox(13.27998+78.59999)x348.23305
+.........\hbox(13.27998+78.59999)x348.23305
+..........\hbox(91.87997+0.0)x348.23305, shifted 78.59999
+...........\vbox(91.87997+0.0)x348.23305
+............\kern 0.4
+............\hbox(91.07999+0.0)x348.23305
+.............\kern 0.4
+.............\vbox(91.07999+0.0)x347.43306
+..............\kern 0.0
+..............\hbox(12.87999+78.2)x347.43306
+...............\kern 0.0
+...............\special{color push cmyk 0 0 0.5 0}
+...............\special{color push cmyk 0 0 0.5 0}
+...............\hbox(12.87999+78.2)x0.0, glue set - 347.43306fil
+................\rule(12.87999+78.2)x347.43306
+................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\special{color pop}
+...............\hbox(12.87999+78.2)x347.43306
+................\kern 3.0
+................\special{color push gray 0}
+................\vbox(9.87999+75.2)x341.43306
+.................\hbox(9.87999+2.79999)x341.43306, glue set 164.45325fil
+..................\hbox(0.0+0.0)x0.0
+..................\special{color push rgb 1 0.3 0.3}
+..................\OT1/cmr/bx/n/14.4 I
+..................\OT1/cmr/bx/n/14.4 n
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 r
+..................\OT1/cmr/bx/n/14.4 t
+..................\glue 5.4 plus 2.7 minus 1.79999
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 m
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 t
+..................\kern-0.45001
+..................\OT1/cmr/bx/n/14.4 y
+..................\glue 5.4 plus 2.7 minus 1.79999
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 g
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 :
+..................\glue 7.19998 plus 5.4 minus 0.9
+..................\OT1/cmr/bx/n/14.4 8
+..................\OT1/cmr/bx/n/14.4 -
+..................\discretionary
+..................\OT1/cmr/bx/n/14.4 1
+..................\OT1/cmr/bx/n/14.4 0
+..................\penalty 10000
+..................\glue 0.0 plus 1.0fil
+..................\penalty -10000
+..................\glue(\rightskip) 0.0
+.................\penalty 300
+.................\glue(\baselineskip) 4.40002
+.................\hbox(10.79999+3.59999)x341.43306, glue set 250.70152fil
+..................\OT1/cmr/bx/n/14.4 (
+..................\OT1/cmr/bx/n/14.4 l
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 t
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 g
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 :
+..................\OT1/cmr/bx/n/14.4 1
+..................\OT1/cmr/bx/n/14.4 0
+..................\OT1/cmr/bx/n/14.4 )
+..................\special{color pop}
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.40002
+.................\hbox(9.99998+3.2)x341.43306, glue set 252.5132fil
+..................\hbox(0.0+0.0)x0.0
+..................\OT1/cmtt/m/n/14.4 \
+..................\OT1/cmtt/m/n/14.4 i
+..................\OT1/cmtt/m/n/14.4 n
+..................\OT1/cmtt/m/n/14.4 c
+..................\OT1/cmtt/m/n/14.4 l
+..................\OT1/cmtt/m/n/14.4 u
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 f
+..................\OT1/cmtt/m/n/14.4 [
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 6.00002
+.................\hbox(8.79999+3.2)x341.43306, glue set 185.8233fil
+..................\hbox(0.0+0.0)x0.0
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 a
+..................\OT1/cmtt/m/n/14.4 g
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 s
+..................\OT1/cmtt/m/n/14.4 =
+..................\OT1/cmtt/m/n/14.4 8
+..................\OT1/cmtt/m/n/14.4 -
+..................\OT1/cmtt/m/n/14.4 ,
+..................\glue 7.40999
+..................\OT1/cmtt/m/n/14.4 l
+..................\OT1/cmtt/m/n/14.4 a
+..................\OT1/cmtt/m/n/14.4 s
+..................\OT1/cmtt/m/n/14.4 t
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 a
+..................\OT1/cmtt/m/n/14.4 g
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 =
+..................\OT1/cmtt/m/n/14.4 1
+..................\OT1/cmtt/m/n/14.4 0
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.80002
+.................\hbox(9.99998+3.2)x341.43306, glue set 252.5132fil
+..................\hbox(0.0+0.0)x0.0
+..................\OT1/cmtt/m/n/14.4 ]
+..................\OT1/cmtt/m/n/14.4 {
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 u
+..................\OT1/cmtt/m/n/14.4 m
+..................\OT1/cmtt/m/n/14.4 m
+..................\OT1/cmtt/m/n/14.4 y
+..................\OT1/cmtt/m/n/14.4 .
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 f
+..................\OT1/cmtt/m/n/14.4 }
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+................\special{color pop}
+................\kern 3.0
+...............\special{color pop}
+...............\kern 0.0
+..............\kern 0.0
+.............\kern 0.4
+............\kern 0.4
+.........\kern -348.23305
+.........\hbox(13.27998+78.59999)x348.23305
+..........\vbox(91.87997+0.0)x348.23305, shifted 78.59999
+...........\rule(0.4+0.0)x*
+...........\kern -0.2
+...........\hbox(91.47998+0.0)x348.23305
+............\rule(91.47998+0.0)x0.4
+............\kern 347.43306
+............\rule(91.47998+0.0)x0.4
+...........\kern -0.2
+...........\rule(0.4+0.0)x*
+........\special{color pop}
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [21]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+
+
+
+Completed box being shipped out [22]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(423.52342+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.0+0.0)x0.0, glue set - 298.75394fil, shifted -422.52342
+......\kern 298.75394
+......\hbox(1.0+0.0)x0.0
+.......\hbox(1.0+0.0)x0.0
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\special{color push gray 0}
+....\hbox(0.0+0.0)x345.0
+....\special{color pop}
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\special{color push gray 0}
+...\hbox(0.0+0.0)x345.0
+...\special{color pop}
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+============================================================
+
+

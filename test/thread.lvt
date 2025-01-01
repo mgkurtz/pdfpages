@@ -1,0 +1,28 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\renewcommand\threadinfodict{%
+  /Title (My first thread) /Author (That's me!)}
+
+\verboseTEST{Thread}{
+  \includepdf[pages=1-4,
+    nup=2x2, column,
+    thread]{dummy.pdf}
+}
+
+\renewcommand*{\threadinfodict}{%
+  /Title (Second thread) /Author (You guess!)}
+
+\verboseTEST{One thread combining two documents}{
+  \includepdf[pages=1-2,
+    thread, threadname=myThread]{dummy1.pdf}
+  \includepdf[pages=1-2,
+    thread, threadname=myThread]{dummy2.pdf}
+}
+
+\END
+\end{document}

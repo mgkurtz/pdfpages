@@ -1,0 +1,22 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Fitpaper}{
+  A4-paper
+  \includepdf[fitpaper]{dummy-a5.pdf}
+  A4-paper
+}
+
+\verboseTEST{Global option}{
+  \includepdfset{fitpaper}
+  \includepdf{dummy-a5.pdf}
+  A4-paper
+  \newpage
+}
+
+\END
+\end{document}

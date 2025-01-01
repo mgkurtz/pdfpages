@@ -1,0 +1,36 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\Large
+\START\showoutput
+
+\verboseTEST{%
+  pagetemplate=1\\
+  A4L and A3L are scaled down\\
+  A5 remains unscaled}{
+  \includepdf[
+    pages=-, nup=3x3, frame
+  ]{mixed1.pdf}
+}
+
+\verboseTEST{%
+  Rotate A4L and A3L}{
+  \includepdf[
+    rotateoversize, frame,
+    pages=-, nup=3x3,
+  ]{mixed1.pdf}
+}
+
+\verboseTEST{%
+  pagetemplaet=2: A4P\\
+  rotateoversize: A4L}{
+  \includepdf[
+    rotateoversize, pagetemplate=2,
+    pages=-, nup=2x2, frame
+  ]{mixed2.pdf}
+}
+
+\END
+\end{document}

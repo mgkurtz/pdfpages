@@ -1,0 +1,22 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Noautoscale}{
+  \includepdf[noautoscale, frame]{dummy-a5.pdf}
+}
+
+\verboseTEST{Noautoscale = false}{
+  \includepdf[noautoscale = false, frame]{dummy-a5.pdf}
+}
+
+\verboseTEST{Global option}{
+  \includepdfset{noautoscale}
+  \includepdf[frame]{dummy-a5.pdf}
+}
+
+\END
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[a4paper]{article}
+\usepackage[DIV9]{typearea}
+
+\newcommand{\atext}{Lorem ipsum dolor sit amet, consetetur sadipscing
+  elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+  magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+  justo duo dolores et ea rebum. }
+\newcommand{\moretext}{\section{lore ipsum}
+  \atext\atext\par\atext\atext\par\atext\atext}
+
+\newcommand{\switchpagesize}[2]{%
+  \newpage
+  \setlength\paperwidth{#1}%
+  \setlength\paperheight{#2}%
+  \setlength\pagewidth\paperwidth
+  \setlength\pageheight\paperheight
+  \typearea{9}%
+}
+
+\def\Afive{\switchpagesize{148mm}{210mm}}
+\def\Afour{\switchpagesize{210mm}{297mm}}
+\def\AfourL{\switchpagesize{297mm}{210mm}}
+\def\AthreeL{\switchpagesize{420mm}{297mm}}
+
+
+\begin{document}
+
+\AfourL
+\moretext\moretext
+
+\Afour
+\moretext\moretext\moretext\moretext
+\moretext\moretext\moretext
+
+\end{document}
+

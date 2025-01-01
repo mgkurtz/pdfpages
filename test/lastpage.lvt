@@ -1,0 +1,32 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+%%
+%% These are tests for latex in DVI mode where lastpage=1 is the default
+%%
+\verboseTEST{Insert empty page: 1\\(Default: lastpage=1)}{
+  \includepdf[pages=-]{dummy.pdf}
+}
+
+\verboseTEST{Insert empty pages: 1-10\\(lastpages=10)}{
+  \includepdf[pages=-, lastpage=10]{dummy.pdf}
+}
+
+\verboseTEST{Insert empty pages: 8-1\\(Default: lastpage=1)}{
+  \includepdf[
+    pages=8-
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Insert empty pages: 8-10\\(lastpage:10)}{
+  \includepdf[
+    pages=8-, lastpage=10
+  ]{dummy.pdf}
+}
+
+\END
+\end{document}

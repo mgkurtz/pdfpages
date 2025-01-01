@@ -1,0 +1,14 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+\usepackage{subfiles}
+
+\begin{document}
+\START\showoutput
+
+\TEST{Subfiles}{
+  \subfile{subdir/subfile}
+}
+
+\END
+\end{document}

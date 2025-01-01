@@ -1,0 +1,3 @@
+\input{regression-test}
+\documentclass[a4paper, article, \classoptions]{memoir}
+\input{addtolist-3.tex}

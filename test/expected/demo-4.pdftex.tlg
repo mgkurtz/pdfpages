@@ -1,0 +1,500 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: graphicx: nodemo\\pdfpages: nodemo
+============================================================
+<hog.pdf, id=1, 251.94125pt x 213.79875pt>
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf>
+Package pdftex.def Info: hog.pdf  used on input line 1.
+(pdftex.def)             Requested size: 251.94063pt x 213.79822pt.
+<dummy.pdf, id=2, 597.50829pt x 845.0471pt>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+Package pdftex.def Info: dummy.pdf  used on input line 1.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+<dummy.pdf, id=4, page=1, 597.50829pt x 845.0471pt>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package pdftex.def Info: dummy.pdf , page1 used on input line 1.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package pdftex.def Info: dummy.pdf , page1 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+
+
+
+Completed box being shipped out [1]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\pdfcolorstack 0 push {0 g 0 G}
+....\hbox(0.0+0.0)x345.0
+....\pdfcolorstack 0 pop
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 384.16075fil
+...\write-{}
+...\pdfcolorstack 0 push {0 g 0 G}
+...\glue(\topskip) 0.0
+...\hbox(213.79822+0.0)x345.0, glue set 38.05943fil
+....\hbox(0.0+0.0)x15.0
+....\hbox(213.79822+0.0)x251.94063
+.....\hbox(213.79875+0.0)x251.94125
+......\hbox(213.79875+0.0)x251.94125
+.......\hbox(213.79875+0.0)x0.0
+........\hbox(213.79875+0.0)x0.0, glue set - 251.94125fil
+.........\hbox(213.79875+0.0)x251.94125
+..........\pdfrefximage(213.79875+0.0)x251.94125
+.........\glue 0.0 plus 1.0fil minus 1.0fil
+.......\kern 251.94125
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue 3.33333 plus 1.66666 minus 1.11111
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 23.55556
+..\hbox(6.44444+0.0)x345.0
+...\pdfcolorstack 0 push {0 g 0 G}
+...\hbox(6.44444+0.0)x345.0, glue set 170.0fil
+....\glue 0.0 plus 1.0fil
+....\OT1/cmr/m/n/10 1
+....\glue 0.0 plus 1.0fil
+...\pdfcolorstack 0 pop
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(832.22046+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(1.39998+72.59999)x0.0, glue set - 362.45941fil, shifted -830.82048
+......\kern 14.22636
+......\hbox(1.39998+72.59999)x348.23305
+.......\hbox(13.39998+60.59999)x348.23305, shifted 12.0
+........\pdfcolorstack 0 push {0 g 0 G}
+........\hbox(13.39998+60.59999)x348.23305
+.........\hbox(13.39998+60.59999)x348.23305
+..........\hbox(73.99997+0.0)x348.23305, shifted 60.59999
+...........\vbox(73.99997+0.0)x348.23305
+............\kern 0.4
+............\hbox(73.19998+0.0)x348.23305
+.............\kern 0.4
+.............\vbox(73.19998+0.0)x347.43306
+..............\kern 0.0
+..............\hbox(12.99998+60.2)x347.43306
+...............\kern 0.0
+...............\pdfcolorstack 0 push {0 0 0.5 0 k 0 0 0.5 0 K}
+...............\pdfcolorstack 0 push {0 0 0.5 0 k 0 0 0.5 0 K}
+...............\hbox(12.99998+60.2)x0.0, glue set - 347.43306fil
+................\rule(12.99998+60.2)x347.43306
+................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\pdfcolorstack 0 pop
+...............\hbox(12.99998+60.2)x347.43306
+................\kern 3.0
+................\pdfcolorstack 0 push {0 g 0 G}
+................\vbox(9.99998+57.2)x341.43306
+.................\hbox(9.99998+2.79999)x341.43306, glue set 213.34991fil
+..................\hbox(0.0+0.0)x0.0
+..................\pdfcolorstack 0 push {1 0.3 0.3 rg 1 0.3 0.3 RG}
+..................\OT1/cmr/bx/n/14.4 g
+..................\OT1/cmr/bx/n/14.4 r
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 h
+..................\OT1/cmr/bx/n/14.4 i
+..................\OT1/cmr/bx/n/14.4 c
+..................\OT1/cmr/bx/n/14.4 x
+..................\OT1/cmr/bx/n/14.4 :
+..................\glue 7.19998 plus 5.4 minus 0.9
+..................\OT1/cmr/bx/n/14.4 n
+..................\OT1/cmr/bx/n/14.4 o
+..................\kern0.45
+..................\OT1/cmr/bx/n/14.4 d
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 m
+..................\OT1/cmr/bx/n/14.4 o
+..................\penalty 10000
+..................\glue 0.0 plus 1.0fil
+..................\penalty -10000
+..................\glue(\rightskip) 0.0
+.................\penalty 300
+.................\glue(\baselineskip) 5.20003
+.................\hbox(9.99998+2.79999)x341.43306, glue set 212.0349fil
+..................\OT1/cmr/bx/n/14.4 p
+..................\kern0.45
+..................\OT1/cmr/bx/n/14.4 d
+..................\OT1/cmr/bx/n/14.4 f
+..................\OT1/cmr/bx/n/14.4 p
+..................\OT1/cmr/bx/n/14.4 a
+..................\OT1/cmr/bx/n/14.4 g
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 s
+..................\OT1/cmr/bx/n/14.4 :
+..................\glue 7.19998 plus 5.4 minus 0.9
+..................\OT1/cmr/bx/n/14.4 n
+..................\OT1/cmr/bx/n/14.4 o
+..................\kern0.45
+..................\OT1/cmr/bx/n/14.4 d
+..................\OT1/cmr/bx/n/14.4 e
+..................\OT1/cmr/bx/n/14.4 m
+..................\OT1/cmr/bx/n/14.4 o
+..................\pdfcolorstack 0 pop
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 5.20003
+.................\hbox(9.99998+3.2)x341.43306, glue set 156.18335fil
+..................\hbox(0.0+0.0)x0.0
+..................\OT1/cmtt/m/n/14.4 \
+..................\OT1/cmtt/m/n/14.4 i
+..................\OT1/cmtt/m/n/14.4 n
+..................\OT1/cmtt/m/n/14.4 c
+..................\OT1/cmtt/m/n/14.4 l
+..................\OT1/cmtt/m/n/14.4 u
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 g
+..................\OT1/cmtt/m/n/14.4 r
+..................\OT1/cmtt/m/n/14.4 a
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 h
+..................\OT1/cmtt/m/n/14.4 i
+..................\OT1/cmtt/m/n/14.4 c
+..................\OT1/cmtt/m/n/14.4 s
+..................\OT1/cmtt/m/n/14.4 {
+..................\OT1/cmtt/m/n/14.4 h
+..................\OT1/cmtt/m/n/14.4 o
+..................\OT1/cmtt/m/n/14.4 g
+..................\OT1/cmtt/m/n/14.4 .
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 f
+..................\OT1/cmtt/m/n/14.4 }
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.80002
+.................\hbox(9.99998+3.2)x341.43306, glue set 96.90344fil
+..................\hbox(0.0+0.0)x0.0
+..................\OT1/cmtt/m/n/14.4 \
+..................\OT1/cmtt/m/n/14.4 i
+..................\OT1/cmtt/m/n/14.4 n
+..................\OT1/cmtt/m/n/14.4 c
+..................\OT1/cmtt/m/n/14.4 l
+..................\OT1/cmtt/m/n/14.4 u
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 f
+..................\OT1/cmtt/m/n/14.4 [
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 a
+..................\OT1/cmtt/m/n/14.4 g
+..................\OT1/cmtt/m/n/14.4 e
+..................\OT1/cmtt/m/n/14.4 s
+..................\OT1/cmtt/m/n/14.4 =
+..................\OT1/cmtt/m/n/14.4 1
+..................\OT1/cmtt/m/n/14.4 -
+..................\OT1/cmtt/m/n/14.4 2
+..................\OT1/cmtt/m/n/14.4 ]
+..................\OT1/cmtt/m/n/14.4 {
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 u
+..................\OT1/cmtt/m/n/14.4 m
+..................\OT1/cmtt/m/n/14.4 m
+..................\OT1/cmtt/m/n/14.4 y
+..................\OT1/cmtt/m/n/14.4 .
+..................\OT1/cmtt/m/n/14.4 p
+..................\OT1/cmtt/m/n/14.4 d
+..................\OT1/cmtt/m/n/14.4 f
+..................\OT1/cmtt/m/n/14.4 }
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+................\pdfcolorstack 0 pop
+................\kern 3.0
+...............\pdfcolorstack 0 pop
+...............\kern 0.0
+..............\kern 0.0
+.............\kern 0.4
+............\kern 0.4
+.........\kern -348.23305
+.........\hbox(13.39998+60.59999)x348.23305
+..........\vbox(73.99997+0.0)x348.23305, shifted 60.59999
+...........\rule(0.4+0.0)x*
+...........\kern -0.2
+...........\hbox(73.59998+0.0)x348.23305
+............\rule(73.59998+0.0)x0.4
+............\kern 347.43306
+............\rule(73.59998+0.0)x0.4
+...........\kern -0.2
+...........\rule(0.4+0.0)x*
+........\pdfcolorstack 0 pop
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+ <./hog.pdf>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package pdftex.def Info: dummy.pdf , page1 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package pdftex.def Info: dummy.pdf , page1 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 1>
+Package pdftex.def Info: dummy.pdf , page1 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+
+Completed box being shipped out [2]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(845.06529+0.01843)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(845.08372+0.0)x0.0, glue set - 597.52103fil, shifted 0.01843
+......\kern -0.01314
+......\hbox(845.08372+0.0)x597.53416
+.......\hbox(845.08372+0.0)x597.53416
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+........\hbox(845.08372+0.0)x597.53416
+.........\hbox(845.08372+0.0)x597.53416
+..........\kern 0.0
+..........\hbox(845.08372+0.0)x597.53416
+...........\hbox(845.08372+0.0)x597.53416
+............\hbox(845.08372+0.0)x597.53416
+.............\hbox(845.08372+0.0)x597.53416
+..............\kern 0.0
+..............\hbox(845.08372+0.0)x597.53416
+...............\hbox(845.08372+0.0)x597.53416
+................\hbox(845.08372+0.0)x597.53416
+.................\hbox(845.08372+0.0)x597.53416
+..................\hbox(845.08372+0.0)x0.0
+...................\hbox(845.08372+0.0)x0.0, glue set - 597.53416fil
+....................\hbox(845.08372+0.0)x597.53416
+.....................\hbox(845.08372+0.0)x597.53416
+......................\hbox(845.08578+0.0)x597.53563
+.......................\hbox(845.08578+0.0)x597.53563
+........................\hbox(845.08578+0.0)x0.0
+.........................\pdfsave
+.........................\pdfsetmatrix{1.00005 0 0 1.00005}
+.........................\hbox(845.0471+0.0)x0.0, glue set - 597.50829fil
+..........................\hbox(845.0471+0.0)x597.50829
+...........................\pdfrefximage(845.0471+0.0)x597.50829
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\pdfrestore
+........................\kern 597.53563
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+..................\kern 597.53416
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\pdfcolorstack 0 push {0 g 0 G}
+....\hbox(0.0+0.0)x345.0
+....\pdfcolorstack 0 pop
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\pdfcolorstack 0 push {0 g 0 G}
+...\hbox(0.0+0.0)x345.0
+...\pdfcolorstack 0 pop
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+ <./dummy.pdf>
+<dummy.pdf, id=38, page=2, 597.50829pt x 845.0471pt>
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+Package pdftex.def Info: dummy.pdf , page2 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+Package pdftex.def Info: dummy.pdf , page2 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+
+
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf, page 2>
+Package pdftex.def Info: dummy.pdf , page2 used on input line 1.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+
+Completed box being shipped out [3]
+\vbox(682.0+0.0)x398.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(845.06529+0.01843)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\hbox(845.08372+0.0)x0.0, glue set - 597.52103fil, shifted 0.01843
+......\kern -0.01314
+......\hbox(845.08372+0.0)x597.53416
+.......\hbox(845.08372+0.0)x597.53416
+........\hbox(0.0+0.0)x0.0, shifted -1.0
+.........\glue 0.0
+........\hbox(845.08372+0.0)x597.53416
+.........\hbox(845.08372+0.0)x597.53416
+..........\kern 0.0
+..........\hbox(845.08372+0.0)x597.53416
+...........\hbox(845.08372+0.0)x597.53416
+............\hbox(845.08372+0.0)x597.53416
+.............\hbox(845.08372+0.0)x597.53416
+..............\kern 0.0
+..............\hbox(845.08372+0.0)x597.53416
+...............\hbox(845.08372+0.0)x597.53416
+................\hbox(845.08372+0.0)x597.53416
+.................\hbox(845.08372+0.0)x597.53416
+..................\hbox(845.08372+0.0)x0.0
+...................\hbox(845.08372+0.0)x0.0, glue set - 597.53416fil
+....................\hbox(845.08372+0.0)x597.53416
+.....................\hbox(845.08372+0.0)x597.53416
+......................\hbox(845.08578+0.0)x597.53563
+.......................\hbox(845.08578+0.0)x597.53563
+........................\hbox(845.08578+0.0)x0.0
+.........................\pdfsave
+.........................\pdfsetmatrix{1.00005 0 0 1.00005}
+.........................\hbox(845.0471+0.0)x0.0, glue set - 597.50829fil
+..........................\hbox(845.0471+0.0)x597.50829
+...........................\pdfrefximage(845.0471+0.0)x597.50829
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\pdfrestore
+........................\kern 597.53563
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+..................\kern 597.53416
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\pdfcolorstack 0 push {0 g 0 G}
+....\hbox(0.0+0.0)x345.0
+....\pdfcolorstack 0 pop
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil
+....\hbox(0.0+0.0)x15.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\pdfcolorstack 0 push {0 g 0 G}
+...\hbox(0.0+0.0)x345.0
+...\pdfcolorstack 0 pop
+.\kern -682.0
+.\hbox(0.0+0.0)x0.0
+..\kern -72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil
+...\kern -72.26999
+...\hbox(0.0+0.0)x0.0
+....\hbox(0.0+0.0)x0.0, shifted 845.04684
+.....\kern 0.0
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern 682.0
+.\kern 0.0
+
+
+ <./dummy.pdf>
+============================================================
+
+

@@ -1,0 +1,60 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{expanded arg: pages}{
+  \def\pagesI{1-4} \def\pages{\pagesI}
+  \includepdf[pages=\pages, nup=2x2,
+  ]{dummy.pdf}
+}
+
+\verboseTEST{expanded arg: nup}{
+  \def\nupI{2x2} \def\nup{\nupI}
+  \includepdf[pages=1-4, nup=\nup,
+  ]{dummy.pdf}
+}
+
+\verboseTEST{expanded args: deltax, deltay}{
+  \def\deltaxI{10mm} \def\deltax{\deltaxI}
+  \def\deltayI{20mm} \def\deltay{\deltayI}
+  \includepdf[frame, pages=1-4, nup=2x2,
+    deltax=\deltax, deltay=\deltay
+  ]{dummy.pdf}
+}
+
+\verboseTEST{expanded arg: delta}{
+  \def\deltaI{10mm 20mm} \def\delta{\deltaI}
+  \includepdf[frame, pages=1-4, nup=2x2,
+    delta=\delta]{dummy.pdf}
+}
+
+\verboseTEST{expanded arg: offset}{
+  \def\offsetI{20mm 30mm}
+  \def\offset{\offsetI}
+  \includepdf[frame, pages=1-4, nup=2x2,
+    offset=\offset]{dummy.pdf}
+}
+
+\TEST{expanded arg: addtotoc, addtolist}{
+  \tableofcontents
+  \listoffigures
+  \def\tocI{
+    1, section, 1, Section 1 $\mathbf{R^n}$, sec:1,
+    2, section, 1, Section 2 \textit{foobar}, sec:2,
+    3, section, 1, Section 3, sec:3
+  }
+  \def\toc{\tocI}
+  \def\lofI{
+    1, figure, Figure 1 $\mathbf{R^n}$, fig:1,
+    2, figure, Figure 2 \textit{foobar}, fig:2,
+    3, figure, Figure 3, fig:3
+  }
+  \def\lof{\lofI}
+  \includepdf[pages=1-3, addtotoc=\toc, addtolist=\lof]{dummy.pdf} 
+}
+
+%\END % Don't use \END here since we need to generate LOF and LOT.
+\end{document}

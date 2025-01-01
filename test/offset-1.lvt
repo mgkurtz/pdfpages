@@ -1,0 +1,38 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Horizontal offset}{
+  \includepdf[offset=20mm 0mm, frame]{dummy.pdf}
+}
+
+\verboseTEST{Negative horizontal offset}{
+  \includepdf[offset=-20mm 0mm, frame]{dummy.pdf}
+}
+
+\verboseTEST{Vertical offset}{
+  \includepdf[offset=0mm 30mm, frame]{dummy.pdf}
+}
+
+\verboseTEST{Negative vertical offset}{
+  \includepdf[offset=0mm -30mm, frame]{dummy.pdf}
+}
+
+\verboseTEST{Offset}{
+  \includepdf[offset=20mm 30mm, frame]{dummy.pdf}
+}
+
+\verboseTEST{Negative offset}{
+  \includepdf[offset=-20mm -30mm, frame]{dummy.pdf}
+}
+
+\verboseTEST{Global option}{
+  \includepdfset{offset=20mm 30mm}
+  \includepdfset[frame]{dummy.pdf}
+}
+
+\END
+\end{document}

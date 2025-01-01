@@ -1,0 +1,27 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\BEGINTEST{Setting and resetting global options}
+
+\includepdfset{
+  scale=0.8, frame, pages=1-2,
+  picturecommand={\put(80,600){%
+      \Large Foobar \emph{test} {\bfseries XXX}
+      \begin{tabular}[t]{ll}
+        1&2\\3&4\\
+      \end{tabular}
+    }}}
+\includepdf{dummy.pdf}
+\includepdfmerge{dummy.pdf}
+
+\includepdfset{}
+\includepdf{dummy.pdf}
+\includepdfmerge{dummy.pdf}
+
+\ENDTEST
+\END
+\end{document}

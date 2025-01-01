@@ -1,0 +1,23 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{Pagecommand}{
+  \includepdf[
+    pages=1-2,
+    pagecommand={\Huge all pages},
+    pagecommand*={\Huge first page\ }
+  ]{dummy.pdf}
+}
+
+\verboseTEST{Global arguments}{
+  \includepdfset{pagecommand={\Huge all pages (global)},
+    pagecommand*={\Huge first page (global)\ }}
+  \includepdf[pages=1-4]{dummy.pdf}
+}
+
+\END
+\end{document}

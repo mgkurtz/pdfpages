@@ -1,0 +1,17 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage[dvips]{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{eps}{
+  \includepdf{hog.eps}
+}
+
+\verboseTEST{merge eps}{
+  \includepdfmerge[nup=1x2]{hog.eps, hog.eps}
+}
+
+\END
+\end{document}

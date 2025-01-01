@@ -1,5 +1,13 @@
 auto/*
-/results_*
+results/*
+diff/*
+
 /*.pdf
+/*.ps
+/*.eps
+/*.dvi
 /*.pdc
+/*.mfl
 /*.xbb
+/*.png
+/*.jpg

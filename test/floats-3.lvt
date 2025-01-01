@@ -1,0 +1,34 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+%\usepackage{fltrace}\tracefloats
+
+\newcommand{\atext}{Lorem ipsum dolor sit amet, consetetur sadipscing
+  elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+  magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+  justo duo dolores et ea rebum. }
+\newcommand{\moretext}{\atext\atext\par\atext\atext\par\atext\atext}
+
+\begin{document}
+\START\showoutput
+\BEGINTEST{Positioning of floats (interaction with includepdf)}
+
+\begin{figure}[t]
+  \setlength{\fboxsep}{7mm}
+  \centering\fbox{%
+      \LARGE\bfseries OK, if this is page 2.}
+\end{figure}
+\includepdf{dummy}
+\moretext\moretext\moretext\moretext
+
+\newpage
+\begin{figure}[b]
+  \setlength{\fboxsep}{7mm}
+  \centering\fbox{%
+      \LARGE\bfseries OK, if this is page 5.}
+\end{figure}
+\includepdf{dummy}
+\moretext\moretext\moretext\moretext
+
+\ENDTEST
+\end{document}

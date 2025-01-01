@@ -1,0 +1,30 @@
+\input{regression-test}
+\documentclass[a4paper, twocolumn, \classoptions]{article}
+\usepackage{pdfpages}
+
+\newcommand{\atext}{Lorem ipsum dolor sit amet, consetetur sadipscing
+  elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+  magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+  justo duo dolores et ea rebum. }
+\newcommand{\moretext}{\atext\atext\par\atext\atext\par\atext\atext}
+
+
+\begin{document}
+\START
+
+%%
+%% Regression tests:
+%%
+\verboseTEST{There should be no issues with $\backslash$@setmarks
+  not being defined in twocolumn mode.}{
+  \includepdf{dummy.pdf}
+}
+
+\moretext
+
+\verboseTEST{PDF shall be on next page (not this one).}{
+  \includepdf{dummy.pdf}
+}
+
+\END
+\end{document}

@@ -1,70 +1,61 @@
-\makeatletter
-\newif\ifmemcls
-\@ifclassloaded{memoir}{\memclstrue}{\memclsfalse}
-\ifmemcls
-  \newfloat{pdfdoc}{pdc}{PDF Insert}
-  \newlistof{listofpdfdoc}{pdc}{List of PDF Documents}
-  \newlistentry{pdfdoc}{pdc}{0}
-  \def\theHpdfdoc{\thepdfdoc}
-  \def\toclevel@pdfdoc{0}
-\fi
-\makeatother
-
 \usepackage{pdfpages}
-\usepackage{hyperref}
-%\def\nameref#1{}
+\usepackage[
+  bookmarksopen, bookmarksopenlevel=5,
+  colorlinks, linkcolor=blue,
+]{hyperref}
 
 \begin{document}
-\Large
-\listoffigures
-\listoftables
-\ifmemcls\listofpdfdoc\fi
+\START\showoutput
 
-\chapter{References}
-\hskip1em
-\begin{tabular}{@{}lll@{}}\hline
-ref & pageref & nameref\\\hline
-\ref{fig:pdf1} & \pageref{fig:pdf1} & \nameref{fig:pdf1}\\
-\ref{fig:pdf2} & \pageref{fig:pdf2} & \nameref{fig:pdf2}\\
-\ref{fig:pdf3} & \pageref{fig:pdf3} & \nameref{fig:pdf3}\\\hline
-\ref{tab:pdf1} & \pageref{tab:pdf1} & \nameref{tab:pdf1}\\
-\ref{tab:pdf2} & \pageref{tab:pdf2} & \nameref{tab:pdf2}\\
-\ref{tab:pdf3} & \pageref{tab:pdf3} & \nameref{tab:pdf3}\\\hline
-\ifmemcls
-\ref{pdc:pdf1} & \pageref{pdc:pdf1} & \nameref{pdc:pdf1}\\
-\ref{pdc:pdf2} & \pageref{pdc:pdf2} & \nameref{pdc:pdf2}\\
-\ref{pdc:pdf3} & \pageref{pdc:pdf3} & \nameref{pdc:pdf3}\\\hline
-\fi
-\end{tabular}
+\TEST{Addtolist: LOF, LOT}{
+  \Large
+  \listoffigures
+  \listoftables
 
-\begin{figure}\caption{Normal Figure}\label{test}\end{figure}
-\clearpage
-% If clearpage missing, this figure will be set after \includepdf
-% which is not wrong (actually is it correct), but it scrambles
-% the sequence of figure numbers.
+  \section{References}
+  \begin{tabular}{@{}lll@{}}\hline
+    ref & pageref & nameref\\\hline
+    \ref{fig:pdf1} & \pageref{fig:pdf1} & \nameref{fig:pdf1}\\
+    \ref{fig:pdf2} & \pageref{fig:pdf2} & \nameref{fig:pdf2}\\
+    \ref{fig:pdf3} & \pageref{fig:pdf3} & \nameref{fig:pdf3}\\\hline
+    \ref{tab:pdf1} & \pageref{tab:pdf1} & \nameref{tab:pdf1}\\
+    \ref{tab:pdf2} & \pageref{tab:pdf2} & \nameref{tab:pdf2}\\
+    \ref{tab:pdf3} & \pageref{tab:pdf3} & \nameref{tab:pdf3}\\\hline
+    \ref{fig:x1} & \pageref{fig:x1} & \nameref{fig:x1}\\
+    \ref{fig:x2} & \pageref{fig:x2} & \nameref{fig:x2}\\
+    \ref{fig:x3} & \pageref{fig:x3} & \nameref{fig:x3}\\\hline
+    \ref{tab:x1} & \pageref{tab:x1} & \nameref{tab:x1}\\
+    \ref{tab:x2} & \pageref{tab:x2} & \nameref{tab:x2}\\
+    \ref{tab:x3} & \pageref{tab:x3} & \nameref{tab:x3}\\\hline
+  \end{tabular}
 
-\includepdf[pages=-,lastpage=10,
-            addtolist={1, figure, Page 1, fig:pdf1,
-                       3, figure, \emph{Page 3}, fig:pdf2,
-                       5, figure, Page 5, fig:pdf3},
-            addtotoc={3, chapter, 0, Chap, chap}
-           ]{dummy.pdf}
+  \includepdf[
+    pages=1-5,
+    addtolist={
+      1, figure, {fig, doc1, page 1},        fig:pdf1,
+      3, figure, {fig, doc1, \emph{page 3}}, fig:pdf2,
+      5, figure, {fig, doc1, page 5},        fig:pdf3},
+  ]{dummy.pdf}
 
-\includepdf[pages=-,lastpage=10,
-            addtolist={1, table, Page 1, tab:pdf1,
-                       3, table, Page 3, tab:pdf2,
-                       5, table, Page 5, tab:pdf3},
-           ]{pdf/a4.pdf}
+  \includepdf[
+    pages=1-5,
+    addtolist={
+      1, table, {tab, doc2, page 1},          tab:pdf1,
+      3, table, {tab, doc2, \textbf{page 3}}, tab:pdf2,
+      5, table, {tab, doc2, page 5},          tab:pdf3},
+  ]{dummy.pdf}
 
-\begin{figure}\caption{Normal Figure}\end{figure}
+  \includepdf[
+    pages=1-5,
+    addtolist={
+      1, figure, {fig, doc3, page 1}, fig:x1,
+      1, table,  {tab, doc3, page 1}, tab:x1,
+      3, figure, {fig, doc3, page 3}, fig:x2,
+      3, table,  {tab, doc3, page 3}, tab:x2,
+      5, figure, {fig, doc3, page 5}, fig:x3,
+      5, table,  {tab, doc3, page 5}, tab:x3},
+  ]{dummy.pdf}
+}
 
-%%% memoir.cls %%%
-\ifmemcls
-\includepdf[pages=-,lastpage=10,
-            addtolist={1, pdfdoc, Page 1, pdc:pdf1,
-                       3, pdfdoc, Page 3, pdc:pdf2,
-                       5, pdfdoc, Page 5, pdc:pdf3},
-           ]{dummy}
-\fi
-
+%\END % Don't use \END here since we need to generate LOF and LOT.
 \end{document}

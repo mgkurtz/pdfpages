@@ -1,0 +1,50 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{pagetemplate=1 (A4)\\\textrightarrow A4L and A3L are scaled down}{
+  \includepdf[
+    pages=-, nup=3x3, frame
+  ]{mixed1.pdf}
+}
+
+
+\verboseTEST{As before but with rotateoversize}{
+  \includepdf[
+    rotateoversize,
+    pages=-, nup=3x3, frame
+  ]{mixed1.pdf}
+}
+        
+\verboseTEST{pagetemplate=7 (A5)\\\textrightarrow A4P, A4L, and A3L are scaled down}{
+  \includepdf[
+    pagetemplate=7,
+    pages=-, nup=3x3, frame
+  ]{mixed1.pdf}
+}
+  
+\verboseTEST{PDF in portrait but first page in landscape}{
+  \includepdf[
+    pages=-, nup=2x2, frame
+  ]{mixed2.pdf}
+}
+
+\verboseTEST{As before but using pagetemplate}{
+  \includepdf[
+    pagetemplate=2,
+    pages=-, nup=2x2, frame
+  ]{mixed2.pdf}
+}
+
+\verboseTEST{As before but adding rotateoversize}{
+  \includepdf[
+    rotateoversize, pagetemplate=2,
+    pages=-, nup=2x2, frame
+  ]{mixed2.pdf}
+}
+
+\END
+\end{document}

@@ -1,0 +1,631 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: Landscape
+============================================================
+<dummy-landscape.pdf, id=1, 845.04709pt x 597.50829pt>
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf>
+Package luatex.def Info: dummy-landscape.pdf  used on input line 1.
+(luatex.def)             Requested size: 845.04503pt x 597.50682pt.
+<dummy-landscape.pdf, id=3, page=1, 845.04709pt x 597.50829pt>
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf, page 1>
+Package luatex.def Info: dummy-landscape.pdf , page1 used on input line 1.
+(luatex.def)             Requested size: 845.04503pt x 597.50682pt.
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf, page 1>
+Package luatex.def Info: dummy-landscape.pdf , page1 used on input line 1.
+(luatex.def)             Requested size: 845.08371pt x 597.53416pt.
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf, page 1>
+Package luatex.def Info: dummy-landscape.pdf , page1 used on input line 1.
+(luatex.def)             Requested size: 845.08371pt x 597.53416pt.
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf, page 1>
+Package luatex.def Info: dummy-landscape.pdf , page1 used on input line 1.
+(luatex.def)             Requested size: 845.08371pt x 597.53416pt.
+
+
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf, page 1>
+Package luatex.def Info: dummy-landscape.pdf , page1 used on input line 1.
+(luatex.def)             Requested size: 845.08371pt x 597.53416pt.
+
+Completed box being shipped out [1]
+\vbox(682.0+0.0)x398.0, direction TLT
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(845.06528+0.01843)x0.0, shifted 845.04684, direction TLT
+.....\kern0.0
+.....\hbox(845.08371+0.0)x0.0, glue set - 597.521fil, shifted 0.01843, direction TLT
+......\kern-0.01314
+......\hbox(845.08371+0.0)x597.53416, direction TLT
+.......\hbox(845.08371+0.0)x597.53416, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -1.0, direction TLT
+.........\glue 0.0
+........\hbox(845.08371+0.0)x597.53416, direction TLT
+.........\hbox(845.08371+0.0)x597.53416, direction TLT
+..........\kern597.53416
+..........\hbox(597.53416+0.0)x0.0, direction TLT
+...........\pdfsave
+...........\pdfsetmatrix{0 1 -1 0}
+...........\hbox(597.53416+0.0)x0.0, direction TLT
+............\hbox(597.53416+0.0)x845.08371, direction TLT
+.............\hbox(597.53416+0.0)x845.08371, direction TLT
+..............\kern0.0
+..............\hbox(597.53416+0.0)x845.08371, direction TLT
+...............\hbox(597.53416+0.0)x845.08371, direction TLT
+................\hbox(597.53416+0.0)x845.08371, direction TLT
+.................\hbox(597.53416+0.0)x845.08371, direction TLT
+..................\hbox(597.53416+0.0)x0.0, direction TLT
+...................\hbox(597.53416+0.0)x0.0, glue set - 845.08374fil, direction TLT
+....................\hbox(597.53416+0.0)x845.08371, direction TLT
+.....................\hbox(597.53416+0.0)x845.08371, direction TLT
+......................\hbox(597.53563+0.0)x845.08577, direction TLT
+.......................\hbox(597.53563+0.0)x845.08577, direction TLT
+........................\hbox(597.53563+0.0)x0.0, direction TLT
+.........................\pdfsave
+.........................\pdfsetmatrix{1.00005 0 0 1.00005}
+.........................\hbox(597.50829+0.0)x0.0, glue set - 845.04712fil, direction TLT
+..........................\hbox(597.50829+0.0)x845.04709, direction TLT
+...........................\image(597.50829+0.0)x845.04709
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\pdfrestore
+........................\kern845.08577
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+..................\kern845.08371
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...........\pdfrestore
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0, direction TLT
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0, direction TLT
+....\pdfcolorstack 0 push {0 g 0 G}
+....\hbox(0.0+0.0)x345.0, direction TLT
+....\pdfcolorstack 0 pop
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil, direction TLT
+...\write-{}
+...\pdfcolorstack 0 push {0 g 0 G}
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x15.0, direction TLT
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0, direction TLT
+...\pdfcolorstack 0 push {0 g 0 G}
+...\hbox(0.0+0.0)x345.0, direction TLT
+...\pdfcolorstack 0 pop
+.\kern-682.0
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(832.21407+0.0)x0.0, shifted 845.04684, direction TLT
+.....\kern0.0
+.....\hbox(1.39359+36.6832)x0.0, glue set - 362.45941fil, shifted -830.82048, direction TLT
+......\kern14.22636
+......\hbox(1.39359+36.6832)x348.23305, direction TLT
+.......\hbox(13.39359+24.6832)x348.23305, shifted 12.0, direction TLT
+........\pdfcolorstack 0 push {0 g 0 G}
+........\hbox(13.39359+24.6832)x348.23305, direction TLT
+.........\hbox(13.39359+24.6832)x348.23305, direction TLT
+..........\hbox(38.07678+0.0)x348.23305, shifted 24.6832, direction TLT
+...........\vbox(38.07678+0.0)x348.23305, direction TLT
+............\kern0.4
+............\hbox(37.2768+0.0)x348.23305, direction TLT
+.............\kern0.4
+.............\vbox(37.2768+0.0)x347.43306, direction TLT
+..............\kern0.0
+..............\hbox(12.99359+24.2832)x347.43306, direction TLT
+...............\kern0.0
+...............\pdfcolorstack 0 push {0 0 0.5 0 k 0 0 0.5 0 K}
+...............\pdfcolorstack 0 push {0 0 0.5 0 k 0 0 0.5 0 K}
+...............\hbox(12.99359+24.2832)x0.0, glue set - 347.43304fil, direction TLT
+................\rule(12.99359+24.2832)x347.43306
+................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\pdfcolorstack 0 pop
+...............\hbox(12.99359+24.2832)x347.43306, direction TLT
+................\kern3.0
+................\pdfcolorstack 0 push {0 g 0 G}
+................\vbox(9.99359+21.2832)x341.43306, direction TLT
+.................\hbox(9.99359+2.7936)x341.43306, glue set 267.51788fil, direction TLT
+..................\localpar
+...................\localinterlinepenalty=0
+...................\localbrokenpenalty=0
+...................\localleftbox=null
+...................\localrightbox=null
+..................\hbox(0.0+0.0)x0.0, direction TLT
+..................\pdfcolorstack 0 push {1 0.3 0.3 rg 1 0.3 0.3 RG}
+..................\TU/lmr/bx/n/14.4 L
+..................\TU/lmr/bx/n/14.4 a
+..................\TU/lmr/bx/n/14.4 n
+..................\TU/lmr/bx/n/14.4 d
+..................\discretionary (penalty 50)
+...................< \TU/lmr/bx/n/14.4 -
+..................\TU/lmr/bx/n/14.4 s
+..................\TU/lmr/bx/n/14.4 c
+..................\TU/lmr/bx/n/14.4 a
+..................\TU/lmr/bx/n/14.4 p
+..................\kern0.4464 (font)
+..................\TU/lmr/bx/n/14.4 e
+..................\pdfcolorstack 0 pop
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 5.21281
+.................\hbox(9.99359+3.2832)x341.43306, glue set 22.54504fil, direction TLT
+..................\localpar
+...................\localinterlinepenalty=0
+...................\localbrokenpenalty=0
+...................\localleftbox=null
+...................\localrightbox=null
+..................\hbox(0.0+0.0)x0.0, direction TLT
+..................\TU/lmtt/m/n/14.4 \
+..................\TU/lmtt/m/n/14.4 i
+..................\TU/lmtt/m/n/14.4 n
+..................\TU/lmtt/m/n/14.4 c
+..................\TU/lmtt/m/n/14.4 l
+..................\TU/lmtt/m/n/14.4 u
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 e
+..................\TU/lmtt/m/n/14.4 p
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 f
+..................\TU/lmtt/m/n/14.4 [
+..................\TU/lmtt/m/n/14.4 l
+..................\TU/lmtt/m/n/14.4 a
+..................\TU/lmtt/m/n/14.4 n
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 s
+..................\TU/lmtt/m/n/14.4 c
+..................\TU/lmtt/m/n/14.4 a
+..................\TU/lmtt/m/n/14.4 p
+..................\TU/lmtt/m/n/14.4 e
+..................\TU/lmtt/m/n/14.4 ]
+..................\TU/lmtt/m/n/14.4 {
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 u
+..................\TU/lmtt/m/n/14.4 m
+..................\TU/lmtt/m/n/14.4 m
+..................\TU/lmtt/m/n/14.4 y
+..................\discretionary (penalty 50)
+...................< \TU/lmtt/m/n/14.4 -
+...................= \TU/lmtt/m/n/14.4 -
+..................\TU/lmtt/m/n/14.4 l
+..................\TU/lmtt/m/n/14.4 a
+..................\TU/lmtt/m/n/14.4 n
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 s
+..................\TU/lmtt/m/n/14.4 c
+..................\TU/lmtt/m/n/14.4 a
+..................\TU/lmtt/m/n/14.4 p
+..................\TU/lmtt/m/n/14.4 e
+..................\TU/lmtt/m/n/14.4 .
+..................\TU/lmtt/m/n/14.4 p
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 f
+..................\TU/lmtt/m/n/14.4 }
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+................\pdfcolorstack 0 pop
+................\kern3.0
+...............\pdfcolorstack 0 pop
+...............\kern0.0
+..............\kern0.0
+.............\kern0.4
+............\kern0.4
+.........\kern-348.23305
+.........\hbox(13.39359+24.6832)x348.23305, direction TLT
+..........\vbox(38.07678+0.0)x348.23305, shifted 24.6832, direction TLT
+...........\rule(0.4+0.0)x*
+...........\kern-0.2
+...........\hbox(37.67679+0.0)x348.23305, direction TLT
+............\rule(37.67679+0.0)x0.4
+............\kern347.43306
+............\rule(37.67679+0.0)x0.4
+...........\kern-0.2
+...........\rule(0.4+0.0)x*
+........\pdfcolorstack 0 pop
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern682.0
+.\kern0.0
+
+
+
+<./dummy-landscape.pdf>
+============================================================
+
+============================================================
+TEST 2: Landscape
+============================================================
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf>
+Package luatex.def Info: dummy-landscape.pdf  used on input line 1.
+(luatex.def)             Requested size: 845.04503pt x 597.50682pt.
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf, page 1>
+Package luatex.def Info: dummy-landscape.pdf , page1 used on input line 1.
+(luatex.def)             Requested size: 845.04503pt x 597.50682pt.
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf, page 1>
+Package luatex.def Info: dummy-landscape.pdf , page1 used on input line 1.
+(luatex.def)             Requested size: 845.08371pt x 597.53416pt.
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf, page 1>
+Package luatex.def Info: dummy-landscape.pdf , page1 used on input line 1.
+(luatex.def)             Requested size: 845.08371pt x 597.53416pt.
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf, page 1>
+Package luatex.def Info: dummy-landscape.pdf , page1 used on input line 1.
+(luatex.def)             Requested size: 845.08371pt x 597.53416pt.
+
+
+File: dummy-landscape.pdf Graphic file (type pdf)
+<use dummy-landscape.pdf, page 1>
+Package luatex.def Info: dummy-landscape.pdf , page1 used on input line 1.
+(luatex.def)             Requested size: 845.08371pt x 597.53416pt.
+
+Completed box being shipped out [2]
+\vbox(682.0+0.0)x398.0, direction TLT
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(845.06528+0.01843)x0.0, shifted 845.04684, direction TLT
+.....\kern0.0
+.....\hbox(845.08371+0.0)x0.0, glue set - 597.521fil, shifted 0.01843, direction TLT
+......\kern-0.01314
+......\hbox(845.08371+0.0)x597.53416, direction TLT
+.......\hbox(845.08371+0.0)x597.53416, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -1.0, direction TLT
+.........\glue 0.0
+........\hbox(845.08371+0.0)x597.53416, direction TLT
+.........\hbox(845.08371+0.0)x597.53416, direction TLT
+..........\kern597.53416
+..........\hbox(597.53416+0.0)x0.0, direction TLT
+...........\pdfsave
+...........\pdfsetmatrix{0 1 -1 0}
+...........\hbox(597.53416+0.0)x0.0, direction TLT
+............\hbox(597.53416+0.0)x845.08371, direction TLT
+.............\hbox(597.53416+0.0)x845.08371, direction TLT
+..............\kern0.0
+..............\hbox(597.53416+0.0)x845.08371, direction TLT
+...............\hbox(597.53416+0.0)x845.08371, direction TLT
+................\hbox(597.53416+0.0)x845.08371, direction TLT
+.................\hbox(597.53416+0.0)x845.08371, direction TLT
+..................\hbox(597.53416+0.0)x0.0, direction TLT
+...................\hbox(597.53416+0.0)x0.0, glue set - 845.08374fil, direction TLT
+....................\hbox(597.53416+0.0)x845.08371, direction TLT
+.....................\hbox(597.53416+0.0)x845.08371, direction TLT
+......................\hbox(597.53563+0.0)x845.08577, direction TLT
+.......................\hbox(597.53563+0.0)x845.08577, direction TLT
+........................\hbox(597.53563+0.0)x0.0, direction TLT
+.........................\pdfsave
+.........................\pdfsetmatrix{1.00005 0 0 1.00005}
+.........................\hbox(597.50829+0.0)x0.0, glue set - 845.04712fil, direction TLT
+..........................\hbox(597.50829+0.0)x845.04709, direction TLT
+...........................\image(597.50829+0.0)x845.04709
+..........................\glue 0.0 plus 1.0fil minus 1.0fil
+.........................\pdfrestore
+........................\kern845.08577
+........................\glue 0.0 plus 1.0fil minus 1.0fil
+....................\glue 0.0 plus 1.0fil minus 1.0fil
+..................\kern845.08371
+..................\glue 0.0 plus 1.0fil minus 1.0fil
+...........\pdfrestore
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\hbox(16.9184+5.07552)x0.0, glue set - 172.87354fil, shifted -100.0, direction TLT
+......\kern100.0
+......\TU/lmr/m/n/24.88 T
+......\kern-1.94064 (font)
+......\TU/lmr/m/n/24.88 e
+......\TU/lmr/m/n/24.88 s
+......\TU/lmr/m/n/24.88 t
+......\discretionary (penalty 50)
+.......< \TU/lmr/m/n/24.88 -
+......\TU/lmr/m/n/24.88 i
+......\TU/lmr/m/n/24.88 n
+......\TU/lmr/m/n/24.88 g
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0, direction TLT
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0, direction TLT
+....\pdfcolorstack 0 push {0 g 0 G}
+....\hbox(0.0+0.0)x345.0, direction TLT
+....\pdfcolorstack 0 pop
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 587.9372fil, direction TLT
+...\write-{}
+...\glue(\topskip) 10.0
+...\hbox(0.0+0.0)x345.0, glue set 330.0fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x15.0, direction TLT
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0, direction TLT
+...\pdfcolorstack 0 push {0 g 0 G}
+...\hbox(0.0+0.0)x345.0, direction TLT
+...\pdfcolorstack 0 pop
+.\kern-682.0
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(832.21407+0.0)x0.0, shifted 845.04684, direction TLT
+.....\kern0.0
+.....\hbox(1.39359+90.6832)x0.0, glue set - 362.45941fil, shifted -830.82048, direction TLT
+......\kern14.22636
+......\hbox(1.39359+90.6832)x348.23305, direction TLT
+.......\hbox(13.39359+78.6832)x348.23305, shifted 12.0, direction TLT
+........\pdfcolorstack 0 push {0 g 0 G}
+........\hbox(13.39359+78.6832)x348.23305, direction TLT
+.........\hbox(13.39359+78.6832)x348.23305, direction TLT
+..........\hbox(92.07678+0.0)x348.23305, shifted 78.6832, direction TLT
+...........\vbox(92.07678+0.0)x348.23305, direction TLT
+............\kern0.4
+............\hbox(91.2768+0.0)x348.23305, direction TLT
+.............\kern0.4
+.............\vbox(91.2768+0.0)x347.43306, direction TLT
+..............\kern0.0
+..............\hbox(12.99359+78.2832)x347.43306, direction TLT
+...............\kern0.0
+...............\pdfcolorstack 0 push {0 0 0.5 0 k 0 0 0.5 0 K}
+...............\pdfcolorstack 0 push {0 0 0.5 0 k 0 0 0.5 0 K}
+...............\hbox(12.99359+78.2832)x0.0, glue set - 347.43304fil, direction TLT
+................\rule(12.99359+78.2832)x347.43306
+................\glue 0.0 plus 1.0fil minus 1.0fil
+...............\pdfcolorstack 0 pop
+...............\hbox(12.99359+78.2832)x347.43306, direction TLT
+................\kern3.0
+................\pdfcolorstack 0 push {0 g 0 G}
+................\vbox(9.99359+75.2832)x341.43306, direction TLT
+.................\hbox(9.99359+2.7936)x341.43306, glue set 267.51788fil, direction TLT
+..................\localpar
+...................\localinterlinepenalty=0
+...................\localbrokenpenalty=0
+...................\localleftbox=null
+...................\localrightbox=null
+..................\hbox(0.0+0.0)x0.0, direction TLT
+..................\pdfcolorstack 0 push {1 0.3 0.3 rg 1 0.3 0.3 RG}
+..................\TU/lmr/bx/n/14.4 L
+..................\TU/lmr/bx/n/14.4 a
+..................\TU/lmr/bx/n/14.4 n
+..................\TU/lmr/bx/n/14.4 d
+..................\discretionary (penalty 50)
+...................< \TU/lmr/bx/n/14.4 -
+..................\TU/lmr/bx/n/14.4 s
+..................\TU/lmr/bx/n/14.4 c
+..................\TU/lmr/bx/n/14.4 a
+..................\TU/lmr/bx/n/14.4 p
+..................\kern0.4464 (font)
+..................\TU/lmr/bx/n/14.4 e
+..................\pdfcolorstack 0 pop
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 5.21281
+.................\hbox(9.99359+3.1968)x341.43306, glue set 252.44106fil, direction TLT
+..................\localpar
+...................\localinterlinepenalty=0
+...................\localbrokenpenalty=0
+...................\localleftbox=null
+...................\localrightbox=null
+..................\hbox(0.0+0.0)x0.0, direction TLT
+..................\TU/lmtt/m/n/14.4 \
+..................\TU/lmtt/m/n/14.4 i
+..................\TU/lmtt/m/n/14.4 n
+..................\TU/lmtt/m/n/14.4 c
+..................\TU/lmtt/m/n/14.4 l
+..................\TU/lmtt/m/n/14.4 u
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 e
+..................\TU/lmtt/m/n/14.4 p
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 f
+..................\TU/lmtt/m/n/14.4 [
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 6.0048
+.................\hbox(8.7984+3.1968)x341.43306, glue set 267.27307fil, direction TLT
+..................\localpar
+...................\localinterlinepenalty=0
+...................\localbrokenpenalty=0
+...................\localleftbox=null
+...................\localrightbox=null
+..................\hbox(0.0+0.0)x0.0, direction TLT
+..................\TU/lmtt/m/n/14.4 l
+..................\TU/lmtt/m/n/14.4 a
+..................\TU/lmtt/m/n/14.4 n
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 s
+..................\TU/lmtt/m/n/14.4 c
+..................\TU/lmtt/m/n/14.4 a
+..................\TU/lmtt/m/n/14.4 p
+..................\TU/lmtt/m/n/14.4 e
+..................\TU/lmtt/m/n/14.4 ,
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.80962
+.................\hbox(9.99359+3.29759)x341.43306, glue set 7.71304fil, direction TLT
+..................\localpar
+...................\localinterlinepenalty=0
+...................\localbrokenpenalty=0
+...................\localleftbox=null
+...................\localrightbox=null
+..................\hbox(0.0+0.0)x0.0, direction TLT
+..................\TU/lmtt/m/n/14.4 p
+..................\TU/lmtt/m/n/14.4 i
+..................\TU/lmtt/m/n/14.4 c
+..................\TU/lmtt/m/n/14.4 t
+..................\TU/lmtt/m/n/14.4 u
+..................\TU/lmtt/m/n/14.4 r
+..................\TU/lmtt/m/n/14.4 e
+..................\TU/lmtt/m/n/14.4 c
+..................\TU/lmtt/m/n/14.4 o
+..................\TU/lmtt/m/n/14.4 m
+..................\TU/lmtt/m/n/14.4 m
+..................\TU/lmtt/m/n/14.4 a
+..................\TU/lmtt/m/n/14.4 n
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 =
+..................\TU/lmtt/m/n/14.4 {
+..................\TU/lmtt/m/n/14.4 \
+..................\TU/lmtt/m/n/14.4 p
+..................\TU/lmtt/m/n/14.4 u
+..................\TU/lmtt/m/n/14.4 t
+..................\TU/lmtt/m/n/14.4 (
+..................\TU/lmtt/m/n/14.4 1
+..................\TU/lmtt/m/n/14.4 0
+..................\TU/lmtt/m/n/14.4 0
+..................\TU/lmtt/m/n/14.4 ,
+..................\TU/lmtt/m/n/14.4 1
+..................\TU/lmtt/m/n/14.4 0
+..................\TU/lmtt/m/n/14.4 0
+..................\TU/lmtt/m/n/14.4 )
+..................\TU/lmtt/m/n/14.4 {
+..................\TU/lmtt/m/n/14.4 \
+..................\TU/lmtt/m/n/14.4 H
+..................\TU/lmtt/m/n/14.4 u
+..................\TU/lmtt/m/n/14.4 g
+..................\TU/lmtt/m/n/14.4 e
+..................\glue(\spaceskip) 7.416
+..................\TU/lmtt/m/n/14.4 T
+..................\TU/lmtt/m/n/14.4 e
+..................\TU/lmtt/m/n/14.4 s
+..................\TU/lmtt/m/n/14.4 t
+..................\TU/lmtt/m/n/14.4 i
+..................\TU/lmtt/m/n/14.4 n
+..................\TU/lmtt/m/n/14.4 g
+..................\TU/lmtt/m/n/14.4 }
+..................\TU/lmtt/m/n/14.4 }
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\parskip) 0.0
+.................\glue(\baselineskip) 4.70882
+.................\hbox(9.99359+3.2832)x341.43306, glue set 178.28105fil, direction TLT
+..................\localpar
+...................\localinterlinepenalty=0
+...................\localbrokenpenalty=0
+...................\localleftbox=null
+...................\localrightbox=null
+..................\hbox(0.0+0.0)x0.0, direction TLT
+..................\TU/lmtt/m/n/14.4 ]
+..................\TU/lmtt/m/n/14.4 {
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 u
+..................\TU/lmtt/m/n/14.4 m
+..................\TU/lmtt/m/n/14.4 m
+..................\TU/lmtt/m/n/14.4 y
+..................\discretionary (penalty 50)
+...................< \TU/lmtt/m/n/14.4 -
+...................= \TU/lmtt/m/n/14.4 -
+..................\TU/lmtt/m/n/14.4 l
+..................\TU/lmtt/m/n/14.4 a
+..................\TU/lmtt/m/n/14.4 n
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 s
+..................\TU/lmtt/m/n/14.4 c
+..................\TU/lmtt/m/n/14.4 a
+..................\TU/lmtt/m/n/14.4 p
+..................\TU/lmtt/m/n/14.4 e
+..................\TU/lmtt/m/n/14.4 .
+..................\TU/lmtt/m/n/14.4 p
+..................\TU/lmtt/m/n/14.4 d
+..................\TU/lmtt/m/n/14.4 f
+..................\TU/lmtt/m/n/14.4 }
+..................\penalty 10000
+..................\glue(\parfillskip) 0.0 plus 1.0fil
+..................\glue(\rightskip) 0.0
+................\pdfcolorstack 0 pop
+................\kern3.0
+...............\pdfcolorstack 0 pop
+...............\kern0.0
+..............\kern0.0
+.............\kern0.4
+............\kern0.4
+.........\kern-348.23305
+.........\hbox(13.39359+78.6832)x348.23305, direction TLT
+..........\vbox(92.07678+0.0)x348.23305, shifted 78.6832, direction TLT
+...........\rule(0.4+0.0)x*
+...........\kern-0.2
+...........\hbox(91.67679+0.0)x348.23305, direction TLT
+............\rule(91.67679+0.0)x0.4
+............\kern347.43306
+............\rule(91.67679+0.0)x0.4
+...........\kern-0.2
+...........\rule(0.4+0.0)x*
+........\pdfcolorstack 0 pop
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\kern682.0
+.\kern0.0
+
+
+============================================================
+
+

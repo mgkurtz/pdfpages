@@ -1,0 +1,25 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+%%
+%% Images are from package mwe.sty.
+%%
+\verboseTEST{PNG}{
+  \includepdf{example-image-a.png}
+}
+
+\verboseTEST{JPG}{
+  \includepdf{example-image-b.jpg}
+}
+
+\verboseTEST{merged}{
+  \includepdfmerge[nup=1x2
+  ]{example-image-a.png, example-image-b.jpg}
+}
+
+\END
+\end{document}

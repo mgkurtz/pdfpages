@@ -1,5 +1,5 @@
 VERSION=$(shell grep '\\def\\AM@fileversion{' pdfpages.dtx |\
-	sed 's/\\def\\AM@fileversion{v\(.*\)}/\1/')
+	        sed 's/\\def\\AM@fileversion{v\(.*\)}/\1/')
 DIST=pdfpages-$(VERSION)
 DIST-DIR=$(DIST)
 
@@ -118,13 +118,13 @@ $(subdirs):
 
 .PHONY: clean
 clean: $(subdirs)
-	rm -f $(addprefix pdfpages, .ins .sty .aux .log .toc .out .dvi .pdf .hd)
+	rm -f $(addprefix pdfpages, .aux .log .toc .out .hd)
 	rm -f $(addprefix pdf-ex, .tex .log .aux)
 	rm -f $(addprefix pdf-hyp, .tex .log .aux)
 	rm -f $(addprefix pdf-toc, .tex .log .aux)
-	rm -f $(TDS-STY-FILES)
 
 .PHONY: distclean
 distclean: clean $(subdirs)
+	rm -f $(TDS-STY-FILES) pdfpages.ins pdfpages.pdf
 	rm -f pdfpages.tds.zip
 

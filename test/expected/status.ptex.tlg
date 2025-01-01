@@ -1,0 +1,199 @@
+START-TEST-LOG
+
+
+This is a generated file for the l3build validation system.
+
+Don't change this file in any respect.
+
+
+============================================================
+TEST 1: status = 0 (not pdfpages)
+============================================================
+
+pdfpages file: hog.pdf 
+pdfpages options:  
+pdfpages status: 0 
+File: hog.pdf Graphic file (type pdf)
+<hog.pdf>
+============================================================
+
+
+
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 22.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 22.
+[1
+
+]
+============================================================
+TEST 2: status = 2 (temporary), 1 (final)
+============================================================
+Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, an
+gle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, an
+gle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, an
+gle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, sc
+ale=1, angle=0, angle=0 
+pdfpages status: 1 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+[2
+
+]
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, an
+gle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, an
+gle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, sc
+ale=1, angle=0, angle=0 
+pdfpages status: 1 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+[3
+
+]
+============================================================
+
+============================================================
+TEST 3: status = 0 (not pdfpages)
+============================================================
+
+pdfpages file: hog.pdf 
+pdfpages options:  
+pdfpages status: 0 
+File: hog.pdf Graphic file (type pdf)
+<hog.pdf>
+============================================================
+
+
+
+[4]
+============================================================
+TEST 4: status = 2 (temporary), 1 (final)
+============================================================
+Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
+ngle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
+ngle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
+ngle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+
+
+
+
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, s
+cale=1, angle=0, angle=0 
+pdfpages status: 1 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
+[5
+
+]
+
+pdfpages file: hog.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
+ngle=0 
+pdfpages status: 2 
+File: hog.pdf Graphic file (type pdf)
+<hog.pdf>
+
+
+pdfpages file: hog.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
+ngle=0 
+pdfpages status: 2 
+File: hog.pdf Graphic file (type pdf)
+<hog.pdf>
+
+
+
+
+pdfpages file: hog.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, s
+cale=1, angle=0, angle=0 
+pdfpages status: 1 
+File: hog.pdf Graphic file (type pdf)
+<hog.pdf>
+[6
+
+]
+============================================================
+
+

@@ -1,0 +1,17 @@
+\input{regression-test}
+\documentclass[a4paper, \classoptions]{article}
+\usepackage{pdfpages}
+
+\begin{document}
+\START\showoutput
+
+\verboseTEST{angle \& fitpaper -- 1}{
+  \includepdf[angle=-70, fitpaper]{dummy3.pdf}
+}
+
+\verboseTEST{angle \& fitpaper -- 2}{
+  \includepdf[angle=70, fitpaper]{dummy3.pdf}
+}
+
+\END
+\end{document}
