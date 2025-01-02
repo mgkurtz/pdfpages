@@ -44,8 +44,7 @@ Completed box being shipped out [1]
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
 ..\vbox(346.0+0.0)x345.0, glue set 105.14615fil, yoko direction
-...\special{ps: /setdistillerparams where {pop << /CompressPages false /Compres
-sS\ETC.}
+...\special{ps: /setdistillerparams where {pop << /CompressPages false /CompressStreams false >> setdistillerparams} if }
 ...\special{! <</DocumentUUID (DocumentUUID)>> setpagedevice}
 ...\special{! <</InstanceUUID (InstanceUUID)>> setpagedevice}
 ...\write-{}
@@ -265,8 +264,7 @@ sS\ETC.}
 ============================================================
 TEST 1: Landscape pages on portrait paper
 ============================================================
-Package pdfpages Info: Running extractbb on file `normal-landscape.pdf' on inpu
-t line 1.
+Package pdfpages Info: Running extractbb on file `normal-landscape.pdf' on input line 1.
 File: normal-landscape.pdf Graphic file (type pdf)
 <normal-landscape.pdf>
 File: normal-landscape.pdf Graphic file (type pdf)
@@ -299,8 +297,7 @@ Completed box being shipped out [2]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.6156+0.10773)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko d
-irection
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -323,12 +320,10 @@ irection
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -336,8 +331,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -360,12 +354,10 @@ o direction
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -412,8 +404,7 @@ ction
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(584.68149+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(1.39998+72.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, 
-yoko direction
+.....\hbox(1.39998+72.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, yoko direction
 ......\kern 14.22636
 ......\hbox(1.39998+72.59999)x348.23305, yoko direction
 .......\hbox(13.39998+60.59999)x348.23305, shifted 12.0, yoko direction
@@ -431,8 +422,7 @@ yoko direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+60.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+60.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+60.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}
@@ -632,8 +622,7 @@ Completed box being shipped out [3]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.6156+0.10773)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko d
-irection
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -656,12 +645,10 @@ irection
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -669,8 +656,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -693,12 +679,10 @@ o direction
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -776,8 +760,7 @@ Completed box being shipped out [4]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.6156+0.10773)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko d
-irection
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -800,12 +783,10 @@ irection
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -813,8 +794,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -837,12 +817,10 @@ o direction
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -920,8 +898,7 @@ Completed box being shipped out [5]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.6156+0.10773)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko d
-irection
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -944,12 +921,10 @@ irection
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -957,8 +932,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -981,12 +955,10 @@ o direction
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -1045,8 +1017,7 @@ ction
 ============================================================
 TEST 2: Landscape pages on portrait paper\\(flip-other-edge)
 ============================================================
-Package pdfpages Info: Running extractbb on file `normal-landscape.pdf' on inpu
-t line 1.
+Package pdfpages Info: Running extractbb on file `normal-landscape.pdf' on input line 1.
 File: normal-landscape.pdf Graphic file (type pdf)
 <normal-landscape.pdf>
 File: normal-landscape.pdf Graphic file (type pdf)
@@ -1075,8 +1046,7 @@ Completed box being shipped out [6]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.6156+0.10773)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko d
-irection
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -1105,12 +1075,10 @@ irection
 ......................\hbox(211.46346+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko 
-direction
+.......................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ........................\hbox(211.46346+0.0)x298.86166, yoko direction
 .........................\hbox(211.46346+0.0)x298.86166, yoko direction
-..........................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595
- 421 clip 0 width 298.861\ETC.}
+..........................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 298.86166
@@ -1119,8 +1087,7 @@ direction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -1149,12 +1116,10 @@ o direction
 ......................\hbox(211.46346+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko 
-direction
+.......................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ........................\hbox(211.46346+0.0)x298.86166, yoko direction
 .........................\hbox(211.46346+0.0)x298.86166, yoko direction
-..........................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 595
- 421 clip 0 width 298.861\ETC.}
+..........................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 298.86166
@@ -1202,8 +1167,7 @@ direction
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(584.68149+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(1.39998+108.59999)x0.0, glue set - 362.45941fil, shifted -583.28151,
- yoko direction
+.....\hbox(1.39998+108.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, yoko direction
 ......\kern 14.22636
 ......\hbox(1.39998+108.59999)x348.23305, yoko direction
 .......\hbox(13.39998+96.59999)x348.23305, shifted 12.0, yoko direction
@@ -1221,8 +1185,7 @@ direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+96.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+96.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+96.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}
@@ -1474,8 +1437,7 @@ Completed box being shipped out [7]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.6156+0.10773)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko d
-irection
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -1498,12 +1460,10 @@ irection
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -1511,8 +1471,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -1535,12 +1494,10 @@ o direction
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -1618,8 +1575,7 @@ Completed box being shipped out [8]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.6156+0.10773)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko d
-irection
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -1648,12 +1604,10 @@ irection
 ......................\hbox(211.46346+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko 
-direction
+.......................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ........................\hbox(211.46346+0.0)x298.86166, yoko direction
 .........................\hbox(211.46346+0.0)x298.86166, yoko direction
-..........................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 595
- 421 clip 0 width 298.861\ETC.}
+..........................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 298.86166
@@ -1662,8 +1616,7 @@ direction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -1692,12 +1645,10 @@ o direction
 ......................\hbox(211.46346+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko 
-direction
+.......................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ........................\hbox(211.46346+0.0)x298.86166, yoko direction
 .........................\hbox(211.46346+0.0)x298.86166, yoko direction
-..........................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 595
- 421 clip 0 width 298.861\ETC.}
+..........................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 298.86166
@@ -1776,8 +1727,7 @@ Completed box being shipped out [9]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.6156+0.10773)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko d
-irection
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted 0.10773, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -1800,12 +1750,10 @@ irection
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -1813,8 +1761,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.86166+0.0)x0.0, glue set - 528.25514fil, shifted -298.75394, yoko direction
 ......\kern 316.79169
 ......\hbox(298.86166+0.0)x211.46346, yoko direction
 .......\hbox(298.86166+0.0)x211.46346, yoko direction
@@ -1837,12 +1784,10 @@ o direction
 ..................\hbox(211.46346+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko dire
-ction
+...................\hbox(211.46346+0.0)x0.0, glue set - 298.86166fil, yoko direction
 ....................\hbox(211.46346+0.0)x298.86166, yoko direction
 .....................\hbox(211.46346+0.0)x298.86166, yoko direction
-......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 595 421
- clip 0 width 298.861\ETC.}
+......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 595 421 clip 0 width 298.86166pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.86166
@@ -1901,8 +1846,7 @@ ction
 ============================================================
 TEST 3: Landscape pages on landscape paper
 ============================================================
-Package pdfpages Info: Running extractbb on file `normal-landscape.pdf' on inpu
-t line 1.
+Package pdfpages Info: Running extractbb on file `normal-landscape.pdf' on input line 1.
 File: normal-landscape.pdf Graphic file (type pdf)
 <normal-landscape.pdf>
 File: normal-landscape.pdf Graphic file (type pdf)
@@ -1931,8 +1875,7 @@ Completed box being shipped out [10]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(448.29042+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yoko direction
 ......\kern -0.15692
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -1955,12 +1898,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -1968,8 +1909,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yoko direction
 ......\kern 422.52342
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -1992,12 +1932,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -2042,8 +1980,7 @@ ction
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(584.68149+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(1.39998+72.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, 
-yoko direction
+.....\hbox(1.39998+72.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, yoko direction
 ......\kern 14.22636
 ......\hbox(1.39998+72.59999)x348.23305, yoko direction
 .......\hbox(13.39998+60.59999)x348.23305, shifted 12.0, yoko direction
@@ -2061,8 +1998,7 @@ yoko direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+60.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+60.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+60.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}
@@ -2253,8 +2189,7 @@ Completed box being shipped out [11]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(448.29042+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yoko direction
 ......\kern -0.15692
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -2277,12 +2212,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -2290,8 +2223,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yoko direction
 ......\kern 422.52342
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -2314,12 +2246,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -2395,8 +2325,7 @@ Completed box being shipped out [12]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(448.29042+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yoko direction
 ......\kern -0.15692
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -2419,12 +2348,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -2432,8 +2359,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yoko direction
 ......\kern 422.52342
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -2456,12 +2382,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -2537,8 +2461,7 @@ Completed box being shipped out [13]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(448.29042+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yoko direction
 ......\kern -0.15692
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -2561,12 +2484,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -2574,8 +2495,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yoko direction
 ......\kern 422.52342
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -2598,12 +2518,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -2660,8 +2578,7 @@ ction
 ============================================================
 TEST 4: Landscape pages on landscape paper\\(flip-other-edge)
 ============================================================
-Package pdfpages Info: Running extractbb on file `normal-landscape.pdf' on inpu
-t line 1.
+Package pdfpages Info: Running extractbb on file `normal-landscape.pdf' on input line 1.
 File: normal-landscape.pdf Graphic file (type pdf)
 <normal-landscape.pdf>
 File: normal-landscape.pdf Graphic file (type pdf)
@@ -2690,8 +2607,7 @@ Completed box being shipped out [14]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(449.29042+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(300.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yok
-o direction
+.....\hbox(300.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yoko direction
 ......\kern -0.15692
 ......\hbox(300.07297+0.0)x422.68034, yoko direction
 .......\hbox(1.0+299.07297)x422.68034, shifted -299.07297, yoko direction
@@ -2720,12 +2636,10 @@ o direction
 ......................\hbox(299.07297+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko 
-direction
+.......................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ........................\hbox(299.07297+0.0)x422.68034, yoko direction
 .........................\hbox(299.07297+0.0)x422.68034, yoko direction
-..........................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595
- 421 clip 0 width 422.680\ETC.}
+..........................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 422.68034
@@ -2734,8 +2648,7 @@ direction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(300.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yok
-o direction
+.....\hbox(300.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yoko direction
 ......\kern 422.52342
 ......\hbox(300.07297+0.0)x422.68034, yoko direction
 .......\hbox(1.0+299.07297)x422.68034, shifted -299.07297, yoko direction
@@ -2764,12 +2677,10 @@ o direction
 ......................\hbox(299.07297+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko 
-direction
+.......................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ........................\hbox(299.07297+0.0)x422.68034, yoko direction
 .........................\hbox(299.07297+0.0)x422.68034, yoko direction
-..........................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 595
- 421 clip 0 width 422.680\ETC.}
+..........................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 422.68034
@@ -2815,8 +2726,7 @@ direction
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(584.68149+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(1.39998+108.59999)x0.0, glue set - 362.45941fil, shifted -583.28151,
- yoko direction
+.....\hbox(1.39998+108.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, yoko direction
 ......\kern 14.22636
 ......\hbox(1.39998+108.59999)x348.23305, yoko direction
 .......\hbox(13.39998+96.59999)x348.23305, shifted 12.0, yoko direction
@@ -2834,8 +2744,7 @@ direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+96.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+96.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+96.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}
@@ -3077,8 +2986,7 @@ Completed box being shipped out [15]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(448.29042+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yoko direction
 ......\kern -0.15692
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -3101,12 +3009,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -3114,8 +3020,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yoko direction
 ......\kern 422.52342
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -3138,12 +3043,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -3219,8 +3122,7 @@ Completed box being shipped out [16]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(449.29042+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(300.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yok
-o direction
+.....\hbox(300.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yoko direction
 ......\kern -0.15692
 ......\hbox(300.07297+0.0)x422.68034, yoko direction
 .......\hbox(1.0+299.07297)x422.68034, shifted -299.07297, yoko direction
@@ -3249,12 +3151,10 @@ o direction
 ......................\hbox(299.07297+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko 
-direction
+.......................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ........................\hbox(299.07297+0.0)x422.68034, yoko direction
 .........................\hbox(299.07297+0.0)x422.68034, yoko direction
-..........................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 595
- 421 clip 0 width 422.680\ETC.}
+..........................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 422.68034
@@ -3263,8 +3163,7 @@ direction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(300.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yok
-o direction
+.....\hbox(300.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yoko direction
 ......\kern 422.52342
 ......\hbox(300.07297+0.0)x422.68034, yoko direction
 .......\hbox(1.0+299.07297)x422.68034, shifted -299.07297, yoko direction
@@ -3293,12 +3192,10 @@ o direction
 ......................\hbox(299.07297+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko 
-direction
+.......................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ........................\hbox(299.07297+0.0)x422.68034, yoko direction
 .........................\hbox(299.07297+0.0)x422.68034, yoko direction
-..........................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 595
- 421 clip 0 width 422.680\ETC.}
+..........................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 422.68034
@@ -3375,8 +3272,7 @@ Completed box being shipped out [17]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(448.29042+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 422.52342fil, shifted -149.21745, yoko direction
 ......\kern -0.15692
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -3399,12 +3295,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -3412,8 +3306,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yok
-o direction
+.....\hbox(299.07297+0.0)x0.0, glue set - 845.20377fil, shifted -149.21745, yoko direction
 ......\kern 422.52342
 ......\hbox(299.07297+0.0)x422.68034, yoko direction
 .......\hbox(299.07297+0.0)x422.68034, yoko direction
@@ -3436,12 +3329,10 @@ o direction
 ..................\hbox(299.07297+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko dire
-ction
+...................\hbox(299.07297+0.0)x0.0, glue set - 422.68034fil, yoko direction
 ....................\hbox(299.07297+0.0)x422.68034, yoko direction
 .....................\hbox(299.07297+0.0)x422.68034, yoko direction
-......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 595 421
- clip 0 width 422.680\ETC.}
+......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 595 421 clip 0 width 422.68034pt (normal-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.68034
@@ -3498,8 +3389,7 @@ ction
 ============================================================
 TEST 5: Slim landscape pages on portrait paper
 ============================================================
-Package pdfpages Info: Running extractbb on file `slim-landscape.pdf' on input 
-line 1.
+Package pdfpages Info: Running extractbb on file `slim-landscape.pdf' on input line 1.
 File: slim-landscape.pdf Graphic file (type pdf)
 <slim-landscape.pdf>
 File: slim-landscape.pdf Graphic file (type pdf)
@@ -3528,8 +3418,7 @@ Completed box being shipped out [18]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.55609+0.04822)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko d
-irection
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -3552,12 +3441,10 @@ irection
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -3565,8 +3452,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -3589,12 +3475,10 @@ o direction
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -3641,8 +3525,7 @@ ction
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(584.68149+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(1.39998+72.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, 
-yoko direction
+.....\hbox(1.39998+72.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, yoko direction
 ......\kern 14.22636
 ......\hbox(1.39998+72.59999)x348.23305, yoko direction
 .......\hbox(13.39998+60.59999)x348.23305, shifted 12.0, yoko direction
@@ -3660,8 +3543,7 @@ yoko direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+60.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+60.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+60.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}
@@ -3865,8 +3747,7 @@ Completed box being shipped out [19]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.55609+0.04822)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko d
-irection
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -3889,12 +3770,10 @@ irection
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -3902,8 +3781,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -3926,12 +3804,10 @@ o direction
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -4009,8 +3885,7 @@ Completed box being shipped out [20]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.55609+0.04822)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko d
-irection
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -4033,12 +3908,10 @@ irection
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -4046,8 +3919,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -4070,12 +3942,10 @@ o direction
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -4153,8 +4023,7 @@ Completed box being shipped out [21]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.55609+0.04822)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko d
-irection
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -4177,12 +4046,10 @@ irection
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -4190,8 +4057,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -4214,12 +4080,10 @@ o direction
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -4278,8 +4142,7 @@ ction
 ============================================================
 TEST 6: Slim landscape pages on portrait paper\\(flip-other-edge)
 ============================================================
-Package pdfpages Info: Running extractbb on file `slim-landscape.pdf' on input 
-line 1.
+Package pdfpages Info: Running extractbb on file `slim-landscape.pdf' on input line 1.
 File: slim-landscape.pdf Graphic file (type pdf)
 <slim-landscape.pdf>
 File: slim-landscape.pdf Graphic file (type pdf)
@@ -4308,8 +4171,7 @@ Completed box being shipped out [22]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.55609+0.04822)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko d
-irection
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -4338,12 +4200,10 @@ irection
 ......................\hbox(105.75183+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko 
-direction
+.......................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ........................\hbox(105.75183+0.0)x298.80215, yoko direction
 .........................\hbox(105.75183+0.0)x298.80215, yoko direction
-..........................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 842
- 298 clip 0 width 298.802\ETC.}
+..........................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 298.80215
@@ -4352,8 +4212,7 @@ direction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -4382,12 +4241,10 @@ o direction
 ......................\hbox(105.75183+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko 
-direction
+.......................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ........................\hbox(105.75183+0.0)x298.80215, yoko direction
 .........................\hbox(105.75183+0.0)x298.80215, yoko direction
-..........................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 842
- 298 clip 0 width 298.802\ETC.}
+..........................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 298.80215
@@ -4435,8 +4292,7 @@ direction
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(584.68149+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(1.39998+108.59999)x0.0, glue set - 362.45941fil, shifted -583.28151,
- yoko direction
+.....\hbox(1.39998+108.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, yoko direction
 ......\kern 14.22636
 ......\hbox(1.39998+108.59999)x348.23305, yoko direction
 .......\hbox(13.39998+96.59999)x348.23305, shifted 12.0, yoko direction
@@ -4454,8 +4310,7 @@ direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+96.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+96.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+96.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}
@@ -4710,8 +4565,7 @@ Completed box being shipped out [23]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.55609+0.04822)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko d
-irection
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -4734,12 +4588,10 @@ irection
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -4747,8 +4599,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -4771,12 +4622,10 @@ o direction
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -4854,8 +4703,7 @@ Completed box being shipped out [24]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.55609+0.04822)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko d
-irection
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -4884,12 +4732,10 @@ irection
 ......................\hbox(105.75183+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko 
-direction
+.......................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ........................\hbox(105.75183+0.0)x298.80215, yoko direction
 .........................\hbox(105.75183+0.0)x298.80215, yoko direction
-..........................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 842
- 298 clip 0 width 298.802\ETC.}
+..........................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 298.80215
@@ -4898,8 +4744,7 @@ direction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -4928,12 +4773,10 @@ o direction
 ......................\hbox(105.75183+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko 
-direction
+.......................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ........................\hbox(105.75183+0.0)x298.80215, yoko direction
 .........................\hbox(105.75183+0.0)x298.80215, yoko direction
-..........................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 842
- 298 clip 0 width 298.802\ETC.}
+..........................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 298.80215
@@ -5012,8 +4855,7 @@ Completed box being shipped out [25]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(597.55609+0.04822)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko d
-irection
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted 0.04822, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -5036,12 +4878,10 @@ irection
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -5049,8 +4889,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yok
-o direction
+.....\hbox(298.80215+0.0)x0.0, glue set - 475.39934fil, shifted -298.75394, yoko direction
 ......\kern 369.6475
 ......\hbox(298.80215+0.0)x105.75183, yoko direction
 .......\hbox(298.80215+0.0)x105.75183, yoko direction
@@ -5073,12 +4912,10 @@ o direction
 ..................\hbox(105.75183+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko dire
-ction
+...................\hbox(105.75183+0.0)x0.0, glue set - 298.80215fil, yoko direction
 ....................\hbox(105.75183+0.0)x298.80215, yoko direction
 .....................\hbox(105.75183+0.0)x298.80215, yoko direction
-......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 842 298
- clip 0 width 298.802\ETC.}
+......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 842 298 clip 0 width 298.80215pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 298.80215
@@ -5137,8 +4974,7 @@ ction
 ============================================================
 TEST 7: Slim landscape pages on landscape paper
 ============================================================
-Package pdfpages Info: Running extractbb on file `slim-landscape.pdf' on input 
-line 1.
+Package pdfpages Info: Running extractbb on file `slim-landscape.pdf' on input line 1.
 File: slim-landscape.pdf Graphic file (type pdf)
 <slim-landscape.pdf>
 File: slim-landscape.pdf Graphic file (type pdf)
@@ -5167,8 +5003,7 @@ Completed box being shipped out [26]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(373.53558+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yoko direction
 ......\kern -0.0682
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -5191,12 +5026,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163
@@ -5204,8 +5037,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yoko direction
 ......\kern 422.52342
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -5228,12 +5060,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163
@@ -5278,8 +5108,7 @@ ction
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(584.68149+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(1.39998+72.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, 
-yoko direction
+.....\hbox(1.39998+72.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, yoko direction
 ......\kern 14.22636
 ......\hbox(1.39998+72.59999)x348.23305, yoko direction
 .......\hbox(13.39998+60.59999)x348.23305, shifted 12.0, yoko direction
@@ -5297,8 +5126,7 @@ yoko direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+60.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+60.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+60.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}
@@ -5492,8 +5320,7 @@ Completed box being shipped out [27]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(373.53558+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yoko direction
 ......\kern -0.0682
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -5516,12 +5343,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163
@@ -5529,8 +5354,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yoko direction
 ......\kern 422.52342
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -5553,12 +5377,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163
@@ -5634,8 +5456,7 @@ Completed box being shipped out [28]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(373.53558+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yoko direction
 ......\kern -0.0682
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -5658,12 +5479,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163
@@ -5671,8 +5490,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yoko direction
 ......\kern 422.52342
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -5695,12 +5513,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163
@@ -5776,8 +5592,7 @@ Completed box being shipped out [29]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(373.53558+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yoko direction
 ......\kern -0.0682
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -5800,12 +5615,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163
@@ -5813,8 +5626,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yoko direction
 ......\kern 422.52342
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -5837,12 +5649,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163
@@ -5899,8 +5709,7 @@ ction
 ============================================================
 TEST 8: Slim landscape pages on landscape paper\\(flip-other-edge)
 ============================================================
-Package pdfpages Info: Running extractbb on file `slim-landscape.pdf' on input 
-line 1.
+Package pdfpages Info: Running extractbb on file `slim-landscape.pdf' on input line 1.
 File: slim-landscape.pdf Graphic file (type pdf)
 <slim-landscape.pdf>
 File: slim-landscape.pdf Graphic file (type pdf)
@@ -5929,8 +5738,7 @@ Completed box being shipped out [30]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(374.53558+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(150.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yok
-o direction
+.....\hbox(150.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yoko direction
 ......\kern -0.0682
 ......\hbox(150.56331+0.0)x422.59163, yoko direction
 .......\hbox(1.0+149.56331)x422.59163, shifted -149.56331, yoko direction
@@ -5959,12 +5767,10 @@ o direction
 ......................\hbox(149.56331+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko 
-direction
+.......................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ........................\hbox(149.56331+0.0)x422.59163, yoko direction
 .........................\hbox(149.56331+0.0)x422.59163, yoko direction
-..........................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 842
- 298 clip 0 width 422.591\ETC.}
+..........................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 422.59163
@@ -5973,8 +5779,7 @@ direction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(150.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yok
-o direction
+.....\hbox(150.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yoko direction
 ......\kern 422.52342
 ......\hbox(150.56331+0.0)x422.59163, yoko direction
 .......\hbox(1.0+149.56331)x422.59163, shifted -149.56331, yoko direction
@@ -6003,12 +5808,10 @@ o direction
 ......................\hbox(149.56331+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko 
-direction
+.......................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ........................\hbox(149.56331+0.0)x422.59163, yoko direction
 .........................\hbox(149.56331+0.0)x422.59163, yoko direction
-..........................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 842
- 298 clip 0 width 422.591\ETC.}
+..........................\special{pdf:epdf page 8 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 422.59163
@@ -6054,8 +5857,7 @@ direction
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(584.68149+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(1.39998+108.59999)x0.0, glue set - 362.45941fil, shifted -583.28151,
- yoko direction
+.....\hbox(1.39998+108.59999)x0.0, glue set - 362.45941fil, shifted -583.28151, yoko direction
 ......\kern 14.22636
 ......\hbox(1.39998+108.59999)x348.23305, yoko direction
 .......\hbox(13.39998+96.59999)x348.23305, shifted 12.0, yoko direction
@@ -6073,8 +5875,7 @@ direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+96.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+96.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+96.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}
@@ -6318,8 +6119,7 @@ Completed box being shipped out [31]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(373.53558+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yoko direction
 ......\kern -0.0682
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -6342,12 +6142,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163
@@ -6355,8 +6153,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yoko direction
 ......\kern 422.52342
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -6379,12 +6176,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 7 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163
@@ -6460,8 +6255,7 @@ Completed box being shipped out [32]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(374.53558+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(150.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yok
-o direction
+.....\hbox(150.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yoko direction
 ......\kern -0.0682
 ......\hbox(150.56331+0.0)x422.59163, yoko direction
 .......\hbox(1.0+149.56331)x422.59163, shifted -149.56331, yoko direction
@@ -6490,12 +6284,10 @@ o direction
 ......................\hbox(149.56331+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko 
-direction
+.......................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ........................\hbox(149.56331+0.0)x422.59163, yoko direction
 .........................\hbox(149.56331+0.0)x422.59163, yoko direction
-..........................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 842
- 298 clip 0 width 422.591\ETC.}
+..........................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 422.59163
@@ -6504,8 +6296,7 @@ direction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(150.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yok
-o direction
+.....\hbox(150.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yoko direction
 ......\kern 422.52342
 ......\hbox(150.56331+0.0)x422.59163, yoko direction
 .......\hbox(1.0+149.56331)x422.59163, shifted -149.56331, yoko direction
@@ -6534,12 +6325,10 @@ o direction
 ......................\hbox(149.56331+0.0)x0.0, yoko direction
 .......................\special{pdf:btrans}
 .......................\special{x:scale 1 1}
-.......................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko 
-direction
+.......................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ........................\hbox(149.56331+0.0)x422.59163, yoko direction
 .........................\hbox(149.56331+0.0)x422.59163, yoko direction
-..........................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 842
- 298 clip 0 width 422.591\ETC.}
+..........................\special{pdf:epdf page 6 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ........................\glue 0.0 plus 1.0fil minus 1.0fil
 .......................\special{pdf:etrans}
 ......................\kern 422.59163
@@ -6616,8 +6405,7 @@ Completed box being shipped out [33]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(373.53558+0.0)x0.0, shifted 597.50787, yoko direction
 .....\kern 0.0
-.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 422.52342fil, shifted -223.97227, yoko direction
 ......\kern -0.0682
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -6640,12 +6428,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163
@@ -6653,8 +6439,7 @@ ction
 ...............\special{pdf:etrans}
 ...........\special{pdf:etrans}
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yok
-o direction
+.....\hbox(149.56331+0.0)x0.0, glue set - 845.11505fil, shifted -223.97227, yoko direction
 ......\kern 422.52342
 ......\hbox(149.56331+0.0)x422.59163, yoko direction
 .......\hbox(149.56331+0.0)x422.59163, yoko direction
@@ -6677,12 +6462,10 @@ o direction
 ..................\hbox(149.56331+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko dire
-ction
+...................\hbox(149.56331+0.0)x0.0, glue set - 422.59163fil, yoko direction
 ....................\hbox(149.56331+0.0)x422.59163, yoko direction
 .....................\hbox(149.56331+0.0)x422.59163, yoko direction
-......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 842 298
- clip 0 width 422.591\ETC.}
+......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 842 298 clip 0 width 422.59163pt (slim-landscape.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 422.59163

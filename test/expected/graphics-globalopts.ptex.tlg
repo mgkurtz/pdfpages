@@ -8,8 +8,7 @@ Don't change this file in any respect.
 
 
 Overfull \hbox (40.9479pt too wide) in paragraph at lines 14--17
-[]\OT1/cmr/m/n/14.4 The fol-low-ing pic-ture will be scaled down, while []\OT1/
-cmtt/m/n/14.4 \includepdf
+[]\OT1/cmr/m/n/14.4 The fol-low-ing pic-ture will be scaled down, while []\OT1/cmtt/m/n/14.4 \includepdf
 
 \hbox(9.99998+3.2)x345.0, glue set - 1.0
 .\hbox(0.0+0.0)x15.0, yoko direction
@@ -129,8 +128,7 @@ Completed box being shipped out [1]
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
 ..\vbox(598.0+0.0)x345.0, glue set 327.33453fil, yoko direction
-...\special{ps: /setdistillerparams where {pop << /CompressPages false /Compres
-sS\ETC.}
+...\special{ps: /setdistillerparams where {pop << /CompressPages false /CompressStreams false >> setdistillerparams} if }
 ...\special{! <</DocumentUUID (DocumentUUID)>> setpagedevice}
 ...\special{! <</InstanceUUID (InstanceUUID)>> setpagedevice}
 ...\write-{}
@@ -410,8 +408,7 @@ sS\ETC.}
 ...\hbox(120.72504+0.0)x345.0, glue set 121.93806fil
 ....\hbox(0.0+0.0)x15.0, yoko direction
 ....\hbox(120.72504+0.0)x142.26283, yoko direction
-.....\special{pdf:epdf pagebox cropbox bbox 0 0 251 213 clip 0 width 142.26283p
-t he\ETC.}
+.....\special{pdf:epdf pagebox cropbox bbox 0 0 251 213 clip 0 width 142.26283pt height 120.72504pt (hog.pdf) }
 ....\glue 4.69994 plus 2.34996 minus 1.56664
 ....\glue 4.69994 plus 2.34996 minus 1.56664
 ....\glue 4.69994 plus 2.34996 minus 1.56664
@@ -449,8 +446,7 @@ t he\ETC.}
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(830.82048+0.0)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(0.0+114.59999)x0.0, glue set - 362.45941fil, shifted -830.82048, yok
-o direction
+.....\hbox(0.0+114.59999)x0.0, glue set - 362.45941fil, shifted -830.82048, yoko direction
 ......\kern 14.22636
 ......\hbox(0.0+114.59999)x348.23305, yoko direction
 .......\hbox(13.39998+96.59999)x348.23305, shifted 18.0, yoko direction
@@ -468,8 +464,7 @@ o direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+96.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+96.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+96.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}
@@ -727,8 +722,7 @@ Completed box being shipped out [2]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(845.1215+0.07466)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko d
-irection
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko direction
 ......\kern 0.12465
 ......\hbox(845.19617+0.0)x597.25858, yoko direction
 .......\hbox(845.19617+0.0)x597.25858, yoko direction
@@ -751,12 +745,10 @@ irection
 ..................\hbox(845.19617+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
-ction
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko direction
 ....................\hbox(845.19617+0.0)x597.25858, yoko direction
 .....................\hbox(845.19617+0.0)x597.25858, yoko direction
-......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842
- clip 0 width 597.258\ETC.}
+......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842 clip 0 width 597.25858pt (dummy.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 597.25858

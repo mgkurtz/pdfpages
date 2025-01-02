@@ -9,8 +9,7 @@ Don't change this file in any respect.
 ============================================================
 TEST 1: Noautoscale
 ============================================================
-Package pdfpages Info: Running extractbb on file `dummy-a5.pdf' on input line 1
-.
+Package pdfpages Info: Running extractbb on file `dummy-a5.pdf' on input line 1.
 File: dummy-a5.pdf Graphic file (type pdf)
 <dummy-a5.pdf>
 File: dummy-a5.pdf Graphic file (type pdf)
@@ -38,8 +37,7 @@ Completed box being shipped out [1]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(721.53903+0.0)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(598.03123+0.0)x0.0, glue set - 509.94142fil, shifted -123.5078, yoko
- direction
+.....\hbox(598.03123+0.0)x0.0, glue set - 509.94142fil, shifted -123.5078, yoko direction
 ......\kern 87.56644
 ......\hbox(598.03123+0.0)x422.37498, yoko direction
 .......\hbox(597.63124+0.4)x422.37498, shifted -0.4, yoko direction
@@ -73,12 +71,10 @@ Completed box being shipped out [1]
 .........................\hbox(597.23125+0.0)x0.0, yoko direction
 ..........................\special{pdf:btrans}
 ..........................\special{x:scale 1 1}
-..........................\hbox(597.23125+0.0)x0.0, glue set - 421.575fil, yoko
- direction
+..........................\hbox(597.23125+0.0)x0.0, glue set - 421.575fil, yoko direction
 ...........................\hbox(597.23125+0.0)x421.575, yoko direction
 ............................\hbox(597.23125+0.0)x421.575, yoko direction
-.............................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 
-420 595 clip 0 width 421.575\ETC.}
+.............................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 420 595 clip 0 width 421.575pt (dummy-a5.pdf) }
 ...........................\glue 0.0 plus 1.0fil minus 1.0fil
 ..........................\special{pdf:etrans}
 .........................\kern 421.575
@@ -115,8 +111,7 @@ Completed box being shipped out [1]
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
 ..\vbox(598.0+0.0)x345.0, glue set 587.9372fil, yoko direction
-...\special{ps: /setdistillerparams where {pop << /CompressPages false /Compres
-sS\ETC.}
+...\special{ps: /setdistillerparams where {pop << /CompressPages false /CompressStreams false >> setdistillerparams} if }
 ...\special{! <</DocumentUUID (DocumentUUID)>> setpagedevice}
 ...\special{! <</InstanceUUID (InstanceUUID)>> setpagedevice}
 ...\write-{}
@@ -144,8 +139,7 @@ sS\ETC.}
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(832.22046+0.0)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(1.39998+36.59999)x0.0, glue set - 362.45941fil, shifted -830.82048, 
-yoko direction
+.....\hbox(1.39998+36.59999)x0.0, glue set - 362.45941fil, shifted -830.82048, yoko direction
 ......\kern 14.22636
 ......\hbox(1.39998+36.59999)x348.23305, yoko direction
 .......\hbox(13.39998+24.59999)x348.23305, shifted 12.0, yoko direction
@@ -163,8 +157,7 @@ yoko direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+24.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+24.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+24.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}
@@ -279,8 +272,7 @@ n
 ============================================================
 TEST 2: Noautoscale = false
 ============================================================
-Package pdfpages Info: Running extractbb on file `dummy-a5.pdf' on input line 1
-.
+Package pdfpages Info: Running extractbb on file `dummy-a5.pdf' on input line 1.
 File: dummy-a5.pdf Graphic file (type pdf)
 <dummy-a5.pdf>
 File: dummy-a5.pdf Graphic file (type pdf)
@@ -344,8 +336,7 @@ Completed box being shipped out [2]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(845.20735+0.1605)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(845.36786+0.0)x0.0, glue set - 597.2367fil, shifted 0.1605, yoko dir
-ection
+.....\hbox(845.36786+0.0)x0.0, glue set - 597.2367fil, shifted 0.1605, yoko direction
 ......\kern 0.27116
 ......\hbox(845.36786+0.0)x596.96553, yoko direction
 .......\hbox(844.96786+0.4)x596.96553, shifted -0.4, yoko direction
@@ -379,12 +370,10 @@ ection
 .........................\hbox(844.56787+0.0)x0.0, yoko direction
 ..........................\special{pdf:btrans}
 ..........................\special{x:scale 1 1}
-..........................\hbox(844.56787+0.0)x0.0, glue set - 596.16554fil, yo
-ko direction
+..........................\hbox(844.56787+0.0)x0.0, glue set - 596.16554fil, yoko direction
 ...........................\hbox(844.56787+0.0)x596.16554, yoko direction
 ............................\hbox(844.56787+0.0)x596.16554, yoko direction
-.............................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 
-420 595 clip 0 width 596.165\ETC.}
+.............................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 420 595 clip 0 width 596.16554pt (dummy-a5.pdf) }
 ...........................\glue 0.0 plus 1.0fil minus 1.0fil
 ..........................\special{pdf:etrans}
 .........................\kern 596.16554
@@ -444,8 +433,7 @@ ko direction
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(832.22046+0.0)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(1.39998+54.59999)x0.0, glue set - 362.45941fil, shifted -830.82048, 
-yoko direction
+.....\hbox(1.39998+54.59999)x0.0, glue set - 362.45941fil, shifted -830.82048, yoko direction
 ......\kern 14.22636
 ......\hbox(1.39998+54.59999)x348.23305, yoko direction
 .......\hbox(13.39998+42.59999)x348.23305, shifted 12.0, yoko direction
@@ -463,8 +451,7 @@ yoko direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+42.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+42.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+42.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}
@@ -596,8 +583,7 @@ n
 ============================================================
 TEST 3: Global option
 ============================================================
-Package pdfpages Info: Running extractbb on file `dummy-a5.pdf' on input line 1
-.
+Package pdfpages Info: Running extractbb on file `dummy-a5.pdf' on input line 1.
 File: dummy-a5.pdf Graphic file (type pdf)
 <dummy-a5.pdf>
 File: dummy-a5.pdf Graphic file (type pdf)
@@ -618,8 +604,7 @@ Completed box being shipped out [3]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(721.53903+0.0)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(598.03123+0.0)x0.0, glue set - 509.94142fil, shifted -123.5078, yoko
- direction
+.....\hbox(598.03123+0.0)x0.0, glue set - 509.94142fil, shifted -123.5078, yoko direction
 ......\kern 87.56644
 ......\hbox(598.03123+0.0)x422.37498, yoko direction
 .......\hbox(597.63124+0.4)x422.37498, shifted -0.4, yoko direction
@@ -653,12 +638,10 @@ Completed box being shipped out [3]
 .........................\hbox(597.23125+0.0)x0.0, yoko direction
 ..........................\special{pdf:btrans}
 ..........................\special{x:scale 1 1}
-..........................\hbox(597.23125+0.0)x0.0, glue set - 421.575fil, yoko
- direction
+..........................\hbox(597.23125+0.0)x0.0, glue set - 421.575fil, yoko direction
 ...........................\hbox(597.23125+0.0)x421.575, yoko direction
 ............................\hbox(597.23125+0.0)x421.575, yoko direction
-.............................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 
-420 595 clip 0 width 421.575\ETC.}
+.............................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 420 595 clip 0 width 421.575pt (dummy-a5.pdf) }
 ...........................\glue 0.0 plus 1.0fil minus 1.0fil
 ..........................\special{pdf:etrans}
 .........................\kern 421.575
@@ -718,8 +701,7 @@ Completed box being shipped out [3]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(832.22046+0.0)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(1.39998+54.59999)x0.0, glue set - 362.45941fil, shifted -830.82048, 
-yoko direction
+.....\hbox(1.39998+54.59999)x0.0, glue set - 362.45941fil, shifted -830.82048, yoko direction
 ......\kern 14.22636
 ......\hbox(1.39998+54.59999)x348.23305, yoko direction
 .......\hbox(13.39998+42.59999)x348.23305, shifted 12.0, yoko direction
@@ -737,8 +719,7 @@ yoko direction
 ...............\kern 0.0
 ...............\special{color push cmyk 0 0 0.5 0}
 ...............\special{color push cmyk 0 0 0.5 0}
-...............\hbox(12.99998+42.2)x0.0, glue set - 347.43306fil, yoko directio
-n
+...............\hbox(12.99998+42.2)x0.0, glue set - 347.43306fil, yoko direction
 ................\rule(12.99998+42.2)x347.43306
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 ...............\special{color pop}

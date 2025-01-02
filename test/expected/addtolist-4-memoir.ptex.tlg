@@ -32,8 +32,7 @@ File: dummy.pdf Graphic file (type pdf)
 Completed box being shipped out [1]
 \vbox(676.36243+3.60004)x371.0, yoko direction
 .\hbox(0.0+0.0)x0.0, yoko direction
-..\special{pdf:docinfo<</Title()/Subject()/Creator(LaTeX with hyperref)/Author(
-)\ETC.}
+..\special{pdf:docinfo<</Title()/Subject()/Creator(LaTeX with hyperref)/Author()/Keywords()>>}
 ..\special{papersize=597.50787pt,845.04684pt}
 ..\special{papersize=597.50787pt,845.04684pt}
 ..\special{papersize=597.50787pt,845.04684pt}
@@ -118,8 +117,7 @@ Completed box being shipped out [1]
 ......\glue 7.0
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-....\special{ps: /setdistillerparams where {pop << /CompressPages false /Compre
-ssS\ETC.}
+....\special{ps: /setdistillerparams where {pop << /CompressPages false /CompressStreams false >> setdistillerparams} if }
 ....\special{! <</DocumentUUID (DocumentUUID)>> setpagedevice}
 ....\special{! <</InstanceUUID (InstanceUUID)>> setpagedevice}
 ....\write-{}
@@ -127,10 +125,8 @@ ssS\ETC.}
 ....\special{pdf:majorversion 1}
 ....\special{pdf:minorversion 5}
 ....\special{dvipdfmx:config C 0x0010}
-....\special{pdf:outline 1<</Title(\376\377\000P\000a\000c\000k\000a\000g\000e\
-000\ETC.}
-....\special{pdf:outline 0<</Title(\376\377\000L\000i\000s\000t\000\040\000o\00
-0f\\ETC.}
+....\special{pdf:outline 1<</Title(\376\377\000P\000a\000c\000k\000a\000g\000e\000\040\000n\000e\000w\000f\000l\000o\000a\000t\000.\000s\000t\000y)/A<</S/GoTo/D(section.0.1)>>>>}
+....\special{pdf:outline 0<</Title(\376\377\000L\000i\000s\000t\000\040\000o\000f\000\040\000M\000y\000f\000l\000o\000a\000t\000s)/A<</S/GoTo/D(section*.1)>>>>}
 ....\special{pdf:docview<</OpenAction[@page1/Fit]/PageMode/UseOutlines>>}
 ....\special{pdf:dest (Doc-Start) [@thispage /XYZ @xpos @ypos null]}
 ....\special{pdf:dest (section.0.1) [@thispage /XYZ @xpos @ypos null]}
@@ -170,20 +166,16 @@ ssS\ETC.}
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
-....\write4{\protect \BOOKMARK [1][]{section.0.1}{\376\377\000P\000a\000c\000k\
-00\ETC.}
-....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberl
-ine \ETC.}
+....\write4{\protect \BOOKMARK [1][]{section.0.1}{\376\377\000P\000a\000c\000k\000a\000g\000e\000\040\000n\000e\000w\000f\000l\000o\000a\000t\000.\000s\000t\000y}{}% 1}
+....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {0.1}Package newfloat.sty}{\thepage }{section.0.1}\protected@file@percent }}
 ....\penalty 10000
 ....\glue 9.90276 plus 0.86108
 ....\glue 0.0 plus -1.0
 ....\special{pdf:dest (section*.1) [@thispage /XYZ @xpos @ypos null]}
 ....\penalty 10000
-....\write4{\protect \BOOKMARK [0][]{section*.1}{\376\377\000L\000i\000s\000t\0
-00\ETC.}
+....\write4{\protect \BOOKMARK [0][]{section*.1}{\376\377\000L\000i\000s\000t\000\040\000o\000f\000\040\000M\000y\000f\000l\000o\000a\000t\000s}{}% 2}
 ....\penalty 10000
-....\write1{\@writefile{toc}{\protect \contentsline {chapter}{List of Myfloats}
-{\thepage \ETC.}
+....\write1{\@writefile{toc}{\protect \contentsline {chapter}{List of Myfloats}{\thepage }{section*.1}\protected@file@percent }}
 ....\penalty 10000
 ....\glue 15.0694 plus 4.30554 minus 0.86108
 ....\glue 0.0
@@ -226,8 +218,7 @@ ine \ETC.}
 .....\hbox(0.0+0.0)x0.0, yoko direction
 .....\penalty 10000
 .....\glue -23.00006
-.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<<
-/S/G\ETC.}
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.1)>>>>}
 .....\special{color push rgb 0 0 1}
 .....\hbox(7.73332+0.0)x23.00006, glue set 17.12512fil, yoko direction
 ......\displace 0.0
@@ -280,8 +271,7 @@ ine \ETC.}
 .....\hbox(0.0+0.0)x0.0, yoko direction
 .....\penalty 10000
 .....\glue -23.00006
-.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<<
-/S/G\ETC.}
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.2)>>>>}
 .....\special{color push rgb 0 0 1}
 .....\hbox(7.73332+0.0)x23.00006, glue set 17.12512fil, yoko direction
 ......\displace 0.0
@@ -334,8 +324,7 @@ ine \ETC.}
 .....\hbox(0.0+0.0)x0.0, yoko direction
 .....\penalty 10000
 .....\glue -23.00006
-.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<<
-/S/G\ETC.}
+.....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.3)>>>>}
 .....\special{color push rgb 0 0 1}
 .....\hbox(7.73332+0.0)x23.00006, glue set 17.12512fil, yoko direction
 ......\displace 0.0
@@ -416,8 +405,7 @@ ine \ETC.}
 .........\glue 0.0 plus 1.0fil
 .........\glue 6.0
 ........\glue(\tabskip) 0.0
-........\hbox(10.14995+4.35004)x91.83524, glue set 45.03703fil, yoko(math) dire
-ction
+........\hbox(10.14995+4.35004)x91.83524, glue set 45.03703fil, yoko(math) direction
 .........\glue 6.0
 .........\glue 0.00002
 .........\displace 0.0
@@ -433,12 +421,10 @@ ction
 .......\rule(0.4+0.0)x160.09863
 .......\hbox(10.14995+4.35004)x160.09863, yoko(math) direction
 ........\glue(\tabskip) 0.0
-........\hbox(10.14995+4.35004)x19.38182, glue set 7.50687fil, yoko(math) direc
-tion
+........\hbox(10.14995+4.35004)x19.38182, glue set 7.50687fil, yoko(math) direction
 .........\rule(10.14995+4.35004)x0.0
 .........\glue 0.00002
-.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
-/A<<···/G\ETC.}
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.1)>>>>}
 .........\special{color push rgb 0 0 1}
 .........\displace 0.0
 .........\OT1/cmr/m/n/12 1
@@ -447,12 +433,10 @@ tion
 .........\glue 0.0 plus 1.0fil
 .........\glue 6.0
 ........\glue(\tabskip) 0.0
-........\hbox(10.14995+4.35004)x48.88158, glue set 31.00662fil, yoko(math) dire
-ction
+........\hbox(10.14995+4.35004)x48.88158, glue set 31.00662fil, yoko(math) direction
 .........\glue 6.0
 .........\glue 0.00002
-.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
-/A<<···/G\ETC.}
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.1)>>>>}
 .........\special{color push rgb 0 0 1}
 .........\displace 0.0
 .........\OT1/cmr/m/n/12 2
@@ -464,8 +448,7 @@ ction
 ........\hbox(10.14995+4.35004)x91.83524, yoko(math) direction
 .........\glue 6.0
 .........\glue 0.00002
-.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
-/A<<···/G\ETC.}
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.1)>>>>}
 .........\special{color push rgb 0 0 1}
 .........\displace 0.0
 .........\OT1/cmr/m/n/12 N
@@ -490,12 +473,10 @@ ction
 .......\glue(\lineskip) 0.0
 .......\hbox(10.14995+4.35004)x160.09863, yoko(math) direction
 ........\glue(\tabskip) 0.0
-........\hbox(10.14995+4.35004)x19.38182, glue set 7.50687fil, yoko(math) direc
-tion
+........\hbox(10.14995+4.35004)x19.38182, glue set 7.50687fil, yoko(math) direction
 .........\rule(10.14995+4.35004)x0.0
 .........\glue 0.00002
-.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
-/A<<···/G\ETC.}
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.2)>>>>}
 .........\special{color push rgb 0 0 1}
 .........\displace 0.0
 .........\OT1/cmr/m/n/12 2
@@ -504,12 +485,10 @@ tion
 .........\glue 0.0 plus 1.0fil
 .........\glue 6.0
 ........\glue(\tabskip) 0.0
-........\hbox(10.14995+4.35004)x48.88158, glue set 31.00662fil, yoko(math) dire
-ction
+........\hbox(10.14995+4.35004)x48.88158, glue set 31.00662fil, yoko(math) direction
 .........\glue 6.0
 .........\glue 0.00002
-.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
-/A<<···/G\ETC.}
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.2)>>>>}
 .........\special{color push rgb 0 0 1}
 .........\displace 0.0
 .........\OT1/cmr/m/n/12 4
@@ -521,8 +500,7 @@ ction
 ........\hbox(10.14995+4.35004)x91.83524, yoko(math) direction
 .........\glue 6.0
 .........\glue 0.00002
-.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
-/A<<···/G\ETC.}
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.2)>>>>}
 .........\special{color push rgb 0 0 1}
 .........\displace 0.0
 .........\OT1/cmr/m/n/12 N
@@ -547,12 +525,10 @@ ction
 .......\glue(\lineskip) 0.0
 .......\hbox(10.14995+4.35004)x160.09863, yoko(math) direction
 ........\glue(\tabskip) 0.0
-........\hbox(10.14995+4.35004)x19.38182, glue set 7.50687fil, yoko(math) direc
-tion
+........\hbox(10.14995+4.35004)x19.38182, glue set 7.50687fil, yoko(math) direction
 .........\rule(10.14995+4.35004)x0.0
 .........\glue 0.00002
-.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
-/A<<···/G\ETC.}
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.3)>>>>}
 .........\special{color push rgb 0 0 1}
 .........\displace 0.0
 .........\OT1/cmr/m/n/12 3
@@ -561,12 +537,10 @@ tion
 .........\glue 0.0 plus 1.0fil
 .........\glue 6.0
 ........\glue(\tabskip) 0.0
-........\hbox(10.14995+4.35004)x48.88158, glue set 31.00662fil, yoko(math) dire
-ction
+........\hbox(10.14995+4.35004)x48.88158, glue set 31.00662fil, yoko(math) direction
 .........\glue 6.0
 .........\glue 0.00002
-.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
-/A<<···/G\ETC.}
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.3)>>>>}
 .........\special{color push rgb 0 0 1}
 .........\displace 0.0
 .........\OT1/cmr/m/n/12 6
@@ -578,8 +552,7 @@ ction
 ........\hbox(10.14995+4.35004)x91.83524, yoko(math) direction
 .........\glue 6.0
 .........\glue 0.00002
-.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]
-/A<<···/G\ETC.}
+.........\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/GoTo/D(myfloat.0.3)>>>>}
 .........\special{color push rgb 0 0 1}
 .........\displace 0.0
 .........\OT1/cmr/m/n/12 N
@@ -677,8 +650,7 @@ File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
-Package hyperref Info: bookmark level for unknown myfloat defaults to 0 on inpu
-t line 36.
+Package hyperref Info: bookmark level for unknown myfloat defaults to 0 on input line 36.
 
 
 File: dummy.pdf Graphic file (type pdf)
@@ -693,8 +665,7 @@ Completed box being shipped out [2]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(845.1215+0.07466)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko d
-irection
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko direction
 ......\kern 0.12465
 ......\hbox(845.19617+0.0)x597.25858, yoko direction
 .......\hbox(845.19617+0.0)x597.25858, yoko direction
@@ -717,12 +688,10 @@ irection
 ..................\hbox(845.19617+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
-ction
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko direction
 ....................\hbox(845.19617+0.0)x597.25858, yoko direction
 .....................\hbox(845.19617+0.0)x597.25858, yoko direction
-......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842
- clip 0 width 597.258\ETC.}
+......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842 clip 0 width 597.25858pt (dummy.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 597.25858
@@ -781,11 +750,9 @@ ction
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\write-{}
-....\write1{\@writefile{mfl}{\protect \contentsline {myfloat}{\protect \numberl
-ine \ETC.}
+....\write1{\@writefile{mfl}{\protect \contentsline {myfloat}{\protect \numberline {1}{\ignorespaces  {Newfloat, page 1}}}{\thepage }{myfloat.0.1}\protected@file@percent }}
 ....\special{pdf:dest (myfloat.0.1) [@thispage /XYZ @xpos @ypos null]}
-....\write1{\newlabel{mfl:pdf1}{{1}{\thepage }{Newfloat, page 1}{myfloat.0.1}{}
-}}
+....\write1{\newlabel{mfl:pdf1}{{1}{\thepage }{Newfloat, page 1}{myfloat.0.1}{}}}
 ....\glue(\topskip) 10.0
 ....\hbox(0.0+0.0)x341.0, glue set 326.0fil
 .....\hbox(0.0+0.0)x15.0, yoko direction
@@ -850,8 +817,7 @@ Completed box being shipped out [3]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(845.1215+0.07466)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko d
-irection
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko direction
 ......\kern 0.12465
 ......\hbox(845.19617+0.0)x597.25858, yoko direction
 .......\hbox(845.19617+0.0)x597.25858, yoko direction
@@ -874,12 +840,10 @@ irection
 ..................\hbox(845.19617+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
-ction
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko direction
 ....................\hbox(845.19617+0.0)x597.25858, yoko direction
 .....................\hbox(845.19617+0.0)x597.25858, yoko direction
-......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 595 842
- clip 0 width 597.258\ETC.}
+......................\special{pdf:epdf page 2 pagebox cropbox bbox 0 0 595 842 clip 0 width 597.25858pt (dummy.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 597.25858
@@ -1002,8 +966,7 @@ Completed box being shipped out [4]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(845.1215+0.07466)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko d
-irection
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko direction
 ......\kern 0.12465
 ......\hbox(845.19617+0.0)x597.25858, yoko direction
 .......\hbox(845.19617+0.0)x597.25858, yoko direction
@@ -1026,12 +989,10 @@ irection
 ..................\hbox(845.19617+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
-ction
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko direction
 ....................\hbox(845.19617+0.0)x597.25858, yoko direction
 .....................\hbox(845.19617+0.0)x597.25858, yoko direction
-......................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 595 842
- clip 0 width 597.258\ETC.}
+......................\special{pdf:epdf page 3 pagebox cropbox bbox 0 0 595 842 clip 0 width 597.25858pt (dummy.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 597.25858
@@ -1090,11 +1051,9 @@ ction
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\write-{}
-....\write1{\@writefile{mfl}{\protect \contentsline {myfloat}{\protect \numberl
-ine \ETC.}
+....\write1{\@writefile{mfl}{\protect \contentsline {myfloat}{\protect \numberline {2}{\ignorespaces  {Newfloat, page 3}}}{\thepage }{myfloat.0.2}\protected@file@percent }}
 ....\special{pdf:dest (myfloat.0.2) [@thispage /XYZ @xpos @ypos null]}
-....\write1{\newlabel{mfl:pdf2}{{2}{\thepage }{Newfloat, page 3}{myfloat.0.2}{}
-}}
+....\write1{\newlabel{mfl:pdf2}{{2}{\thepage }{Newfloat, page 3}{myfloat.0.2}{}}}
 ....\glue(\topskip) 10.0
 ....\hbox(0.0+0.0)x341.0, glue set 326.0fil
 .....\hbox(0.0+0.0)x15.0, yoko direction
@@ -1159,8 +1118,7 @@ Completed box being shipped out [5]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(845.1215+0.07466)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko d
-irection
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko direction
 ......\kern 0.12465
 ......\hbox(845.19617+0.0)x597.25858, yoko direction
 .......\hbox(845.19617+0.0)x597.25858, yoko direction
@@ -1183,12 +1141,10 @@ irection
 ..................\hbox(845.19617+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
-ction
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko direction
 ....................\hbox(845.19617+0.0)x597.25858, yoko direction
 .....................\hbox(845.19617+0.0)x597.25858, yoko direction
-......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 595 842
- clip 0 width 597.258\ETC.}
+......................\special{pdf:epdf page 4 pagebox cropbox bbox 0 0 595 842 clip 0 width 597.25858pt (dummy.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 597.25858
@@ -1311,8 +1267,7 @@ Completed box being shipped out [6]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(845.1215+0.07466)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko d
-irection
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko direction
 ......\kern 0.12465
 ......\hbox(845.19617+0.0)x597.25858, yoko direction
 .......\hbox(845.19617+0.0)x597.25858, yoko direction
@@ -1335,12 +1290,10 @@ irection
 ..................\hbox(845.19617+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
-ction
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko direction
 ....................\hbox(845.19617+0.0)x597.25858, yoko direction
 .....................\hbox(845.19617+0.0)x597.25858, yoko direction
-......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 595 842
- clip 0 width 597.258\ETC.}
+......................\special{pdf:epdf page 5 pagebox cropbox bbox 0 0 595 842 clip 0 width 597.25858pt (dummy.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 597.25858
@@ -1399,11 +1352,9 @@ ction
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\write-{}
-....\write1{\@writefile{mfl}{\protect \contentsline {myfloat}{\protect \numberl
-ine \ETC.}
+....\write1{\@writefile{mfl}{\protect \contentsline {myfloat}{\protect \numberline {3}{\ignorespaces  {Newfloat, page 5}}}{\thepage }{myfloat.0.3}\protected@file@percent }}
 ....\special{pdf:dest (myfloat.0.3) [@thispage /XYZ @xpos @ypos null]}
-....\write1{\newlabel{mfl:pdf3}{{3}{\thepage }{Newfloat, page 5}{myfloat.0.3}{}
-}}
+....\write1{\newlabel{mfl:pdf3}{{3}{\thepage }{Newfloat, page 5}{myfloat.0.3}{}}}
 ....\glue(\topskip) 10.0
 ....\hbox(0.0+0.0)x341.0, glue set 326.0fil
 .....\hbox(0.0+0.0)x15.0, yoko direction

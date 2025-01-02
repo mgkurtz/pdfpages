@@ -31,71 +31,56 @@ TEST 2: status = 2 (temporary), 1 (final)
 ============================================================
 Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
 
-
 pdfpages file: dummy.pdf 
 pdfpages options: width=!,height=!,,width=!,height=!, page=1, angle=0 
 pdfpages status: 2 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 
-
 pdfpages file: dummy.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, an
-gle=0 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, angle=0 
 pdfpages status: 2 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 
-
 pdfpages file: dummy.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, an
-gle=0 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, angle=0 
 pdfpages status: 2 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 
-
 pdfpages file: dummy.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, an
-gle=0 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, angle=0 
 pdfpages status: 2 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 
 
 
-
 pdfpages file: dummy.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, sc
-ale=1, angle=0, angle=0 
+pdfpages options: width=!,height=!,,width=!,height=!, page=1, scale=1.00005, scale=1, angle=0, angle=0 
 pdfpages status: 1 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 [2
 
-]
+] 
+pdfpages file: dummy.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: dummy.pdf Graphic file (type pdf)
+<dummy.pdf>
 
 pdfpages file: dummy.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, an
-gle=0 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, angle=0 
 pdfpages status: 2 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 
 
-pdfpages file: dummy.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, an
-gle=0 
-pdfpages status: 2 
-File: dummy.pdf Graphic file (type pdf)
-<dummy.pdf>
-
-
-
 
 pdfpages file: dummy.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, sc
-ale=1, angle=0, angle=0 
+pdfpages options: width=!,height=!,,width=!,height=!, page=2, scale=1.00005, scale=1, angle=0, angle=0 
 pdfpages status: 1 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
@@ -123,71 +108,56 @@ TEST 4: status = 2 (temporary), 1 (final)
 ============================================================
 Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
 
-
 pdfpages file: dummy.pdf 
 pdfpages options: width=!,height=!,,width=!,height=!,, page=1, angle=0 
 pdfpages status: 2 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 
-
 pdfpages file: dummy.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
-ngle=0 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, angle=0 
 pdfpages status: 2 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 
-
 pdfpages file: dummy.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
-ngle=0 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, angle=0 
 pdfpages status: 2 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 
-
 pdfpages file: dummy.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
-ngle=0 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, angle=0 
 pdfpages status: 2 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 
 
 
-
 pdfpages file: dummy.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, s
-cale=1, angle=0, angle=0 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, scale=1, angle=0, angle=0 
 pdfpages status: 1 
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 [5
 
-]
+] 
+pdfpages file: hog.pdf 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, angle=0 
+pdfpages status: 2 
+File: hog.pdf Graphic file (type pdf)
+<hog.pdf>
 
 pdfpages file: hog.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
-ngle=0 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, angle=0 
 pdfpages status: 2 
 File: hog.pdf Graphic file (type pdf)
 <hog.pdf>
 
 
-pdfpages file: hog.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, a
-ngle=0 
-pdfpages status: 2 
-File: hog.pdf Graphic file (type pdf)
-<hog.pdf>
-
-
-
 
 pdfpages file: hog.pdf 
-pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, s
-cale=1, angle=0, angle=0 
+pdfpages options: width=!,height=!,,width=!,height=!,, page=1, scale=1.00005, scale=1, angle=0, angle=0 
 pdfpages status: 1 
 File: hog.pdf Graphic file (type pdf)
 <hog.pdf>

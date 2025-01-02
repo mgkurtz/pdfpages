@@ -1,3 +1,4 @@
 \input{regression-test}
+\let\printglossary\undefined % required for platex
 \documentclass[a4paper, article, \classoptions]{memoir}
 \input{addtolist-1.tex}

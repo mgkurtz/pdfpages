@@ -1,3 +1,4 @@
 \input{regression-test}
+\let\printglossary\undefined % required for platex
 \documentclass[a4paper, \classoptions]{memoir}
 \input{addtotoc-2.tex}

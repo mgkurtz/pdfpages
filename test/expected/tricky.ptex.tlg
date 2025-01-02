@@ -70,8 +70,7 @@ Completed box being shipped out [1]
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
 ..\vbox(598.0+0.0)x345.0, glue set 390.01398fil, yoko direction
-...\special{ps: /setdistillerparams where {pop << /CompressPages false /Compres
-sS\ETC.}
+...\special{ps: /setdistillerparams where {pop << /CompressPages false /CompressStreams false >> setdistillerparams} if }
 ...\special{! <</DocumentUUID (DocumentUUID)>> setpagedevice}
 ...\special{! <</InstanceUUID (InstanceUUID)>> setpagedevice}
 ...\write-{}
@@ -460,8 +459,7 @@ sS\ETC.}
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberli
-ne \ETC.}
+...\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {1}\ce {H2O}}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
 ...\glue 9.90276 plus 0.86108
 ...\glue -2.15999
@@ -511,8 +509,7 @@ Completed box being shipped out [2]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(845.1215+0.07466)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko d
-irection
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko direction
 ......\kern 0.12465
 ......\hbox(845.19617+0.0)x597.25858, yoko direction
 .......\hbox(845.19617+0.0)x597.25858, yoko direction
@@ -535,12 +532,10 @@ irection
 ..................\hbox(845.19617+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
-ction
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko direction
 ....................\hbox(845.19617+0.0)x597.25858, yoko direction
 .....................\hbox(845.19617+0.0)x597.25858, yoko direction
-......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842
- clip 0 width 597.258\ETC.}
+......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842 clip 0 width 597.25858pt (dummy.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 597.25858
@@ -566,8 +561,7 @@ ction
 ...\glue(\topskip) 10.0
 ...\hbox(0.0+0.0)x345.0, glue set 345.0fil
 ....\glue 0.0
-....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberl
-ine \ETC.}
+....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {2}\ignorespaces  no space}{\thepage }{}\protected@file@percent }}
 ....\glue 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -630,8 +624,7 @@ Completed box being shipped out [3]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(845.1215+0.07466)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko d
-irection
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko direction
 ......\kern 0.12465
 ......\hbox(845.19617+0.0)x597.25858, yoko direction
 .......\hbox(845.19617+0.0)x597.25858, yoko direction
@@ -654,12 +647,10 @@ irection
 ..................\hbox(845.19617+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
-ction
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko direction
 ....................\hbox(845.19617+0.0)x597.25858, yoko direction
 .....................\hbox(845.19617+0.0)x597.25858, yoko direction
-......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842
- clip 0 width 597.258\ETC.}
+......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842 clip 0 width 597.25858pt (dummy.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 597.25858
@@ -685,8 +676,7 @@ ction
 ...\glue(\topskip) 10.0
 ...\hbox(0.0+0.0)x345.0, glue set 345.0fil
 ....\glue 0.0
-....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberl
-ine \ETC.}
+....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {3}\ignorespaces  \ce {H2O}}{\thepage }{}\protected@file@percent }}
 ....\glue 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -749,8 +739,7 @@ Completed box being shipped out [4]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(845.1215+0.07466)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko d
-irection
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko direction
 ......\kern 0.12465
 ......\hbox(845.19617+0.0)x597.25858, yoko direction
 .......\hbox(845.19617+0.0)x597.25858, yoko direction
@@ -773,12 +762,10 @@ irection
 ..................\hbox(845.19617+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
-ction
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko direction
 ....................\hbox(845.19617+0.0)x597.25858, yoko direction
 .....................\hbox(845.19617+0.0)x597.25858, yoko direction
-......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842
- clip 0 width 597.258\ETC.}
+......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842 clip 0 width 597.25858pt (dummy.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 597.25858
@@ -804,8 +791,7 @@ ction
 ...\glue(\topskip) 10.0
 ...\hbox(0.0+0.0)x345.0, glue set 345.0fil
 ....\glue 0.0
-....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberl
-ine \ETC.}
+....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {4}\ignorespaces \ce {CrO4^2-}}{\thepage }{}\protected@file@percent }}
 ....\glue 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -868,8 +854,7 @@ Completed box being shipped out [5]
 ...\hbox(0.0+0.0)x0.0, yoko direction
 ....\hbox(845.1215+0.07466)x0.0, shifted 845.04684, yoko direction
 .....\kern 0.0
-.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko d
-irection
+.....\hbox(845.19617+0.0)x0.0, glue set - 597.38322fil, shifted 0.07466, yoko direction
 ......\kern 0.12465
 ......\hbox(845.19617+0.0)x597.25858, yoko direction
 .......\hbox(845.19617+0.0)x597.25858, yoko direction
@@ -892,12 +877,10 @@ irection
 ..................\hbox(845.19617+0.0)x0.0, yoko direction
 ...................\special{pdf:btrans}
 ...................\special{x:scale 1 1}
-...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko dire
-ction
+...................\hbox(845.19617+0.0)x0.0, glue set - 597.25858fil, yoko direction
 ....................\hbox(845.19617+0.0)x597.25858, yoko direction
 .....................\hbox(845.19617+0.0)x597.25858, yoko direction
-......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842
- clip 0 width 597.258\ETC.}
+......................\special{pdf:epdf page 1 pagebox cropbox bbox 0 0 595 842 clip 0 width 597.25858pt (dummy.pdf) }
 ....................\glue 0.0 plus 1.0fil minus 1.0fil
 ...................\special{pdf:etrans}
 ..................\kern 597.25858
@@ -920,8 +903,7 @@ ction
 ..\glue(\lineskip) 0.0
 ..\vbox(598.0+0.0)x345.0, glue set 587.9372fil, yoko direction
 ...\write-{}
-...\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberlin
-e \ETC.}
+...\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline {2}{\ignorespaces  \ce {CrO4^2-}}}{\thepage }{}\protected@file@percent }}
 ...\write1{\newlabel{fig:foo}{{2}{\thepage }{ \ce {CrO4^2-}}{figure.2}{}}}
 ...\glue(\topskip) 10.0
 ...\hbox(0.0+0.0)x345.0, glue set 330.0fil
@@ -986,8 +968,7 @@ Completed box being shipped out [6]
 ...\vbox(18.77776+0.0)x345.0, yoko direction
 ....\special{color push  Black}
 ....\vbox(18.77776+0.0)x345.0, yoko direction
-.....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberl
-ine \ETC.}
+.....\write1{\@writefile{lof}{\protect \contentsline {figure}{\protect \numberline {1}{\ignorespaces comparision}}{\thepage }{}\protected@file@percent }}
 .....\glue 10.0
 .....\hbox(6.83331+1.94444)x345.0, glue set 124.45824fil, yoko direction
 ......\glue 0.0 plus 1.0fil
