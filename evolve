@@ -40,6 +40,10 @@ arg_check
    :argument('tests')
    :description('Names of tests.')
    :args('0+')
+arg_check
+   :option('--diff')
+   :description('Run \'evolve diff\' afterwards if check failed.')
+   :args(0)
 
 local arg_diff = arg_parser:command('diff')
    :summary('Show diff.')
@@ -112,6 +116,7 @@ end
 function normalize_log(content)
    content = grep_test_content(content)
    content = sanitize_filenames(content)
+   content = sanitize_ids(content)
    return content
 end
 
@@ -148,6 +153,15 @@ function sanitize_filenames(content)
       line = string.gsub(line, '{' .. path_pattern, '{···/%1')
       line = string.gsub(line, '"' .. path_pattern, '"···/%1')
       --
+      new_content = new_content .. line .. '\n'
+   end
+   return new_content
+end
+
+function sanitize_ids(content)
+   local new_content = ''
+   for line in string.gmatch(content, '([^\n]*)\n') do
+      line = string.gsub(line, 'id=%d+', 'id=··')
       new_content = new_content .. line .. '\n'
    end
    return new_content
@@ -298,6 +312,9 @@ function cmd_check()
    end
    local results = foreach_setting(cmd_check_run, true)
    print(summary_failed_tests(results))
+   if cli_args.diff then
+      cmd_check_diff(results)
+   end
    return success(results)
 end
 
@@ -330,6 +347,18 @@ function cmd_check_run(test, setting)
    return ret and true or false
 end
 
+function cmd_check_diff(results)
+   for _, res in ipairs(results) do
+      local test = res.test
+      local settings = get_config_settings(test)
+      for _, setting in ipairs(settings) do
+         if setting.job == res.job then
+            cmd_diff_text(test, setting)
+         end
+      end
+   end
+end
+
 function textcolor(color, text)
    local str = string.format('%%{%s}', color)
       .. text:gsub('\n', string.format('\n%%%%{%s}', color))
@@ -357,7 +386,6 @@ function progress_list(tbl)
    end
    return table.concat(sym), #sym
 end
-
 
 function column_width(results)
    local wd_test = 0
@@ -467,7 +495,7 @@ function cmd_diff_pdf(test, setting)
          mkdir(cons_path(testdir, dir_diff, {}))
          local pdf_diff = cons_path(testdir, dir_diff, {test, engine, 'pdf'})
          run_shell('diff-pdf -vgm --output-diff=%s %s %s; $PDFVIEWER %s',
-                   pdf_diff, pdf_expected, pdf_result, pdf_diff)
+            pdf_diff, pdf_expected, pdf_result, pdf_diff)
       end
    end
    return success
