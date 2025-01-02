@@ -1,0 +1,69 @@
+name: pdfpages tests
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  Tests:
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+
+    # Install Lua
+    - name: Install Lua
+      uses: hishamhm/gh-actions-lua@master
+      with:
+        luaVersion: '5.3'
+
+    # Install luarocks
+    - name: Install luarocks
+      uses: hishamhm/gh-actions-luarocks@master
+      with:
+        luarocksVersion: '3.11.0'
+
+    # Install Lua modules
+    - name: Install Lua modules
+      run: |
+        luarocks install argparse
+        luarocks install lua-cjson
+        luarocks install luafilesystem
+        luarocks install ansicolors
+
+    # Install texlive
+    - name: Install TeXLive
+      uses: teatimeguest/setup-texlive-action@v3
+      with:
+        packages: |
+          collection-basic
+          collection-latex
+          collection-latexrecommended
+          collection-latexextra
+          collection-luatex
+          collection-xetex
+          collection-mathscience
+          collection-pstricks
+          collection-langjapanese
+        update-all-packages: true
+
+    # Install Ghostscript
+    - name: Install Ghostscript
+      run: |
+        sudo apt install ghostscript
+    
+    # Install pdfpages
+    - name: Install pdfpages
+      uses: actions/checkout@main
+      with:
+        path: pdfpages
+        
+    # Run tests
+    - name: Run tests
+      run: |
+        cd ${{ github.workspace }}/pdfpages
+        (cd test; make)
+        ./evolve check --diff
