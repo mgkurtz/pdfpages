@@ -197,12 +197,21 @@ function copy_log_file_normalized(from, to)
    content = normalize_log(content)
    print_verbose(1, 'Writing file %s.', to)
    fd_to:write(content)
-   fd_to:close()
-   fd_from:close()
+   local success1 = fd_to:close()
+   local success2 = fd_from:close()
+   return success1 and success2 or false
 end
 
 function copy_file(from, to)
-   run_shell('cp %s %s', from, to)
+   return run_shell('cp %s %s', from, to)
+end
+
+function success(results)
+   local success = true
+   for _, test in ipairs(results) do
+      success = success and test.result
+   end
+   return success
 end
 
 function cmd_save()
@@ -215,7 +224,7 @@ function cmd_save()
       end
    end
    print('Saving test results:')
-   foreach_setting(cmd_save_run, true)
+   return foreach_setting(cmd_save_run, true)
 end
 
 function get_config_tasks(setting)
@@ -223,6 +232,7 @@ function get_config_tasks(setting)
 end
 
 function cmd_save_run(test, setting)
+   local success = true
    local testdir = setting.testdir
    assert_file_exists(cons_path(testdir, {test, 'lvt'}))
    local tasks = get_config_tasks(setting)
@@ -233,17 +243,22 @@ function cmd_save_run(test, setting)
          local param = get_task_param(task, test)
          local command = param.command
          engine = param.engine or engine
-         local content = run_shell('cd %s; %s', cons_path(testdir, {}), command)
+         local content, success_tmp = run_shell('cd %s; %s', cons_path(testdir, {}), command)
+         success = success and success_tmp
          print_verbose(2, content)
       end
    end
-   copy_log_file_normalized(
+   local success_tmp
+   success_tmp = copy_log_file_normalized(
       cons_path(testdir, {test, 'log'}),
       cons_path(testdir, dir_expected, {test, engine, 'tlg'}))
-   copy_file(
+   success = success and success_tmp
+   success_tmp = copy_file(
       cons_path(testdir, {test, 'pdf'}),
       cons_path(testdir, dir_expected, {test, engine, 'pdf'}))
-   show_progress()
+   success = success and success_tmp
+   show_progress(success and 1)
+   return success
 end
 
 function find_test_dirs()
@@ -283,6 +298,7 @@ function cmd_check()
    end
    local results = foreach_setting(cmd_check_run, true)
    print(summary_failed_tests(results))
+   return success(results)
 end
 
 function cmd_check_run(test, setting)
@@ -381,11 +397,13 @@ function summary_failed_tests(results)
 end
 
 function cmd_diff()
+   local results
    if cli_args.pdf then
-      foreach_setting(cmd_diff_pdf)
+      results = foreach_setting(cmd_diff_pdf)
    else
-      foreach_setting(cmd_diff_text)
+      results = foreach_setting(cmd_diff_text)
    end
+   return success(results)
 end
 
 function get_engine(test, tasks)
@@ -413,6 +431,7 @@ function cmd_diff_text(test, setting)
       print(cmd_diff_error_header(test, engine))
       print(content)
    end
+   return success
 end
 
 function cmd_diff_error_header(test, engine)
@@ -451,6 +470,7 @@ function cmd_diff_pdf(test, setting)
                    pdf_diff, pdf_expected, pdf_result, pdf_diff)
       end
    end
+   return success
 end
 
 function get_cmd_func(name)
@@ -477,11 +497,11 @@ function run_shell(...)
    local fd = assert(io.popen(cmd))
    local content = fd:read('*a')
    local success = fd:close()
-   return content, success
+   return content, success or false
 end
 
 local tex_settings =
-   '-interaction=nonstopmode ' ..
+   '-halt-on-error ' ..
    '-cnf-line=max_print_line=9999 '
 --MikTeX: -max-print-line=9999
 
@@ -536,7 +556,7 @@ end
 
 function task_platex(test)
    return {
-      command = string.format('platex %s.lvt', test),
+      command = string.format('platex %s %s.lvt', tex_settings, test),
       engine = 'ptex'
    }
 end
@@ -556,4 +576,9 @@ end
 scriptdir = script_rel_path()
 cli_args = arg_parser:parse()
 config = read_config_file()
-get_cmd_func(cli_args.command)()
+local success = get_cmd_func(cli_args.command)()
+if success then
+   os.exit(0)
+else
+   os.exit(1)
+end
