@@ -27,12 +27,9 @@
 %<*dtx>
 \makeatletter
 %</dtx>
-\def\AM@fileversion{v0.6d-git}
-\def\AM@Git@Date@process$#1: #2 #3${\AM@Git@Date@process@i#2\END}
-\def\AM@Git@Date@process@i#1-#2-#3\END{\def\AM@Git@Date{#1/#2/#3}}
-\def\AM@Git@SHA@process$#1: #2${\def\AM@Git@SHA{#2}}
-\AM@Git@Date@process$Date: YYYY-MM-DD TIME $
-\AM@Git@SHA@process$SHA-1: xxxxxxx $
+\def\AM@git@tag{git}
+\def\AM@git@date{0000/00/00}
+\def\AM@git@hash{hash}
 %</!(example1,example2,example3,installer)>
 %
 %
@@ -54,7 +51,7 @@
 %
 %    \makeatletter
 %    \ProvidesFile{pdfpages.dtx}
-   [\AM@Git@Date\space\AM@fileversion\space
+   [\AM@git@date\space\AM@git@tag\space
 %
 %    \iffalse
 %</!(example1,example2,example3,installer)>
@@ -152,10 +149,10 @@
 %
 %    \makeatletter
 %    \title{The \textsf{pdfpages} Package\thanks{This file
-%           has version number \AM@fileversion, last revised \AM@Git@Date.}}
+%           has version number \AM@git@tag, last revised \AM@git@date.}}
 %    \author{Andreas \textsc{Matthias}\\
 %      \href{mailto:andreas.matthias@gmail.com}{andreas.matthias@gmail.com}}
-%    \date{\AM@Git@Date}
+%    \date{\AM@git@date}
 %    \makeatother
 %
 %    \maketitle

@@ -1,4 +1,5 @@
 auto/*
+build/*
 *.log
 *.aux
 *.out
@@ -24,8 +25,8 @@ pdf-hyp.tex
 pdf-toc.tex
 
 pdfpages.pdf
+
 pdfpages.tds.zip
+pdfpages-*.zip
 
 /t?.*
-
-pdfpages-?.*/

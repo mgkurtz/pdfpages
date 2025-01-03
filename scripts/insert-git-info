@@ -1,0 +1,20 @@
+#!/bin/bash
+
+input=$1
+
+git_tag=$(git tag --points-at)
+git_tag=${git_tag:=git}
+git_date=$(git log -n1 --pretty=%cs)
+git_date=${git_date//-//}
+git_hash=$(git log -n1 --pretty=%h --abbrev=10)
+
+def_tag='\\def\\AM@git@tag'
+def_tag=${def_tag:=git}
+def_date='\\def\\AM@git@date'
+def_hash='\\def\\AM@git@hash'
+
+sed -i -f - $input <<EOF
+    s!$def_tag{.*}!$def_tag{$git_tag}!
+    s!$def_date{.*}!$def_date{$git_date}!
+    s!$def_hash{.*}!$def_hash{$git_hash}!
+EOF
