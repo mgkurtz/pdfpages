@@ -81,7 +81,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{5268}
+%    \CheckSum{5274}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1773,11 +1773,12 @@
 %    \begin{macrocode}
   \@ifundefined{AM@pagetemplate}
       {\AM@readfirst{\AM@pagelist}%
-       \edef\AM@page{\the\toks@}}
-      {\edef\AM@page{\AM@pagetemplate}}%
+       \edef\AM@nextpage{\the\toks@}}
+      {\edef\AM@nextpage{\AM@pagetemplate}}%
   \AM@readfirst{\AM@doclist}%
   \edef\AM@docname{\the\toks@}%
   \AM@isphantom
+  \edef\AM@page{\AM@nextpage}%
   \ifAM@noautoscale
     \def\AM@globalscale{1}%
   \else
@@ -1889,9 +1890,9 @@
   \clearpage
   \whiledo{\not\boolean{AM@endoflist}}{%
     \AM@getfirst{\AM@pagelist}%
-      \edef\AM@page{\the\toks@}%
+      \edef\AM@nextpage{\the\toks@}%
       \AM@isphantom
-      \@tempcnta=\AM@page\relax
+      \@tempcnta=\AM@nextpage\relax
       \edef\AM@linktodoc@page{\the\@tempcnta}%
       \advance\@tempcnta\m@ne
       \edef\AM@linktodoc@page@m@ne{\the\@tempcnta}%
@@ -1949,6 +1950,7 @@
        \clearpage
        \AM@newpagefalse
      \fi
+     \edef\AM@page{\AM@nextpage}%
 %    \end{macrocode}
 %    Load next page and verify if it has the same page size as the
 %    page template. If not, adjust the scale |\AM@localscale| and
@@ -2863,8 +2865,8 @@
 %    \begin{macrocode}
 \newif\ifAM@phantompage
 \newcommand*{\AM@isphantom}{%
-  \expandafter\ifx\expandafter\\\AM@page\\%
-    \let\AM@page\AM@phantompage
+  \expandafter\ifx\expandafter\\\AM@nextpage\\%
+    \let\AM@nextpage\AM@phantompage
     \let\AM@ph\phantom
     \AM@phantompagetrue
   \else

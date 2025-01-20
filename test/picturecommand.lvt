@@ -36,5 +36,14 @@
   \includepdfmerge{dummy}
 }
 
+\makeatletter
+\verboseTEST{Check AM@page}{
+  \includepdf[
+    pages=1-3,
+    picturecommand={\Huge Picture \AM@page}
+  ]{dummy.pdf}
+}
+\makeatother
+
 \END
 \end{document}

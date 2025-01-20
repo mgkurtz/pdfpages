@@ -19,5 +19,14 @@
   \includepdf[pages=1-4]{dummy.pdf}
 }
 
+\makeatletter
+\verboseTEST{Check AM@page}{
+  \includepdf[
+    pages=1-3,
+    pagecommand={\Huge Picture \AM@page}
+  ]{dummy.pdf}
+}
+\makeatother
+
 \END
 \end{document}
