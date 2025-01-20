@@ -2,7 +2,7 @@
 %    \iffalse
 %
 %<*(package,pppdftexdef,ppluatexdef,ppvtexdef,ppxetexdef,ppdvipsdef,ppdvipdfmxdef,ppnulldef)>
-%% Copyright (C) 2001-2024 Andreas MATTHIAS
+%% Copyright (C) 2001-2025 Andreas MATTHIAS
 %%
 %% This work may be distributed and/or modified under the conditions
 %% of the LaTeX Project Public License, either version 1.3c
@@ -81,7 +81,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{5182}
+%    \CheckSum{5268}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -148,8 +148,9 @@
 %     }
 %
 %    \makeatletter
-%    \title{The \textsf{pdfpages} Package\thanks{This file
-%           has version number \AM@git@tag, last revised \AM@git@date.}}
+%    \title{The \textsf{pdfpages} Package\thanks{This file has version
+%    number \AM@git@tag, last revised \AM@git@date.\\The official
+%    repository is \url{https://github.com/AndreasMatthias/pdfpages}.}}
 %    \author{Andreas \textsc{Matthias}\\
 %      \href{mailto:andreas.matthias@gmail.com}{andreas.matthias@gmail.com}}
 %    \date{\AM@git@date}
@@ -3547,7 +3548,7 @@
     \fi
   }
 %    \end{macrocode}
-%    Multiplication of #1 by 1000.
+%    Multiplication of \#1 by 1000.
 %    Used to calculate the zoom factor (destination XYZ) for pdftex and luatex.
 %    \begin{macrocode}
 \def\AM@thousand#1{\AM@thousand@i#1.0000.\END}
@@ -5135,6 +5136,11 @@
 %    \subsection*{2024/10/28 v0.6c}
 %    \begin{itemize}
 %    \item Add option |pagecommand*|.
+%    \end{itemize}
+%
+%    \subsection*{2025/01/20}
+%    \begin{itemize}
+%    \item From now on changes will be documented in the official repository only.
 %    \end{itemize}
 %
 %    \Finale
