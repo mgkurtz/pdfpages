@@ -1728,8 +1728,8 @@ File: dummy.pdf Graphic file (type pdf)
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 
-Overfull \hbox (83.08049pt too wide) in paragraph at lines 1--1
-[]\OT1/cmr/m/n/24.88 Resetting global set-tings ...                
+Overfull \hbox (73.83644pt too wide) in paragraph at lines 1--1
+[]\OT1/cmr/m/n/24.88 Resetting global set-tings ...               
 
 \hbox(17.27779+4.83937)x345.0, glue set - 1.0
 .\hbox(0.0+0.0)x15.0, yoko direction
@@ -1768,7 +1768,6 @@ Overfull \hbox (83.08049pt too wide) in paragraph at lines 1--1
 .\kern 3.89944
 .\OT1/cmr/m/n/24.88 .
 .\kern 3.89944
-.\glue 10.1106 plus 11.69833 minus 0.86655
 .\glue 10.1106 plus 11.69833 minus 0.86655
 .\glue 10.1106 plus 11.69833 minus 0.86655
 .\glue 10.1106 plus 11.69833 minus 0.86655
@@ -1851,7 +1850,6 @@ Completed box being shipped out [7]
 ....\kern 3.89944
 ....\OT1/cmr/m/n/24.88 .
 ....\kern 3.89944
-....\glue 10.1106 plus 11.69833 minus 0.86655
 ....\glue 10.1106 plus 11.69833 minus 0.86655
 ....\glue 10.1106 plus 11.69833 minus 0.86655
 ....\glue 10.1106 plus 11.69833 minus 0.86655
