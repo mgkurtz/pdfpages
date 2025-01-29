@@ -107,6 +107,7 @@ File: hog.pdf Graphic file (type pdf)
 TEST 4: status = 2 (temporary), 1 (final)
 ============================================================
 Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
+Package pdfpages Info: Running extractbb on file `hog.pdf' on input line 1.
 
 pdfpages file: dummy.pdf 
 pdfpages options: width=!,height=!,,width=!,height=!,, page=1, angle=0 

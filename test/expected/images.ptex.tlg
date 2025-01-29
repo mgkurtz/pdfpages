@@ -9,6 +9,7 @@ Don't change this file in any respect.
 ============================================================
 TEST 1: PNG
 ============================================================
+Package pdfpages Info: Running extractbb on file `example-image-a.png' on input line 1.
 File: example-image-a.png Graphic file (type bmp)
 <example-image-a.png>
 File: example-image-a.png Graphic file (type bmp)
@@ -226,6 +227,7 @@ Completed box being shipped out [1]
 ============================================================
 TEST 2: JPG
 ============================================================
+Package pdfpages Info: Running extractbb on file `example-image-b.jpg' on input line 1.
 File: example-image-b.jpg Graphic file (type bmp)
 <example-image-b.jpg>
 File: example-image-b.jpg Graphic file (type bmp)
@@ -429,6 +431,8 @@ Completed box being shipped out [2]
 ============================================================
 TEST 3: merged
 ============================================================
+Package pdfpages Info: Running extractbb on file `example-image-a.png' on input line 1.
+Package pdfpages Info: Running extractbb on file `example-image-b.jpg' on input line 1.
 File: example-image-a.png Graphic file (type bmp)
 <example-image-a.png>
 File: example-image-a.png Graphic file (type bmp)

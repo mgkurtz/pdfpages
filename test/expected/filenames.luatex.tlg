@@ -495,6 +495,10 @@ File: 1.pdf Graphic file (type pdf)
 Package luatex.def Info: 1.pdf  used on input line 1.
 (luatex.def)             Requested size: 597.50682pt x 845.04503pt.
 File: 1.pdf Graphic file (type pdf)
+<use 1.pdf>
+Package luatex.def Info: 1.pdf  used on input line 1.
+(luatex.def)             Requested size: 597.50682pt x 845.04503pt.
+File: 1.pdf Graphic file (type pdf)
 <use 1.pdf, page 3>
 Package luatex.def Info: 1.pdf , page3 used on input line 1.
 (luatex.def)             Requested size: 597.50682pt x 845.04503pt.
@@ -1481,6 +1485,10 @@ Completed box being shipped out [9]
 ============================================================
 TEST 4: file: 2-4.pdf, pages: 1\\ file: 2-4.pdf, pages: 2
 ============================================================
+File: 2-4.pdf Graphic file (type pdf)
+<use 2-4.pdf>
+Package luatex.def Info: 2-4.pdf  used on input line 1.
+(luatex.def)             Requested size: 597.50682pt x 845.04503pt.
 File: 2-4.pdf Graphic file (type pdf)
 <use 2-4.pdf>
 Package luatex.def Info: 2-4.pdf  used on input line 1.

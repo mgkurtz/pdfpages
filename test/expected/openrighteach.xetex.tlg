@@ -12,6 +12,8 @@ TEST 1: Openright
 File: dummy.pdf Graphic file (type pdf)
 <use dummy.pdf>
 File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
+File: dummy.pdf Graphic file (type pdf)
 <use dummy.pdf, page 1>
 File: dummy.pdf Graphic file (type pdf)
 <use dummy.pdf, page 1>
@@ -638,6 +640,8 @@ Completed box being shipped out [4]
 ============================================================
 TEST 2: Openright
 ============================================================
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
 File: dummy.pdf Graphic file (type pdf)
 <use dummy.pdf>
 File: dummy.pdf Graphic file (type pdf)
@@ -1308,6 +1312,8 @@ Completed box being shipped out [8]
 ============================================================
 TEST 3: Global option
 ============================================================
+File: dummy.pdf Graphic file (type pdf)
+<use dummy.pdf>
 File: dummy.pdf Graphic file (type pdf)
 <use dummy.pdf>
 File: dummy.pdf Graphic file (type pdf)

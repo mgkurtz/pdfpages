@@ -419,6 +419,8 @@ TEST 2: file: 1.pdf, pages: 3\\ file: 1.pdf, pages: 2
 File: 1.pdf Graphic file (type pdf)
 <use 1.pdf>
 File: 1.pdf Graphic file (type pdf)
+<use 1.pdf>
+File: 1.pdf Graphic file (type pdf)
 <use 1.pdf, page 3>
 File: 1.pdf Graphic file (type pdf)
 <use 1.pdf, page 3>
@@ -1232,6 +1234,8 @@ Completed box being shipped out [9]
 ============================================================
 TEST 4: file: 2-4.pdf, pages: 1\\ file: 2-4.pdf, pages: 2
 ============================================================
+File: 2-4.pdf Graphic file (type pdf)
+<use 2-4.pdf>
 File: 2-4.pdf Graphic file (type pdf)
 <use 2-4.pdf>
 File: 2-4.pdf Graphic file (type pdf)
