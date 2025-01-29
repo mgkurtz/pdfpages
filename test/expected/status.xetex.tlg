@@ -114,6 +114,12 @@ pdfpages status: 2
 File: dummy.pdf Graphic file (type pdf)
 <use dummy.pdf>
 
+pdfpages file: hog.pdf 
+pdfpages options:  
+pdfpages status: 2 
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf>
+
 pdfpages file: dummy.pdf 
 pdfpages options: width=!,height=!,,width=!,height=!,, page=1, angle=0 
 pdfpages status: 2 

@@ -435,6 +435,7 @@ Completed box being shipped out [3]
 TEST 2: file: 1.pdf, pages: 3\\ file: 1.pdf, pages: 2
 ============================================================
 Package pdfpages Info: Running extractbb on file `1.pdf' on input line 1.
+Package pdfpages Info: Running extractbb on file `1.pdf' on input line 1.
 File: 1.pdf Graphic file (type pdf)
 <1.pdf>
 File: 1.pdf Graphic file (type pdf)
@@ -1292,6 +1293,7 @@ Completed box being shipped out [9]
 ============================================================
 TEST 4: file: 2-4.pdf, pages: 1\\ file: 2-4.pdf, pages: 2
 ============================================================
+Package pdfpages Info: Running extractbb on file `2-4.pdf' on input line 1.
 Package pdfpages Info: Running extractbb on file `2-4.pdf' on input line 1.
 File: 2-4.pdf Graphic file (type pdf)
 <2-4.pdf>

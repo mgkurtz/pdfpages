@@ -10,6 +10,7 @@ Don't change this file in any respect.
 TEST 1: Openright
 ============================================================
 Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
+Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
 File: dummy.pdf Graphic file (type pdf)
@@ -657,6 +658,7 @@ Completed box being shipped out [4]
 ============================================================
 TEST 2: Openright
 ============================================================
+Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
 Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>
@@ -1327,6 +1329,7 @@ Completed box being shipped out [8]
 ============================================================
 TEST 3: Global option
 ============================================================
+Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
 Package pdfpages Info: Running extractbb on file `dummy.pdf' on input line 1.
 File: dummy.pdf Graphic file (type pdf)
 <dummy.pdf>

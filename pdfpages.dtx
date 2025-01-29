@@ -81,7 +81,7 @@
 %
 %    \GetFileInfo{pdfpages.dtx}
 %
-%    \CheckSum{5274}
+%    \CheckSum{5273}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1385,6 +1385,7 @@
 \newif\ifAM@reflectall\AM@reflectallfalse
 \newif\ifAM@scale\AM@scaletrue
 \newif\ifAM@newpage\AM@newpagefalse
+\newif\ifAM@pagecount@updated
 %    \end{macrocode}
 %    Check, if memoir is loaded.
 %    \begin{macrocode}
@@ -2265,6 +2266,7 @@
 %    \begin{macrocode}
 \newif\ifAM@default@range@added
 \newcommand*{\AM@readlist}[1]{%
+  \AM@pagecount@updatedfalse
   \AM@default@range@addedtrue
   \def\AM@pagelist{}%
   \def\AM@doclist{}%
@@ -2304,8 +2306,10 @@
 \def\AM@readlisti#1,{%
   \ifx\AM@currentdocname\relax
   \else
-    \ifx\AM@pagecount\AM@undefined
+    \ifAM@pagecount@updated
+    \else
       \AM@getpagecount
+      \AM@pagecount@updatedtrue
     \fi
   \fi
   \def\AM@temp{#1}%
@@ -2333,6 +2337,7 @@
     \else
       \AM@add@default@range
       \AM@setnewdocname{\AM@arg}%
+      \AM@pagecount@updatedfalse
     \fi
   \fi
 }
@@ -4438,25 +4443,25 @@
 %    \end{macrocode}
 %    Try reading |.xbb| file if available.
 %    \begin{macrocode}
-  \expandafter\expandafter\expandafter\AM@get@xbb@filename
-  \csname Gin@rule@.pdf\endcsname\AM@currentdocname
-  \immediate\openin\@inputcheck=\AM@xbb@filename
-  \AM@read@xbb\@inputcheck
-  \immediate\closein\@inputcheck
-  \ifx\AM@pagecount\AM@undefined
+  \ifAM@pagecount@updated
   \else
-    \PackageInfo{pdfpages}{Reading file `\AM@xbb@filename'}%
-  \fi
+    \expandafter\expandafter\expandafter\AM@get@xbb@filename
+    \csname Gin@rule@.pdf\endcsname\AM@currentdocname
+    \immediate\openin\@inputcheck=\AM@xbb@filename
+    \AM@read@xbb\@inputcheck
+    \immediate\closein\@inputcheck
+    \ifAM@pagecount@updated
+      \PackageInfo{pdfpages}{Reading file `\AM@xbb@filename'}%
+    \fi
 %    \end{macrocode}
 %    Try reading output of program |extractbb|.
 %    \begin{macrocode}
-  \ifx\AM@pagecount\AM@undefined
-    \immediate\openin\@inputcheck=
-      \AM@quote|extractbb -O \AM@currentdocname\AM@quote
-    \AM@read@xbb\@inputcheck
-    \immediate\closein\@inputcheck
-    \ifx\AM@pagecount\AM@undefined
+    \ifAM@pagecount@updated
     \else
+      \immediate\openin\@inputcheck=
+      \AM@quote|extractbb -O \AM@currentdocname\AM@quote
+      \AM@read@xbb\@inputcheck
+      \immediate\closein\@inputcheck
       \PackageInfo{pdfpages}{Running extractbb on file `\AM@currentdocname'}%
     \fi
   \fi
@@ -4499,7 +4504,10 @@
 \long\def\AM@find@pages#1:#2\relax{%
   \def\@tempb{#1}%
   \edef\@tempc{\@percentchar\@percentchar Pages}%
-  \ifx\@tempb\@tempc\AM@set@pagecount#2\fi
+  \ifx\@tempb\@tempc
+    \AM@set@pagecount#2%
+    \AM@pagecount@updatedtrue
+  \fi
 }
 \def\AM@set@pagecount#1:{\def\AM@pagecount{#1}}
 %    \end{macrocode}

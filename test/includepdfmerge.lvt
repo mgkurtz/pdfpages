@@ -27,5 +27,14 @@
   dummy3.pdf}
 }
 
+% Regression: (github issue #4)
+% Page number `last' was not updated in \includepdfmerge.
+\verboseTEST{Regression: github issue \#4}{
+  \includepdfmerge{
+    dummy.pdf, 1
+    hog.pdf, last
+  }
+}
+
 \END
 \end{document}

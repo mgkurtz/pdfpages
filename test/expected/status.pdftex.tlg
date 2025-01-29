@@ -142,6 +142,14 @@ File: dummy.pdf Graphic file (type pdf)
 Package pdftex.def Info: dummy.pdf  used on input line 1.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 
+pdfpages file: hog.pdf 
+pdfpages options:  
+pdfpages status: 2 
+File: hog.pdf Graphic file (type pdf)
+<use hog.pdf>
+Package pdftex.def Info: hog.pdf  used on input line 1.
+(pdftex.def)             Requested size: 251.94063pt x 213.79822pt.
+
 pdfpages file: dummy.pdf 
 pdfpages options: width=!,height=!,,width=!,height=!,, page=1, angle=0 
 pdfpages status: 2 
