@@ -86,6 +86,10 @@ $(BUILD)/pdfpages.tds.zip: $(TDS-STY-FILES) $(TDS-DOC-FILES) $(TDS-SRC-FILES) $(
 	chmod 644 $(BUILD)/pdfpages.tds.zip
 	rm -rf $(DIST-DIR)
 
+.PHONY: install
+install: tds
+	unzip -od $(TEXMFHOME) $(BUILD)/pdfpages.tds.zip
+
 .PHONY: release
 release: error-if-uncommitted-changes release-force
 
