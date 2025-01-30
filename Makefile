@@ -6,6 +6,7 @@ TEXMFHOME := $(shell kpsewhich -var-value TEXMFHOME)
 DIST := pdfpages-$(GIT-TAG)
 BUILD = ./build
 DIST-DIR = $(BUILD)/$(DIST)
+TDS-ZIP-FILE = $(BUILD)/pdfpages.tds.zip
 
 DIST-FILES = \
 	pdfpages.ins \
@@ -47,7 +48,7 @@ ins: pdfpages.ins
 .PHONY: sty
 sty: $(TDS-STY-FILES)
 .PHONY: tds
-tds: $(BUILD)/pdfpages.tds.zip
+tds: $(TDS-ZIP-FILE)
 
 pdfpages.ins: pdfpages.dtx
 	echo '\\input{docstrip}\\askforoverwritefalse\\generate{\\file{pdfpages.ins}{\\from{pdfpages.dtx}{installer}}}\\endbatchfile' > pdfpages.installer
@@ -58,7 +59,7 @@ $(TDS-STY-FILES): pdfpages.ins
 	latex pdfpages.ins
 	./scripts/insert-git-info pdfpages.sty
 
-$(BUILD)/pdfpages.tds.zip: $(TDS-STY-FILES) $(TDS-DOC-FILES) $(TDS-SRC-FILES) $(DIST-FILES)
+$(TDS-ZIP-FILE): $(TDS-STY-FILES) $(TDS-DOC-FILES) $(TDS-SRC-FILES) $(DIST-FILES)
 # Build package files
 	rm -rf $(BUILD)
 	mkdir $(BUILD)
@@ -83,12 +84,16 @@ $(BUILD)/pdfpages.tds.zip: $(TDS-STY-FILES) $(TDS-DOC-FILES) $(TDS-SRC-FILES) $(
 # Create TDS-zip file
 	cd $(DIST-DIR); zip -r pdfpages.tds.zip tex doc source
 	cp $(DIST-DIR)/pdfpages.tds.zip $(BUILD)
-	chmod 644 $(BUILD)/pdfpages.tds.zip
+	chmod 644 $(TDS-ZIP-FILE)
 	rm -rf $(DIST-DIR)
 
 .PHONY: install
-install: tds
-	unzip -od $(TEXMFHOME) $(BUILD)/pdfpages.tds.zip
+install: $(TDS-ZIP-FILE)
+	unzip -od $(TEXMFHOME) $(TDS-ZIP-FILE)
+
+.PHONY: uninstall
+uninstall:
+	rm -r $(addprefix $(TEXMFHOME)/,$(TDS-STY-DIR) $(TDS-DOC-DIR) $(TDS-SRC-DIR))
 
 .PHONY: release
 release: error-if-uncommitted-changes release-force
